@@ -334,6 +334,9 @@
   color: white;
   padding: 1em;
 }
+.fontsampler-wrapper {
+  clear: both;
+}
 .fontsampler-wrapper.on-loading > * {
   opacity: 0;
   transition: opacity 0s;
@@ -342,205 +345,185 @@
   opacity: 1;
   transition: opacity 0.2s ease-in-out;
 }
-.fontsampler-wrapper .fontsampler-interface {
-  clear: both;
-}
-.fontsampler-wrapper .fontsampler-interface:after {
+.fontsampler-wrapper:after {
   clear: both;
   content: " ";
   display: block;
   width: 100%;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-interface-row-break {
+.fontsampler-wrapper .fontsampler-interface-row-break {
   clear: both;
   height: 1px;
   width: 100%;
 }
-.fontsampler-wrapper .fontsampler-interface.columns-1 .fontsampler-ui-block.column {
+.fontsampler-wrapper.columns-1 .fontsampler-ui-block.column {
   width: 100%;
 }
-.fontsampler-wrapper .fontsampler-interface.columns-1 .fontsampler-ui-block.full {
+.fontsampler-wrapper.columns-1 .fontsampler-ui-block.full {
   width: 100%;
 }
-.fontsampler-wrapper .fontsampler-interface.columns-2 .fontsampler-ui-block.column {
+.fontsampler-wrapper.columns-2 .fontsampler-ui-block.column {
   width: 50%;
 }
-.fontsampler-wrapper .fontsampler-interface.columns-2 .fontsampler-ui-block.full {
+.fontsampler-wrapper.columns-2 .fontsampler-ui-block.full {
   width: 100%;
 }
-.fontsampler-wrapper .fontsampler-interface.columns-3 .fontsampler-ui-block.column {
+.fontsampler-wrapper.columns-3 .fontsampler-ui-block.column {
   width: 33.33333333%;
 }
-.fontsampler-wrapper .fontsampler-interface.columns-3 .fontsampler-ui-block.full {
+.fontsampler-wrapper.columns-3 .fontsampler-ui-block.full {
   width: 100%;
 }
-.fontsampler-wrapper .fontsampler-interface.columns-4 .fontsampler-ui-block.column {
+.fontsampler-wrapper.columns-4 .fontsampler-ui-block.column {
   width: 25%;
 }
-.fontsampler-wrapper .fontsampler-interface.columns-4 .fontsampler-ui-block.full {
+.fontsampler-wrapper.columns-4 .fontsampler-ui-block.full {
   width: 100%;
 }
 @media screen and (max-width: 768px) {
-  .fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block.column {
+  .fontsampler-wrapper .fontsampler-ui-block.column {
     width: 100% !important;
   }
-  .fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block.full {
+  .fontsampler-wrapper .fontsampler-ui-block.full {
     width: 100% !important;
   }
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block {
+.fontsampler-wrapper .fontsampler-ui-block {
   box-sizing: border-box;
   float: left;
   line-height: 1.2;
 }
-.rtl .fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block {
+.rtl .fontsampler-wrapper .fontsampler-ui-block {
   float: right;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block.fontsampler-ui-block-fontsampler {
+.fontsampler-wrapper .fontsampler-ui-block.fontsampler-ui-block-fontsampler {
   height: auto;
   width: 100%;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-multiselect {
+.fontsampler-wrapper .fontsampler-multiselect {
   box-sizing: border-box;
-  float: left;
-  padding-right: 5px;
-  height: 100%;
 }
-.rtl .fontsampler-wrapper .fontsampler-interface .fontsampler-multiselect {
+.rtl .fontsampler-wrapper .fontsampler-multiselect {
   float: right;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-multiselect.one-item {
-  width: 30px;
-}
-.fontsampler-wrapper .fontsampler-interface .fontsampler-multiselect.one-item > button {
+.fontsampler-wrapper .fontsampler-multiselect.one-item > button {
   width: 100%;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-multiselect.two-items {
-  width: 60px;
-}
-.fontsampler-wrapper .fontsampler-interface .fontsampler-multiselect.two-items > button {
+.fontsampler-wrapper .fontsampler-multiselect.two-items > button {
   width: 50%;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-multiselect.three-items {
-  width: 90px;
-}
-.fontsampler-wrapper .fontsampler-interface .fontsampler-multiselect.three-items > button {
+.fontsampler-wrapper .fontsampler-multiselect.three-items > button {
   width: 33%;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-multiselect > button {
-  background: #fff;
-  border: 0;
-  border-bottom: 1px solid #333;
-  font-size: inherit;
-  font-family: inherit;
-  color: #333;
-  cursor: pointer;
+.fontsampler-wrapper .fontsampler-multiselect > button {
   font-weight: inherit;
   height: 100%;
-  line-height: 4px;
   text-transform: none;
   border-radius: 0;
-  display: block;
-  float: left;
-  padding: 0 2px;
-  margin: 0;
   text-align: center;
   outline: none;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-multiselect > button img {
+.fontsampler-wrapper .fontsampler-multiselect > button img {
   display: block;
   max-width: 15px;
   max-height: 15px;
   margin: 0 auto;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-multiselect .fontsampler-multiselect-selected {
+.fontsampler-wrapper .fontsampler-multiselect .fontsampler-multiselect-selected {
   opacity: 1;
 }
-.fontsampler-wrapper .fontsampler-interface .type-tester__slider {
+.fontsampler-wrapper .type-tester__slider {
   position: absolute;
   bottom: 0;
   width: 100%;
 }
-.fontsampler-wrapper .fontsampler-interface label.fontsampler-slider {
+.fontsampler-wrapper label.fontsampler-slider {
   display: block;
   position: relative;
   height: 100%;
   width: 100%;
 }
-.fontsampler-wrapper .fontsampler-interface label.fontsampler-slider .fontsampler-slider-header {
+.fontsampler-wrapper label.fontsampler-slider .fontsampler-slider-header {
   display: flex;
   justify-content: space-between;
 }
-.fontsampler-wrapper .fontsampler-interface label.fontsampler-slider .slider-label {
+.fontsampler-wrapper label.fontsampler-slider .slider-label {
   height: 90%;
   overflow: hidden;
 }
-.fontsampler-wrapper .fontsampler-interface label.fontsampler-slider .slider-value {
+.fontsampler-wrapper label.fontsampler-slider .slider-value {
   text-align: right;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block-fontpicker .fontsampler-font-label {
+.fontsampler-wrapper .fontsampler-ui-block-fontpicker .fontsampler-font-label,
+.fontsampler-wrapper .fsjs-block-tester .fontsampler-font-label {
   height: 100%;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block-fontpicker .fontsampler-font-label label {
+.fontsampler-wrapper .fontsampler-ui-block-fontpicker .fontsampler-font-label label,
+.fontsampler-wrapper .fsjs-block-tester .fontsampler-font-label label {
   display: block;
   height: 100%;
   overflow: hidden;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block-fontpicker .font-lister {
+.fontsampler-wrapper .fontsampler-ui-block-fontpicker .font-lister,
+.fontsampler-wrapper .fsjs-block-tester .font-lister {
   height: 100%;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block-buy a,
-.fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block-specimen a {
+.fontsampler-wrapper .fontsampler-ui-block-buy a,
+.fontsampler-wrapper .fontsampler-ui-block-specimen a {
   box-shadow: none;
   display: inline-block;
   height: 100%;
   width: auto;
   text-decoration: none !Important;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block-buy a img,
-.fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block-specimen a img {
+.fontsampler-wrapper .fontsampler-ui-block-buy a img,
+.fontsampler-wrapper .fontsampler-ui-block-specimen a img {
   display: block;
   max-height: 100%;
   width: auto;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block-buy a .fontsampler-interface-link-text,
-.fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block-specimen a .fontsampler-interface-link-text {
+.fontsampler-wrapper .fontsampler-ui-block-buy a .fontsampler-interface-link-text,
+.fontsampler-wrapper .fontsampler-ui-block-specimen a .fontsampler-interface-link-text {
   display: block;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler,
-.fontsampler-wrapper .fontsampler-interface .type-tester__content {
+.fontsampler-wrapper .fontsampler,
+.fontsampler-wrapper .type-tester__content,
+.fontsampler-wrapper .tester {
   clear: both;
   margin-bottom: 20px;
   margin-top: 0.25em;
   transition: all 0.2s ease-out;
   padding: 0.25em 0.15em;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler:focus,
-.fontsampler-wrapper .fontsampler-interface .type-tester__content:focus {
+.fontsampler-wrapper .fontsampler:focus,
+.fontsampler-wrapper .type-tester__content:focus,
+.fontsampler-wrapper .tester:focus {
   outline: none;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler.fontsampler-is-singleline,
-.fontsampler-wrapper .fontsampler-interface .type-tester__content.fontsampler-is-singleline {
+.fontsampler-wrapper .fontsampler.fontsampler-is-singleline,
+.fontsampler-wrapper .type-tester__content.fontsampler-is-singleline,
+.fontsampler-wrapper .tester.fontsampler-is-singleline {
   overflow-x: hidden;
   overflow-y: visible;
   white-space: nowrap;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler.invert,
-.fontsampler-wrapper .fontsampler-interface .type-tester__content.invert {
+.fontsampler-wrapper .fontsampler.invert,
+.fontsampler-wrapper .type-tester__content.invert,
+.fontsampler-wrapper .tester.invert {
   color: #eee;
   background: #333;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block-opentype.feature-lister__features-empty {
+.fontsampler-wrapper .fontsampler-ui-block-opentype.feature-lister__features-empty {
   display: none;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block-opentype .fontsampler-opentype {
+.fontsampler-wrapper .fontsampler-ui-block-opentype .fontsampler-opentype {
   position: relative;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block-opentype .fontsampler-opentype-toggle img {
+.fontsampler-wrapper .fontsampler-ui-block-opentype .fontsampler-opentype-toggle img {
   max-height: 20px;
   max-width: 20px;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block-opentype .fontsampler-opentype-features {
+.fontsampler-wrapper .fontsampler-ui-block-opentype .fontsampler-opentype-features {
   display: none;
   position: absolute;
   left: 0;
@@ -553,21 +536,21 @@
   width: 30em;
   z-index: 10;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block-opentype .fontsampler-opentype-features.shown {
+.fontsampler-wrapper .fontsampler-ui-block-opentype .fontsampler-opentype-features.shown {
   display: block;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block-opentype .fontsampler-opentype-features button.fontsampler-toggle {
+.fontsampler-wrapper .fontsampler-ui-block-opentype .fontsampler-opentype-features button.fontsampler-toggle {
   height: 20px;
   width: 20px;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block-opentype .fontsampler-opentype-features fieldset {
+.fontsampler-wrapper .fontsampler-ui-block-opentype .fontsampler-opentype-features fieldset {
   display: block;
   margin: 0;
   border: 0;
   height: auto;
   padding: 10px;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block-opentype .fontsampler-opentype-features fieldset label {
+.fontsampler-wrapper .fontsampler-ui-block-opentype .fontsampler-opentype-features fieldset label {
   box-sizing: border-box;
   float: left;
   margin-bottom: 10px;
@@ -576,7 +559,7 @@
   padding-right: 20px;
   width: 50%;
 }
-.fontsampler-wrapper .fontsampler-interface .fontsampler-ui-block-opentype .fontsampler-opentype-features fieldset label input {
+.fontsampler-wrapper .fontsampler-ui-block-opentype .fontsampler-opentype-features fieldset label input {
   position: absolute;
   left: 0;
   top: 0;
@@ -641,7 +624,6 @@
 /* css_color_icon_active */
 /* css_color_icon_inactive */
 .fontsampler-interface .fontsampler-ui-block {
-  height: 30px;
   margin-bottom: 10px;
   padding-right: 10px;
 }

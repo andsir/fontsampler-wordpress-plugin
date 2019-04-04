@@ -5,6 +5,7 @@
   "main": "js/main.js",
   "scripts": {
     "test": "libs",
+    "js": "watchify js/main.js -o 'js/fontsampler.js' -v -s 'Fontsampler'",
     "build": "node r.js -o build.js",
     "build-admin": "node r.js -o build-admin.js",
     "less": "lessc css/fontsampler-css.less css/fontsampler-css.css",
@@ -42,13 +43,16 @@
     "url": "https://github.com/kontur/fontsampler-wordpress-plugin.git"
   },
   "author": "Johannes Neumeier",
-  "license": "GNU",
+  "license": "GPL-3.0-only",
   "bugs": {
     "url": "https://github.com/kontur/fontsampler-wordpress-plugin/issues"
   },
   "homepage": "https://github.com/kontur/fontsampler-wordpress-plugin",
   "devDependencies": {
+    "fontsampler-js": "git+https://github.com/kontur/fontsampler-js.git",
     "npm-watch": "^0.3.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "browserify": "^16.2.3"
+  }
 }

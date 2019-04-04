@@ -1,4 +1,4 @@
-<div class="type-tester"
+<?php /*<div class="type-tester" 
      data-min-font-size="<?php echo $data_initial['fontsize_min']; ?>"
      data-max-font-size="<?php echo $data_initial['fontsize_max']; ?>"
      data-unit-font-size="<?php echo $data_initial['fontsize_unit']; ?>"
@@ -15,14 +15,27 @@
      data-max-line-height="<?php echo $data_initial['lineheight_max']; ?>"
      data-unit-line-height="<?php echo $data_initial['lineheight_unit']; ?>"
      data-value-line-height="<?php echo $data_initial['lineheight_initial']; ?>"
-     data-step-line-height="1">
+	 data-step-line-height="1" >
+	 */?>
 
 	<div class="fontsampler-interface columns-<?php echo $set['ui_columns'];
-    echo ' fontsampler-id-' . $set['id']; ?>">
+    echo ' fontsampler-id-' . $set['id']; ?>" data-fontsampler-id="<?php echo $set['id']; ?>">
 
 		<?php
+        var_dump($blocks);
 
-        foreach ($blocks as $item => $class) :
+		foreach ($blocks as $item => $class) :
+
+			if ($item === "fontpicker") {
+                $item = 'fontfamily';
+			}
+			if ($item === "fontsampler") {
+                $item = 'tester';
+			}
+			if ($item === "invert") {
+                $class .= ' fsjs-block-type-buttongroup ';
+			}
+
             // loop through all UI elements in order of their row placement
             // check though that each is in fact enabled and not just a left over value in the ui_order field
             // (just to be sure: for example if the set is created and ui_order falls back to its default value
@@ -31,20 +44,18 @@
             if ($item == '|') {
                 echo '<div class="fontsampler-interface-row-break"></div>';
             } else {
-                echo '<div class="fontsampler-ui-block ' . $class . ' fontsampler-ui-block-' . $item . '" 
-				data-block="' . $item . '">';
+                echo '<div class="fontsampler-ui-block-wrapper ' . $class . ' fontsampler-ui-block-' . $item . '-wrapper" 
+				data-fsjs-block="' . $item . '">';
 
                 switch ($item) {
                     case 'fontsize':
                         if ($set['fontsize']) : ?>
-							<label class="fontsampler-slider">
-								<span class="fontsampler-slider-header">
-									<span class="slider-label"><?php echo !empty($set['fontsize_label']) ? $set['fontsize_label'] : $options['fontsize_label']; ?></span>
-									<span class="slider-value type-tester__label" data-target-property="font-size"></span>
-								</span>
-								<div class="type-tester__slider" data-target-property="font-size" 
-									<?php if (is_rtl()): ?> data-direction="rtl" <?php endif; ?>></div>
+							<label class="fsjs-label" data-fsjs-for="fontsize" <?php if (is_rtl()): ?> data-direction="rtl" <?php endif; ?>>
+								<span class="fsjs-label-text"><?php echo !empty($set['fontsize_label']) ? $set['fontsize_label'] : $options['fontsize_label']; ?></span>
+								<span class="fsjs-label-value"></span>
+								<span class="fsjs-label-unit"></span>
 							</label>
+							<input type="range" data-fsjs="fontsize">
 						<?php endif;
                         break;
 
@@ -76,7 +87,7 @@
 
                     case 'fontpicker':
                         if ($set['fontpicker']) :
-                            if (sizeof($fonts) > 1) : ?>
+                            if (is_array($fonts) && sizeof($fonts) > 1) : ?>
 								<div class="font-lister"></div>
 							<?php else: ?>
 								<div class="fontsampler-font-label"><label></label></div>
@@ -87,7 +98,7 @@
                     case 'sampletexts':
                         $samples = explode("\n", $options['sample_texts']);
                         if ($set['sampletexts']) : ?>
-							<select name="sample-text">
+							<select name="sample-text" data-fsjs="sampletexts">
 								<?php /* translators: The first and visible entry in the sample text drop down in the frontend */ ?>
 								<option selected="selected"><?php echo !empty($set['sample_texts_default_option']) ? $set['sample_texts_default_option'] : $options['sample_texts_default_option']; ?></option>
 								<?php foreach ($samples as $sample) : ?>
@@ -106,7 +117,7 @@
                                 return explode('|', $item);
                             }, $locales); ?>
 
-							<select name="locl-select">
+							<select name="locl-select" data-fsjs="language">
 								<option selected="selected" value=""><?php echo !empty($set['locl_default_option']) ? $set['locl_default_option'] : $options['locl_default_option']; ?></option>
 								<?php foreach ($locales as $locl) : ?>
 									<option value="<?php echo trim($locl[0]); ?>"><?php echo trim($locl[1]); ?></option>
@@ -120,18 +131,18 @@
                         if ($set['alignment']) :
                             $is_ltr = isset($set['is_ltr']) && $set['is_ltr'] == '1';
                             ?>
-							<div class="fontsampler-multiselect three-items" data-name="alignment">
+							<div class="fontsampler-multiselect three-items" data-fsjs="alignment">
 								<button <?php if ($is_ltr && $options['alignment_initial'] == 'left') :
                                     echo 'class="fontsampler-multiselect-selected"'; endif; ?>
-									data-value="left"><i class="icon-align-left"></i>
+									data-choice="left"><i class="icon-align-left"></i>
 								</button>
 								<button <?php if ($options['alignment_initial'] == 'center') :
                                     echo 'class="fontsampler-multiselect-selected"'; endif; ?>
-									data-value="center"><i class="icon-align-center"></i>
+									data-choice="center"><i class="icon-align-center"></i>
 								</button>
 								<button <?php if (!$is_ltr || $options['alignment_initial'] == 'right') :
                                     echo 'class="fontsampler-multiselect-selected"'; endif; ?>
-									data-value="right"><i class="icon-align-right"></i>
+									data-choice="right"><i class="icon-align-right"></i>
 								</button>
 							</div>
 						<?php endif;
@@ -139,11 +150,11 @@
 
                     case 'invert':
                         if ($set['invert']) : ?>
-							<div class="fontsampler-multiselect two-items" data-name="invert">
-								<button class="fontsampler-multiselect-selected" data-value="positive">
+							<div class="fontsampler-multiselect two-items" data-fsjs="invert" data-name="invert">
+								<button class="fontsampler-multiselect-selected" data-choice="positive">
 									<i class="icon-invert-white"></i>
 								</button>
-								<button data-value="negative">
+								<button data-choice="negative">
 									<i class="icon-invert-black"></i>
 								</button>
 							</div>
@@ -203,7 +214,7 @@
 						<?php endif;
                         break;
 
-                    case 'fontsampler':
+                    case 'tester':
                         // NOTE echo with " and class with ' to output json as ""-enclosed strings
 
                         $initial_text_db = isset($set['initial']) ? $set['initial'] : '';
@@ -218,8 +229,7 @@
                             $initial_text = $attribute_text;
                         }
                         ?>
-						<div autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-						    class="current-font type-tester__content <?php
+						<div data-fsjs="tester" class="current-font type-tester__content <?php
                             if (!isset($set['multiline']) ||
                                   (isset($set['multiline']) && $set['multiline'] != '1')
                             ) :
@@ -249,4 +259,4 @@
         endforeach;
         ?>
 	</div>
-</div>
+<?php /*</div>*/ ?>

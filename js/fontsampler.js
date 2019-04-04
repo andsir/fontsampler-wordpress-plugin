@@ -1,117 +1,9879 @@
-/** vim: et:ts=4:sw=4:sts=4
- * @license RequireJS 2.3.5 Copyright jQuery Foundation and other contributors.
- * Released under MIT license, https://github.com/requirejs/requirejs/blob/master/LICENSE
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Fontsampler = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function (global){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.FontsamplerSkin = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
+(function webpackUniversalModuleDefinition(root, factory) {
+	//CommonJS2
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	//AMD
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	//CommonJS
+	else if(typeof exports === 'object')
+		exports["Choices"] = factory();
+	//Window
+	else
+		root["Choices"] = factory();
+})(window, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/public/assets/scripts/";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.diff = exports.cloneObject = exports.existsInArray = exports.isIE11 = exports.fetchFromObject = exports.getWindowHeight = exports.dispatchEvent = exports.sortByScore = exports.sortByAlpha = exports.calcWidthOfInput = exports.strToEl = exports.sanitise = exports.isScrolledIntoView = exports.getAdjacentEl = exports.findAncestorByAttrName = exports.wrap = exports.isElement = exports.isType = exports.getType = exports.generateId = exports.generateChars = exports.getRandomNumber = void 0;
+
+var _this = void 0;
+
+var getRandomNumber = function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+};
+
+exports.getRandomNumber = getRandomNumber;
+
+var generateChars = function generateChars(length) {
+  var chars = '';
+
+  for (var i = 0; i < length; i++) {
+    var randomChar = getRandomNumber(0, 36);
+    chars += randomChar.toString(36);
+  }
+
+  return chars;
+};
+
+exports.generateChars = generateChars;
+
+var generateId = function generateId(element, prefix) {
+  var id = element.id || element.name && "".concat(element.name, "-").concat(generateChars(2)) || generateChars(4);
+  id = id.replace(/(:|\.|\[|\]|,)/g, '');
+  id = "".concat(prefix, "-").concat(id);
+  return id;
+};
+
+exports.generateId = generateId;
+
+var getType = function getType(obj) {
+  return Object.prototype.toString.call(obj).slice(8, -1);
+};
+
+exports.getType = getType;
+
+var isType = function isType(type, obj) {
+  return obj !== undefined && obj !== null && getType(obj) === type;
+};
+
+exports.isType = isType;
+
+var isElement = function isElement(element) {
+  return element instanceof Element;
+};
+
+exports.isElement = isElement;
+
+var wrap = function wrap(element) {
+  var wrapper = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document.createElement('div');
+
+  if (element.nextSibling) {
+    element.parentNode.insertBefore(wrapper, element.nextSibling);
+  } else {
+    element.parentNode.appendChild(wrapper);
+  }
+
+  return wrapper.appendChild(element);
+};
+
+exports.wrap = wrap;
+
+var findAncestorByAttrName = function findAncestorByAttrName(el, attr) {
+  var target = el;
+
+  while (target) {
+    if (target.hasAttribute(attr)) {
+      return target;
+    }
+
+    target = target.parentElement;
+  }
+
+  return null;
+};
+
+exports.findAncestorByAttrName = findAncestorByAttrName;
+
+var getAdjacentEl = function getAdjacentEl(startEl, className) {
+  var direction = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+
+  if (!startEl || !className) {
+    return;
+  }
+
+  var parent = startEl.parentNode.parentNode;
+  var children = Array.from(parent.querySelectorAll(className));
+  var startPos = children.indexOf(startEl);
+  var operatorDirection = direction > 0 ? 1 : -1;
+  return children[startPos + operatorDirection];
+};
+
+exports.getAdjacentEl = getAdjacentEl;
+
+var isScrolledIntoView = function isScrolledIntoView(el, parent) {
+  var direction = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+
+  if (!el) {
+    return;
+  }
+
+  var isVisible;
+
+  if (direction > 0) {
+    // In view from bottom
+    isVisible = parent.scrollTop + parent.offsetHeight >= el.offsetTop + el.offsetHeight;
+  } else {
+    // In view from top
+    isVisible = el.offsetTop >= parent.scrollTop;
+  }
+
+  return isVisible;
+};
+
+exports.isScrolledIntoView = isScrolledIntoView;
+
+var sanitise = function sanitise(value) {
+  if (!isType('String', value)) {
+    return value;
+  }
+
+  return value.replace(/&/g, '&amp;').replace(/>/g, '&rt;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+};
+
+exports.sanitise = sanitise;
+
+var strToEl = function () {
+  var tmpEl = document.createElement('div');
+  return function (str) {
+    var cleanedInput = str.trim();
+    tmpEl.innerHTML = cleanedInput;
+    var firldChild = tmpEl.children[0];
+
+    while (tmpEl.firstChild) {
+      tmpEl.removeChild(tmpEl.firstChild);
+    }
+
+    return firldChild;
+  };
+}();
+/**
+ * Determines the width of a passed input based on its value and passes
+ * it to the supplied callback function.
  */
+
+
+exports.strToEl = strToEl;
+
+var calcWidthOfInput = function calcWidthOfInput(input, callback) {
+  var value = input.value || input.placeholder;
+  var width = input.offsetWidth;
+
+  if (value) {
+    var testEl = strToEl("<span>".concat(sanitise(value), "</span>"));
+    testEl.style.position = 'absolute';
+    testEl.style.padding = '0';
+    testEl.style.top = '-9999px';
+    testEl.style.left = '-9999px';
+    testEl.style.width = 'auto';
+    testEl.style.whiteSpace = 'pre';
+
+    if (document.body.contains(input) && window.getComputedStyle) {
+      var inputStyle = window.getComputedStyle(input);
+
+      if (inputStyle) {
+        testEl.style.fontSize = inputStyle.fontSize;
+        testEl.style.fontFamily = inputStyle.fontFamily;
+        testEl.style.fontWeight = inputStyle.fontWeight;
+        testEl.style.fontStyle = inputStyle.fontStyle;
+        testEl.style.letterSpacing = inputStyle.letterSpacing;
+        testEl.style.textTransform = inputStyle.textTransform;
+        testEl.style.padding = inputStyle.padding;
+      }
+    }
+
+    document.body.appendChild(testEl);
+    requestAnimationFrame(function () {
+      if (value && testEl.offsetWidth !== input.offsetWidth) {
+        width = testEl.offsetWidth + 4;
+      }
+
+      document.body.removeChild(testEl);
+      callback.call(_this, "".concat(width, "px"));
+    });
+  } else {
+    callback.call(_this, "".concat(width, "px"));
+  }
+};
+
+exports.calcWidthOfInput = calcWidthOfInput;
+
+var sortByAlpha = function sortByAlpha(a, b) {
+  var labelA = "".concat(a.label || a.value).toLowerCase();
+  var labelB = "".concat(b.label || b.value).toLowerCase();
+
+  if (labelA < labelB) {
+    return -1;
+  }
+
+  if (labelA > labelB) {
+    return 1;
+  }
+
+  return 0;
+};
+
+exports.sortByAlpha = sortByAlpha;
+
+var sortByScore = function sortByScore(a, b) {
+  return a.score - b.score;
+};
+
+exports.sortByScore = sortByScore;
+
+var dispatchEvent = function dispatchEvent(element, type) {
+  var customArgs = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+  var event = new CustomEvent(type, {
+    detail: customArgs,
+    bubbles: true,
+    cancelable: true
+  });
+  return element.dispatchEvent(event);
+};
+
+exports.dispatchEvent = dispatchEvent;
+
+var getWindowHeight = function getWindowHeight() {
+  var body = document.body;
+  var html = document.documentElement;
+  return Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+};
+
+exports.getWindowHeight = getWindowHeight;
+
+var fetchFromObject = function fetchFromObject(object, path) {
+  var index = path.indexOf('.');
+
+  if (index > -1) {
+    return fetchFromObject(object[path.substring(0, index)], path.substr(index + 1));
+  }
+
+  return object[path];
+};
+
+exports.fetchFromObject = fetchFromObject;
+
+var isIE11 = function isIE11() {
+  return !!(navigator.userAgent.match(/Trident/) && navigator.userAgent.match(/rv[ :]11/));
+};
+
+exports.isIE11 = isIE11;
+
+var existsInArray = function existsInArray(array, value) {
+  var key = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'value';
+  return array.some(function (item) {
+    if (isType('String', value)) {
+      return item[key] === value.trim();
+    }
+
+    return item[key] === value;
+  });
+};
+
+exports.existsInArray = existsInArray;
+
+var cloneObject = function cloneObject(obj) {
+  return JSON.parse(JSON.stringify(obj));
+};
+
+exports.cloneObject = cloneObject;
+
+var diff = function diff(a, b) {
+  var aKeys = Object.keys(a).sort();
+  var bKeys = Object.keys(b).sort();
+  return aKeys.filter(function (i) {
+    return bKeys.indexOf(i) < 0;
+  });
+};
+
+exports.diff = diff;
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.SCROLLING_SPEED = exports.KEY_CODES = exports.ACTION_TYPES = exports.EVENTS = exports.DEFAULT_CONFIG = exports.DEFAULT_CLASSNAMES = void 0;
+
+var _utils = __webpack_require__(0);
+
+var DEFAULT_CLASSNAMES = {
+  containerOuter: 'choices',
+  containerInner: 'choices__inner',
+  input: 'choices__input',
+  inputCloned: 'choices__input--cloned',
+  list: 'choices__list',
+  listItems: 'choices__list--multiple',
+  listSingle: 'choices__list--single',
+  listDropdown: 'choices__list--dropdown',
+  item: 'choices__item',
+  itemSelectable: 'choices__item--selectable',
+  itemDisabled: 'choices__item--disabled',
+  itemChoice: 'choices__item--choice',
+  placeholder: 'choices__placeholder',
+  group: 'choices__group',
+  groupHeading: 'choices__heading',
+  button: 'choices__button',
+  activeState: 'is-active',
+  focusState: 'is-focused',
+  openState: 'is-open',
+  disabledState: 'is-disabled',
+  highlightedState: 'is-highlighted',
+  hiddenState: 'is-hidden',
+  flippedState: 'is-flipped',
+  loadingState: 'is-loading',
+  noResults: 'has-no-results',
+  noChoices: 'has-no-choices'
+};
+exports.DEFAULT_CLASSNAMES = DEFAULT_CLASSNAMES;
+var DEFAULT_CONFIG = {
+  items: [],
+  choices: [],
+  silent: false,
+  renderChoiceLimit: -1,
+  maxItemCount: -1,
+  addItems: true,
+  addItemFilterFn: null,
+  removeItems: true,
+  removeItemButton: false,
+  editItems: false,
+  duplicateItemsAllowed: true,
+  delimiter: ',',
+  paste: true,
+  searchEnabled: true,
+  searchChoices: true,
+  searchFloor: 1,
+  searchResultLimit: 4,
+  searchFields: ['label', 'value'],
+  position: 'auto',
+  resetScrollPosition: true,
+  shouldSort: true,
+  shouldSortItems: false,
+  sortFn: _utils.sortByAlpha,
+  placeholder: true,
+  placeholderValue: null,
+  searchPlaceholderValue: null,
+  prependValue: null,
+  appendValue: null,
+  renderSelectedChoices: 'auto',
+  loadingText: 'Loading...',
+  noResultsText: 'No results found',
+  noChoicesText: 'No choices to choose from',
+  itemSelectText: 'Press to select',
+  uniqueItemText: 'Only unique values can be added',
+  customAddItemText: 'Only values matching specific conditions can be added',
+  addItemText: function addItemText(value) {
+    return "Press Enter to add <b>\"".concat((0, _utils.sanitise)(value), "\"</b>");
+  },
+  maxItemText: function maxItemText(maxItemCount) {
+    return "Only ".concat(maxItemCount, " values can be added");
+  },
+  itemComparer: function itemComparer(choice, item) {
+    return choice === item;
+  },
+  fuseOptions: {
+    includeScore: true
+  },
+  callbackOnInit: null,
+  callbackOnCreateTemplates: null,
+  classNames: DEFAULT_CLASSNAMES
+};
+exports.DEFAULT_CONFIG = DEFAULT_CONFIG;
+var EVENTS = {
+  showDropdown: 'showDropdown',
+  hideDropdown: 'hideDropdown',
+  change: 'change',
+  choice: 'choice',
+  search: 'search',
+  addItem: 'addItem',
+  removeItem: 'removeItem',
+  highlightItem: 'highlightItem',
+  highlightChoice: 'highlightChoice'
+};
+exports.EVENTS = EVENTS;
+var ACTION_TYPES = {
+  ADD_CHOICE: 'ADD_CHOICE',
+  FILTER_CHOICES: 'FILTER_CHOICES',
+  ACTIVATE_CHOICES: 'ACTIVATE_CHOICES',
+  CLEAR_CHOICES: 'CLEAR_CHOICES',
+  ADD_GROUP: 'ADD_GROUP',
+  ADD_ITEM: 'ADD_ITEM',
+  REMOVE_ITEM: 'REMOVE_ITEM',
+  HIGHLIGHT_ITEM: 'HIGHLIGHT_ITEM',
+  CLEAR_ALL: 'CLEAR_ALL'
+};
+exports.ACTION_TYPES = ACTION_TYPES;
+var KEY_CODES = {
+  BACK_KEY: 46,
+  DELETE_KEY: 8,
+  ENTER_KEY: 13,
+  A_KEY: 65,
+  ESC_KEY: 27,
+  UP_KEY: 38,
+  DOWN_KEY: 40,
+  PAGE_UP_KEY: 33,
+  PAGE_DOWN_KEY: 34
+};
+exports.KEY_CODES = KEY_CODES;
+var SCROLLING_SPEED = 4;
+exports.SCROLLING_SPEED = SCROLLING_SPEED;
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global, module) {/* harmony import */ var _ponyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7);
+/* global window */
+
+
+var root;
+
+if (typeof self !== 'undefined') {
+  root = self;
+} else if (typeof window !== 'undefined') {
+  root = window;
+} else if (typeof global !== 'undefined') {
+  root = global;
+} else if (true) {
+  root = module;
+} else {}
+
+var result = Object(_ponyfill_js__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(root);
+/* harmony default export */ __webpack_exports__["a"] = (result);
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3), __webpack_require__(14)(module)))
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _utils = __webpack_require__(0);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var WrappedElement =
+/*#__PURE__*/
+function () {
+  function WrappedElement(_ref) {
+    var element = _ref.element,
+        classNames = _ref.classNames;
+
+    _classCallCheck(this, WrappedElement);
+
+    Object.assign(this, {
+      element: element,
+      classNames: classNames
+    });
+
+    if (!(0, _utils.isElement)(element)) {
+      throw new TypeError('Invalid element passed');
+    }
+
+    this.isDisabled = false;
+  }
+
+  _createClass(WrappedElement, [{
+    key: "conceal",
+    value: function conceal() {
+      // Hide passed input
+      this.element.classList.add(this.classNames.input);
+      this.element.classList.add(this.classNames.hiddenState); // Remove element from tab index
+
+      this.element.tabIndex = '-1'; // Backup original styles if any
+
+      var origStyle = this.element.getAttribute('style');
+
+      if (origStyle) {
+        this.element.setAttribute('data-choice-orig-style', origStyle);
+      }
+
+      this.element.setAttribute('aria-hidden', 'true');
+      this.element.setAttribute('data-choice', 'active');
+    }
+  }, {
+    key: "reveal",
+    value: function reveal() {
+      // Reinstate passed element
+      this.element.classList.remove(this.classNames.input);
+      this.element.classList.remove(this.classNames.hiddenState);
+      this.element.removeAttribute('tabindex'); // Recover original styles if any
+
+      var origStyle = this.element.getAttribute('data-choice-orig-style');
+
+      if (origStyle) {
+        this.element.removeAttribute('data-choice-orig-style');
+        this.element.setAttribute('style', origStyle);
+      } else {
+        this.element.removeAttribute('style');
+      }
+
+      this.element.removeAttribute('aria-hidden');
+      this.element.removeAttribute('data-choice'); // Re-assign values - this is weird, I know
+
+      this.element.value = this.element.value;
+    }
+  }, {
+    key: "enable",
+    value: function enable() {
+      this.element.removeAttribute('disabled');
+      this.element.disabled = false;
+      this.isDisabled = false;
+    }
+  }, {
+    key: "disable",
+    value: function disable() {
+      this.element.setAttribute('disabled', '');
+      this.element.disabled = true;
+      this.isDisabled = true;
+    }
+  }, {
+    key: "triggerEvent",
+    value: function triggerEvent(eventType, data) {
+      (0, _utils.dispatchEvent)(this.element, eventType, data);
+    }
+  }, {
+    key: "value",
+    get: function get() {
+      return this.element.value;
+    }
+  }]);
+
+  return WrappedElement;
+}();
+
+exports.default = WrappedElement;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.TEMPLATES = void 0;
+
+var _classnames = _interopRequireDefault(__webpack_require__(27));
+
+var _utils = __webpack_require__(0);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var TEMPLATES = {
+  containerOuter: function containerOuter(globalClasses, direction, isSelectElement, isSelectOneElement, searchEnabled, passedElementType) {
+    var tabIndex = isSelectOneElement ? 'tabindex="0"' : '';
+    var role = isSelectElement ? 'role="listbox"' : '';
+    var ariaAutoComplete = '';
+
+    if (isSelectElement && searchEnabled) {
+      role = 'role="combobox"';
+      ariaAutoComplete = 'aria-autocomplete="list"';
+    }
+
+    return (0, _utils.strToEl)("\n      <div\n        class=\"".concat(globalClasses.containerOuter, "\"\n        data-type=\"").concat(passedElementType, "\"\n        ").concat(role, "\n        ").concat(tabIndex, "\n        ").concat(ariaAutoComplete, "\n        aria-haspopup=\"true\"\n        aria-expanded=\"false\"\n        dir=\"").concat(direction, "\"\n        >\n      </div>\n    "));
+  },
+  containerInner: function containerInner(globalClasses) {
+    return (0, _utils.strToEl)("\n      <div class=\"".concat(globalClasses.containerInner, "\"></div>\n    "));
+  },
+  itemList: function itemList(globalClasses, isSelectOneElement) {
+    var _classNames;
+
+    var localClasses = (0, _classnames.default)(globalClasses.list, (_classNames = {}, _defineProperty(_classNames, globalClasses.listSingle, isSelectOneElement), _defineProperty(_classNames, globalClasses.listItems, !isSelectOneElement), _classNames));
+    return (0, _utils.strToEl)("\n      <div class=\"".concat(localClasses, "\"></div>\n    "));
+  },
+  placeholder: function placeholder(globalClasses, value) {
+    return (0, _utils.strToEl)("\n      <div class=\"".concat(globalClasses.placeholder, "\">\n        ").concat(value, "\n      </div>\n    "));
+  },
+  item: function item(globalClasses, data, removeItemButton) {
+    var _classNames2;
+
+    var ariaSelected = data.active ? 'aria-selected="true"' : '';
+    var ariaDisabled = data.disabled ? 'aria-disabled="true"' : '';
+    var localClasses = (0, _classnames.default)(globalClasses.item, (_classNames2 = {}, _defineProperty(_classNames2, globalClasses.highlightedState, data.highlighted), _defineProperty(_classNames2, globalClasses.itemSelectable, !data.highlighted), _defineProperty(_classNames2, globalClasses.placeholder, data.placeholder), _classNames2));
+
+    if (removeItemButton) {
+      var _classNames3;
+
+      localClasses = (0, _classnames.default)(globalClasses.item, (_classNames3 = {}, _defineProperty(_classNames3, globalClasses.highlightedState, data.highlighted), _defineProperty(_classNames3, globalClasses.itemSelectable, !data.disabled), _defineProperty(_classNames3, globalClasses.placeholder, data.placeholder), _classNames3));
+      return (0, _utils.strToEl)("\n        <div\n          class=\"".concat(localClasses, "\"\n          data-item\n          data-id=\"").concat(data.id, "\"\n          data-value=\"").concat(data.value, "\"\n          data-custom-properties='").concat(data.customProperties, "'\n          data-deletable\n          ").concat(ariaSelected, "\n          ").concat(ariaDisabled, "\n          >\n          ").concat(data.label, "<!--\n       --><button\n            type=\"button\"\n            class=\"").concat(globalClasses.button, "\"\n            data-button\n            aria-label=\"Remove item: '").concat(data.value, "'\"\n            >\n            Remove item\n          </button>\n        </div>\n      "));
+    }
+
+    return (0, _utils.strToEl)("\n      <div\n        class=\"".concat(localClasses, "\"\n        data-item\n        data-id=\"").concat(data.id, "\"\n        data-value=\"").concat(data.value, "\"\n        ").concat(ariaSelected, "\n        ").concat(ariaDisabled, "\n        >\n        ").concat(data.label, "\n      </div>\n    "));
+  },
+  choiceList: function choiceList(globalClasses, isSelectOneElement) {
+    var ariaMultiSelectable = !isSelectOneElement ? 'aria-multiselectable="true"' : '';
+    return (0, _utils.strToEl)("\n      <div\n        class=\"".concat(globalClasses.list, "\"\n        dir=\"ltr\"\n        role=\"listbox\"\n        ").concat(ariaMultiSelectable, "\n        >\n      </div>\n    "));
+  },
+  choiceGroup: function choiceGroup(globalClasses, data) {
+    var ariaDisabled = data.disabled ? 'aria-disabled="true"' : '';
+    var localClasses = (0, _classnames.default)(globalClasses.group, _defineProperty({}, globalClasses.itemDisabled, data.disabled));
+    return (0, _utils.strToEl)("\n      <div\n        class=\"".concat(localClasses, "\"\n        data-group\n        data-id=\"").concat(data.id, "\"\n        data-value=\"").concat(data.value, "\"\n        role=\"group\"\n        ").concat(ariaDisabled, "\n        >\n        <div class=\"").concat(globalClasses.groupHeading, "\">").concat(data.value, "</div>\n      </div>\n    "));
+  },
+  choice: function choice(globalClasses, data, itemSelectText) {
+    var _classNames5;
+
+    var role = data.groupId > 0 ? 'role="treeitem"' : 'role="option"';
+    var localClasses = (0, _classnames.default)(globalClasses.item, globalClasses.itemChoice, (_classNames5 = {}, _defineProperty(_classNames5, globalClasses.itemDisabled, data.disabled), _defineProperty(_classNames5, globalClasses.itemSelectable, !data.disabled), _defineProperty(_classNames5, globalClasses.placeholder, data.placeholder), _classNames5));
+    return (0, _utils.strToEl)("\n      <div\n        class=\"".concat(localClasses, "\"\n        data-select-text=\"").concat(itemSelectText, "\"\n        data-choice\n        data-id=\"").concat(data.id, "\"\n        data-value=\"").concat(data.value, "\"\n        ").concat(data.disabled ? 'data-choice-disabled aria-disabled="true"' : 'data-choice-selectable', "\n        id=\"").concat(data.elementId, "\"\n        ").concat(role, "\n        >\n        ").concat(data.label, "\n      </div>\n    "));
+  },
+  input: function input(globalClasses) {
+    var localClasses = (0, _classnames.default)(globalClasses.input, globalClasses.inputCloned);
+    return (0, _utils.strToEl)("\n      <input\n        type=\"text\"\n        class=\"".concat(localClasses, "\"\n        autocomplete=\"off\"\n        autocapitalize=\"off\"\n        spellcheck=\"false\"\n        role=\"textbox\"\n        aria-autocomplete=\"list\"\n        >\n    "));
+  },
+  dropdown: function dropdown(globalClasses) {
+    var localClasses = (0, _classnames.default)(globalClasses.list, globalClasses.listDropdown);
+    return (0, _utils.strToEl)("\n      <div\n        class=\"".concat(localClasses, "\"\n        aria-expanded=\"false\"\n        >\n      </div>\n    "));
+  },
+  notice: function notice(globalClasses, label) {
+    var _classNames6;
+
+    var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+    var localClasses = (0, _classnames.default)(globalClasses.item, globalClasses.itemChoice, (_classNames6 = {}, _defineProperty(_classNames6, globalClasses.noResults, type === 'no-results'), _defineProperty(_classNames6, globalClasses.noChoices, type === 'no-choices'), _classNames6));
+    return (0, _utils.strToEl)("\n      <div class=\"".concat(localClasses, "\">\n        ").concat(label, "\n      </div>\n    "));
+  },
+  option: function option(data) {
+    return (0, _utils.strToEl)("\n      <option value=\"".concat(data.value, "\" ").concat(data.active ? 'selected' : '', " ").concat(data.disabled ? 'disabled' : '', " ").concat(data.customProperties ? "data-custom-properties=".concat(data.customProperties) : '', ">").concat(data.label, "</option>\n    "));
+  }
+};
+exports.TEMPLATES = TEMPLATES;
+var _default = TEMPLATES;
+exports.default = _default;
+
+/***/ }),
+/* 6 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+// EXTERNAL MODULE: ./node_modules/lodash-es/_freeGlobal.js
+var _freeGlobal = __webpack_require__(8);
+
+// CONCATENATED MODULE: ./node_modules/lodash-es/_root.js
+
+
+/** Detect free variable `self`. */
+var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+
+/** Used as a reference to the global object. */
+var root = _freeGlobal["a" /* default */] || freeSelf || Function('return this')();
+
+/* harmony default export */ var _root = (root);
+
+// CONCATENATED MODULE: ./node_modules/lodash-es/_Symbol.js
+
+
+/** Built-in value references. */
+var Symbol = _root.Symbol;
+
+/* harmony default export */ var _Symbol = (Symbol);
+
+// CONCATENATED MODULE: ./node_modules/lodash-es/_getRawTag.js
+
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var _getRawTag_hasOwnProperty = objectProto.hasOwnProperty;
 
 /**
- * https://opentype.js.org v0.7.3 | (c) Frederik De Bleser and other contributors | MIT License | Uses tiny-inflate by Devon Govett
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var nativeObjectToString = objectProto.toString;
+
+/** Built-in value references. */
+var symToStringTag = _Symbol ? _Symbol.toStringTag : undefined;
+
+/**
+ * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the raw `toStringTag`.
+ */
+function getRawTag(value) {
+  var isOwn = _getRawTag_hasOwnProperty.call(value, symToStringTag),
+      tag = value[symToStringTag];
+
+  try {
+    value[symToStringTag] = undefined;
+    var unmasked = true;
+  } catch (e) {}
+
+  var result = nativeObjectToString.call(value);
+  if (unmasked) {
+    if (isOwn) {
+      value[symToStringTag] = tag;
+    } else {
+      delete value[symToStringTag];
+    }
+  }
+  return result;
+}
+
+/* harmony default export */ var _getRawTag = (getRawTag);
+
+// CONCATENATED MODULE: ./node_modules/lodash-es/_objectToString.js
+/** Used for built-in method references. */
+var _objectToString_objectProto = Object.prototype;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var _objectToString_nativeObjectToString = _objectToString_objectProto.toString;
+
+/**
+ * Converts `value` to a string using `Object.prototype.toString`.
+ *
+ * @private
+ * @param {*} value The value to convert.
+ * @returns {string} Returns the converted string.
+ */
+function objectToString(value) {
+  return _objectToString_nativeObjectToString.call(value);
+}
+
+/* harmony default export */ var _objectToString = (objectToString);
+
+// CONCATENATED MODULE: ./node_modules/lodash-es/_baseGetTag.js
+
+
+
+
+/** `Object#toString` result references. */
+var nullTag = '[object Null]',
+    undefinedTag = '[object Undefined]';
+
+/** Built-in value references. */
+var _baseGetTag_symToStringTag = _Symbol ? _Symbol.toStringTag : undefined;
+
+/**
+ * The base implementation of `getTag` without fallbacks for buggy environments.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the `toStringTag`.
+ */
+function baseGetTag(value) {
+  if (value == null) {
+    return value === undefined ? undefinedTag : nullTag;
+  }
+  return (_baseGetTag_symToStringTag && _baseGetTag_symToStringTag in Object(value))
+    ? _getRawTag(value)
+    : _objectToString(value);
+}
+
+/* harmony default export */ var _baseGetTag = (baseGetTag);
+
+// CONCATENATED MODULE: ./node_modules/lodash-es/_overArg.js
+/**
+ * Creates a unary function that invokes `func` with its argument transformed.
+ *
+ * @private
+ * @param {Function} func The function to wrap.
+ * @param {Function} transform The argument transform.
+ * @returns {Function} Returns the new function.
+ */
+function overArg(func, transform) {
+  return function(arg) {
+    return func(transform(arg));
+  };
+}
+
+/* harmony default export */ var _overArg = (overArg);
+
+// CONCATENATED MODULE: ./node_modules/lodash-es/_getPrototype.js
+
+
+/** Built-in value references. */
+var getPrototype = _overArg(Object.getPrototypeOf, Object);
+
+/* harmony default export */ var _getPrototype = (getPrototype);
+
+// CONCATENATED MODULE: ./node_modules/lodash-es/isObjectLike.js
+/**
+ * Checks if `value` is object-like. A value is object-like if it's not `null`
+ * and has a `typeof` result of "object".
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ * @example
+ *
+ * _.isObjectLike({});
+ * // => true
+ *
+ * _.isObjectLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isObjectLike(_.noop);
+ * // => false
+ *
+ * _.isObjectLike(null);
+ * // => false
+ */
+function isObjectLike(value) {
+  return value != null && typeof value == 'object';
+}
+
+/* harmony default export */ var lodash_es_isObjectLike = (isObjectLike);
+
+// CONCATENATED MODULE: ./node_modules/lodash-es/isPlainObject.js
+
+
+
+
+/** `Object#toString` result references. */
+var objectTag = '[object Object]';
+
+/** Used for built-in method references. */
+var funcProto = Function.prototype,
+    isPlainObject_objectProto = Object.prototype;
+
+/** Used to resolve the decompiled source of functions. */
+var funcToString = funcProto.toString;
+
+/** Used to check objects for own properties. */
+var isPlainObject_hasOwnProperty = isPlainObject_objectProto.hasOwnProperty;
+
+/** Used to infer the `Object` constructor. */
+var objectCtorString = funcToString.call(Object);
+
+/**
+ * Checks if `value` is a plain object, that is, an object created by the
+ * `Object` constructor or one with a `[[Prototype]]` of `null`.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.8.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
+ * @example
+ *
+ * function Foo() {
+ *   this.a = 1;
+ * }
+ *
+ * _.isPlainObject(new Foo);
+ * // => false
+ *
+ * _.isPlainObject([1, 2, 3]);
+ * // => false
+ *
+ * _.isPlainObject({ 'x': 0, 'y': 0 });
+ * // => true
+ *
+ * _.isPlainObject(Object.create(null));
+ * // => true
+ */
+function isPlainObject(value) {
+  if (!lodash_es_isObjectLike(value) || _baseGetTag(value) != objectTag) {
+    return false;
+  }
+  var proto = _getPrototype(value);
+  if (proto === null) {
+    return true;
+  }
+  var Ctor = isPlainObject_hasOwnProperty.call(proto, 'constructor') && proto.constructor;
+  return typeof Ctor == 'function' && Ctor instanceof Ctor &&
+    funcToString.call(Ctor) == objectCtorString;
+}
+
+/* harmony default export */ var lodash_es_isPlainObject = (isPlainObject);
+
+// EXTERNAL MODULE: ./node_modules/symbol-observable/es/index.js
+var es = __webpack_require__(2);
+
+// CONCATENATED MODULE: ./node_modules/redux/es/createStore.js
+
+
+
+/**
+ * These are private action types reserved by Redux.
+ * For any unknown actions, you must return the current state.
+ * If the current state is undefined, you must return the initial state.
+ * Do not reference these action types directly in your code.
+ */
+var ActionTypes = {
+  INIT: '@@redux/INIT'
+
+  /**
+   * Creates a Redux store that holds the state tree.
+   * The only way to change the data in the store is to call `dispatch()` on it.
+   *
+   * There should only be a single store in your app. To specify how different
+   * parts of the state tree respond to actions, you may combine several reducers
+   * into a single reducer function by using `combineReducers`.
+   *
+   * @param {Function} reducer A function that returns the next state tree, given
+   * the current state tree and the action to handle.
+   *
+   * @param {any} [preloadedState] The initial state. You may optionally specify it
+   * to hydrate the state from the server in universal apps, or to restore a
+   * previously serialized user session.
+   * If you use `combineReducers` to produce the root reducer function, this must be
+   * an object with the same shape as `combineReducers` keys.
+   *
+   * @param {Function} [enhancer] The store enhancer. You may optionally specify it
+   * to enhance the store with third-party capabilities such as middleware,
+   * time travel, persistence, etc. The only store enhancer that ships with Redux
+   * is `applyMiddleware()`.
+   *
+   * @returns {Store} A Redux store that lets you read the state, dispatch actions
+   * and subscribe to changes.
+   */
+};function createStore_createStore(reducer, preloadedState, enhancer) {
+  var _ref2;
+
+  if (typeof preloadedState === 'function' && typeof enhancer === 'undefined') {
+    enhancer = preloadedState;
+    preloadedState = undefined;
+  }
+
+  if (typeof enhancer !== 'undefined') {
+    if (typeof enhancer !== 'function') {
+      throw new Error('Expected the enhancer to be a function.');
+    }
+
+    return enhancer(createStore_createStore)(reducer, preloadedState);
+  }
+
+  if (typeof reducer !== 'function') {
+    throw new Error('Expected the reducer to be a function.');
+  }
+
+  var currentReducer = reducer;
+  var currentState = preloadedState;
+  var currentListeners = [];
+  var nextListeners = currentListeners;
+  var isDispatching = false;
+
+  function ensureCanMutateNextListeners() {
+    if (nextListeners === currentListeners) {
+      nextListeners = currentListeners.slice();
+    }
+  }
+
+  /**
+   * Reads the state tree managed by the store.
+   *
+   * @returns {any} The current state tree of your application.
+   */
+  function getState() {
+    return currentState;
+  }
+
+  /**
+   * Adds a change listener. It will be called any time an action is dispatched,
+   * and some part of the state tree may potentially have changed. You may then
+   * call `getState()` to read the current state tree inside the callback.
+   *
+   * You may call `dispatch()` from a change listener, with the following
+   * caveats:
+   *
+   * 1. The subscriptions are snapshotted just before every `dispatch()` call.
+   * If you subscribe or unsubscribe while the listeners are being invoked, this
+   * will not have any effect on the `dispatch()` that is currently in progress.
+   * However, the next `dispatch()` call, whether nested or not, will use a more
+   * recent snapshot of the subscription list.
+   *
+   * 2. The listener should not expect to see all state changes, as the state
+   * might have been updated multiple times during a nested `dispatch()` before
+   * the listener is called. It is, however, guaranteed that all subscribers
+   * registered before the `dispatch()` started will be called with the latest
+   * state by the time it exits.
+   *
+   * @param {Function} listener A callback to be invoked on every dispatch.
+   * @returns {Function} A function to remove this change listener.
+   */
+  function subscribe(listener) {
+    if (typeof listener !== 'function') {
+      throw new Error('Expected listener to be a function.');
+    }
+
+    var isSubscribed = true;
+
+    ensureCanMutateNextListeners();
+    nextListeners.push(listener);
+
+    return function unsubscribe() {
+      if (!isSubscribed) {
+        return;
+      }
+
+      isSubscribed = false;
+
+      ensureCanMutateNextListeners();
+      var index = nextListeners.indexOf(listener);
+      nextListeners.splice(index, 1);
+    };
+  }
+
+  /**
+   * Dispatches an action. It is the only way to trigger a state change.
+   *
+   * The `reducer` function, used to create the store, will be called with the
+   * current state tree and the given `action`. Its return value will
+   * be considered the **next** state of the tree, and the change listeners
+   * will be notified.
+   *
+   * The base implementation only supports plain object actions. If you want to
+   * dispatch a Promise, an Observable, a thunk, or something else, you need to
+   * wrap your store creating function into the corresponding middleware. For
+   * example, see the documentation for the `redux-thunk` package. Even the
+   * middleware will eventually dispatch plain object actions using this method.
+   *
+   * @param {Object} action A plain object representing “what changed”. It is
+   * a good idea to keep actions serializable so you can record and replay user
+   * sessions, or use the time travelling `redux-devtools`. An action must have
+   * a `type` property which may not be `undefined`. It is a good idea to use
+   * string constants for action types.
+   *
+   * @returns {Object} For convenience, the same action object you dispatched.
+   *
+   * Note that, if you use a custom middleware, it may wrap `dispatch()` to
+   * return something else (for example, a Promise you can await).
+   */
+  function dispatch(action) {
+    if (!lodash_es_isPlainObject(action)) {
+      throw new Error('Actions must be plain objects. ' + 'Use custom middleware for async actions.');
+    }
+
+    if (typeof action.type === 'undefined') {
+      throw new Error('Actions may not have an undefined "type" property. ' + 'Have you misspelled a constant?');
+    }
+
+    if (isDispatching) {
+      throw new Error('Reducers may not dispatch actions.');
+    }
+
+    try {
+      isDispatching = true;
+      currentState = currentReducer(currentState, action);
+    } finally {
+      isDispatching = false;
+    }
+
+    var listeners = currentListeners = nextListeners;
+    for (var i = 0; i < listeners.length; i++) {
+      var listener = listeners[i];
+      listener();
+    }
+
+    return action;
+  }
+
+  /**
+   * Replaces the reducer currently used by the store to calculate the state.
+   *
+   * You might need this if your app implements code splitting and you want to
+   * load some of the reducers dynamically. You might also need this if you
+   * implement a hot reloading mechanism for Redux.
+   *
+   * @param {Function} nextReducer The reducer for the store to use instead.
+   * @returns {void}
+   */
+  function replaceReducer(nextReducer) {
+    if (typeof nextReducer !== 'function') {
+      throw new Error('Expected the nextReducer to be a function.');
+    }
+
+    currentReducer = nextReducer;
+    dispatch({ type: ActionTypes.INIT });
+  }
+
+  /**
+   * Interoperability point for observable/reactive libraries.
+   * @returns {observable} A minimal observable of state changes.
+   * For more information, see the observable proposal:
+   * https://github.com/tc39/proposal-observable
+   */
+  function observable() {
+    var _ref;
+
+    var outerSubscribe = subscribe;
+    return _ref = {
+      /**
+       * The minimal observable subscription method.
+       * @param {Object} observer Any object that can be used as an observer.
+       * The observer object should have a `next` method.
+       * @returns {subscription} An object with an `unsubscribe` method that can
+       * be used to unsubscribe the observable from the store, and prevent further
+       * emission of values from the observable.
+       */
+      subscribe: function subscribe(observer) {
+        if (typeof observer !== 'object') {
+          throw new TypeError('Expected the observer to be an object.');
+        }
+
+        function observeState() {
+          if (observer.next) {
+            observer.next(getState());
+          }
+        }
+
+        observeState();
+        var unsubscribe = outerSubscribe(observeState);
+        return { unsubscribe: unsubscribe };
+      }
+    }, _ref[es["a" /* default */]] = function () {
+      return this;
+    }, _ref;
+  }
+
+  // When a store is created, an "INIT" action is dispatched so that every
+  // reducer returns their initial state. This effectively populates
+  // the initial state tree.
+  dispatch({ type: ActionTypes.INIT });
+
+  return _ref2 = {
+    dispatch: dispatch,
+    subscribe: subscribe,
+    getState: getState,
+    replaceReducer: replaceReducer
+  }, _ref2[es["a" /* default */]] = observable, _ref2;
+}
+// CONCATENATED MODULE: ./node_modules/redux/es/utils/warning.js
+/**
+ * Prints a warning in the console if it exists.
+ *
+ * @param {String} message The warning message.
+ * @returns {void}
+ */
+function warning(message) {
+  /* eslint-disable no-console */
+  if (typeof console !== 'undefined' && typeof console.error === 'function') {
+    console.error(message);
+  }
+  /* eslint-enable no-console */
+  try {
+    // This error was thrown as a convenience so that if you enable
+    // "break on all exceptions" in your console,
+    // it would pause the execution at this line.
+    throw new Error(message);
+    /* eslint-disable no-empty */
+  } catch (e) {}
+  /* eslint-enable no-empty */
+}
+// CONCATENATED MODULE: ./node_modules/redux/es/combineReducers.js
+
+
+
+
+function getUndefinedStateErrorMessage(key, action) {
+  var actionType = action && action.type;
+  var actionName = actionType && '"' + actionType.toString() + '"' || 'an action';
+
+  return 'Given action ' + actionName + ', reducer "' + key + '" returned undefined. ' + 'To ignore an action, you must explicitly return the previous state. ' + 'If you want this reducer to hold no value, you can return null instead of undefined.';
+}
+
+function getUnexpectedStateShapeWarningMessage(inputState, reducers, action, unexpectedKeyCache) {
+  var reducerKeys = Object.keys(reducers);
+  var argumentName = action && action.type === ActionTypes.INIT ? 'preloadedState argument passed to createStore' : 'previous state received by the reducer';
+
+  if (reducerKeys.length === 0) {
+    return 'Store does not have a valid reducer. Make sure the argument passed ' + 'to combineReducers is an object whose values are reducers.';
+  }
+
+  if (!lodash_es_isPlainObject(inputState)) {
+    return 'The ' + argumentName + ' has unexpected type of "' + {}.toString.call(inputState).match(/\s([a-z|A-Z]+)/)[1] + '". Expected argument to be an object with the following ' + ('keys: "' + reducerKeys.join('", "') + '"');
+  }
+
+  var unexpectedKeys = Object.keys(inputState).filter(function (key) {
+    return !reducers.hasOwnProperty(key) && !unexpectedKeyCache[key];
+  });
+
+  unexpectedKeys.forEach(function (key) {
+    unexpectedKeyCache[key] = true;
+  });
+
+  if (unexpectedKeys.length > 0) {
+    return 'Unexpected ' + (unexpectedKeys.length > 1 ? 'keys' : 'key') + ' ' + ('"' + unexpectedKeys.join('", "') + '" found in ' + argumentName + '. ') + 'Expected to find one of the known reducer keys instead: ' + ('"' + reducerKeys.join('", "') + '". Unexpected keys will be ignored.');
+  }
+}
+
+function assertReducerShape(reducers) {
+  Object.keys(reducers).forEach(function (key) {
+    var reducer = reducers[key];
+    var initialState = reducer(undefined, { type: ActionTypes.INIT });
+
+    if (typeof initialState === 'undefined') {
+      throw new Error('Reducer "' + key + '" returned undefined during initialization. ' + 'If the state passed to the reducer is undefined, you must ' + 'explicitly return the initial state. The initial state may ' + 'not be undefined. If you don\'t want to set a value for this reducer, ' + 'you can use null instead of undefined.');
+    }
+
+    var type = '@@redux/PROBE_UNKNOWN_ACTION_' + Math.random().toString(36).substring(7).split('').join('.');
+    if (typeof reducer(undefined, { type: type }) === 'undefined') {
+      throw new Error('Reducer "' + key + '" returned undefined when probed with a random type. ' + ('Don\'t try to handle ' + ActionTypes.INIT + ' or other actions in "redux/*" ') + 'namespace. They are considered private. Instead, you must return the ' + 'current state for any unknown actions, unless it is undefined, ' + 'in which case you must return the initial state, regardless of the ' + 'action type. The initial state may not be undefined, but can be null.');
+    }
+  });
+}
+
+/**
+ * Turns an object whose values are different reducer functions, into a single
+ * reducer function. It will call every child reducer, and gather their results
+ * into a single state object, whose keys correspond to the keys of the passed
+ * reducer functions.
+ *
+ * @param {Object} reducers An object whose values correspond to different
+ * reducer functions that need to be combined into one. One handy way to obtain
+ * it is to use ES6 `import * as reducers` syntax. The reducers may never return
+ * undefined for any action. Instead, they should return their initial state
+ * if the state passed to them was undefined, and the current state for any
+ * unrecognized action.
+ *
+ * @returns {Function} A reducer function that invokes every reducer inside the
+ * passed object, and builds a state object with the same shape.
+ */
+function combineReducers(reducers) {
+  var reducerKeys = Object.keys(reducers);
+  var finalReducers = {};
+  for (var i = 0; i < reducerKeys.length; i++) {
+    var key = reducerKeys[i];
+
+    if (false) {}
+
+    if (typeof reducers[key] === 'function') {
+      finalReducers[key] = reducers[key];
+    }
+  }
+  var finalReducerKeys = Object.keys(finalReducers);
+
+  var unexpectedKeyCache = void 0;
+  if (false) {}
+
+  var shapeAssertionError = void 0;
+  try {
+    assertReducerShape(finalReducers);
+  } catch (e) {
+    shapeAssertionError = e;
+  }
+
+  return function combination() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var action = arguments[1];
+
+    if (shapeAssertionError) {
+      throw shapeAssertionError;
+    }
+
+    if (false) { var warningMessage; }
+
+    var hasChanged = false;
+    var nextState = {};
+    for (var _i = 0; _i < finalReducerKeys.length; _i++) {
+      var _key = finalReducerKeys[_i];
+      var reducer = finalReducers[_key];
+      var previousStateForKey = state[_key];
+      var nextStateForKey = reducer(previousStateForKey, action);
+      if (typeof nextStateForKey === 'undefined') {
+        var errorMessage = getUndefinedStateErrorMessage(_key, action);
+        throw new Error(errorMessage);
+      }
+      nextState[_key] = nextStateForKey;
+      hasChanged = hasChanged || nextStateForKey !== previousStateForKey;
+    }
+    return hasChanged ? nextState : state;
+  };
+}
+// CONCATENATED MODULE: ./node_modules/redux/es/bindActionCreators.js
+function bindActionCreator(actionCreator, dispatch) {
+  return function () {
+    return dispatch(actionCreator.apply(undefined, arguments));
+  };
+}
+
+/**
+ * Turns an object whose values are action creators, into an object with the
+ * same keys, but with every function wrapped into a `dispatch` call so they
+ * may be invoked directly. This is just a convenience method, as you can call
+ * `store.dispatch(MyActionCreators.doSomething())` yourself just fine.
+ *
+ * For convenience, you can also pass a single function as the first argument,
+ * and get a function in return.
+ *
+ * @param {Function|Object} actionCreators An object whose values are action
+ * creator functions. One handy way to obtain it is to use ES6 `import * as`
+ * syntax. You may also pass a single function.
+ *
+ * @param {Function} dispatch The `dispatch` function available on your Redux
+ * store.
+ *
+ * @returns {Function|Object} The object mimicking the original object, but with
+ * every action creator wrapped into the `dispatch` call. If you passed a
+ * function as `actionCreators`, the return value will also be a single
+ * function.
+ */
+function bindActionCreators(actionCreators, dispatch) {
+  if (typeof actionCreators === 'function') {
+    return bindActionCreator(actionCreators, dispatch);
+  }
+
+  if (typeof actionCreators !== 'object' || actionCreators === null) {
+    throw new Error('bindActionCreators expected an object or a function, instead received ' + (actionCreators === null ? 'null' : typeof actionCreators) + '. ' + 'Did you write "import ActionCreators from" instead of "import * as ActionCreators from"?');
+  }
+
+  var keys = Object.keys(actionCreators);
+  var boundActionCreators = {};
+  for (var i = 0; i < keys.length; i++) {
+    var key = keys[i];
+    var actionCreator = actionCreators[key];
+    if (typeof actionCreator === 'function') {
+      boundActionCreators[key] = bindActionCreator(actionCreator, dispatch);
+    }
+  }
+  return boundActionCreators;
+}
+// CONCATENATED MODULE: ./node_modules/redux/es/compose.js
+/**
+ * Composes single-argument functions from right to left. The rightmost
+ * function can take multiple arguments as it provides the signature for
+ * the resulting composite function.
+ *
+ * @param {...Function} funcs The functions to compose.
+ * @returns {Function} A function obtained by composing the argument functions
+ * from right to left. For example, compose(f, g, h) is identical to doing
+ * (...args) => f(g(h(...args))).
  */
 
-// Data for converting old eight-bit Macintosh encodings to Unicode.
-// This representation is optimized for decoding; encoding is slower
-// and needs more memory. The assumption is that all opentype.js users
-// want to open fonts, but saving a font will be comparatively rare
-// so it can be more expensive. Keyed by IANA character set name.
-//
-// Python script for generating these strings:
-//
-//     s = u''.join([chr(c).decode('mac_greek') for c in range(128, 256)])
-//     print(s.encode('utf-8'))
+function compose() {
+  for (var _len = arguments.length, funcs = Array(_len), _key = 0; _key < _len; _key++) {
+    funcs[_key] = arguments[_key];
+  }
 
-// result.push(c);
+  if (funcs.length === 0) {
+    return function (arg) {
+      return arg;
+    };
+  }
 
-/* A TrueType font hinting interpreter.
-*
-* (c) 2017 Axel Kittenberger
-*
-* This interpreter has been implemented according to this documentation:
-* https://developer.apple.com/fonts/TrueType-Reference-Manual/RM05/Chap5.html
-*
-* According to the documentation F24DOT6 values are used for pixels.
-* That means calculation is 1/64 pixel accurate and uses integer operations.
-* However, Javascript has floating point operations by default and only
-* those are available. One could make a case to simulate the 1/64 accuracy
-* exactly by truncating after every division operation
-* (for example with << 0) to get pixel exactly results as other TrueType
-* implementations. It may make sense since some fonts are pixel optimized
-* by hand using DELTAP instructions. The current implementation doesn't
-* and rather uses full floating point precision.
-*
-* xScale, yScale and rotation is currently ignored.
-*
-* A few non-trivial instructions are missing as I didn't encounter yet
-* a font that used them to test a possible implementation.
-*
-* Some fonts seem to use undocumented features regarding the twilight zone.
-* Only some of them are implemented as they were encountered.
-*
-* The exports.DEBUG statements are removed on the minified distribution file.
+  if (funcs.length === 1) {
+    return funcs[0];
+  }
+
+  return funcs.reduce(function (a, b) {
+    return function () {
+      return a(b.apply(undefined, arguments));
+    };
+  });
+}
+// CONCATENATED MODULE: ./node_modules/redux/es/applyMiddleware.js
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+
+
+/**
+ * Creates a store enhancer that applies middleware to the dispatch method
+ * of the Redux store. This is handy for a variety of tasks, such as expressing
+ * asynchronous actions in a concise manner, or logging every action payload.
+ *
+ * See `redux-thunk` package as an example of the Redux middleware.
+ *
+ * Because middleware is potentially asynchronous, this should be the first
+ * store enhancer in the composition chain.
+ *
+ * Note that each middleware will be given the `dispatch` and `getState` functions
+ * as named arguments.
+ *
+ * @param {...Function} middlewares The middleware chain to be applied.
+ * @returns {Function} A store enhancer applying the middleware.
+ */
+function applyMiddleware() {
+  for (var _len = arguments.length, middlewares = Array(_len), _key = 0; _key < _len; _key++) {
+    middlewares[_key] = arguments[_key];
+  }
+
+  return function (createStore) {
+    return function (reducer, preloadedState, enhancer) {
+      var store = createStore(reducer, preloadedState, enhancer);
+      var _dispatch = store.dispatch;
+      var chain = [];
+
+      var middlewareAPI = {
+        getState: store.getState,
+        dispatch: function dispatch(action) {
+          return _dispatch(action);
+        }
+      };
+      chain = middlewares.map(function (middleware) {
+        return middleware(middlewareAPI);
+      });
+      _dispatch = compose.apply(undefined, chain)(store.dispatch);
+
+      return _extends({}, store, {
+        dispatch: _dispatch
+      });
+    };
+  };
+}
+// CONCATENATED MODULE: ./node_modules/redux/es/index.js
+/* concated harmony reexport createStore */__webpack_require__.d(__webpack_exports__, "createStore", function() { return createStore_createStore; });
+/* concated harmony reexport combineReducers */__webpack_require__.d(__webpack_exports__, "combineReducers", function() { return combineReducers; });
+/* concated harmony reexport bindActionCreators */__webpack_require__.d(__webpack_exports__, "bindActionCreators", function() { return bindActionCreators; });
+/* concated harmony reexport applyMiddleware */__webpack_require__.d(__webpack_exports__, "applyMiddleware", function() { return applyMiddleware; });
+/* concated harmony reexport compose */__webpack_require__.d(__webpack_exports__, "compose", function() { return compose; });
+
+
+
+
+
+
+
+/*
+* This is a dummy function to check if the function name has been altered by minification.
+* If the function has been minified and NODE_ENV !== 'production', warn the user.
 */
+function isCrushed() {}
+
+if (false) {}
+
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return symbolObservablePonyfill; });
+function symbolObservablePonyfill(root) {
+	var result;
+	var Symbol = root.Symbol;
+
+	if (typeof Symbol === 'function') {
+		if (Symbol.observable) {
+			result = Symbol.observable;
+		} else {
+			result = Symbol('observable');
+			Symbol.observable = result;
+		}
+	} else {
+		result = '@@observable';
+	}
+
+	return result;
+};
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
+var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
+
+/* harmony default export */ __webpack_exports__["a"] = (freeGlobal);
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3)))
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(10);
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _fuse = _interopRequireDefault(__webpack_require__(11));
+
+var _deepmerge = _interopRequireDefault(__webpack_require__(12));
+
+var _store = _interopRequireDefault(__webpack_require__(13));
+
+var _components = __webpack_require__(20);
+
+var _constants = __webpack_require__(1);
+
+var _templates = __webpack_require__(5);
+
+var _choices = __webpack_require__(28);
+
+var _items = __webpack_require__(29);
+
+var _groups = __webpack_require__(30);
+
+var _misc = __webpack_require__(31);
+
+var _general = __webpack_require__(32);
+
+var _utils = __webpack_require__(0);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 /**
- * @typedef FontOptions
- * @type Object
- * @property {Boolean} empty - whether to create a new empty font
- * @property {string} familyName
- * @property {string} styleName
- * @property {string=} fullName
- * @property {string=} postScriptName
- * @property {string=} designer
- * @property {string=} designerURL
- * @property {string=} manufacturer
- * @property {string=} manufacturerURL
- * @property {string=} license
- * @property {string=} licenseURL
- * @property {string=} version
- * @property {string=} description
- * @property {string=} copyright
- * @property {string=} trademark
- * @property {Number} unitsPerEm
- * @property {Number} ascender
- * @property {Number} descender
- * @property {Number} createdTimestamp
- * @property {string=} weightClass
- * @property {string=} widthClass
- * @property {string=} fsSelection
+ * Choices
+ * @author Josh Johnson<josh@joshuajohnson.co.uk>
  */
+var Choices =
+/*#__PURE__*/
+function () {
+  function Choices() {
+    var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '[data-choice]';
+    var userConfig = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-// opentype.js
-// https://github.com/nodebox/opentype.js
-// (c) 2015 Frederik De Bleser
-// opentype.js may be freely distributed under the MIT license.
+    _classCallCheck(this, Choices);
 
-/**
- * @license text 2.0.15 Copyright jQuery Foundation and other contributors.
- * Released under MIT license, http://github.com/requirejs/text/LICENSE
- */
+    if ((0, _utils.isType)('String', element)) {
+      var elements = Array.from(document.querySelectorAll(element)); // If there are multiple elements, create a new instance
+      // for each element besides the first one (as that already has an instance)
 
-/*! http://mths.be/codepointat v0.1.0 by @mathias */
+      if (elements.length > 1) {
+        return this._generateInstances(elements, userConfig);
+      }
+    }
 
-/*! rangeslider.js - v2.3.2 | (c) 2018 @andreruffert | MIT license | https://github.com/andreruffert/rangeslider.js */
+    this.config = _deepmerge.default.all([_constants.DEFAULT_CONFIG, Choices.userDefaults, userConfig], // When merging array configs, replace with a copy of the userConfig array,
+    // instead of concatenating with the default array
+    {
+      arrayMerge: function arrayMerge(destinationArray, sourceArray) {
+        return [].concat(sourceArray);
+      }
+    });
+    var invalidConfigOptions = (0, _utils.diff)(this.config, _constants.DEFAULT_CONFIG);
+
+    if (invalidConfigOptions.length) {
+      console.warn('Unknown config option(s) passed', invalidConfigOptions.join(', '));
+    }
+
+    if (!['auto', 'always'].includes(this.config.renderSelectedChoices)) {
+      this.config.renderSelectedChoices = 'auto';
+    } // Retrieve triggering element (i.e. element with 'data-choice' trigger)
+
+
+    var passedElement = (0, _utils.isType)('String', element) ? document.querySelector(element) : element;
+
+    if (!passedElement) {
+      return console.error('Could not find passed element or passed element was of an invalid type');
+    }
+
+    this._isTextElement = passedElement.type === 'text';
+    this._isSelectOneElement = passedElement.type === 'select-one';
+    this._isSelectMultipleElement = passedElement.type === 'select-multiple';
+    this._isSelectElement = this._isSelectOneElement || this._isSelectMultipleElement;
+
+    if (this._isTextElement) {
+      this.passedElement = new _components.WrappedInput({
+        element: passedElement,
+        classNames: this.config.classNames,
+        delimiter: this.config.delimiter
+      });
+    } else if (this._isSelectElement) {
+      this.passedElement = new _components.WrappedSelect({
+        element: passedElement,
+        classNames: this.config.classNames
+      });
+    }
+
+    if (!this.passedElement) {
+      return console.error('Passed element was of an invalid type');
+    }
+
+    if (this.config.shouldSortItems === true && this._isSelectOneElement && !this.config.silent) {
+      console.warn("shouldSortElements: Type of passed element is 'select-one', falling back to false.");
+    }
+
+    this.initialised = false;
+    this._store = new _store.default(this.render);
+    this._initialState = {};
+    this._currentState = {};
+    this._prevState = {};
+    this._currentValue = '';
+    this._canSearch = this.config.searchEnabled;
+    this._isScrollingOnIe = false;
+    this._highlightPosition = 0;
+    this._wasTap = true;
+    this._placeholderValue = this._generatePlaceholderValue();
+    this._baseId = (0, _utils.generateId)(this.passedElement.element, 'choices-');
+    this._direction = this.passedElement.element.getAttribute('dir') || 'ltr';
+    this._idNames = {
+      itemChoice: 'item-choice'
+    }; // Assign preset choices from passed object
+
+    this._presetChoices = this.config.choices; // Assign preset items from passed object first
+
+    this._presetItems = this.config.items; // Then add any values passed from attribute
+
+    if (this.passedElement.value) {
+      this._presetItems = this._presetItems.concat(this.passedElement.value.split(this.config.delimiter));
+    }
+
+    this._render = this._render.bind(this);
+    this._onFocus = this._onFocus.bind(this);
+    this._onBlur = this._onBlur.bind(this);
+    this._onKeyUp = this._onKeyUp.bind(this);
+    this._onKeyDown = this._onKeyDown.bind(this);
+    this._onClick = this._onClick.bind(this);
+    this._onTouchMove = this._onTouchMove.bind(this);
+    this._onTouchEnd = this._onTouchEnd.bind(this);
+    this._onMouseDown = this._onMouseDown.bind(this);
+    this._onMouseOver = this._onMouseOver.bind(this);
+    this._onFormReset = this._onFormReset.bind(this);
+    this._onAKey = this._onAKey.bind(this);
+    this._onEnterKey = this._onEnterKey.bind(this);
+    this._onEscapeKey = this._onEscapeKey.bind(this);
+    this._onDirectionKey = this._onDirectionKey.bind(this);
+    this._onDeleteKey = this._onDeleteKey.bind(this); // If element has already been initialised with Choices, fail silently
+
+    if (this.passedElement.element.getAttribute('data-choice') === 'active') {
+      console.warn('Trying to initialise Choices on element already initialised');
+    } // Let's go
+
+
+    this.init();
+  }
+  /* ========================================
+  =            Public functions            =
+  ======================================== */
+
+
+  _createClass(Choices, [{
+    key: "init",
+    value: function init() {
+      if (this.initialised) {
+        return;
+      }
+
+      this._createTemplates();
+
+      this._createElements();
+
+      this._createStructure(); // Set initial state (We need to clone the state because some reducers
+      // modify the inner objects properties in the state) 🤢
+
+
+      this._initialState = (0, _utils.cloneObject)(this._store.state);
+
+      this._store.subscribe(this._render);
+
+      this._render();
+
+      this._addEventListeners();
+
+      var shouldDisable = !this.config.addItems || this.passedElement.element.hasAttribute('disabled');
+
+      if (shouldDisable) {
+        this.disable();
+      }
+
+      this.initialised = true;
+      var callbackOnInit = this.config.callbackOnInit; // Run callback if it is a function
+
+      if (callbackOnInit && (0, _utils.isType)('Function', callbackOnInit)) {
+        callbackOnInit.call(this);
+      }
+    }
+  }, {
+    key: "destroy",
+    value: function destroy() {
+      if (!this.initialised) {
+        return;
+      }
+
+      this._removeEventListeners();
+
+      this.passedElement.reveal();
+      this.containerOuter.unwrap(this.passedElement.element);
+
+      if (this._isSelectElement) {
+        this.passedElement.options = this._presetChoices;
+      }
+
+      this.clearStore();
+      this.config.templates = null;
+      this.initialised = false;
+    }
+  }, {
+    key: "enable",
+    value: function enable() {
+      if (this.passedElement.isDisabled) {
+        this.passedElement.enable();
+      }
+
+      if (this.containerOuter.isDisabled) {
+        this._addEventListeners();
+
+        this.input.enable();
+        this.containerOuter.enable();
+      }
+
+      return this;
+    }
+  }, {
+    key: "disable",
+    value: function disable() {
+      if (!this.passedElement.isDisabled) {
+        this.passedElement.disable();
+      }
+
+      if (!this.containerOuter.isDisabled) {
+        this._removeEventListeners();
+
+        this.input.disable();
+        this.containerOuter.disable();
+      }
+
+      return this;
+    }
+  }, {
+    key: "highlightItem",
+    value: function highlightItem(item) {
+      var runEvent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
+      if (!item) {
+        return this;
+      }
+
+      var id = item.id,
+          _item$groupId = item.groupId,
+          groupId = _item$groupId === void 0 ? -1 : _item$groupId,
+          _item$value = item.value,
+          value = _item$value === void 0 ? '' : _item$value,
+          _item$label = item.label,
+          label = _item$label === void 0 ? '' : _item$label;
+      var group = groupId >= 0 ? this._store.getGroupById(groupId) : null;
+
+      this._store.dispatch((0, _items.highlightItem)(id, true));
+
+      if (runEvent) {
+        this.passedElement.triggerEvent(_constants.EVENTS.highlightItem, {
+          id: id,
+          value: value,
+          label: label,
+          groupValue: group && group.value ? group.value : null
+        });
+      }
+
+      return this;
+    }
+  }, {
+    key: "unhighlightItem",
+    value: function unhighlightItem(item) {
+      if (!item) {
+        return this;
+      }
+
+      var id = item.id,
+          _item$groupId2 = item.groupId,
+          groupId = _item$groupId2 === void 0 ? -1 : _item$groupId2,
+          _item$value2 = item.value,
+          value = _item$value2 === void 0 ? '' : _item$value2,
+          _item$label2 = item.label,
+          label = _item$label2 === void 0 ? '' : _item$label2;
+      var group = groupId >= 0 ? this._store.getGroupById(groupId) : null;
+
+      this._store.dispatch((0, _items.highlightItem)(id, false));
+
+      this.passedElement.triggerEvent(_constants.EVENTS.highlightItem, {
+        id: id,
+        value: value,
+        label: label,
+        groupValue: group && group.value ? group.value : null
+      });
+      return this;
+    }
+  }, {
+    key: "highlightAll",
+    value: function highlightAll() {
+      var _this = this;
+
+      this._store.items.forEach(function (item) {
+        return _this.highlightItem(item);
+      });
+
+      return this;
+    }
+  }, {
+    key: "unhighlightAll",
+    value: function unhighlightAll() {
+      var _this2 = this;
+
+      this._store.items.forEach(function (item) {
+        return _this2.unhighlightItem(item);
+      });
+
+      return this;
+    }
+  }, {
+    key: "removeActiveItemsByValue",
+    value: function removeActiveItemsByValue(value) {
+      var _this3 = this;
+
+      this._store.activeItems.filter(function (item) {
+        return item.value === value;
+      }).forEach(function (item) {
+        return _this3._removeItem(item);
+      });
+
+      return this;
+    }
+  }, {
+    key: "removeActiveItems",
+    value: function removeActiveItems(excludedId) {
+      var _this4 = this;
+
+      this._store.activeItems.filter(function (_ref) {
+        var id = _ref.id;
+        return id !== excludedId;
+      }).forEach(function (item) {
+        return _this4._removeItem(item);
+      });
+
+      return this;
+    }
+  }, {
+    key: "removeHighlightedItems",
+    value: function removeHighlightedItems() {
+      var _this5 = this;
+
+      var runEvent = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+      this._store.highlightedActiveItems.forEach(function (item) {
+        _this5._removeItem(item); // If this action was performed by the user
+        // trigger the event
+
+
+        if (runEvent) {
+          _this5._triggerChange(item.value);
+        }
+      });
+
+      return this;
+    }
+  }, {
+    key: "showDropdown",
+    value: function showDropdown(preventInputFocus) {
+      var _this6 = this;
+
+      if (this.dropdown.isActive) {
+        return this;
+      }
+
+      requestAnimationFrame(function () {
+        _this6.dropdown.show();
+
+        _this6.containerOuter.open(_this6.dropdown.distanceFromTopWindow());
+
+        if (!preventInputFocus && _this6._canSearch) {
+          _this6.input.focus();
+        }
+
+        _this6.passedElement.triggerEvent(_constants.EVENTS.showDropdown, {});
+      });
+      return this;
+    }
+  }, {
+    key: "hideDropdown",
+    value: function hideDropdown(preventInputBlur) {
+      var _this7 = this;
+
+      if (!this.dropdown.isActive) {
+        return this;
+      }
+
+      requestAnimationFrame(function () {
+        _this7.dropdown.hide();
+
+        _this7.containerOuter.close();
+
+        if (!preventInputBlur && _this7._canSearch) {
+          _this7.input.removeActiveDescendant();
+
+          _this7.input.blur();
+        }
+
+        _this7.passedElement.triggerEvent(_constants.EVENTS.hideDropdown, {});
+      });
+      return this;
+    }
+  }, {
+    key: "getValue",
+    value: function getValue() {
+      var valueOnly = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+      var values = this._store.activeItems.reduce(function (selectedItems, item) {
+        var itemValue = valueOnly ? item.value : item;
+        selectedItems.push(itemValue);
+        return selectedItems;
+      }, []);
+
+      return this._isSelectOneElement ? values[0] : values;
+    }
+  }, {
+    key: "setValue",
+    value: function setValue(args) {
+      var _this8 = this;
+
+      if (!this.initialised) {
+        return this;
+      }
+
+      [].concat(args).forEach(function (value) {
+        return _this8._setChoiceOrItem(value);
+      });
+      return this;
+    }
+  }, {
+    key: "setChoiceByValue",
+    value: function setChoiceByValue(value) {
+      var _this9 = this;
+
+      if (!this.initialised || this._isTextElement) {
+        return this;
+      } // If only one value has been passed, convert to array
+
+
+      var choiceValue = (0, _utils.isType)('Array', value) ? value : [value]; // Loop through each value and
+
+      choiceValue.forEach(function (val) {
+        return _this9._findAndSelectChoiceByValue(val);
+      });
+      return this;
+    }
+  }, {
+    key: "setChoices",
+    value: function setChoices() {
+      var _this10 = this;
+
+      var choices = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+      var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+      var label = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+      var replaceChoices = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+
+      if (!this._isSelectElement || !value) {
+        return this;
+      } // Clear choices if needed
+
+
+      if (replaceChoices) {
+        this.clearChoices();
+      }
+
+      this.containerOuter.removeLoadingState();
+
+      var addGroupsAndChoices = function addGroupsAndChoices(groupOrChoice) {
+        if (groupOrChoice.choices) {
+          _this10._addGroup({
+            group: groupOrChoice,
+            id: groupOrChoice.id || null,
+            valueKey: value,
+            labelKey: label
+          });
+        } else {
+          _this10._addChoice({
+            value: groupOrChoice[value],
+            label: groupOrChoice[label],
+            isSelected: groupOrChoice.selected,
+            isDisabled: groupOrChoice.disabled,
+            customProperties: groupOrChoice.customProperties,
+            placeholder: groupOrChoice.placeholder
+          });
+        }
+      };
+
+      this._setLoading(true);
+
+      choices.forEach(addGroupsAndChoices);
+
+      this._setLoading(false);
+
+      return this;
+    }
+  }, {
+    key: "clearChoices",
+    value: function clearChoices() {
+      this._store.dispatch((0, _choices.clearChoices)());
+    }
+  }, {
+    key: "clearStore",
+    value: function clearStore() {
+      this._store.dispatch((0, _misc.clearAll)());
+
+      return this;
+    }
+  }, {
+    key: "clearInput",
+    value: function clearInput() {
+      var shouldSetInputWidth = !this._isSelectOneElement;
+      this.input.clear(shouldSetInputWidth);
+
+      if (!this._isTextElement && this._canSearch) {
+        this._isSearching = false;
+
+        this._store.dispatch((0, _choices.activateChoices)(true));
+      }
+
+      return this;
+    }
+  }, {
+    key: "ajax",
+    value: function ajax(fn) {
+      var _this11 = this;
+
+      if (!this.initialised || !this._isSelectElement || !fn) {
+        return this;
+      }
+
+      requestAnimationFrame(function () {
+        return _this11._handleLoadingState(true);
+      });
+      fn(this._ajaxCallback());
+      return this;
+    }
+    /* =====  End of Public functions  ====== */
+
+    /* =============================================
+    =                Private functions            =
+    ============================================= */
+
+  }, {
+    key: "_render",
+    value: function _render() {
+      if (this._store.isLoading()) {
+        return;
+      }
+
+      this._currentState = this._store.state;
+      var stateChanged = this._currentState.choices !== this._prevState.choices || this._currentState.groups !== this._prevState.groups || this._currentState.items !== this._prevState.items;
+      var shouldRenderChoices = this._isSelectElement;
+      var shouldRenderItems = this._currentState.items !== this._prevState.items;
+
+      if (!stateChanged) {
+        return;
+      }
+
+      if (shouldRenderChoices) {
+        this._renderChoices();
+      }
+
+      if (shouldRenderItems) {
+        this._renderItems();
+      }
+
+      this._prevState = this._currentState;
+    }
+  }, {
+    key: "_renderChoices",
+    value: function _renderChoices() {
+      var _this12 = this;
+
+      var _this$_store = this._store,
+          activeGroups = _this$_store.activeGroups,
+          activeChoices = _this$_store.activeChoices;
+      var choiceListFragment = document.createDocumentFragment();
+      this.choiceList.clear();
+
+      if (this.config.resetScrollPosition) {
+        requestAnimationFrame(function () {
+          return _this12.choiceList.scrollToTop();
+        });
+      } // If we have grouped options
+
+
+      if (activeGroups.length >= 1 && !this._isSearching) {
+        // If we have a placeholder choice along with groups
+        var activePlaceholders = activeChoices.filter(function (activeChoice) {
+          return activeChoice.placeholder === true && activeChoice.groupId === -1;
+        });
+
+        if (activePlaceholders.length >= 1) {
+          choiceListFragment = this._createChoicesFragment(activePlaceholders, choiceListFragment);
+        }
+
+        choiceListFragment = this._createGroupsFragment(activeGroups, activeChoices, choiceListFragment);
+      } else if (activeChoices.length >= 1) {
+        choiceListFragment = this._createChoicesFragment(activeChoices, choiceListFragment);
+      } // If we have choices to show
+
+
+      if (choiceListFragment.childNodes && choiceListFragment.childNodes.length > 0) {
+        var activeItems = this._store.activeItems;
+
+        var canAddItem = this._canAddItem(activeItems, this.input.value); // ...and we can select them
+
+
+        if (canAddItem.response) {
+          // ...append them and highlight the first choice
+          this.choiceList.append(choiceListFragment);
+
+          this._highlightChoice();
+        } else {
+          // ...otherwise show a notice
+          this.choiceList.append(this._getTemplate('notice', canAddItem.notice));
+        }
+      } else {
+        // Otherwise show a notice
+        var dropdownItem;
+        var notice;
+
+        if (this._isSearching) {
+          notice = (0, _utils.isType)('Function', this.config.noResultsText) ? this.config.noResultsText() : this.config.noResultsText;
+          dropdownItem = this._getTemplate('notice', notice, 'no-results');
+        } else {
+          notice = (0, _utils.isType)('Function', this.config.noChoicesText) ? this.config.noChoicesText() : this.config.noChoicesText;
+          dropdownItem = this._getTemplate('notice', notice, 'no-choices');
+        }
+
+        this.choiceList.append(dropdownItem);
+      }
+    }
+  }, {
+    key: "_renderItems",
+    value: function _renderItems() {
+      var activeItems = this._store.activeItems || [];
+      this.itemList.clear(); // Create a fragment to store our list items
+      // (so we don't have to update the DOM for each item)
+
+      var itemListFragment = this._createItemsFragment(activeItems); // If we have items to add, append them
+
+
+      if (itemListFragment.childNodes) {
+        this.itemList.append(itemListFragment);
+      }
+    }
+  }, {
+    key: "_createGroupsFragment",
+    value: function _createGroupsFragment(groups, choices, fragment) {
+      var _this13 = this;
+
+      var groupFragment = fragment || document.createDocumentFragment();
+
+      var getGroupChoices = function getGroupChoices(group) {
+        return choices.filter(function (choice) {
+          if (_this13._isSelectOneElement) {
+            return choice.groupId === group.id;
+          }
+
+          return choice.groupId === group.id && (_this13.config.renderSelectedChoices === 'always' || !choice.selected);
+        });
+      }; // If sorting is enabled, filter groups
+
+
+      if (this.config.shouldSort) {
+        groups.sort(this.config.sortFn);
+      }
+
+      groups.forEach(function (group) {
+        var groupChoices = getGroupChoices(group);
+
+        if (groupChoices.length >= 1) {
+          var dropdownGroup = _this13._getTemplate('choiceGroup', group);
+
+          groupFragment.appendChild(dropdownGroup);
+
+          _this13._createChoicesFragment(groupChoices, groupFragment, true);
+        }
+      });
+      return groupFragment;
+    }
+  }, {
+    key: "_createChoicesFragment",
+    value: function _createChoicesFragment(choices, fragment) {
+      var _this14 = this;
+
+      var withinGroup = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      // Create a fragment to store our list items (so we don't have to update the DOM for each item)
+      var choicesFragment = fragment || document.createDocumentFragment();
+      var _this$config = this.config,
+          renderSelectedChoices = _this$config.renderSelectedChoices,
+          searchResultLimit = _this$config.searchResultLimit,
+          renderChoiceLimit = _this$config.renderChoiceLimit;
+      var filter = this._isSearching ? _utils.sortByScore : this.config.sortFn;
+
+      var appendChoice = function appendChoice(choice) {
+        var shouldRender = renderSelectedChoices === 'auto' ? _this14._isSelectOneElement || !choice.selected : true;
+
+        if (shouldRender) {
+          var dropdownItem = _this14._getTemplate('choice', choice, _this14.config.itemSelectText);
+
+          choicesFragment.appendChild(dropdownItem);
+        }
+      };
+
+      var rendererableChoices = choices;
+
+      if (renderSelectedChoices === 'auto' && !this._isSelectOneElement) {
+        rendererableChoices = choices.filter(function (choice) {
+          return !choice.selected;
+        });
+      } // Split array into placeholders and "normal" choices
+
+
+      var _rendererableChoices$ = rendererableChoices.reduce(function (acc, choice) {
+        if (choice.placeholder) {
+          acc.placeholderChoices.push(choice);
+        } else {
+          acc.normalChoices.push(choice);
+        }
+
+        return acc;
+      }, {
+        placeholderChoices: [],
+        normalChoices: []
+      }),
+          placeholderChoices = _rendererableChoices$.placeholderChoices,
+          normalChoices = _rendererableChoices$.normalChoices; // If sorting is enabled or the user is searching, filter choices
+
+
+      if (this.config.shouldSort || this._isSearching) {
+        normalChoices.sort(filter);
+      }
+
+      var choiceLimit = rendererableChoices.length; // Prepend placeholeder
+
+      var sortedChoices = [].concat(placeholderChoices, normalChoices);
+
+      if (this._isSearching) {
+        choiceLimit = searchResultLimit;
+      } else if (renderChoiceLimit > 0 && !withinGroup) {
+        choiceLimit = renderChoiceLimit;
+      } // Add each choice to dropdown within range
+
+
+      for (var i = 0; i < choiceLimit; i += 1) {
+        if (sortedChoices[i]) {
+          appendChoice(sortedChoices[i]);
+        }
+      }
+
+      return choicesFragment;
+    }
+  }, {
+    key: "_createItemsFragment",
+    value: function _createItemsFragment(items) {
+      var _this15 = this;
+
+      var fragment = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      // Create fragment to add elements to
+      var _this$config2 = this.config,
+          shouldSortItems = _this$config2.shouldSortItems,
+          sortFn = _this$config2.sortFn,
+          removeItemButton = _this$config2.removeItemButton;
+      var itemListFragment = fragment || document.createDocumentFragment(); // If sorting is enabled, filter items
+
+      if (shouldSortItems && !this._isSelectOneElement) {
+        items.sort(sortFn);
+      }
+
+      if (this._isTextElement) {
+        // Update the value of the hidden input
+        this.passedElement.value = items;
+      } else {
+        // Update the options of the hidden input
+        this.passedElement.options = items;
+      }
+
+      var addItemToFragment = function addItemToFragment(item) {
+        // Create new list element
+        var listItem = _this15._getTemplate('item', item, removeItemButton); // Append it to list
+
+
+        itemListFragment.appendChild(listItem);
+      }; // Add each list item to list
+
+
+      items.forEach(function (item) {
+        return addItemToFragment(item);
+      });
+      return itemListFragment;
+    }
+  }, {
+    key: "_triggerChange",
+    value: function _triggerChange(value) {
+      if (value === undefined || value === null) {
+        return;
+      }
+
+      this.passedElement.triggerEvent(_constants.EVENTS.change, {
+        value: value
+      });
+    }
+  }, {
+    key: "_selectPlaceholderChoice",
+    value: function _selectPlaceholderChoice() {
+      var placeholderChoice = this._store.placeholderChoice;
+
+      if (placeholderChoice) {
+        this._addItem({
+          value: placeholderChoice.value,
+          label: placeholderChoice.label,
+          choiceId: placeholderChoice.id,
+          groupId: placeholderChoice.groupId,
+          placeholder: placeholderChoice.placeholder
+        });
+
+        this._triggerChange(placeholderChoice.value);
+      }
+    }
+  }, {
+    key: "_handleButtonAction",
+    value: function _handleButtonAction(activeItems, element) {
+      if (!activeItems || !element || !this.config.removeItems || !this.config.removeItemButton) {
+        return;
+      }
+
+      var itemId = element.parentNode.getAttribute('data-id');
+      var itemToRemove = activeItems.find(function (item) {
+        return item.id === parseInt(itemId, 10);
+      }); // Remove item associated with button
+
+      this._removeItem(itemToRemove);
+
+      this._triggerChange(itemToRemove.value);
+
+      if (this._isSelectOneElement) {
+        this._selectPlaceholderChoice();
+      }
+    }
+  }, {
+    key: "_handleItemAction",
+    value: function _handleItemAction(activeItems, element) {
+      var _this16 = this;
+
+      var hasShiftKey = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+      if (!activeItems || !element || !this.config.removeItems || this._isSelectOneElement) {
+        return;
+      }
+
+      var passedId = element.getAttribute('data-id'); // We only want to select one item with a click
+      // so we deselect any items that aren't the target
+      // unless shift is being pressed
+
+      activeItems.forEach(function (item) {
+        if (item.id === parseInt(passedId, 10) && !item.highlighted) {
+          _this16.highlightItem(item);
+        } else if (!hasShiftKey && item.highlighted) {
+          _this16.unhighlightItem(item);
+        }
+      }); // Focus input as without focus, a user cannot do anything with a
+      // highlighted item
+
+      this.input.focus();
+    }
+  }, {
+    key: "_handleChoiceAction",
+    value: function _handleChoiceAction(activeItems, element) {
+      if (!activeItems || !element) {
+        return;
+      } // If we are clicking on an option
+
+
+      var id = element.getAttribute('data-id');
+
+      var choice = this._store.getChoiceById(id);
+
+      var passedKeyCode = activeItems[0] && activeItems[0].keyCode ? activeItems[0].keyCode : null;
+      var hasActiveDropdown = this.dropdown.isActive; // Update choice keyCode
+
+      choice.keyCode = passedKeyCode;
+      this.passedElement.triggerEvent(_constants.EVENTS.choice, {
+        choice: choice
+      });
+
+      if (choice && !choice.selected && !choice.disabled) {
+        var canAddItem = this._canAddItem(activeItems, choice.value);
+
+        if (canAddItem.response) {
+          this._addItem({
+            value: choice.value,
+            label: choice.label,
+            choiceId: choice.id,
+            groupId: choice.groupId,
+            customProperties: choice.customProperties,
+            placeholder: choice.placeholder,
+            keyCode: choice.keyCode
+          });
+
+          this._triggerChange(choice.value);
+        }
+      }
+
+      this.clearInput(); // We wont to close the dropdown if we are dealing with a single select box
+
+      if (hasActiveDropdown && this._isSelectOneElement) {
+        this.hideDropdown(true);
+        this.containerOuter.focus();
+      }
+    }
+  }, {
+    key: "_handleBackspace",
+    value: function _handleBackspace(activeItems) {
+      if (!this.config.removeItems || !activeItems) {
+        return;
+      }
+
+      var lastItem = activeItems[activeItems.length - 1];
+      var hasHighlightedItems = activeItems.some(function (item) {
+        return item.highlighted;
+      }); // If editing the last item is allowed and there are not other selected items,
+      // we can edit the item value. Otherwise if we can remove items, remove all selected items
+
+      if (this.config.editItems && !hasHighlightedItems && lastItem) {
+        this.input.value = lastItem.value;
+        this.input.setWidth();
+
+        this._removeItem(lastItem);
+
+        this._triggerChange(lastItem.value);
+      } else {
+        if (!hasHighlightedItems) {
+          // Highlight last item if none already highlighted
+          this.highlightItem(lastItem, false);
+        }
+
+        this.removeHighlightedItems(true);
+      }
+    }
+  }, {
+    key: "_setLoading",
+    value: function _setLoading(isLoading) {
+      this._store.dispatch((0, _general.setIsLoading)(isLoading));
+    }
+  }, {
+    key: "_handleLoadingState",
+    value: function _handleLoadingState() {
+      var setLoading = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      var placeholderItem = this.itemList.getChild(".".concat(this.config.classNames.placeholder));
+
+      if (setLoading) {
+        this.disable();
+        this.containerOuter.addLoadingState();
+
+        if (this._isSelectOneElement) {
+          if (!placeholderItem) {
+            placeholderItem = this._getTemplate('placeholder', this.config.loadingText);
+            this.itemList.append(placeholderItem);
+          } else {
+            placeholderItem.innerHTML = this.config.loadingText;
+          }
+        } else {
+          this.input.placeholder = this.config.loadingText;
+        }
+      } else {
+        this.enable();
+        this.containerOuter.removeLoadingState();
+
+        if (this._isSelectOneElement) {
+          placeholderItem.innerHTML = this._placeholderValue || '';
+        } else {
+          this.input.placeholder = this._placeholderValue || '';
+        }
+      }
+    }
+  }, {
+    key: "_handleSearch",
+    value: function _handleSearch(value) {
+      if (!value || !this.input.isFocussed) {
+        return;
+      }
+
+      var choices = this._store.choices;
+      var _this$config3 = this.config,
+          searchFloor = _this$config3.searchFloor,
+          searchChoices = _this$config3.searchChoices;
+      var hasUnactiveChoices = choices.some(function (option) {
+        return !option.active;
+      }); // Check that we have a value to search and the input was an alphanumeric character
+
+      if (value && value.length >= searchFloor) {
+        var resultCount = searchChoices ? this._searchChoices(value) : 0; // Trigger search event
+
+        this.passedElement.triggerEvent(_constants.EVENTS.search, {
+          value: value,
+          resultCount: resultCount
+        });
+      } else if (hasUnactiveChoices) {
+        // Otherwise reset choices to active
+        this._isSearching = false;
+
+        this._store.dispatch((0, _choices.activateChoices)(true));
+      }
+    }
+  }, {
+    key: "_canAddItem",
+    value: function _canAddItem(activeItems, value) {
+      var canAddItem = true;
+      var notice = (0, _utils.isType)('Function', this.config.addItemText) ? this.config.addItemText(value) : this.config.addItemText;
+
+      if (!this._isSelectOneElement) {
+        var isDuplicateValue = (0, _utils.existsInArray)(activeItems, value);
+
+        if (this.config.maxItemCount > 0 && this.config.maxItemCount <= activeItems.length) {
+          // If there is a max entry limit and we have reached that limit
+          // don't update
+          canAddItem = false;
+          notice = (0, _utils.isType)('Function', this.config.maxItemText) ? this.config.maxItemText(this.config.maxItemCount) : this.config.maxItemText;
+        }
+
+        if (!this.config.duplicateItemsAllowed && isDuplicateValue && canAddItem) {
+          canAddItem = false;
+          notice = (0, _utils.isType)('Function', this.config.uniqueItemText) ? this.config.uniqueItemText(value) : this.config.uniqueItemText;
+        }
+
+        if (this._isTextElement && this.config.addItems && canAddItem && (0, _utils.isType)('Function', this.config.addItemFilterFn) && !this.config.addItemFilterFn(value)) {
+          canAddItem = false;
+          notice = (0, _utils.isType)('Function', this.config.customAddItemText) ? this.config.customAddItemText(value) : this.config.customAddItemText;
+        }
+      }
+
+      return {
+        response: canAddItem,
+        notice: notice
+      };
+    }
+  }, {
+    key: "_ajaxCallback",
+    value: function _ajaxCallback() {
+      var _this17 = this;
+
+      return function (results, value, label) {
+        if (!results || !value) {
+          return;
+        }
+
+        var parsedResults = (0, _utils.isType)('Object', results) ? [results] : results;
+
+        if (parsedResults && (0, _utils.isType)('Array', parsedResults) && parsedResults.length) {
+          // Remove loading states/text
+          _this17._handleLoadingState(false);
+
+          _this17._setLoading(true); // Add each result as a choice
+
+
+          parsedResults.forEach(function (result) {
+            if (result.choices) {
+              _this17._addGroup({
+                group: result,
+                id: result.id || null,
+                valueKey: value,
+                labelKey: label
+              });
+            } else {
+              _this17._addChoice({
+                value: (0, _utils.fetchFromObject)(result, value),
+                label: (0, _utils.fetchFromObject)(result, label),
+                isSelected: result.selected,
+                isDisabled: result.disabled,
+                customProperties: result.customProperties,
+                placeholder: result.placeholder
+              });
+            }
+          });
+
+          _this17._setLoading(false);
+
+          if (_this17._isSelectOneElement) {
+            _this17._selectPlaceholderChoice();
+          }
+        } else {
+          // No results, remove loading state
+          _this17._handleLoadingState(false);
+        }
+      };
+    }
+  }, {
+    key: "_searchChoices",
+    value: function _searchChoices(value) {
+      var newValue = (0, _utils.isType)('String', value) ? value.trim() : value;
+      var currentValue = (0, _utils.isType)('String', this._currentValue) ? this._currentValue.trim() : this._currentValue;
+
+      if (newValue.length < 1 && newValue === "".concat(currentValue, " ")) {
+        return 0;
+      } // If new value matches the desired length and is not the same as the current value with a space
+
+
+      var haystack = this._store.searchableChoices;
+      var needle = newValue;
+      var keys = [].concat(this.config.searchFields);
+      var options = Object.assign(this.config.fuseOptions, {
+        keys: keys
+      });
+      var fuse = new _fuse.default(haystack, options);
+      var results = fuse.search(needle);
+      this._currentValue = newValue;
+      this._highlightPosition = 0;
+      this._isSearching = true;
+
+      this._store.dispatch((0, _choices.filterChoices)(results));
+
+      return results.length;
+    }
+  }, {
+    key: "_addEventListeners",
+    value: function _addEventListeners() {
+      document.addEventListener('keyup', this._onKeyUp);
+      document.addEventListener('keydown', this._onKeyDown);
+      document.addEventListener('click', this._onClick);
+      document.addEventListener('touchmove', this._onTouchMove);
+      document.addEventListener('touchend', this._onTouchEnd);
+      document.addEventListener('mousedown', this._onMouseDown);
+      document.addEventListener('mouseover', this._onMouseOver);
+
+      if (this._isSelectOneElement) {
+        this.containerOuter.element.addEventListener('focus', this._onFocus);
+        this.containerOuter.element.addEventListener('blur', this._onBlur);
+      }
+
+      this.input.element.addEventListener('focus', this._onFocus);
+      this.input.element.addEventListener('blur', this._onBlur);
+
+      if (this.input.element.form) {
+        this.input.element.form.addEventListener('reset', this._onFormReset);
+      }
+
+      this.input.addEventListeners();
+    }
+  }, {
+    key: "_removeEventListeners",
+    value: function _removeEventListeners() {
+      document.removeEventListener('keyup', this._onKeyUp);
+      document.removeEventListener('keydown', this._onKeyDown);
+      document.removeEventListener('click', this._onClick);
+      document.removeEventListener('touchmove', this._onTouchMove);
+      document.removeEventListener('touchend', this._onTouchEnd);
+      document.removeEventListener('mousedown', this._onMouseDown);
+      document.removeEventListener('mouseover', this._onMouseOver);
+
+      if (this._isSelectOneElement) {
+        this.containerOuter.element.removeEventListener('focus', this._onFocus);
+        this.containerOuter.element.removeEventListener('blur', this._onBlur);
+      }
+
+      this.input.element.removeEventListener('focus', this._onFocus);
+      this.input.element.removeEventListener('blur', this._onBlur);
+
+      if (this.input.element.form) {
+        this.input.element.form.removeEventListener('reset', this._onFormReset);
+      }
+
+      this.input.removeEventListeners();
+    }
+  }, {
+    key: "_onKeyDown",
+    value: function _onKeyDown(event) {
+      var _keyDownActions;
+
+      var target = event.target,
+          keyCode = event.keyCode,
+          ctrlKey = event.ctrlKey,
+          metaKey = event.metaKey;
+
+      if (target !== this.input.element && !this.containerOuter.element.contains(target)) {
+        return;
+      }
+
+      var activeItems = this._store.activeItems;
+      var hasFocusedInput = this.input.isFocussed;
+      var hasActiveDropdown = this.dropdown.isActive;
+      var hasItems = this.itemList.hasChildren;
+      var keyString = String.fromCharCode(keyCode);
+      var BACK_KEY = _constants.KEY_CODES.BACK_KEY,
+          DELETE_KEY = _constants.KEY_CODES.DELETE_KEY,
+          ENTER_KEY = _constants.KEY_CODES.ENTER_KEY,
+          A_KEY = _constants.KEY_CODES.A_KEY,
+          ESC_KEY = _constants.KEY_CODES.ESC_KEY,
+          UP_KEY = _constants.KEY_CODES.UP_KEY,
+          DOWN_KEY = _constants.KEY_CODES.DOWN_KEY,
+          PAGE_UP_KEY = _constants.KEY_CODES.PAGE_UP_KEY,
+          PAGE_DOWN_KEY = _constants.KEY_CODES.PAGE_DOWN_KEY;
+      var hasCtrlDownKeyPressed = ctrlKey || metaKey; // If a user is typing and the dropdown is not active
+
+      if (!this._isTextElement && /[a-zA-Z0-9-_ ]/.test(keyString)) {
+        this.showDropdown();
+      } // Map keys to key actions
+
+
+      var keyDownActions = (_keyDownActions = {}, _defineProperty(_keyDownActions, A_KEY, this._onAKey), _defineProperty(_keyDownActions, ENTER_KEY, this._onEnterKey), _defineProperty(_keyDownActions, ESC_KEY, this._onEscapeKey), _defineProperty(_keyDownActions, UP_KEY, this._onDirectionKey), _defineProperty(_keyDownActions, PAGE_UP_KEY, this._onDirectionKey), _defineProperty(_keyDownActions, DOWN_KEY, this._onDirectionKey), _defineProperty(_keyDownActions, PAGE_DOWN_KEY, this._onDirectionKey), _defineProperty(_keyDownActions, DELETE_KEY, this._onDeleteKey), _defineProperty(_keyDownActions, BACK_KEY, this._onDeleteKey), _keyDownActions); // If keycode has a function, run it
+
+      if (keyDownActions[keyCode]) {
+        keyDownActions[keyCode]({
+          event: event,
+          target: target,
+          keyCode: keyCode,
+          metaKey: metaKey,
+          activeItems: activeItems,
+          hasFocusedInput: hasFocusedInput,
+          hasActiveDropdown: hasActiveDropdown,
+          hasItems: hasItems,
+          hasCtrlDownKeyPressed: hasCtrlDownKeyPressed
+        });
+      }
+    }
+  }, {
+    key: "_onKeyUp",
+    value: function _onKeyUp(_ref2) {
+      var target = _ref2.target,
+          keyCode = _ref2.keyCode;
+
+      if (target !== this.input.element) {
+        return;
+      }
+
+      var value = this.input.value;
+      var activeItems = this._store.activeItems;
+
+      var canAddItem = this._canAddItem(activeItems, value);
+
+      var backKey = _constants.KEY_CODES.BACK_KEY,
+          deleteKey = _constants.KEY_CODES.DELETE_KEY; // We are typing into a text input and have a value, we want to show a dropdown
+      // notice. Otherwise hide the dropdown
+
+      if (this._isTextElement) {
+        var canShowDropdownNotice = canAddItem.notice && value;
+
+        if (canShowDropdownNotice) {
+          var dropdownItem = this._getTemplate('notice', canAddItem.notice);
+
+          this.dropdown.element.innerHTML = dropdownItem.outerHTML;
+          this.showDropdown(true);
+        } else {
+          this.hideDropdown(true);
+        }
+      } else {
+        var userHasRemovedValue = (keyCode === backKey || keyCode === deleteKey) && !target.value;
+        var canReactivateChoices = !this._isTextElement && this._isSearching;
+        var canSearch = this._canSearch && canAddItem.response;
+
+        if (userHasRemovedValue && canReactivateChoices) {
+          this._isSearching = false;
+
+          this._store.dispatch((0, _choices.activateChoices)(true));
+        } else if (canSearch) {
+          this._handleSearch(this.input.value);
+        }
+      }
+
+      this._canSearch = this.config.searchEnabled;
+    }
+  }, {
+    key: "_onAKey",
+    value: function _onAKey(_ref3) {
+      var hasItems = _ref3.hasItems,
+          hasCtrlDownKeyPressed = _ref3.hasCtrlDownKeyPressed;
+
+      // If CTRL + A or CMD + A have been pressed and there are items to select
+      if (hasCtrlDownKeyPressed && hasItems) {
+        this._canSearch = false;
+        var shouldHightlightAll = this.config.removeItems && !this.input.value && this.input.element === document.activeElement;
+
+        if (shouldHightlightAll) {
+          this.highlightAll();
+        }
+      }
+    }
+  }, {
+    key: "_onEnterKey",
+    value: function _onEnterKey(_ref4) {
+      var event = _ref4.event,
+          target = _ref4.target,
+          activeItems = _ref4.activeItems,
+          hasActiveDropdown = _ref4.hasActiveDropdown;
+      var enterKey = _constants.KEY_CODES.ENTER_KEY;
+      var targetWasButton = target.hasAttribute('data-button');
+
+      if (this._isTextElement && target.value) {
+        var value = this.input.value;
+
+        var canAddItem = this._canAddItem(activeItems, value);
+
+        if (canAddItem.response) {
+          this.hideDropdown(true);
+
+          this._addItem({
+            value: value
+          });
+
+          this._triggerChange(value);
+
+          this.clearInput();
+        }
+      }
+
+      if (targetWasButton) {
+        this._handleButtonAction(activeItems, target);
+
+        event.preventDefault();
+      }
+
+      if (hasActiveDropdown) {
+        var highlightedChoice = this.dropdown.getChild(".".concat(this.config.classNames.highlightedState));
+
+        if (highlightedChoice) {
+          // add enter keyCode value
+          if (activeItems[0]) {
+            activeItems[0].keyCode = enterKey; // eslint-disable-line no-param-reassign
+          }
+
+          this._handleChoiceAction(activeItems, highlightedChoice);
+        }
+
+        event.preventDefault();
+      } else if (this._isSelectOneElement) {
+        this.showDropdown();
+        event.preventDefault();
+      }
+    }
+  }, {
+    key: "_onEscapeKey",
+    value: function _onEscapeKey(_ref5) {
+      var hasActiveDropdown = _ref5.hasActiveDropdown;
+
+      if (hasActiveDropdown) {
+        this.hideDropdown(true);
+        this.containerOuter.focus();
+      }
+    }
+  }, {
+    key: "_onDirectionKey",
+    value: function _onDirectionKey(_ref6) {
+      var event = _ref6.event,
+          hasActiveDropdown = _ref6.hasActiveDropdown,
+          keyCode = _ref6.keyCode,
+          metaKey = _ref6.metaKey;
+      var downKey = _constants.KEY_CODES.DOWN_KEY,
+          pageUpKey = _constants.KEY_CODES.PAGE_UP_KEY,
+          pageDownKey = _constants.KEY_CODES.PAGE_DOWN_KEY; // If up or down key is pressed, traverse through options
+
+      if (hasActiveDropdown || this._isSelectOneElement) {
+        this.showDropdown();
+        this._canSearch = false;
+        var directionInt = keyCode === downKey || keyCode === pageDownKey ? 1 : -1;
+        var skipKey = metaKey || keyCode === pageDownKey || keyCode === pageUpKey;
+        var selectableChoiceIdentifier = '[data-choice-selectable]';
+        var nextEl;
+
+        if (skipKey) {
+          if (directionInt > 0) {
+            nextEl = Array.from(this.dropdown.element.querySelectorAll(selectableChoiceIdentifier)).pop();
+          } else {
+            nextEl = this.dropdown.element.querySelector(selectableChoiceIdentifier);
+          }
+        } else {
+          var currentEl = this.dropdown.element.querySelector(".".concat(this.config.classNames.highlightedState));
+
+          if (currentEl) {
+            nextEl = (0, _utils.getAdjacentEl)(currentEl, selectableChoiceIdentifier, directionInt);
+          } else {
+            nextEl = this.dropdown.element.querySelector(selectableChoiceIdentifier);
+          }
+        }
+
+        if (nextEl) {
+          // We prevent default to stop the cursor moving
+          // when pressing the arrow
+          if (!(0, _utils.isScrolledIntoView)(nextEl, this.choiceList.element, directionInt)) {
+            this.choiceList.scrollToChoice(nextEl, directionInt);
+          }
+
+          this._highlightChoice(nextEl);
+        } // Prevent default to maintain cursor position whilst
+        // traversing dropdown options
+
+
+        event.preventDefault();
+      }
+    }
+  }, {
+    key: "_onDeleteKey",
+    value: function _onDeleteKey(_ref7) {
+      var event = _ref7.event,
+          target = _ref7.target,
+          hasFocusedInput = _ref7.hasFocusedInput,
+          activeItems = _ref7.activeItems;
+
+      // If backspace or delete key is pressed and the input has no value
+      if (hasFocusedInput && !target.value && !this._isSelectOneElement) {
+        this._handleBackspace(activeItems);
+
+        event.preventDefault();
+      }
+    }
+  }, {
+    key: "_onTouchMove",
+    value: function _onTouchMove() {
+      if (this._wasTap) {
+        this._wasTap = false;
+      }
+    }
+  }, {
+    key: "_onTouchEnd",
+    value: function _onTouchEnd(event) {
+      var _ref8 = event || event.touches[0],
+          target = _ref8.target;
+
+      var touchWasWithinContainer = this._wasTap && this.containerOuter.element.contains(target);
+
+      if (touchWasWithinContainer) {
+        var containerWasExactTarget = target === this.containerOuter.element || target === this.containerInner.element;
+
+        if (containerWasExactTarget) {
+          if (this._isTextElement) {
+            this.input.focus();
+          } else if (this._isSelectMultipleElement) {
+            this.showDropdown();
+          }
+        } // Prevents focus event firing
+
+
+        event.stopPropagation();
+      }
+
+      this._wasTap = true;
+    }
+  }, {
+    key: "_onMouseDown",
+    value: function _onMouseDown(event) {
+      var target = event.target,
+          shiftKey = event.shiftKey; // If we have our mouse down on the scrollbar and are on IE11...
+
+      if (this.choiceList.element.contains(target) && (0, _utils.isIE11)()) {
+        this._isScrollingOnIe = true;
+      }
+
+      if (!this.containerOuter.element.contains(target) || target === this.input.element) {
+        return;
+      }
+
+      var activeItems = this._store.activeItems;
+      var hasShiftKey = shiftKey;
+      var buttonTarget = (0, _utils.findAncestorByAttrName)(target, 'data-button');
+      var itemTarget = (0, _utils.findAncestorByAttrName)(target, 'data-item');
+      var choiceTarget = (0, _utils.findAncestorByAttrName)(target, 'data-choice');
+
+      if (buttonTarget) {
+        this._handleButtonAction(activeItems, buttonTarget);
+      } else if (itemTarget) {
+        this._handleItemAction(activeItems, itemTarget, hasShiftKey);
+      } else if (choiceTarget) {
+        this._handleChoiceAction(activeItems, choiceTarget);
+      }
+
+      event.preventDefault();
+    }
+  }, {
+    key: "_onMouseOver",
+    value: function _onMouseOver(_ref9) {
+      var target = _ref9.target;
+      var targetWithinDropdown = target === this.dropdown || this.dropdown.element.contains(target);
+      var shouldHighlightChoice = targetWithinDropdown && target.hasAttribute('data-choice');
+
+      if (shouldHighlightChoice) {
+        this._highlightChoice(target);
+      }
+    }
+  }, {
+    key: "_onClick",
+    value: function _onClick(_ref10) {
+      var target = _ref10.target;
+      var clickWasWithinContainer = this.containerOuter.element.contains(target);
+
+      if (clickWasWithinContainer) {
+        if (!this.dropdown.isActive && !this.containerOuter.isDisabled) {
+          if (this._isTextElement) {
+            if (document.activeElement !== this.input.element) {
+              this.input.focus();
+            }
+          } else {
+            this.showDropdown();
+            this.containerOuter.focus();
+          }
+        } else if (this._isSelectOneElement && target !== this.input.element && !this.dropdown.element.contains(target)) {
+          this.hideDropdown();
+        }
+      } else {
+        var hasHighlightedItems = this._store.highlightedActiveItems;
+
+        if (hasHighlightedItems) {
+          this.unhighlightAll();
+        }
+
+        this.containerOuter.removeFocusState();
+        this.hideDropdown(true);
+      }
+    }
+  }, {
+    key: "_onFocus",
+    value: function _onFocus(_ref11) {
+      var _this18 = this;
+
+      var target = _ref11.target;
+      var focusWasWithinContainer = this.containerOuter.element.contains(target);
+
+      if (!focusWasWithinContainer) {
+        return;
+      }
+
+      var focusActions = {
+        text: function text() {
+          if (target === _this18.input.element) {
+            _this18.containerOuter.addFocusState();
+          }
+        },
+        'select-one': function selectOne() {
+          _this18.containerOuter.addFocusState();
+
+          if (target === _this18.input.element) {
+            _this18.showDropdown(true);
+          }
+        },
+        'select-multiple': function selectMultiple() {
+          if (target === _this18.input.element) {
+            _this18.showDropdown(true); // If element is a select box, the focused element is the container and the dropdown
+            // isn't already open, focus and show dropdown
+
+
+            _this18.containerOuter.addFocusState();
+          }
+        }
+      };
+      focusActions[this.passedElement.element.type]();
+    }
+  }, {
+    key: "_onBlur",
+    value: function _onBlur(_ref12) {
+      var _this19 = this;
+
+      var target = _ref12.target;
+      var blurWasWithinContainer = this.containerOuter.element.contains(target);
+
+      if (blurWasWithinContainer && !this._isScrollingOnIe) {
+        var activeItems = this._store.activeItems;
+        var hasHighlightedItems = activeItems.some(function (item) {
+          return item.highlighted;
+        });
+        var blurActions = {
+          text: function text() {
+            if (target === _this19.input.element) {
+              _this19.containerOuter.removeFocusState();
+
+              if (hasHighlightedItems) {
+                _this19.unhighlightAll();
+              }
+
+              _this19.hideDropdown(true);
+            }
+          },
+          'select-one': function selectOne() {
+            _this19.containerOuter.removeFocusState();
+
+            if (target === _this19.input.element || target === _this19.containerOuter.element && !_this19._canSearch) {
+              _this19.hideDropdown(true);
+            }
+          },
+          'select-multiple': function selectMultiple() {
+            if (target === _this19.input.element) {
+              _this19.containerOuter.removeFocusState();
+
+              _this19.hideDropdown(true);
+
+              if (hasHighlightedItems) {
+                _this19.unhighlightAll();
+              }
+            }
+          }
+        };
+        blurActions[this.passedElement.element.type]();
+      } else {
+        // On IE11, clicking the scollbar blurs our input and thus
+        // closes the dropdown. To stop this, we refocus our input
+        // if we know we are on IE *and* are scrolling.
+        this._isScrollingOnIe = false;
+        this.input.element.focus();
+      }
+    }
+  }, {
+    key: "_onFormReset",
+    value: function _onFormReset() {
+      this._store.dispatch((0, _misc.resetTo)(this._initialState));
+    }
+  }, {
+    key: "_highlightChoice",
+    value: function _highlightChoice() {
+      var _this20 = this;
+
+      var el = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      var choices = Array.from(this.dropdown.element.querySelectorAll('[data-choice-selectable]'));
+
+      if (!choices.length) {
+        return;
+      }
+
+      var passedEl = el;
+      var highlightedChoices = Array.from(this.dropdown.element.querySelectorAll(".".concat(this.config.classNames.highlightedState))); // Remove any highlighted choices
+
+      highlightedChoices.forEach(function (choice) {
+        choice.classList.remove(_this20.config.classNames.highlightedState);
+        choice.setAttribute('aria-selected', 'false');
+      });
+
+      if (passedEl) {
+        this._highlightPosition = choices.indexOf(passedEl);
+      } else {
+        // Highlight choice based on last known highlight location
+        if (choices.length > this._highlightPosition) {
+          // If we have an option to highlight
+          passedEl = choices[this._highlightPosition];
+        } else {
+          // Otherwise highlight the option before
+          passedEl = choices[choices.length - 1];
+        }
+
+        if (!passedEl) {
+          passedEl = choices[0];
+        }
+      }
+
+      passedEl.classList.add(this.config.classNames.highlightedState);
+      passedEl.setAttribute('aria-selected', 'true');
+      this.passedElement.triggerEvent(_constants.EVENTS.highlightChoice, {
+        el: passedEl
+      });
+
+      if (this.dropdown.isActive) {
+        // IE11 ignores aria-label and blocks virtual keyboard
+        // if aria-activedescendant is set without a dropdown
+        this.input.setActiveDescendant(passedEl.id);
+        this.containerOuter.setActiveDescendant(passedEl.id);
+      }
+    }
+  }, {
+    key: "_addItem",
+    value: function _addItem(_ref13) {
+      var value = _ref13.value,
+          _ref13$label = _ref13.label,
+          label = _ref13$label === void 0 ? null : _ref13$label,
+          _ref13$choiceId = _ref13.choiceId,
+          choiceId = _ref13$choiceId === void 0 ? -1 : _ref13$choiceId,
+          _ref13$groupId = _ref13.groupId,
+          groupId = _ref13$groupId === void 0 ? -1 : _ref13$groupId,
+          _ref13$customProperti = _ref13.customProperties,
+          customProperties = _ref13$customProperti === void 0 ? null : _ref13$customProperti,
+          _ref13$placeholder = _ref13.placeholder,
+          placeholder = _ref13$placeholder === void 0 ? false : _ref13$placeholder,
+          _ref13$keyCode = _ref13.keyCode,
+          keyCode = _ref13$keyCode === void 0 ? null : _ref13$keyCode;
+      var passedValue = (0, _utils.isType)('String', value) ? value.trim() : value;
+      var passedKeyCode = keyCode;
+      var passedCustomProperties = customProperties;
+      var items = this._store.items;
+      var passedLabel = label || passedValue;
+      var passedOptionId = parseInt(choiceId, 10) || -1;
+      var group = groupId >= 0 ? this._store.getGroupById(groupId) : null;
+      var id = items ? items.length + 1 : 1; // If a prepended value has been passed, prepend it
+
+      if (this.config.prependValue) {
+        passedValue = this.config.prependValue + passedValue.toString();
+      } // If an appended value has been passed, append it
+
+
+      if (this.config.appendValue) {
+        passedValue += this.config.appendValue.toString();
+      }
+
+      this._store.dispatch((0, _items.addItem)({
+        value: passedValue,
+        label: passedLabel,
+        id: id,
+        choiceId: passedOptionId,
+        groupId: groupId,
+        customProperties: customProperties,
+        placeholder: placeholder,
+        keyCode: passedKeyCode
+      }));
+
+      if (this._isSelectOneElement) {
+        this.removeActiveItems(id);
+      } // Trigger change event
+
+
+      this.passedElement.triggerEvent(_constants.EVENTS.addItem, {
+        id: id,
+        value: passedValue,
+        label: passedLabel,
+        customProperties: passedCustomProperties,
+        groupValue: group && group.value ? group.value : undefined,
+        keyCode: passedKeyCode
+      });
+      return this;
+    }
+  }, {
+    key: "_removeItem",
+    value: function _removeItem(item) {
+      if (!item || !(0, _utils.isType)('Object', item)) {
+        return this;
+      }
+
+      var id = item.id,
+          value = item.value,
+          label = item.label,
+          choiceId = item.choiceId,
+          groupId = item.groupId;
+      var group = groupId >= 0 ? this._store.getGroupById(groupId) : null;
+
+      this._store.dispatch((0, _items.removeItem)(id, choiceId));
+
+      if (group && group.value) {
+        this.passedElement.triggerEvent(_constants.EVENTS.removeItem, {
+          id: id,
+          value: value,
+          label: label,
+          groupValue: group.value
+        });
+      } else {
+        this.passedElement.triggerEvent(_constants.EVENTS.removeItem, {
+          id: id,
+          value: value,
+          label: label
+        });
+      }
+
+      return this;
+    }
+  }, {
+    key: "_addChoice",
+    value: function _addChoice(_ref14) {
+      var value = _ref14.value,
+          _ref14$label = _ref14.label,
+          label = _ref14$label === void 0 ? null : _ref14$label,
+          _ref14$isSelected = _ref14.isSelected,
+          isSelected = _ref14$isSelected === void 0 ? false : _ref14$isSelected,
+          _ref14$isDisabled = _ref14.isDisabled,
+          isDisabled = _ref14$isDisabled === void 0 ? false : _ref14$isDisabled,
+          _ref14$groupId = _ref14.groupId,
+          groupId = _ref14$groupId === void 0 ? -1 : _ref14$groupId,
+          _ref14$customProperti = _ref14.customProperties,
+          customProperties = _ref14$customProperti === void 0 ? null : _ref14$customProperti,
+          _ref14$placeholder = _ref14.placeholder,
+          placeholder = _ref14$placeholder === void 0 ? false : _ref14$placeholder,
+          _ref14$keyCode = _ref14.keyCode,
+          keyCode = _ref14$keyCode === void 0 ? null : _ref14$keyCode;
+
+      if (typeof value === 'undefined' || value === null) {
+        return;
+      } // Generate unique id
+
+
+      var choices = this._store.choices;
+      var choiceLabel = label || value;
+      var choiceId = choices ? choices.length + 1 : 1;
+      var choiceElementId = "".concat(this._baseId, "-").concat(this._idNames.itemChoice, "-").concat(choiceId);
+
+      this._store.dispatch((0, _choices.addChoice)({
+        value: value,
+        label: choiceLabel,
+        id: choiceId,
+        groupId: groupId,
+        disabled: isDisabled,
+        elementId: choiceElementId,
+        customProperties: customProperties,
+        placeholder: placeholder,
+        keyCode: keyCode
+      }));
+
+      if (isSelected) {
+        this._addItem({
+          value: value,
+          label: choiceLabel,
+          choiceId: choiceId,
+          customProperties: customProperties,
+          placeholder: placeholder,
+          keyCode: keyCode
+        });
+      }
+    }
+  }, {
+    key: "_addGroup",
+    value: function _addGroup(_ref15) {
+      var _this21 = this;
+
+      var group = _ref15.group,
+          id = _ref15.id,
+          _ref15$valueKey = _ref15.valueKey,
+          valueKey = _ref15$valueKey === void 0 ? 'value' : _ref15$valueKey,
+          _ref15$labelKey = _ref15.labelKey,
+          labelKey = _ref15$labelKey === void 0 ? 'label' : _ref15$labelKey;
+      var groupChoices = (0, _utils.isType)('Object', group) ? group.choices : Array.from(group.getElementsByTagName('OPTION'));
+      var groupId = id || Math.floor(new Date().valueOf() * Math.random());
+      var isDisabled = group.disabled ? group.disabled : false;
+
+      if (groupChoices) {
+        this._store.dispatch((0, _groups.addGroup)(group.label, groupId, true, isDisabled));
+
+        var addGroupChoices = function addGroupChoices(choice) {
+          var isOptDisabled = choice.disabled || choice.parentNode && choice.parentNode.disabled;
+
+          _this21._addChoice({
+            value: choice[valueKey],
+            label: (0, _utils.isType)('Object', choice) ? choice[labelKey] : choice.innerHTML,
+            isSelected: choice.selected,
+            isDisabled: isOptDisabled,
+            groupId: groupId,
+            customProperties: choice.customProperties,
+            placeholder: choice.placeholder
+          });
+        };
+
+        groupChoices.forEach(addGroupChoices);
+      } else {
+        this._store.dispatch((0, _groups.addGroup)(group.label, group.id, false, group.disabled));
+      }
+    }
+  }, {
+    key: "_getTemplate",
+    value: function _getTemplate(template) {
+      var _templates$template;
+
+      if (!template) {
+        return null;
+      }
+
+      var _this$config4 = this.config,
+          templates = _this$config4.templates,
+          classNames = _this$config4.classNames;
+
+      for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        args[_key - 1] = arguments[_key];
+      }
+
+      return (_templates$template = templates[template]).call.apply(_templates$template, [this, classNames].concat(args));
+    }
+  }, {
+    key: "_createTemplates",
+    value: function _createTemplates() {
+      var callbackOnCreateTemplates = this.config.callbackOnCreateTemplates;
+      var userTemplates = {};
+
+      if (callbackOnCreateTemplates && (0, _utils.isType)('Function', callbackOnCreateTemplates)) {
+        userTemplates = callbackOnCreateTemplates.call(this, _utils.strToEl);
+      }
+
+      this.config.templates = (0, _deepmerge.default)(_templates.TEMPLATES, userTemplates);
+    }
+  }, {
+    key: "_createElements",
+    value: function _createElements() {
+      this.containerOuter = new _components.Container({
+        element: this._getTemplate('containerOuter', this._direction, this._isSelectElement, this._isSelectOneElement, this.config.searchEnabled, this.passedElement.element.type),
+        classNames: this.config.classNames,
+        type: this.passedElement.element.type,
+        position: this.config.position
+      });
+      this.containerInner = new _components.Container({
+        element: this._getTemplate('containerInner'),
+        classNames: this.config.classNames,
+        type: this.passedElement.element.type,
+        position: this.config.position
+      });
+      this.input = new _components.Input({
+        element: this._getTemplate('input'),
+        classNames: this.config.classNames,
+        type: this.passedElement.element.type
+      });
+      this.choiceList = new _components.List({
+        element: this._getTemplate('choiceList', this._isSelectOneElement)
+      });
+      this.itemList = new _components.List({
+        element: this._getTemplate('itemList', this._isSelectOneElement)
+      });
+      this.dropdown = new _components.Dropdown({
+        element: this._getTemplate('dropdown'),
+        classNames: this.config.classNames,
+        type: this.passedElement.element.type
+      });
+    }
+  }, {
+    key: "_createStructure",
+    value: function _createStructure() {
+      // Hide original element
+      this.passedElement.conceal(); // Wrap input in container preserving DOM ordering
+
+      this.containerInner.wrap(this.passedElement.element); // Wrapper inner container with outer container
+
+      this.containerOuter.wrap(this.containerInner.element);
+
+      if (this._isSelectOneElement) {
+        this.input.placeholder = this.config.searchPlaceholderValue || '';
+      } else if (this._placeholderValue) {
+        this.input.placeholder = this._placeholderValue;
+        this.input.setWidth(true);
+      }
+
+      this.containerOuter.element.appendChild(this.containerInner.element);
+      this.containerOuter.element.appendChild(this.dropdown.element);
+      this.containerInner.element.appendChild(this.itemList.element);
+
+      if (!this._isTextElement) {
+        this.dropdown.element.appendChild(this.choiceList.element);
+      }
+
+      if (!this._isSelectOneElement) {
+        this.containerInner.element.appendChild(this.input.element);
+      } else if (this.config.searchEnabled) {
+        this.dropdown.element.insertBefore(this.input.element, this.dropdown.element.firstChild);
+      }
+
+      if (this._isSelectElement) {
+        this._addPredefinedChoices();
+      } else if (this._isTextElement) {
+        this._addPredefinedItems();
+      }
+    }
+  }, {
+    key: "_addPredefinedChoices",
+    value: function _addPredefinedChoices() {
+      var _this22 = this;
+
+      var passedGroups = this.passedElement.optionGroups;
+      this._highlightPosition = 0;
+      this._isSearching = false;
+
+      this._setLoading(true);
+
+      if (passedGroups && passedGroups.length) {
+        // If we have a placeholder option
+        var placeholderChoice = this.passedElement.placeholderOption;
+
+        if (placeholderChoice && placeholderChoice.parentNode.tagName === 'SELECT') {
+          this._addChoice({
+            value: placeholderChoice.value,
+            label: placeholderChoice.innerHTML,
+            isSelected: placeholderChoice.selected,
+            isDisabled: placeholderChoice.disabled,
+            placeholder: true
+          });
+        }
+
+        passedGroups.forEach(function (group) {
+          return _this22._addGroup({
+            group: group,
+            id: group.id || null
+          });
+        });
+      } else {
+        var passedOptions = this.passedElement.options;
+        var filter = this.config.sortFn;
+        var allChoices = this._presetChoices; // Create array of options from option elements
+
+        passedOptions.forEach(function (o) {
+          allChoices.push({
+            value: o.value,
+            label: o.innerHTML,
+            selected: o.selected,
+            disabled: o.disabled || o.parentNode.disabled,
+            placeholder: o.hasAttribute('placeholder'),
+            customProperties: o.getAttribute('data-custom-properties')
+          });
+        }); // If sorting is enabled or the user is searching, filter choices
+
+        if (this.config.shouldSort) allChoices.sort(filter); // Determine whether there is a selected choice
+
+        var hasSelectedChoice = allChoices.some(function (choice) {
+          return choice.selected;
+        });
+
+        var handleChoice = function handleChoice(choice, index) {
+          var value = choice.value,
+              label = choice.label,
+              customProperties = choice.customProperties,
+              placeholder = choice.placeholder;
+
+          if (_this22._isSelectElement) {
+            // If the choice is actually a group
+            if (choice.choices) {
+              _this22._addGroup({
+                group: choice,
+                id: choice.id || null
+              });
+            } else {
+              // If there is a selected choice already or the choice is not
+              // the first in the array, add each choice normally
+              // Otherwise pre-select the first choice in the array if it's a single select
+              var shouldPreselect = _this22._isSelectOneElement && !hasSelectedChoice && index === 0;
+              var isSelected = shouldPreselect ? true : choice.selected;
+              var isDisabled = shouldPreselect ? false : choice.disabled;
+
+              _this22._addChoice({
+                value: value,
+                label: label,
+                isSelected: isSelected,
+                isDisabled: isDisabled,
+                customProperties: customProperties,
+                placeholder: placeholder
+              });
+            }
+          } else {
+            _this22._addChoice({
+              value: value,
+              label: label,
+              isSelected: choice.selected,
+              isDisabled: choice.disabled,
+              customProperties: customProperties,
+              placeholder: placeholder
+            });
+          }
+        }; // Add each choice
+
+
+        allChoices.forEach(function (choice, index) {
+          return handleChoice(choice, index);
+        });
+      }
+
+      this._setLoading(false);
+    }
+  }, {
+    key: "_addPredefinedItems",
+    value: function _addPredefinedItems() {
+      var _this23 = this;
+
+      var handlePresetItem = function handlePresetItem(item) {
+        var itemType = (0, _utils.getType)(item);
+
+        if (itemType === 'Object' && item.value) {
+          _this23._addItem({
+            value: item.value,
+            label: item.label,
+            choiceId: item.id,
+            customProperties: item.customProperties,
+            placeholder: item.placeholder
+          });
+        } else if (itemType === 'String') {
+          _this23._addItem({
+            value: item
+          });
+        }
+      };
+
+      this._presetItems.forEach(function (item) {
+        return handlePresetItem(item);
+      });
+    }
+  }, {
+    key: "_setChoiceOrItem",
+    value: function _setChoiceOrItem(item) {
+      var _this24 = this;
+
+      var itemType = (0, _utils.getType)(item).toLowerCase();
+      var handleType = {
+        object: function object() {
+          if (!item.value) {
+            return;
+          } // If we are dealing with a select input, we need to create an option first
+          // that is then selected. For text inputs we can just add items normally.
+
+
+          if (!_this24._isTextElement) {
+            _this24._addChoice({
+              value: item.value,
+              label: item.label,
+              isSelected: true,
+              isDisabled: false,
+              customProperties: item.customProperties,
+              placeholder: item.placeholder
+            });
+          } else {
+            _this24._addItem({
+              value: item.value,
+              label: item.label,
+              choiceId: item.id,
+              customProperties: item.customProperties,
+              placeholder: item.placeholder
+            });
+          }
+        },
+        string: function string() {
+          if (!_this24._isTextElement) {
+            _this24._addChoice({
+              value: item,
+              label: item,
+              isSelected: true,
+              isDisabled: false
+            });
+          } else {
+            _this24._addItem({
+              value: item
+            });
+          }
+        }
+      };
+      handleType[itemType]();
+    }
+  }, {
+    key: "_findAndSelectChoiceByValue",
+    value: function _findAndSelectChoiceByValue(val) {
+      var _this25 = this;
+
+      var choices = this._store.choices; // Check 'value' property exists and the choice isn't already selected
+
+      var foundChoice = choices.find(function (choice) {
+        return _this25.config.itemComparer(choice.value, val);
+      });
+
+      if (foundChoice && !foundChoice.selected) {
+        this._addItem({
+          value: foundChoice.value,
+          label: foundChoice.label,
+          choiceId: foundChoice.id,
+          groupId: foundChoice.groupId,
+          customProperties: foundChoice.customProperties,
+          placeholder: foundChoice.placeholder,
+          keyCode: foundChoice.keyCode
+        });
+      }
+    }
+  }, {
+    key: "_generateInstances",
+    value: function _generateInstances(elements, config) {
+      return elements.reduce(function (instances, element) {
+        instances.push(new Choices(element, config));
+        return instances;
+      }, [this]);
+    }
+  }, {
+    key: "_generatePlaceholderValue",
+    value: function _generatePlaceholderValue() {
+      if (this._isSelectOneElement) {
+        return false;
+      }
+
+      return this.config.placeholder ? this.config.placeholderValue || this.passedElement.element.getAttribute('placeholder') : false;
+    }
+    /* =====  End of Private functions  ====== */
+
+  }]);
+
+  return Choices;
+}();
+
+Choices.userDefaults = {}; // We cannot export default here due to Webpack: https://github.com/webpack/webpack/issues/3929
+
+module.exports = Choices;
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
 
 /*!
- *         ,/
- *       ,'/
- *     ,' /
- *   ,'  /_____,
- * .'____    ,'
- *      /  ,'
- *     / ,'
- *    /,'
- *   /'
- *
- * Selectric ϟ v1.13.0 (Aug 21 2017) - http://lcdsantos.github.io/jQuery-Selectric/
- *
- * Copyright (c) 2017 Leonardo Santos; MIT License
- *
+ * Fuse.js v3.4.2 - Lightweight fuzzy-search (http://fusejs.io)
+ * 
+ * Copyright (c) 2012-2017 Kirollos Risk (http://kiro.me)
+ * All Rights Reserved. Apache Software License 2.0
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ */
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(true)
+		module.exports = factory();
+	else {}
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/bitap/bitap_matched_indices.js":
+/*!********************************************!*\
+  !*** ./src/bitap/bitap_matched_indices.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function () {
+  var matchmask = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var minMatchCharLength = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+  var matchedIndices = [];
+  var start = -1;
+  var end = -1;
+  var i = 0;
+
+  for (var len = matchmask.length; i < len; i += 1) {
+    var match = matchmask[i];
+
+    if (match && start === -1) {
+      start = i;
+    } else if (!match && start !== -1) {
+      end = i - 1;
+
+      if (end - start + 1 >= minMatchCharLength) {
+        matchedIndices.push([start, end]);
+      }
+
+      start = -1;
+    }
+  } // (i-1 - start) + 1 => i - start
+
+
+  if (matchmask[i - 1] && i - start >= minMatchCharLength) {
+    matchedIndices.push([start, i - 1]);
+  }
+
+  return matchedIndices;
+};
+
+/***/ }),
+
+/***/ "./src/bitap/bitap_pattern_alphabet.js":
+/*!*********************************************!*\
+  !*** ./src/bitap/bitap_pattern_alphabet.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (pattern) {
+  var mask = {};
+  var len = pattern.length;
+
+  for (var i = 0; i < len; i += 1) {
+    mask[pattern.charAt(i)] = 0;
+  }
+
+  for (var _i = 0; _i < len; _i += 1) {
+    mask[pattern.charAt(_i)] |= 1 << len - _i - 1;
+  }
+
+  return mask;
+};
+
+/***/ }),
+
+/***/ "./src/bitap/bitap_regex_search.js":
+/*!*****************************************!*\
+  !*** ./src/bitap/bitap_regex_search.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var SPECIAL_CHARS_REGEX = /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g;
+
+module.exports = function (text, pattern) {
+  var tokenSeparator = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : / +/g;
+  var regex = new RegExp(pattern.replace(SPECIAL_CHARS_REGEX, '\\$&').replace(tokenSeparator, '|'));
+  var matches = text.match(regex);
+  var isMatch = !!matches;
+  var matchedIndices = [];
+
+  if (isMatch) {
+    for (var i = 0, matchesLen = matches.length; i < matchesLen; i += 1) {
+      var match = matches[i];
+      matchedIndices.push([text.indexOf(match), match.length - 1]);
+    }
+  }
+
+  return {
+    // TODO: revisit this score
+    score: isMatch ? 0.5 : 1,
+    isMatch: isMatch,
+    matchedIndices: matchedIndices
+  };
+};
+
+/***/ }),
+
+/***/ "./src/bitap/bitap_score.js":
+/*!**********************************!*\
+  !*** ./src/bitap/bitap_score.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (pattern, _ref) {
+  var _ref$errors = _ref.errors,
+      errors = _ref$errors === void 0 ? 0 : _ref$errors,
+      _ref$currentLocation = _ref.currentLocation,
+      currentLocation = _ref$currentLocation === void 0 ? 0 : _ref$currentLocation,
+      _ref$expectedLocation = _ref.expectedLocation,
+      expectedLocation = _ref$expectedLocation === void 0 ? 0 : _ref$expectedLocation,
+      _ref$distance = _ref.distance,
+      distance = _ref$distance === void 0 ? 100 : _ref$distance;
+  var accuracy = errors / pattern.length;
+  var proximity = Math.abs(expectedLocation - currentLocation);
+
+  if (!distance) {
+    // Dodge divide by zero error.
+    return proximity ? 1.0 : accuracy;
+  }
+
+  return accuracy + proximity / distance;
+};
+
+/***/ }),
+
+/***/ "./src/bitap/bitap_search.js":
+/*!***********************************!*\
+  !*** ./src/bitap/bitap_search.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var bitapScore = __webpack_require__(/*! ./bitap_score */ "./src/bitap/bitap_score.js");
+
+var matchedIndices = __webpack_require__(/*! ./bitap_matched_indices */ "./src/bitap/bitap_matched_indices.js");
+
+module.exports = function (text, pattern, patternAlphabet, _ref) {
+  var _ref$location = _ref.location,
+      location = _ref$location === void 0 ? 0 : _ref$location,
+      _ref$distance = _ref.distance,
+      distance = _ref$distance === void 0 ? 100 : _ref$distance,
+      _ref$threshold = _ref.threshold,
+      threshold = _ref$threshold === void 0 ? 0.6 : _ref$threshold,
+      _ref$findAllMatches = _ref.findAllMatches,
+      findAllMatches = _ref$findAllMatches === void 0 ? false : _ref$findAllMatches,
+      _ref$minMatchCharLeng = _ref.minMatchCharLength,
+      minMatchCharLength = _ref$minMatchCharLeng === void 0 ? 1 : _ref$minMatchCharLeng;
+  var expectedLocation = location; // Set starting location at beginning text and initialize the alphabet.
+
+  var textLen = text.length; // Highest score beyond which we give up.
+
+  var currentThreshold = threshold; // Is there a nearby exact match? (speedup)
+
+  var bestLocation = text.indexOf(pattern, expectedLocation);
+  var patternLen = pattern.length; // a mask of the matches
+
+  var matchMask = [];
+
+  for (var i = 0; i < textLen; i += 1) {
+    matchMask[i] = 0;
+  }
+
+  if (bestLocation !== -1) {
+    var score = bitapScore(pattern, {
+      errors: 0,
+      currentLocation: bestLocation,
+      expectedLocation: expectedLocation,
+      distance: distance
+    });
+    currentThreshold = Math.min(score, currentThreshold); // What about in the other direction? (speed up)
+
+    bestLocation = text.lastIndexOf(pattern, expectedLocation + patternLen);
+
+    if (bestLocation !== -1) {
+      var _score = bitapScore(pattern, {
+        errors: 0,
+        currentLocation: bestLocation,
+        expectedLocation: expectedLocation,
+        distance: distance
+      });
+
+      currentThreshold = Math.min(_score, currentThreshold);
+    }
+  } // Reset the best location
+
+
+  bestLocation = -1;
+  var lastBitArr = [];
+  var finalScore = 1;
+  var binMax = patternLen + textLen;
+  var mask = 1 << patternLen - 1;
+
+  for (var _i = 0; _i < patternLen; _i += 1) {
+    // Scan for the best match; each iteration allows for one more error.
+    // Run a binary search to determine how far from the match location we can stray
+    // at this error level.
+    var binMin = 0;
+    var binMid = binMax;
+
+    while (binMin < binMid) {
+      var _score3 = bitapScore(pattern, {
+        errors: _i,
+        currentLocation: expectedLocation + binMid,
+        expectedLocation: expectedLocation,
+        distance: distance
+      });
+
+      if (_score3 <= currentThreshold) {
+        binMin = binMid;
+      } else {
+        binMax = binMid;
+      }
+
+      binMid = Math.floor((binMax - binMin) / 2 + binMin);
+    } // Use the result from this iteration as the maximum for the next.
+
+
+    binMax = binMid;
+    var start = Math.max(1, expectedLocation - binMid + 1);
+    var finish = findAllMatches ? textLen : Math.min(expectedLocation + binMid, textLen) + patternLen; // Initialize the bit array
+
+    var bitArr = Array(finish + 2);
+    bitArr[finish + 1] = (1 << _i) - 1;
+
+    for (var j = finish; j >= start; j -= 1) {
+      var currentLocation = j - 1;
+      var charMatch = patternAlphabet[text.charAt(currentLocation)];
+
+      if (charMatch) {
+        matchMask[currentLocation] = 1;
+      } // First pass: exact match
+
+
+      bitArr[j] = (bitArr[j + 1] << 1 | 1) & charMatch; // Subsequent passes: fuzzy match
+
+      if (_i !== 0) {
+        bitArr[j] |= (lastBitArr[j + 1] | lastBitArr[j]) << 1 | 1 | lastBitArr[j + 1];
+      }
+
+      if (bitArr[j] & mask) {
+        finalScore = bitapScore(pattern, {
+          errors: _i,
+          currentLocation: currentLocation,
+          expectedLocation: expectedLocation,
+          distance: distance
+        }); // This match will almost certainly be better than any existing match.
+        // But check anyway.
+
+        if (finalScore <= currentThreshold) {
+          // Indeed it is
+          currentThreshold = finalScore;
+          bestLocation = currentLocation; // Already passed `loc`, downhill from here on in.
+
+          if (bestLocation <= expectedLocation) {
+            break;
+          } // When passing `bestLocation`, don't exceed our current distance from `expectedLocation`.
+
+
+          start = Math.max(1, 2 * expectedLocation - bestLocation);
+        }
+      }
+    } // No hope for a (better) match at greater error levels.
+
+
+    var _score2 = bitapScore(pattern, {
+      errors: _i + 1,
+      currentLocation: expectedLocation,
+      expectedLocation: expectedLocation,
+      distance: distance
+    }); // console.log('score', score, finalScore)
+
+
+    if (_score2 > currentThreshold) {
+      break;
+    }
+
+    lastBitArr = bitArr;
+  } // console.log('FINAL SCORE', finalScore)
+  // Count exact matches (those with a score of 0) to be "almost" exact
+
+
+  return {
+    isMatch: bestLocation >= 0,
+    score: finalScore === 0 ? 0.001 : finalScore,
+    matchedIndices: matchedIndices(matchMask, minMatchCharLength)
+  };
+};
+
+/***/ }),
+
+/***/ "./src/bitap/index.js":
+/*!****************************!*\
+  !*** ./src/bitap/index.js ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var bitapRegexSearch = __webpack_require__(/*! ./bitap_regex_search */ "./src/bitap/bitap_regex_search.js");
+
+var bitapSearch = __webpack_require__(/*! ./bitap_search */ "./src/bitap/bitap_search.js");
+
+var patternAlphabet = __webpack_require__(/*! ./bitap_pattern_alphabet */ "./src/bitap/bitap_pattern_alphabet.js");
+
+var Bitap =
+/*#__PURE__*/
+function () {
+  function Bitap(pattern, _ref) {
+    var _ref$location = _ref.location,
+        location = _ref$location === void 0 ? 0 : _ref$location,
+        _ref$distance = _ref.distance,
+        distance = _ref$distance === void 0 ? 100 : _ref$distance,
+        _ref$threshold = _ref.threshold,
+        threshold = _ref$threshold === void 0 ? 0.6 : _ref$threshold,
+        _ref$maxPatternLength = _ref.maxPatternLength,
+        maxPatternLength = _ref$maxPatternLength === void 0 ? 32 : _ref$maxPatternLength,
+        _ref$isCaseSensitive = _ref.isCaseSensitive,
+        isCaseSensitive = _ref$isCaseSensitive === void 0 ? false : _ref$isCaseSensitive,
+        _ref$tokenSeparator = _ref.tokenSeparator,
+        tokenSeparator = _ref$tokenSeparator === void 0 ? / +/g : _ref$tokenSeparator,
+        _ref$findAllMatches = _ref.findAllMatches,
+        findAllMatches = _ref$findAllMatches === void 0 ? false : _ref$findAllMatches,
+        _ref$minMatchCharLeng = _ref.minMatchCharLength,
+        minMatchCharLength = _ref$minMatchCharLeng === void 0 ? 1 : _ref$minMatchCharLeng;
+
+    _classCallCheck(this, Bitap);
+
+    this.options = {
+      location: location,
+      distance: distance,
+      threshold: threshold,
+      maxPatternLength: maxPatternLength,
+      isCaseSensitive: isCaseSensitive,
+      tokenSeparator: tokenSeparator,
+      findAllMatches: findAllMatches,
+      minMatchCharLength: minMatchCharLength
+    };
+    this.pattern = this.options.isCaseSensitive ? pattern : pattern.toLowerCase();
+
+    if (this.pattern.length <= maxPatternLength) {
+      this.patternAlphabet = patternAlphabet(this.pattern);
+    }
+  }
+
+  _createClass(Bitap, [{
+    key: "search",
+    value: function search(text) {
+      if (!this.options.isCaseSensitive) {
+        text = text.toLowerCase();
+      } // Exact match
+
+
+      if (this.pattern === text) {
+        return {
+          isMatch: true,
+          score: 0,
+          matchedIndices: [[0, text.length - 1]]
+        };
+      } // When pattern length is greater than the machine word length, just do a a regex comparison
+
+
+      var _this$options = this.options,
+          maxPatternLength = _this$options.maxPatternLength,
+          tokenSeparator = _this$options.tokenSeparator;
+
+      if (this.pattern.length > maxPatternLength) {
+        return bitapRegexSearch(text, this.pattern, tokenSeparator);
+      } // Otherwise, use Bitap algorithm
+
+
+      var _this$options2 = this.options,
+          location = _this$options2.location,
+          distance = _this$options2.distance,
+          threshold = _this$options2.threshold,
+          findAllMatches = _this$options2.findAllMatches,
+          minMatchCharLength = _this$options2.minMatchCharLength;
+      return bitapSearch(text, this.pattern, this.patternAlphabet, {
+        location: location,
+        distance: distance,
+        threshold: threshold,
+        findAllMatches: findAllMatches,
+        minMatchCharLength: minMatchCharLength
+      });
+    }
+  }]);
+
+  return Bitap;
+}(); // let x = new Bitap("od mn war", {})
+// let result = x.search("Old Man's War")
+// console.log(result)
+
+
+module.exports = Bitap;
+
+/***/ }),
+
+/***/ "./src/helpers/deep_value.js":
+/*!***********************************!*\
+  !*** ./src/helpers/deep_value.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isArray = __webpack_require__(/*! ./is_array */ "./src/helpers/is_array.js");
+
+var deepValue = function deepValue(obj, path, list) {
+  if (!path) {
+    // If there's no path left, we've gotten to the object we care about.
+    list.push(obj);
+  } else {
+    var dotIndex = path.indexOf('.');
+    var firstSegment = path;
+    var remaining = null;
+
+    if (dotIndex !== -1) {
+      firstSegment = path.slice(0, dotIndex);
+      remaining = path.slice(dotIndex + 1);
+    }
+
+    var value = obj[firstSegment];
+
+    if (value !== null && value !== undefined) {
+      if (!remaining && (typeof value === 'string' || typeof value === 'number')) {
+        list.push(value.toString());
+      } else if (isArray(value)) {
+        // Search each item in the array.
+        for (var i = 0, len = value.length; i < len; i += 1) {
+          deepValue(value[i], remaining, list);
+        }
+      } else if (remaining) {
+        // An object. Recurse further.
+        deepValue(value, remaining, list);
+      }
+    }
+  }
+
+  return list;
+};
+
+module.exports = function (obj, path) {
+  return deepValue(obj, path, []);
+};
+
+/***/ }),
+
+/***/ "./src/helpers/is_array.js":
+/*!*********************************!*\
+  !*** ./src/helpers/is_array.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (obj) {
+  return !Array.isArray ? Object.prototype.toString.call(obj) === '[object Array]' : Array.isArray(obj);
+};
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Bitap = __webpack_require__(/*! ./bitap */ "./src/bitap/index.js");
+
+var deepValue = __webpack_require__(/*! ./helpers/deep_value */ "./src/helpers/deep_value.js");
+
+var isArray = __webpack_require__(/*! ./helpers/is_array */ "./src/helpers/is_array.js");
+
+var Fuse =
+/*#__PURE__*/
+function () {
+  function Fuse(list, _ref) {
+    var _ref$location = _ref.location,
+        location = _ref$location === void 0 ? 0 : _ref$location,
+        _ref$distance = _ref.distance,
+        distance = _ref$distance === void 0 ? 100 : _ref$distance,
+        _ref$threshold = _ref.threshold,
+        threshold = _ref$threshold === void 0 ? 0.6 : _ref$threshold,
+        _ref$maxPatternLength = _ref.maxPatternLength,
+        maxPatternLength = _ref$maxPatternLength === void 0 ? 32 : _ref$maxPatternLength,
+        _ref$caseSensitive = _ref.caseSensitive,
+        caseSensitive = _ref$caseSensitive === void 0 ? false : _ref$caseSensitive,
+        _ref$tokenSeparator = _ref.tokenSeparator,
+        tokenSeparator = _ref$tokenSeparator === void 0 ? / +/g : _ref$tokenSeparator,
+        _ref$findAllMatches = _ref.findAllMatches,
+        findAllMatches = _ref$findAllMatches === void 0 ? false : _ref$findAllMatches,
+        _ref$minMatchCharLeng = _ref.minMatchCharLength,
+        minMatchCharLength = _ref$minMatchCharLeng === void 0 ? 1 : _ref$minMatchCharLeng,
+        _ref$id = _ref.id,
+        id = _ref$id === void 0 ? null : _ref$id,
+        _ref$keys = _ref.keys,
+        keys = _ref$keys === void 0 ? [] : _ref$keys,
+        _ref$shouldSort = _ref.shouldSort,
+        shouldSort = _ref$shouldSort === void 0 ? true : _ref$shouldSort,
+        _ref$getFn = _ref.getFn,
+        getFn = _ref$getFn === void 0 ? deepValue : _ref$getFn,
+        _ref$sortFn = _ref.sortFn,
+        sortFn = _ref$sortFn === void 0 ? function (a, b) {
+      return a.score - b.score;
+    } : _ref$sortFn,
+        _ref$tokenize = _ref.tokenize,
+        tokenize = _ref$tokenize === void 0 ? false : _ref$tokenize,
+        _ref$matchAllTokens = _ref.matchAllTokens,
+        matchAllTokens = _ref$matchAllTokens === void 0 ? false : _ref$matchAllTokens,
+        _ref$includeMatches = _ref.includeMatches,
+        includeMatches = _ref$includeMatches === void 0 ? false : _ref$includeMatches,
+        _ref$includeScore = _ref.includeScore,
+        includeScore = _ref$includeScore === void 0 ? false : _ref$includeScore,
+        _ref$verbose = _ref.verbose,
+        verbose = _ref$verbose === void 0 ? false : _ref$verbose;
+
+    _classCallCheck(this, Fuse);
+
+    this.options = {
+      location: location,
+      distance: distance,
+      threshold: threshold,
+      maxPatternLength: maxPatternLength,
+      isCaseSensitive: caseSensitive,
+      tokenSeparator: tokenSeparator,
+      findAllMatches: findAllMatches,
+      minMatchCharLength: minMatchCharLength,
+      id: id,
+      keys: keys,
+      includeMatches: includeMatches,
+      includeScore: includeScore,
+      shouldSort: shouldSort,
+      getFn: getFn,
+      sortFn: sortFn,
+      verbose: verbose,
+      tokenize: tokenize,
+      matchAllTokens: matchAllTokens
+    };
+    this.setCollection(list);
+  }
+
+  _createClass(Fuse, [{
+    key: "setCollection",
+    value: function setCollection(list) {
+      this.list = list;
+      return list;
+    }
+  }, {
+    key: "search",
+    value: function search(pattern) {
+      var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+        limit: false
+      };
+
+      this._log("---------\nSearch pattern: \"".concat(pattern, "\""));
+
+      var _this$_prepareSearche = this._prepareSearchers(pattern),
+          tokenSearchers = _this$_prepareSearche.tokenSearchers,
+          fullSearcher = _this$_prepareSearche.fullSearcher;
+
+      var _this$_search = this._search(tokenSearchers, fullSearcher),
+          weights = _this$_search.weights,
+          results = _this$_search.results;
+
+      this._computeScore(weights, results);
+
+      if (this.options.shouldSort) {
+        this._sort(results);
+      }
+
+      if (opts.limit && typeof opts.limit === 'number') {
+        results = results.slice(0, opts.limit);
+      }
+
+      return this._format(results);
+    }
+  }, {
+    key: "_prepareSearchers",
+    value: function _prepareSearchers() {
+      var pattern = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      var tokenSearchers = [];
+
+      if (this.options.tokenize) {
+        // Tokenize on the separator
+        var tokens = pattern.split(this.options.tokenSeparator);
+
+        for (var i = 0, len = tokens.length; i < len; i += 1) {
+          tokenSearchers.push(new Bitap(tokens[i], this.options));
+        }
+      }
+
+      var fullSearcher = new Bitap(pattern, this.options);
+      return {
+        tokenSearchers: tokenSearchers,
+        fullSearcher: fullSearcher
+      };
+    }
+  }, {
+    key: "_search",
+    value: function _search() {
+      var tokenSearchers = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+      var fullSearcher = arguments.length > 1 ? arguments[1] : undefined;
+      var list = this.list;
+      var resultMap = {};
+      var results = []; // Check the first item in the list, if it's a string, then we assume
+      // that every item in the list is also a string, and thus it's a flattened array.
+
+      if (typeof list[0] === 'string') {
+        // Iterate over every item
+        for (var i = 0, len = list.length; i < len; i += 1) {
+          this._analyze({
+            key: '',
+            value: list[i],
+            record: i,
+            index: i
+          }, {
+            resultMap: resultMap,
+            results: results,
+            tokenSearchers: tokenSearchers,
+            fullSearcher: fullSearcher
+          });
+        }
+
+        return {
+          weights: null,
+          results: results
+        };
+      } // Otherwise, the first item is an Object (hopefully), and thus the searching
+      // is done on the values of the keys of each item.
+
+
+      var weights = {};
+
+      for (var _i = 0, _len = list.length; _i < _len; _i += 1) {
+        var item = list[_i]; // Iterate over every key
+
+        for (var j = 0, keysLen = this.options.keys.length; j < keysLen; j += 1) {
+          var key = this.options.keys[j];
+
+          if (typeof key !== 'string') {
+            weights[key.name] = {
+              weight: 1 - key.weight || 1
+            };
+
+            if (key.weight <= 0 || key.weight > 1) {
+              throw new Error('Key weight has to be > 0 and <= 1');
+            }
+
+            key = key.name;
+          } else {
+            weights[key] = {
+              weight: 1
+            };
+          }
+
+          this._analyze({
+            key: key,
+            value: this.options.getFn(item, key),
+            record: item,
+            index: _i
+          }, {
+            resultMap: resultMap,
+            results: results,
+            tokenSearchers: tokenSearchers,
+            fullSearcher: fullSearcher
+          });
+        }
+      }
+
+      return {
+        weights: weights,
+        results: results
+      };
+    }
+  }, {
+    key: "_analyze",
+    value: function _analyze(_ref2, _ref3) {
+      var key = _ref2.key,
+          _ref2$arrayIndex = _ref2.arrayIndex,
+          arrayIndex = _ref2$arrayIndex === void 0 ? -1 : _ref2$arrayIndex,
+          value = _ref2.value,
+          record = _ref2.record,
+          index = _ref2.index;
+      var _ref3$tokenSearchers = _ref3.tokenSearchers,
+          tokenSearchers = _ref3$tokenSearchers === void 0 ? [] : _ref3$tokenSearchers,
+          _ref3$fullSearcher = _ref3.fullSearcher,
+          fullSearcher = _ref3$fullSearcher === void 0 ? [] : _ref3$fullSearcher,
+          _ref3$resultMap = _ref3.resultMap,
+          resultMap = _ref3$resultMap === void 0 ? {} : _ref3$resultMap,
+          _ref3$results = _ref3.results,
+          results = _ref3$results === void 0 ? [] : _ref3$results;
+
+      // Check if the texvaluet can be searched
+      if (value === undefined || value === null) {
+        return;
+      }
+
+      var exists = false;
+      var averageScore = -1;
+      var numTextMatches = 0;
+
+      if (typeof value === 'string') {
+        this._log("\nKey: ".concat(key === '' ? '-' : key));
+
+        var mainSearchResult = fullSearcher.search(value);
+
+        this._log("Full text: \"".concat(value, "\", score: ").concat(mainSearchResult.score));
+
+        if (this.options.tokenize) {
+          var words = value.split(this.options.tokenSeparator);
+          var scores = [];
+
+          for (var i = 0; i < tokenSearchers.length; i += 1) {
+            var tokenSearcher = tokenSearchers[i];
+
+            this._log("\nPattern: \"".concat(tokenSearcher.pattern, "\"")); // let tokenScores = []
+
+
+            var hasMatchInText = false;
+
+            for (var j = 0; j < words.length; j += 1) {
+              var word = words[j];
+              var tokenSearchResult = tokenSearcher.search(word);
+              var obj = {};
+
+              if (tokenSearchResult.isMatch) {
+                obj[word] = tokenSearchResult.score;
+                exists = true;
+                hasMatchInText = true;
+                scores.push(tokenSearchResult.score);
+              } else {
+                obj[word] = 1;
+
+                if (!this.options.matchAllTokens) {
+                  scores.push(1);
+                }
+              }
+
+              this._log("Token: \"".concat(word, "\", score: ").concat(obj[word])); // tokenScores.push(obj)
+
+            }
+
+            if (hasMatchInText) {
+              numTextMatches += 1;
+            }
+          }
+
+          averageScore = scores[0];
+          var scoresLen = scores.length;
+
+          for (var _i2 = 1; _i2 < scoresLen; _i2 += 1) {
+            averageScore += scores[_i2];
+          }
+
+          averageScore = averageScore / scoresLen;
+
+          this._log('Token score average:', averageScore);
+        }
+
+        var finalScore = mainSearchResult.score;
+
+        if (averageScore > -1) {
+          finalScore = (finalScore + averageScore) / 2;
+        }
+
+        this._log('Score average:', finalScore);
+
+        var checkTextMatches = this.options.tokenize && this.options.matchAllTokens ? numTextMatches >= tokenSearchers.length : true;
+
+        this._log("\nCheck Matches: ".concat(checkTextMatches)); // If a match is found, add the item to <rawResults>, including its score
+
+
+        if ((exists || mainSearchResult.isMatch) && checkTextMatches) {
+          // Check if the item already exists in our results
+          var existingResult = resultMap[index];
+
+          if (existingResult) {
+            // Use the lowest score
+            // existingResult.score, bitapResult.score
+            existingResult.output.push({
+              key: key,
+              arrayIndex: arrayIndex,
+              value: value,
+              score: finalScore,
+              matchedIndices: mainSearchResult.matchedIndices
+            });
+          } else {
+            // Add it to the raw result list
+            resultMap[index] = {
+              item: record,
+              output: [{
+                key: key,
+                arrayIndex: arrayIndex,
+                value: value,
+                score: finalScore,
+                matchedIndices: mainSearchResult.matchedIndices
+              }]
+            };
+            results.push(resultMap[index]);
+          }
+        }
+      } else if (isArray(value)) {
+        for (var _i3 = 0, len = value.length; _i3 < len; _i3 += 1) {
+          this._analyze({
+            key: key,
+            arrayIndex: _i3,
+            value: value[_i3],
+            record: record,
+            index: index
+          }, {
+            resultMap: resultMap,
+            results: results,
+            tokenSearchers: tokenSearchers,
+            fullSearcher: fullSearcher
+          });
+        }
+      }
+    }
+  }, {
+    key: "_computeScore",
+    value: function _computeScore(weights, results) {
+      this._log('\n\nComputing score:\n');
+
+      for (var i = 0, len = results.length; i < len; i += 1) {
+        var output = results[i].output;
+        var scoreLen = output.length;
+        var currScore = 1;
+        var bestScore = 1;
+
+        for (var j = 0; j < scoreLen; j += 1) {
+          var weight = weights ? weights[output[j].key].weight : 1;
+          var score = weight === 1 ? output[j].score : output[j].score || 0.001;
+          var nScore = score * weight;
+
+          if (weight !== 1) {
+            bestScore = Math.min(bestScore, nScore);
+          } else {
+            output[j].nScore = nScore;
+            currScore *= nScore;
+          }
+        }
+
+        results[i].score = bestScore === 1 ? currScore : bestScore;
+
+        this._log(results[i]);
+      }
+    }
+  }, {
+    key: "_sort",
+    value: function _sort(results) {
+      this._log('\n\nSorting....');
+
+      results.sort(this.options.sortFn);
+    }
+  }, {
+    key: "_format",
+    value: function _format(results) {
+      var finalOutput = [];
+
+      if (this.options.verbose) {
+        var cache = [];
+
+        this._log('\n\nOutput:\n\n', JSON.stringify(results, function (key, value) {
+          if (_typeof(value) === 'object' && value !== null) {
+            if (cache.indexOf(value) !== -1) {
+              // Circular reference found, discard key
+              return;
+            } // Store value in our collection
+
+
+            cache.push(value);
+          }
+
+          return value;
+        }));
+
+        cache = null;
+      }
+
+      var transformers = [];
+
+      if (this.options.includeMatches) {
+        transformers.push(function (result, data) {
+          var output = result.output;
+          data.matches = [];
+
+          for (var i = 0, len = output.length; i < len; i += 1) {
+            var item = output[i];
+
+            if (item.matchedIndices.length === 0) {
+              continue;
+            }
+
+            var obj = {
+              indices: item.matchedIndices,
+              value: item.value
+            };
+
+            if (item.key) {
+              obj.key = item.key;
+            }
+
+            if (item.hasOwnProperty('arrayIndex') && item.arrayIndex > -1) {
+              obj.arrayIndex = item.arrayIndex;
+            }
+
+            data.matches.push(obj);
+          }
+        });
+      }
+
+      if (this.options.includeScore) {
+        transformers.push(function (result, data) {
+          data.score = result.score;
+        });
+      }
+
+      for (var i = 0, len = results.length; i < len; i += 1) {
+        var result = results[i];
+
+        if (this.options.id) {
+          result.item = this.options.getFn(result.item, this.options.id)[0];
+        }
+
+        if (!transformers.length) {
+          finalOutput.push(result.item);
+          continue;
+        }
+
+        var data = {
+          item: result.item
+        };
+
+        for (var j = 0, _len2 = transformers.length; j < _len2; j += 1) {
+          transformers[j](result, data);
+        }
+
+        finalOutput.push(data);
+      }
+
+      return finalOutput;
+    }
+  }, {
+    key: "_log",
+    value: function _log() {
+      if (this.options.verbose) {
+        var _console;
+
+        (_console = console).log.apply(_console, arguments);
+      }
+    }
+  }]);
+
+  return Fuse;
+}();
+
+module.exports = Fuse;
+
+/***/ })
+
+/******/ });
+});
+
+/***/ }),
+/* 12 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var isMergeableObject = function isMergeableObject(value) {
+	return isNonNullObject(value)
+		&& !isSpecial(value)
+};
+
+function isNonNullObject(value) {
+	return !!value && typeof value === 'object'
+}
+
+function isSpecial(value) {
+	var stringValue = Object.prototype.toString.call(value);
+
+	return stringValue === '[object RegExp]'
+		|| stringValue === '[object Date]'
+		|| isReactElement(value)
+}
+
+// see https://github.com/facebook/react/blob/b5ac963fb791d1298e7f396236383bc955f916c1/src/isomorphic/classic/element/ReactElement.js#L21-L25
+var canUseSymbol = typeof Symbol === 'function' && Symbol.for;
+var REACT_ELEMENT_TYPE = canUseSymbol ? Symbol.for('react.element') : 0xeac7;
+
+function isReactElement(value) {
+	return value.$$typeof === REACT_ELEMENT_TYPE
+}
+
+function emptyTarget(val) {
+	return Array.isArray(val) ? [] : {}
+}
+
+function cloneUnlessOtherwiseSpecified(value, options) {
+	return (options.clone !== false && options.isMergeableObject(value))
+		? deepmerge(emptyTarget(value), value, options)
+		: value
+}
+
+function defaultArrayMerge(target, source, options) {
+	return target.concat(source).map(function(element) {
+		return cloneUnlessOtherwiseSpecified(element, options)
+	})
+}
+
+function mergeObject(target, source, options) {
+	var destination = {};
+	if (options.isMergeableObject(target)) {
+		Object.keys(target).forEach(function(key) {
+			destination[key] = cloneUnlessOtherwiseSpecified(target[key], options);
+		});
+	}
+	Object.keys(source).forEach(function(key) {
+		if (!options.isMergeableObject(source[key]) || !target[key]) {
+			destination[key] = cloneUnlessOtherwiseSpecified(source[key], options);
+		} else {
+			destination[key] = deepmerge(target[key], source[key], options);
+		}
+	});
+	return destination
+}
+
+function deepmerge(target, source, options) {
+	options = options || {};
+	options.arrayMerge = options.arrayMerge || defaultArrayMerge;
+	options.isMergeableObject = options.isMergeableObject || isMergeableObject;
+
+	var sourceIsArray = Array.isArray(source);
+	var targetIsArray = Array.isArray(target);
+	var sourceAndTargetTypesMatch = sourceIsArray === targetIsArray;
+
+	if (!sourceAndTargetTypesMatch) {
+		return cloneUnlessOtherwiseSpecified(source, options)
+	} else if (sourceIsArray) {
+		return options.arrayMerge(target, source, options)
+	} else {
+		return mergeObject(target, source, options)
+	}
+}
+
+deepmerge.all = function deepmergeAll(array, options) {
+	if (!Array.isArray(array)) {
+		throw new Error('first argument should be an array')
+	}
+
+	return array.reduce(function(prev, next) {
+		return deepmerge(prev, next, options)
+	}, {})
+};
+
+var deepmerge_1 = deepmerge;
+
+/* harmony default export */ __webpack_exports__["default"] = (deepmerge_1);
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _redux = __webpack_require__(6);
+
+var _index = _interopRequireDefault(__webpack_require__(15));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Store =
+/*#__PURE__*/
+function () {
+  function Store() {
+    _classCallCheck(this, Store);
+
+    this._store = (0, _redux.createStore)(_index.default, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+  }
+  /**
+   * Subscribe store to function call (wrapped Redux method)
+   * @param  {Function} onChange Function to trigger when state changes
+   * @return
+   */
+
+
+  _createClass(Store, [{
+    key: "subscribe",
+    value: function subscribe(onChange) {
+      this._store.subscribe(onChange);
+    }
+    /**
+     * Dispatch event to store (wrapped Redux method)
+     * @param  {Function} action Action function to trigger
+     * @return
+     */
+
+  }, {
+    key: "dispatch",
+    value: function dispatch(action) {
+      this._store.dispatch(action);
+    }
+    /**
+     * Get store object (wrapping Redux method)
+     * @return {Object} State
+     */
+
+  }, {
+    key: "isLoading",
+
+    /**
+     * Get loading state from store
+     * @return {Boolean} Loading State
+     */
+    value: function isLoading() {
+      return this.state.general.loading;
+    }
+    /**
+     * Get single choice by it's ID
+     * @return {Object} Found choice
+     */
+
+  }, {
+    key: "getChoiceById",
+    value: function getChoiceById(id) {
+      if (id) {
+        var choices = this.activeChoices;
+        var foundChoice = choices.find(function (choice) {
+          return choice.id === parseInt(id, 10);
+        });
+        return foundChoice;
+      }
+
+      return false;
+    }
+    /**
+     * Get group by group id
+     * @param  {Number} id Group ID
+     * @return {Object}    Group data
+     */
+
+  }, {
+    key: "getGroupById",
+    value: function getGroupById(id) {
+      return this.groups.find(function (group) {
+        return group.id === parseInt(id, 10);
+      });
+    }
+  }, {
+    key: "state",
+    get: function get() {
+      return this._store.getState();
+    }
+    /**
+     * Get items from store
+     * @return {Array} Item objects
+     */
+
+  }, {
+    key: "items",
+    get: function get() {
+      return this.state.items;
+    }
+    /**
+     * Get active items from store
+     * @return {Array} Item objects
+     */
+
+  }, {
+    key: "activeItems",
+    get: function get() {
+      return this.items.filter(function (item) {
+        return item.active === true;
+      });
+    }
+    /**
+     * Get highlighted items from store
+     * @return {Array} Item objects
+     */
+
+  }, {
+    key: "highlightedActiveItems",
+    get: function get() {
+      return this.items.filter(function (item) {
+        return item.active && item.highlighted;
+      });
+    }
+    /**
+     * Get choices from store
+     * @return {Array} Option objects
+     */
+
+  }, {
+    key: "choices",
+    get: function get() {
+      return this.state.choices;
+    }
+    /**
+     * Get active choices from store
+     * @return {Array} Option objects
+     */
+
+  }, {
+    key: "activeChoices",
+    get: function get() {
+      var choices = this.choices;
+      var values = choices.filter(function (choice) {
+        return choice.active === true;
+      });
+      return values;
+    }
+    /**
+     * Get selectable choices from store
+     * @return {Array} Option objects
+     */
+
+  }, {
+    key: "selectableChoices",
+    get: function get() {
+      return this.choices.filter(function (choice) {
+        return choice.disabled !== true;
+      });
+    }
+    /**
+     * Get choices that can be searched (excluding placeholders)
+     * @return {Array} Option objects
+     */
+
+  }, {
+    key: "searchableChoices",
+    get: function get() {
+      return this.selectableChoices.filter(function (choice) {
+        return choice.placeholder !== true;
+      });
+    }
+    /**
+     * Get placeholder choice from store
+     * @return {Object} Found placeholder
+     */
+
+  }, {
+    key: "placeholderChoice",
+    get: function get() {
+      return [].concat(this.choices).reverse().find(function (choice) {
+        return choice.placeholder === true;
+      });
+    }
+    /**
+     * Get groups from store
+     * @return {Array} Group objects
+     */
+
+  }, {
+    key: "groups",
+    get: function get() {
+      return this.state.groups;
+    }
+    /**
+     * Get active groups from store
+     * @return {Array} Group objects
+     */
+
+  }, {
+    key: "activeGroups",
+    get: function get() {
+      var groups = this.groups;
+      var choices = this.choices;
+      return groups.filter(function (group) {
+        var isActive = group.active === true && group.disabled === false;
+        var hasActiveOptions = choices.some(function (choice) {
+          return choice.active === true && choice.disabled === false;
+        });
+        return isActive && hasActiveOptions;
+      }, []);
+    }
+  }]);
+
+  return Store;
+}();
+
+exports.default = Store;
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+module.exports = function(originalModule) {
+	if (!originalModule.webpackPolyfill) {
+		var module = Object.create(originalModule);
+		// module.parent = undefined by default
+		if (!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		Object.defineProperty(module, "exports", {
+			enumerable: true
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _redux = __webpack_require__(6);
+
+var _items = _interopRequireDefault(__webpack_require__(16));
+
+var _groups = _interopRequireDefault(__webpack_require__(17));
+
+var _choices = _interopRequireDefault(__webpack_require__(18));
+
+var _general = _interopRequireDefault(__webpack_require__(19));
+
+var _utils = __webpack_require__(0);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var appReducer = (0, _redux.combineReducers)({
+  items: _items.default,
+  groups: _groups.default,
+  choices: _choices.default,
+  general: _general.default
+});
+
+var rootReducer = function rootReducer(passedState, action) {
+  var state = passedState; // If we are clearing all items, groups and options we reassign
+  // state and then pass that state to our proper reducer. This isn't
+  // mutating our actual state
+  // See: http://stackoverflow.com/a/35641992
+
+  if (action.type === 'CLEAR_ALL') {
+    state = undefined;
+  } else if (action.type === 'RESET_TO') {
+    return (0, _utils.cloneObject)(action.state);
+  }
+
+  return appReducer(state, action);
+};
+
+var _default = rootReducer;
+exports.default = _default;
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = items;
+exports.defaultState = void 0;
+var defaultState = [];
+exports.defaultState = defaultState;
+
+function items() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case 'ADD_ITEM':
+      {
+        // Add object to items array
+        var newState = [].concat(state, [{
+          id: action.id,
+          choiceId: action.choiceId,
+          groupId: action.groupId,
+          value: action.value,
+          label: action.label,
+          active: true,
+          highlighted: false,
+          customProperties: action.customProperties,
+          placeholder: action.placeholder || false,
+          keyCode: null
+        }]);
+        return newState.map(function (obj) {
+          var item = obj;
+          item.highlighted = false;
+          return item;
+        });
+      }
+
+    case 'REMOVE_ITEM':
+      {
+        // Set item to inactive
+        return state.map(function (obj) {
+          var item = obj;
+
+          if (item.id === action.id) {
+            item.active = false;
+          }
+
+          return item;
+        });
+      }
+
+    case 'HIGHLIGHT_ITEM':
+      {
+        return state.map(function (obj) {
+          var item = obj;
+
+          if (item.id === action.id) {
+            item.highlighted = action.highlighted;
+          }
+
+          return item;
+        });
+      }
+
+    default:
+      {
+        return state;
+      }
+  }
+}
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = groups;
+exports.defaultState = void 0;
+var defaultState = [];
+exports.defaultState = defaultState;
+
+function groups() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case 'ADD_GROUP':
+      {
+        return [].concat(state, [{
+          id: action.id,
+          value: action.value,
+          active: action.active,
+          disabled: action.disabled
+        }]);
+      }
+
+    case 'CLEAR_CHOICES':
+      {
+        return [];
+      }
+
+    default:
+      {
+        return state;
+      }
+  }
+}
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = choices;
+exports.defaultState = void 0;
+var defaultState = [];
+exports.defaultState = defaultState;
+
+function choices() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case 'ADD_CHOICE':
+      {
+        /*
+            A disabled choice appears in the choice dropdown but cannot be selected
+            A selected choice has been added to the passed input's value (added as an item)
+            An active choice appears within the choice dropdown
+         */
+        return [].concat(state, [{
+          id: action.id,
+          elementId: action.elementId,
+          groupId: action.groupId,
+          value: action.value,
+          label: action.label || action.value,
+          disabled: action.disabled || false,
+          selected: false,
+          active: true,
+          score: 9999,
+          customProperties: action.customProperties,
+          placeholder: action.placeholder || false,
+          keyCode: null
+        }]);
+      }
+
+    case 'ADD_ITEM':
+      {
+        // If all choices need to be activated
+        if (action.activateOptions) {
+          return state.map(function (obj) {
+            var choice = obj;
+            choice.active = action.active;
+            return choice;
+          });
+        } // When an item is added and it has an associated choice,
+        // we want to disable it so it can't be chosen again
+
+
+        if (action.choiceId > -1) {
+          return state.map(function (obj) {
+            var choice = obj;
+
+            if (choice.id === parseInt(action.choiceId, 10)) {
+              choice.selected = true;
+            }
+
+            return choice;
+          });
+        }
+
+        return state;
+      }
+
+    case 'REMOVE_ITEM':
+      {
+        // When an item is removed and it has an associated choice,
+        // we want to re-enable it so it can be chosen again
+        if (action.choiceId > -1) {
+          return state.map(function (obj) {
+            var choice = obj;
+
+            if (choice.id === parseInt(action.choiceId, 10)) {
+              choice.selected = false;
+            }
+
+            return choice;
+          });
+        }
+
+        return state;
+      }
+
+    case 'FILTER_CHOICES':
+      {
+        return state.map(function (obj) {
+          var choice = obj; // Set active state based on whether choice is
+          // within filtered results
+
+          choice.active = action.results.some(function (_ref) {
+            var item = _ref.item,
+                score = _ref.score;
+
+            if (item.id === choice.id) {
+              choice.score = score;
+              return true;
+            }
+
+            return false;
+          });
+          return choice;
+        });
+      }
+
+    case 'ACTIVATE_CHOICES':
+      {
+        return state.map(function (obj) {
+          var choice = obj;
+          choice.active = action.active;
+          return choice;
+        });
+      }
+
+    case 'CLEAR_CHOICES':
+      {
+        return defaultState;
+      }
+
+    default:
+      {
+        return state;
+      }
+  }
+}
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.defaultState = void 0;
+var defaultState = {
+  loading: false
+};
+exports.defaultState = defaultState;
+
+var general = function general() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case 'SET_IS_LOADING':
+      {
+        return {
+          loading: action.isLoading
+        };
+      }
+
+    default:
+      {
+        return state;
+      }
+  }
+};
+
+var _default = general;
+exports.default = _default;
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "Dropdown", {
+  enumerable: true,
+  get: function get() {
+    return _dropdown.default;
+  }
+});
+Object.defineProperty(exports, "Container", {
+  enumerable: true,
+  get: function get() {
+    return _container.default;
+  }
+});
+Object.defineProperty(exports, "Input", {
+  enumerable: true,
+  get: function get() {
+    return _input.default;
+  }
+});
+Object.defineProperty(exports, "List", {
+  enumerable: true,
+  get: function get() {
+    return _list.default;
+  }
+});
+Object.defineProperty(exports, "WrappedInput", {
+  enumerable: true,
+  get: function get() {
+    return _wrappedInput.default;
+  }
+});
+Object.defineProperty(exports, "WrappedSelect", {
+  enumerable: true,
+  get: function get() {
+    return _wrappedSelect.default;
+  }
+});
+
+var _dropdown = _interopRequireDefault(__webpack_require__(21));
+
+var _container = _interopRequireDefault(__webpack_require__(22));
+
+var _input = _interopRequireDefault(__webpack_require__(23));
+
+var _list = _interopRequireDefault(__webpack_require__(24));
+
+var _wrappedInput = _interopRequireDefault(__webpack_require__(25));
+
+var _wrappedSelect = _interopRequireDefault(__webpack_require__(26));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Dropdown =
+/*#__PURE__*/
+function () {
+  function Dropdown(_ref) {
+    var element = _ref.element,
+        type = _ref.type,
+        classNames = _ref.classNames;
+
+    _classCallCheck(this, Dropdown);
+
+    Object.assign(this, {
+      element: element,
+      type: type,
+      classNames: classNames
+    });
+    this.isActive = false;
+  }
+  /**
+   * Determine how far the top of our element is from
+   * the top of the window
+   * @return {Number} Vertical position
+   */
+
+
+  _createClass(Dropdown, [{
+    key: "distanceFromTopWindow",
+    value: function distanceFromTopWindow() {
+      this.dimensions = this.element.getBoundingClientRect();
+      this.position = Math.ceil(this.dimensions.top + window.pageYOffset + this.element.offsetHeight);
+      return this.position;
+    }
+    /**
+     * Find element that matches passed selector
+     * @return {HTMLElement}
+     */
+
+  }, {
+    key: "getChild",
+    value: function getChild(selector) {
+      return this.element.querySelector(selector);
+    }
+    /**
+     * Show dropdown to user by adding active state class
+     * @return {Object} Class instance
+     * @public
+     */
+
+  }, {
+    key: "show",
+    value: function show() {
+      this.element.classList.add(this.classNames.activeState);
+      this.element.setAttribute('aria-expanded', 'true');
+      this.isActive = true;
+      return this;
+    }
+    /**
+     * Hide dropdown from user
+     * @return {Object} Class instance
+     * @public
+     */
+
+  }, {
+    key: "hide",
+    value: function hide() {
+      this.element.classList.remove(this.classNames.activeState);
+      this.element.setAttribute('aria-expanded', 'false');
+      this.isActive = false;
+      return this;
+    }
+  }]);
+
+  return Dropdown;
+}();
+
+exports.default = Dropdown;
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _utils = __webpack_require__(0);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Container =
+/*#__PURE__*/
+function () {
+  function Container(_ref) {
+    var element = _ref.element,
+        type = _ref.type,
+        classNames = _ref.classNames,
+        position = _ref.position;
+
+    _classCallCheck(this, Container);
+
+    Object.assign(this, {
+      element: element,
+      classNames: classNames,
+      type: type,
+      position: position
+    });
+    this.isOpen = false;
+    this.isFlipped = false;
+    this.isFocussed = false;
+    this.isDisabled = false;
+    this.isLoading = false;
+    this._onFocus = this._onFocus.bind(this);
+    this._onBlur = this._onBlur.bind(this);
+  }
+  /**
+   * Add event listeners
+   */
+
+
+  _createClass(Container, [{
+    key: "addEventListeners",
+    value: function addEventListeners() {
+      this.element.addEventListener('focus', this._onFocus);
+      this.element.addEventListener('blur', this._onBlur);
+    }
+    /**
+     * Remove event listeners
+     */
+
+    /** */
+
+  }, {
+    key: "removeEventListeners",
+    value: function removeEventListeners() {
+      this.element.removeEventListener('focus', this._onFocus);
+      this.element.removeEventListener('blur', this._onBlur);
+    }
+    /**
+     * Determine whether container should be flipped
+     * based on passed dropdown position
+     * @param {Number} dropdownPos
+     * @returns
+     */
+
+  }, {
+    key: "shouldFlip",
+    value: function shouldFlip(dropdownPos) {
+      var windowHeight = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : (0, _utils.getWindowHeight)();
+
+      if (dropdownPos === undefined) {
+        return false;
+      } // If flip is enabled and the dropdown bottom position is
+      // greater than the window height flip the dropdown.
+
+
+      var shouldFlip = false;
+
+      if (this.position === 'auto') {
+        shouldFlip = dropdownPos >= windowHeight;
+      } else if (this.position === 'top') {
+        shouldFlip = true;
+      }
+
+      return shouldFlip;
+    }
+    /**
+     * Set active descendant attribute
+     * @param {Number} activeDescendant ID of active descendant
+     */
+
+  }, {
+    key: "setActiveDescendant",
+    value: function setActiveDescendant(activeDescendantID) {
+      this.element.setAttribute('aria-activedescendant', activeDescendantID);
+    }
+    /**
+     * Remove active descendant attribute
+     */
+
+  }, {
+    key: "removeActiveDescendant",
+    value: function removeActiveDescendant() {
+      this.element.removeAttribute('aria-activedescendant');
+    }
+  }, {
+    key: "open",
+    value: function open(dropdownPos) {
+      this.element.classList.add(this.classNames.openState);
+      this.element.setAttribute('aria-expanded', 'true');
+      this.isOpen = true;
+
+      if (this.shouldFlip(dropdownPos)) {
+        this.element.classList.add(this.classNames.flippedState);
+        this.isFlipped = true;
+      }
+    }
+  }, {
+    key: "close",
+    value: function close() {
+      this.element.classList.remove(this.classNames.openState);
+      this.element.setAttribute('aria-expanded', 'false');
+      this.removeActiveDescendant();
+      this.isOpen = false; // A dropdown flips if it does not have space within the page
+
+      if (this.isFlipped) {
+        this.element.classList.remove(this.classNames.flippedState);
+        this.isFlipped = false;
+      }
+    }
+  }, {
+    key: "focus",
+    value: function focus() {
+      if (!this.isFocussed) {
+        this.element.focus();
+      }
+    }
+  }, {
+    key: "addFocusState",
+    value: function addFocusState() {
+      this.element.classList.add(this.classNames.focusState);
+    }
+  }, {
+    key: "removeFocusState",
+    value: function removeFocusState() {
+      this.element.classList.remove(this.classNames.focusState);
+    }
+    /**
+     * Remove disabled state
+     */
+
+  }, {
+    key: "enable",
+    value: function enable() {
+      this.element.classList.remove(this.classNames.disabledState);
+      this.element.removeAttribute('aria-disabled');
+
+      if (this.type === 'select-one') {
+        this.element.setAttribute('tabindex', '0');
+      }
+
+      this.isDisabled = false;
+    }
+    /**
+     * Set disabled state
+     */
+
+  }, {
+    key: "disable",
+    value: function disable() {
+      this.element.classList.add(this.classNames.disabledState);
+      this.element.setAttribute('aria-disabled', 'true');
+
+      if (this.type === 'select-one') {
+        this.element.setAttribute('tabindex', '-1');
+      }
+
+      this.isDisabled = true;
+    }
+  }, {
+    key: "wrap",
+    value: function wrap(element) {
+      (0, _utils.wrap)(element, this.element);
+    }
+  }, {
+    key: "unwrap",
+    value: function unwrap(element) {
+      // Move passed element outside this element
+      this.element.parentNode.insertBefore(element, this.element); // Remove this element
+
+      this.element.parentNode.removeChild(this.element);
+    }
+    /**
+     * Add loading state to element
+     */
+
+  }, {
+    key: "addLoadingState",
+    value: function addLoadingState() {
+      this.element.classList.add(this.classNames.loadingState);
+      this.element.setAttribute('aria-busy', 'true');
+      this.isLoading = true;
+    }
+    /**
+     * Remove loading state from element
+     */
+
+  }, {
+    key: "removeLoadingState",
+    value: function removeLoadingState() {
+      this.element.classList.remove(this.classNames.loadingState);
+      this.element.removeAttribute('aria-busy');
+      this.isLoading = false;
+    }
+    /**
+     * Set focussed state
+     */
+
+  }, {
+    key: "_onFocus",
+    value: function _onFocus() {
+      this.isFocussed = true;
+    }
+    /**
+     * Remove blurred state
+     */
+
+  }, {
+    key: "_onBlur",
+    value: function _onBlur() {
+      this.isFocussed = false;
+    }
+  }]);
+
+  return Container;
+}();
+
+exports.default = Container;
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _utils = __webpack_require__(0);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Input =
+/*#__PURE__*/
+function () {
+  function Input(_ref) {
+    var element = _ref.element,
+        type = _ref.type,
+        classNames = _ref.classNames,
+        placeholderValue = _ref.placeholderValue;
+
+    _classCallCheck(this, Input);
+
+    Object.assign(this, {
+      element: element,
+      type: type,
+      classNames: classNames,
+      placeholderValue: placeholderValue
+    });
+    this.element = element;
+    this.classNames = classNames;
+    this.isFocussed = this.element === document.activeElement;
+    this.isDisabled = false;
+    this._onPaste = this._onPaste.bind(this);
+    this._onInput = this._onInput.bind(this);
+    this._onFocus = this._onFocus.bind(this);
+    this._onBlur = this._onBlur.bind(this);
+  }
+
+  _createClass(Input, [{
+    key: "addEventListeners",
+    value: function addEventListeners() {
+      this.element.addEventListener('input', this._onInput);
+      this.element.addEventListener('paste', this._onPaste);
+      this.element.addEventListener('focus', this._onFocus);
+      this.element.addEventListener('blur', this._onBlur);
+
+      if (this.element.form) {
+        this.element.form.addEventListener('reset', this._onFormReset);
+      }
+    }
+  }, {
+    key: "removeEventListeners",
+    value: function removeEventListeners() {
+      this.element.removeEventListener('input', this._onInput);
+      this.element.removeEventListener('paste', this._onPaste);
+      this.element.removeEventListener('focus', this._onFocus);
+      this.element.removeEventListener('blur', this._onBlur);
+
+      if (this.element.form) {
+        this.element.form.removeEventListener('reset', this._onFormReset);
+      }
+    }
+  }, {
+    key: "enable",
+    value: function enable() {
+      this.element.removeAttribute('disabled');
+      this.isDisabled = false;
+    }
+  }, {
+    key: "disable",
+    value: function disable() {
+      this.element.setAttribute('disabled', '');
+      this.isDisabled = true;
+    }
+  }, {
+    key: "focus",
+    value: function focus() {
+      if (!this.isFocussed) {
+        this.element.focus();
+      }
+    }
+  }, {
+    key: "blur",
+    value: function blur() {
+      if (this.isFocussed) {
+        this.element.blur();
+      }
+    }
+    /**
+     * Set value of input to blank
+     * @return {Object} Class instance
+     * @public
+     */
+
+  }, {
+    key: "clear",
+    value: function clear() {
+      var setWidth = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+      if (this.element.value) {
+        this.element.value = '';
+      }
+
+      if (setWidth) {
+        this.setWidth();
+      }
+
+      return this;
+    }
+    /**
+     * Set the correct input width based on placeholder
+     * value or input value
+     * @return
+     */
+
+  }, {
+    key: "setWidth",
+    value: function setWidth(enforceWidth) {
+      var _this = this;
+
+      var callback = function callback(width) {
+        _this.element.style.width = width;
+      };
+
+      if (this._placeholderValue) {
+        // If there is a placeholder, we only want to set the width of the input when it is a greater
+        // length than 75% of the placeholder. This stops the input jumping around.
+        var valueHasDesiredLength = this.element.value.length >= this._placeholderValue.length / 1.25;
+
+        if (this.element.value && valueHasDesiredLength || enforceWidth) {
+          this.calcWidth(callback);
+        }
+      } else {
+        // If there is no placeholder, resize input to contents
+        this.calcWidth(callback);
+      }
+    }
+  }, {
+    key: "calcWidth",
+    value: function calcWidth(callback) {
+      return (0, _utils.calcWidthOfInput)(this.element, callback);
+    }
+  }, {
+    key: "setActiveDescendant",
+    value: function setActiveDescendant(activeDescendantID) {
+      this.element.setAttribute('aria-activedescendant', activeDescendantID);
+    }
+  }, {
+    key: "removeActiveDescendant",
+    value: function removeActiveDescendant() {
+      this.element.removeAttribute('aria-activedescendant');
+    }
+  }, {
+    key: "_onInput",
+    value: function _onInput() {
+      if (this.type !== 'select-one') {
+        this.setWidth();
+      }
+    }
+  }, {
+    key: "_onPaste",
+    value: function _onPaste(event) {
+      var target = event.target;
+
+      if (target === this.element && this.preventPaste) {
+        event.preventDefault();
+      }
+    }
+  }, {
+    key: "_onFocus",
+    value: function _onFocus() {
+      this.isFocussed = true;
+    }
+  }, {
+    key: "_onBlur",
+    value: function _onBlur() {
+      this.isFocussed = false;
+    }
+  }, {
+    key: "placeholder",
+    set: function set(placeholder) {
+      this.element.placeholder = placeholder;
+    }
+  }, {
+    key: "value",
+    set: function set(value) {
+      this.element.value = value;
+    },
+    get: function get() {
+      return (0, _utils.sanitise)(this.element.value);
+    }
+  }]);
+
+  return Input;
+}();
+
+exports.default = Input;
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _constants = __webpack_require__(1);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var List =
+/*#__PURE__*/
+function () {
+  function List(_ref) {
+    var element = _ref.element;
+
+    _classCallCheck(this, List);
+
+    Object.assign(this, {
+      element: element
+    });
+    this.scrollPos = this.element.scrollTop;
+    this.height = this.element.offsetHeight;
+    this.hasChildren = !!this.element.children;
+  }
+
+  _createClass(List, [{
+    key: "clear",
+    value: function clear() {
+      this.element.innerHTML = '';
+    }
+  }, {
+    key: "append",
+    value: function append(node) {
+      this.element.appendChild(node);
+    }
+  }, {
+    key: "getChild",
+    value: function getChild(selector) {
+      return this.element.querySelector(selector);
+    }
+  }, {
+    key: "scrollToTop",
+    value: function scrollToTop() {
+      this.element.scrollTop = 0;
+    }
+  }, {
+    key: "scrollToChoice",
+    value: function scrollToChoice(choice, direction) {
+      var _this = this;
+
+      if (!choice) {
+        return;
+      }
+
+      var dropdownHeight = this.element.offsetHeight;
+      var choiceHeight = choice.offsetHeight; // Distance from bottom of element to top of parent
+
+      var choicePos = choice.offsetTop + choiceHeight; // Scroll position of dropdown
+
+      var containerScrollPos = this.element.scrollTop + dropdownHeight; // Difference between the choice and scroll position
+
+      var endpoint = direction > 0 ? this.element.scrollTop + choicePos - containerScrollPos : choice.offsetTop;
+      requestAnimationFrame(function (time) {
+        _this._animateScroll(time, endpoint, direction);
+      });
+    }
+  }, {
+    key: "_scrollDown",
+    value: function _scrollDown(scrollPos, strength, endpoint) {
+      var easing = (endpoint - scrollPos) / strength;
+      var distance = easing > 1 ? easing : 1;
+      this.element.scrollTop = scrollPos + distance;
+    }
+  }, {
+    key: "_scrollUp",
+    value: function _scrollUp(scrollPos, strength, endpoint) {
+      var easing = (scrollPos - endpoint) / strength;
+      var distance = easing > 1 ? easing : 1;
+      this.element.scrollTop = scrollPos - distance;
+    }
+  }, {
+    key: "_animateScroll",
+    value: function _animateScroll(time, endpoint, direction) {
+      var _this2 = this;
+
+      var strength = _constants.SCROLLING_SPEED;
+      var choiceListScrollTop = this.element.scrollTop;
+      var continueAnimation = false;
+
+      if (direction > 0) {
+        this._scrollDown(choiceListScrollTop, strength, endpoint);
+
+        if (choiceListScrollTop < endpoint) {
+          continueAnimation = true;
+        }
+      } else {
+        this._scrollUp(choiceListScrollTop, strength, endpoint);
+
+        if (choiceListScrollTop > endpoint) {
+          continueAnimation = true;
+        }
+      }
+
+      if (continueAnimation) {
+        requestAnimationFrame(function () {
+          _this2._animateScroll(time, endpoint, direction);
+        });
+      }
+    }
+  }]);
+
+  return List;
+}();
+
+exports.default = List;
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _wrappedElement = _interopRequireDefault(__webpack_require__(4));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var WrappedInput =
+/*#__PURE__*/
+function (_WrappedElement) {
+  _inherits(WrappedInput, _WrappedElement);
+
+  function WrappedInput(_ref) {
+    var _this;
+
+    var element = _ref.element,
+        classNames = _ref.classNames,
+        delimiter = _ref.delimiter;
+
+    _classCallCheck(this, WrappedInput);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(WrappedInput).call(this, {
+      element: element,
+      classNames: classNames
+    }));
+    _this.delimiter = delimiter;
+    return _this;
+  }
+
+  _createClass(WrappedInput, [{
+    key: "value",
+    set: function set(items) {
+      var itemValues = items.map(function (_ref2) {
+        var value = _ref2.value;
+        return value;
+      });
+      var joinedValues = itemValues.join(this.delimiter);
+      this.element.setAttribute('value', joinedValues);
+      this.element.value = joinedValues;
+    } // @todo figure out why we need this? Perhaps a babel issue
+    ,
+    get: function get() {
+      return _get(_getPrototypeOf(WrappedInput.prototype), "value", this);
+    }
+  }]);
+
+  return WrappedInput;
+}(_wrappedElement.default);
+
+exports.default = WrappedInput;
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _wrappedElement = _interopRequireDefault(__webpack_require__(4));
+
+var _templates = _interopRequireDefault(__webpack_require__(5));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var WrappedSelect =
+/*#__PURE__*/
+function (_WrappedElement) {
+  _inherits(WrappedSelect, _WrappedElement);
+
+  function WrappedSelect(_ref) {
+    var element = _ref.element,
+        classNames = _ref.classNames;
+
+    _classCallCheck(this, WrappedSelect);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(WrappedSelect).call(this, {
+      element: element,
+      classNames: classNames
+    }));
+  }
+
+  _createClass(WrappedSelect, [{
+    key: "appendDocFragment",
+    value: function appendDocFragment(fragment) {
+      this.element.innerHTML = '';
+      this.element.appendChild(fragment);
+    }
+  }, {
+    key: "placeholderOption",
+    get: function get() {
+      return this.element.querySelector('option[placeholder]');
+    }
+  }, {
+    key: "optionGroups",
+    get: function get() {
+      return Array.from(this.element.getElementsByTagName('OPTGROUP'));
+    }
+  }, {
+    key: "options",
+    get: function get() {
+      return Array.from(this.element.options);
+    },
+    set: function set(options) {
+      var fragment = document.createDocumentFragment();
+
+      var addOptionToFragment = function addOptionToFragment(data) {
+        // Create a standard select option
+        var template = _templates.default.option(data); // Append it to fragment
+
+
+        fragment.appendChild(template);
+      }; // Add each list item to list
+
+
+      options.forEach(function (optionData) {
+        return addOptionToFragment(optionData);
+      });
+      this.appendDocFragment(fragment);
+    }
+  }]);
+
+  return WrappedSelect;
+}(_wrappedElement.default);
+
+exports.default = WrappedSelect;
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+  Copyright (c) 2017 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames () {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg) && arg.length) {
+				var inner = classNames.apply(null, arg);
+				if (inner) {
+					classes.push(inner);
+				}
+			} else if (argType === 'object') {
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if ( true && module.exports) {
+		classNames.default = classNames;
+		module.exports = classNames;
+	} else if (true) {
+		// register as 'classnames', consistent with npm package name
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+			return classNames;
+		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {}
+}());
+
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.clearChoices = exports.activateChoices = exports.filterChoices = exports.addChoice = void 0;
+
+var _constants = __webpack_require__(1);
+
+var addChoice = function addChoice(_ref) {
+  var value = _ref.value,
+      label = _ref.label,
+      id = _ref.id,
+      groupId = _ref.groupId,
+      disabled = _ref.disabled,
+      elementId = _ref.elementId,
+      customProperties = _ref.customProperties,
+      placeholder = _ref.placeholder,
+      keyCode = _ref.keyCode;
+  return {
+    type: _constants.ACTION_TYPES.ADD_CHOICE,
+    value: value,
+    label: label,
+    id: id,
+    groupId: groupId,
+    disabled: disabled,
+    elementId: elementId,
+    customProperties: customProperties,
+    placeholder: placeholder,
+    keyCode: keyCode
+  };
+};
+
+exports.addChoice = addChoice;
+
+var filterChoices = function filterChoices(results) {
+  return {
+    type: _constants.ACTION_TYPES.FILTER_CHOICES,
+    results: results
+  };
+};
+
+exports.filterChoices = filterChoices;
+
+var activateChoices = function activateChoices() {
+  var active = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+  return {
+    type: _constants.ACTION_TYPES.ACTIVATE_CHOICES,
+    active: active
+  };
+};
+
+exports.activateChoices = activateChoices;
+
+var clearChoices = function clearChoices() {
+  return {
+    type: _constants.ACTION_TYPES.CLEAR_CHOICES
+  };
+};
+
+exports.clearChoices = clearChoices;
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.highlightItem = exports.removeItem = exports.addItem = void 0;
+
+var _constants = __webpack_require__(1);
+
+var addItem = function addItem(_ref) {
+  var value = _ref.value,
+      label = _ref.label,
+      id = _ref.id,
+      choiceId = _ref.choiceId,
+      groupId = _ref.groupId,
+      customProperties = _ref.customProperties,
+      placeholder = _ref.placeholder,
+      keyCode = _ref.keyCode;
+  return {
+    type: _constants.ACTION_TYPES.ADD_ITEM,
+    value: value,
+    label: label,
+    id: id,
+    choiceId: choiceId,
+    groupId: groupId,
+    customProperties: customProperties,
+    placeholder: placeholder,
+    keyCode: keyCode
+  };
+};
+
+exports.addItem = addItem;
+
+var removeItem = function removeItem(id, choiceId) {
+  return {
+    type: _constants.ACTION_TYPES.REMOVE_ITEM,
+    id: id,
+    choiceId: choiceId
+  };
+};
+
+exports.removeItem = removeItem;
+
+var highlightItem = function highlightItem(id, highlighted) {
+  return {
+    type: _constants.ACTION_TYPES.HIGHLIGHT_ITEM,
+    id: id,
+    highlighted: highlighted
+  };
+};
+
+exports.highlightItem = highlightItem;
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.addGroup = void 0;
+
+var _constants = __webpack_require__(1);
+
+/* eslint-disable import/prefer-default-export */
+var addGroup = function addGroup(value, id, active, disabled) {
+  return {
+    type: _constants.ACTION_TYPES.ADD_GROUP,
+    value: value,
+    id: id,
+    active: active,
+    disabled: disabled
+  };
+};
+
+exports.addGroup = addGroup;
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.resetTo = exports.clearAll = void 0;
+
+var clearAll = function clearAll() {
+  return {
+    type: 'CLEAR_ALL'
+  };
+};
+
+exports.clearAll = clearAll;
+
+var resetTo = function resetTo(state) {
+  return {
+    type: 'RESET_TO',
+    state: state
+  };
+};
+
+exports.resetTo = resetTo;
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setIsLoading = void 0;
+
+/* eslint-disable import/prefer-default-export */
+var setIsLoading = function setIsLoading(isLoading) {
+  return {
+    type: 'SET_IS_LOADING',
+    isLoading: isLoading
+  };
+};
+
+exports.setIsLoading = setIsLoading;
+
+/***/ })
+/******/ ]);
+});
+},{}],2:[function(_dereq_,module,exports){
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define("rangeSlider", [], factory);
+	else if(typeof exports === 'object')
+		exports["rangeSlider"] = factory();
+	else
+		root["rangeSlider"] = factory();
+})(window, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/range-slider.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/range-slider.css":
+/*!******************************!*\
+  !*** ./src/range-slider.css ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "./src/range-slider.js":
+/*!*****************************!*\
+  !*** ./src/range-slider.js ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dom = __webpack_require__(/*! ./utils/dom */ "./src/utils/dom.js");
+
+var dom = _interopRequireWildcard(_dom);
+
+var _functions = __webpack_require__(/*! ./utils/functions */ "./src/utils/functions.js");
+
+var func = _interopRequireWildcard(_functions);
+
+__webpack_require__(/*! ./range-slider.css */ "./src/range-slider.css");
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var newLineAndTabRegexp = new RegExp('/[\\n\\t]/', 'g');
+var MAX_SET_BY_DEFAULT = 100;
+var HANDLE_RESIZE_DELAY = 300;
+var HANDLE_RESIZE_DEBOUNCE = 50;
+
+var pluginName = 'rangeSlider';
+var inputrange = dom.supportsRange();
+var defaults = {
+  polyfill: true,
+  rangeClass: 'rangeSlider',
+  disabledClass: 'rangeSlider--disabled',
+  fillClass: 'rangeSlider__fill',
+  bufferClass: 'rangeSlider__buffer',
+  handleClass: 'rangeSlider__handle',
+  startEvent: ['mousedown', 'touchstart', 'pointerdown'],
+  moveEvent: ['mousemove', 'touchmove', 'pointermove'],
+  endEvent: ['mouseup', 'touchend', 'pointerup'],
+  min: null,
+  max: null,
+  step: null,
+  value: null,
+  buffer: null,
+  stick: null,
+  borderRadius: 10,
+  vertical: false
+};
+
+/**
+ * Plugin
+ * @param {HTMLElement} element
+ * @param {this} options
  */
 
-var fs;!function(){if(!fs||!fs.requirejs){fs?require=fs:fs={};var requirejs,require,define;!function(global,setTimeout){function commentReplace(e,t){return t||""}function isFunction(e){return"[object Function]"===ostring.call(e)}function isArray(e){return"[object Array]"===ostring.call(e)}function each(e,t){if(e){var n;for(n=0;n<e.length&&(!e[n]||!t(e[n],n,e));n+=1);}}function eachReverse(e,t){if(e){var n;for(n=e.length-1;n>-1&&(!e[n]||!t(e[n],n,e));n-=1);}}function hasProp(e,t){return hasOwn.call(e,t)}function getOwn(e,t){return hasProp(e,t)&&e[t]}function eachProp(e,t){var n;for(n in e)if(hasProp(e,n)&&t(e[n],n))break}function mixin(e,t,n,r){return t&&eachProp(t,function(t,i){!n&&hasProp(e,i)||(!r||"object"!=typeof t||!t||isArray(t)||isFunction(t)||t instanceof RegExp?e[i]=t:(e[i]||(e[i]={}),mixin(e[i],t,n,r)))}),e}function bind(e,t){return function(){return t.apply(e,arguments)}}function scripts(){return document.getElementsByTagName("script")}function defaultOnError(e){throw e}function getGlobal(e){if(!e)return e;var t=global;return each(e.split("."),function(e){t=t[e]}),t}function makeError(e,t,n,r){var i=new Error(t+"\nhttp://requirejs.org/docs/errors.html#"+e);return i.requireType=e,i.requireModules=r,n&&(i.originalError=n),i}function newContext(e){function t(e){var t,n;for(t=0;t<e.length;t++)if("."===(n=e[t]))e.splice(t,1),t-=1;else if(".."===n){if(0===t||1===t&&".."===e[2]||".."===e[t-1])continue;t>0&&(e.splice(t-1,2),t-=2)}}function n(e,n,r){var i,a,s,o,l,u,p,c,f,h,d,m=n&&n.split("/"),g=C.map,v=g&&g["*"];if(e&&(e=e.split("/"),u=e.length-1,C.nodeIdCompat&&jsSuffixRegExp.test(e[u])&&(e[u]=e[u].replace(jsSuffixRegExp,"")),"."===e[0].charAt(0)&&m&&(d=m.slice(0,m.length-1),e=d.concat(e)),t(e),e=e.join("/")),r&&g&&(m||v)){a=e.split("/");e:for(s=a.length;s>0;s-=1){if(l=a.slice(0,s).join("/"),m)for(o=m.length;o>0;o-=1)if((i=getOwn(g,m.slice(0,o).join("/")))&&(i=getOwn(i,l))){p=i,c=s;break e}!f&&v&&getOwn(v,l)&&(f=getOwn(v,l),h=s)}!p&&f&&(p=f,c=h),p&&(a.splice(0,c,p),e=a.join("/"))}return getOwn(C.pkgs,e)||e}function r(e){isBrowser&&each(scripts(),function(t){if(t.getAttribute("data-requiremodule")===e&&t.getAttribute("data-requirecontext")===S.contextName)return t.parentNode.removeChild(t),!0})}function i(e){var t=getOwn(C.paths,e);if(t&&isArray(t)&&t.length>1)return t.shift(),S.require.undef(e),S.makeRequire(null,{skipMap:!0})([e]),!0}function a(e){var t,n=e?e.indexOf("!"):-1;return n>-1&&(t=e.substring(0,n),e=e.substring(n+1,e.length)),[t,e]}function s(e,t,r,i){var s,o,l,u,p=null,c=t?t.name:null,f=e,h=!0,d="";return e||(h=!1,e="_@r"+(B+=1)),u=a(e),p=u[0],e=u[1],p&&(p=n(p,c,i),o=getOwn(U,p)),e&&(p?d=r?e:o&&o.normalize?o.normalize(e,function(e){return n(e,c,i)}):-1===e.indexOf("!")?n(e,c,i):e:(d=n(e,c,i),u=a(d),p=u[0],d=u[1],r=!0,s=S.nameToUrl(d))),l=!p||o||r?"":"_unnormalized"+(F+=1),{prefix:p,name:d,parentMap:t,unnormalized:!!l,url:s,originalName:f,isDefine:h,id:(p?p+"!"+d:d)+l}}function o(e){var t=e.id,n=getOwn(w,t);return n||(n=w[t]=new S.Module(e)),n}function l(e,t,n){var r=e.id,i=getOwn(w,r);!hasProp(U,r)||i&&!i.defineEmitComplete?(i=o(e),i.error&&"error"===t?n(i.error):i.on(t,n)):"defined"===t&&n(U[r])}function u(e,t){var n=e.requireModules,r=!1;t?t(e):(each(n,function(t){var n=getOwn(w,t);n&&(n.error=e,n.events.error&&(r=!0,n.emit("error",e)))}),r||req.onError(e))}function p(){globalDefQueue.length&&(each(globalDefQueue,function(e){var t=e[0];"string"==typeof t&&(S.defQueueMap[t]=!0),D.push(e)}),globalDefQueue=[])}function c(e){delete w[e],delete O[e]}function f(e,t,n){var r=e.map.id;e.error?e.emit("error",e.error):(t[r]=!0,each(e.depMaps,function(r,i){var a=r.id,s=getOwn(w,a);!s||e.depMatched[i]||n[a]||(getOwn(t,a)?(e.defineDep(i,U[a]),e.check()):f(s,t,n))}),n[r]=!0)}function h(){var e,t,n=1e3*C.waitSeconds,a=n&&S.startTime+n<(new Date).getTime(),s=[],o=[],l=!1,p=!0;if(!y){if(y=!0,eachProp(O,function(e){var n=e.map,u=n.id;if(e.enabled&&(n.isDefine||o.push(e),!e.error))if(!e.inited&&a)i(u)?(t=!0,l=!0):(s.push(u),r(u));else if(!e.inited&&e.fetched&&n.isDefine&&(l=!0,!n.prefix))return p=!1}),a&&s.length)return e=makeError("timeout","Load timeout for modules: "+s,null,s),e.contextName=S.contextName,u(e);p&&each(o,function(e){f(e,{},{})}),a&&!t||!l||!isBrowser&&!isWebWorker||T||(T=setTimeout(function(){T=0,h()},50)),y=!1}}function d(e){hasProp(U,e[0])||o(s(e[0],null,!0)).init(e[1],e[2])}function m(e,t,n,r){e.detachEvent&&!isOpera?r&&e.detachEvent(r,t):e.removeEventListener(n,t,!1)}function g(e){var t=e.currentTarget||e.srcElement;return m(t,S.onScriptLoad,"load","onreadystatechange"),m(t,S.onScriptError,"error"),{node:t,id:t&&t.getAttribute("data-requiremodule")}}function v(){var e;for(p();D.length;){if(e=D.shift(),null===e[0])return u(makeError("mismatch","Mismatched anonymous define() module: "+e[e.length-1]));d(e)}S.defQueueMap={}}var y,b,S,x,T,C={waitSeconds:7,baseUrl:"./",paths:{},bundles:{},pkgs:{},shim:{},config:{}},w={},O={},E={},D=[],U={},k={},N={},B=1,F=1;return x={require:function(e){return e.require?e.require:e.require=S.makeRequire(e.map)},exports:function(e){if(e.usingExports=!0,e.map.isDefine)return e.exports?U[e.map.id]=e.exports:e.exports=U[e.map.id]={}},module:function(e){return e.module?e.module:e.module={id:e.map.id,uri:e.map.url,config:function(){return getOwn(C.config,e.map.id)||{}},exports:e.exports||(e.exports={})}}},b=function(e){this.events=getOwn(E,e.id)||{},this.map=e,this.shim=getOwn(C.shim,e.id),this.depExports=[],this.depMaps=[],this.depMatched=[],this.pluginMaps={},this.depCount=0},b.prototype={init:function(e,t,n,r){r=r||{},this.inited||(this.factory=t,n?this.on("error",n):this.events.error&&(n=bind(this,function(e){this.emit("error",e)})),this.depMaps=e&&e.slice(0),this.errback=n,this.inited=!0,this.ignore=r.ignore,r.enabled||this.enabled?this.enable():this.check())},defineDep:function(e,t){this.depMatched[e]||(this.depMatched[e]=!0,this.depCount-=1,this.depExports[e]=t)},fetch:function(){if(!this.fetched){this.fetched=!0,S.startTime=(new Date).getTime();var e=this.map;if(!this.shim)return e.prefix?this.callPlugin():this.load();S.makeRequire(this.map,{enableBuildCallback:!0})(this.shim.deps||[],bind(this,function(){return e.prefix?this.callPlugin():this.load()}))}},load:function(){var e=this.map.url;k[e]||(k[e]=!0,S.load(this.map.id,e))},check:function(){if(this.enabled&&!this.enabling){var e,t,n=this.map.id,r=this.depExports,i=this.exports,a=this.factory;if(this.inited){if(this.error)this.emit("error",this.error);else if(!this.defining){if(this.defining=!0,this.depCount<1&&!this.defined){if(isFunction(a)){if(this.events.error&&this.map.isDefine||req.onError!==defaultOnError)try{i=S.execCb(n,a,r,i)}catch(t){e=t}else i=S.execCb(n,a,r,i);if(this.map.isDefine&&void 0===i&&(t=this.module,t?i=t.exports:this.usingExports&&(i=this.exports)),e)return e.requireMap=this.map,e.requireModules=this.map.isDefine?[this.map.id]:null,e.requireType=this.map.isDefine?"define":"require",u(this.error=e)}else i=a;if(this.exports=i,this.map.isDefine&&!this.ignore&&(U[n]=i,req.onResourceLoad)){var s=[];each(this.depMaps,function(e){s.push(e.normalizedMap||e)}),req.onResourceLoad(S,this.map,s)}c(n),this.defined=!0}this.defining=!1,this.defined&&!this.defineEmitted&&(this.defineEmitted=!0,this.emit("defined",this.exports),this.defineEmitComplete=!0)}}else hasProp(S.defQueueMap,n)||this.fetch()}},callPlugin:function(){var e=this.map,t=e.id,r=s(e.prefix);this.depMaps.push(r),l(r,"defined",bind(this,function(r){var i,a,p,f=getOwn(N,this.map.id),h=this.map.name,d=this.map.parentMap?this.map.parentMap.name:null,m=S.makeRequire(e.parentMap,{enableBuildCallback:!0});return this.map.unnormalized?(r.normalize&&(h=r.normalize(h,function(e){return n(e,d,!0)})||""),a=s(e.prefix+"!"+h,this.map.parentMap,!0),l(a,"defined",bind(this,function(e){this.map.normalizedMap=a,this.init([],function(){return e},null,{enabled:!0,ignore:!0})})),void((p=getOwn(w,a.id))&&(this.depMaps.push(a),this.events.error&&p.on("error",bind(this,function(e){this.emit("error",e)})),p.enable()))):f?(this.map.url=S.nameToUrl(f),void this.load()):(i=bind(this,function(e){this.init([],function(){return e},null,{enabled:!0})}),i.error=bind(this,function(e){this.inited=!0,this.error=e,e.requireModules=[t],eachProp(w,function(e){0===e.map.id.indexOf(t+"_unnormalized")&&c(e.map.id)}),u(e)}),i.fromText=bind(this,function(n,r){var a=e.name,l=s(a),p=useInteractive;r&&(n=r),p&&(useInteractive=!1),o(l),hasProp(C.config,t)&&(C.config[a]=C.config[t]);try{req.exec(n)}catch(e){return u(makeError("fromtexteval","fromText eval for "+t+" failed: "+e,e,[t]))}p&&(useInteractive=!0),this.depMaps.push(l),S.completeLoad(a),m([a],i)}),void r.load(e.name,m,i,C))})),S.enable(r,this),this.pluginMaps[r.id]=r},enable:function(){O[this.map.id]=this,this.enabled=!0,this.enabling=!0,each(this.depMaps,bind(this,function(e,t){var n,r,i;if("string"==typeof e){if(e=s(e,this.map.isDefine?this.map:this.map.parentMap,!1,!this.skipMap),this.depMaps[t]=e,i=getOwn(x,e.id))return void(this.depExports[t]=i(this));this.depCount+=1,l(e,"defined",bind(this,function(e){this.undefed||(this.defineDep(t,e),this.check())})),this.errback?l(e,"error",bind(this,this.errback)):this.events.error&&l(e,"error",bind(this,function(e){this.emit("error",e)}))}n=e.id,r=w[n],hasProp(x,n)||!r||r.enabled||S.enable(e,this)})),eachProp(this.pluginMaps,bind(this,function(e){var t=getOwn(w,e.id);t&&!t.enabled&&S.enable(e,this)})),this.enabling=!1,this.check()},on:function(e,t){var n=this.events[e];n||(n=this.events[e]=[]),n.push(t)},emit:function(e,t){each(this.events[e],function(e){e(t)}),"error"===e&&delete this.events[e]}},S={config:C,contextName:e,registry:w,defined:U,urlFetched:k,defQueue:D,defQueueMap:{},Module:b,makeModuleMap:s,nextTick:req.nextTick,onError:u,configure:function(e){if(e.baseUrl&&"/"!==e.baseUrl.charAt(e.baseUrl.length-1)&&(e.baseUrl+="/"),"string"==typeof e.urlArgs){var t=e.urlArgs;e.urlArgs=function(e,n){return(-1===n.indexOf("?")?"?":"&")+t}}var n=C.shim,r={paths:!0,bundles:!0,config:!0,map:!0};eachProp(e,function(e,t){r[t]?(C[t]||(C[t]={}),mixin(C[t],e,!0,!0)):C[t]=e}),e.bundles&&eachProp(e.bundles,function(e,t){each(e,function(e){e!==t&&(N[e]=t)})}),e.shim&&(eachProp(e.shim,function(e,t){isArray(e)&&(e={deps:e}),!e.exports&&!e.init||e.exportsFn||(e.exportsFn=S.makeShimExports(e)),n[t]=e}),C.shim=n),e.packages&&each(e.packages,function(e){var t,n;e="string"==typeof e?{name:e}:e,n=e.name,t=e.location,t&&(C.paths[n]=e.location),C.pkgs[n]=e.name+"/"+(e.main||"main").replace(currDirRegExp,"").replace(jsSuffixRegExp,"")}),eachProp(w,function(e,t){e.inited||e.map.unnormalized||(e.map=s(t,null,!0))}),(e.deps||e.callback)&&S.require(e.deps||[],e.callback)},makeShimExports:function(e){function t(){var t;return e.init&&(t=e.init.apply(global,arguments)),t||e.exports&&getGlobal(e.exports)}return t},makeRequire:function(t,i){function a(n,r,l){var p,c,f;return i.enableBuildCallback&&r&&isFunction(r)&&(r.__requireJsBuild=!0),"string"==typeof n?isFunction(r)?u(makeError("requireargs","Invalid require call"),l):t&&hasProp(x,n)?x[n](w[t.id]):req.get?req.get(S,n,t,a):(c=s(n,t,!1,!0),p=c.id,hasProp(U,p)?U[p]:u(makeError("notloaded",'Module name "'+p+'" has not been loaded yet for context: '+e+(t?"":". Use require([])")))):(v(),S.nextTick(function(){v(),f=o(s(null,t)),f.skipMap=i.skipMap,f.init(n,r,l,{enabled:!0}),h()}),a)}return i=i||{},mixin(a,{isBrowser:isBrowser,toUrl:function(e){var r,i=e.lastIndexOf("."),a=e.split("/")[0],s="."===a||".."===a;return-1!==i&&(!s||i>1)&&(r=e.substring(i,e.length),e=e.substring(0,i)),S.nameToUrl(n(e,t&&t.id,!0),r,!0)},defined:function(e){return hasProp(U,s(e,t,!1,!0).id)},specified:function(e){return e=s(e,t,!1,!0).id,hasProp(U,e)||hasProp(w,e)}}),t||(a.undef=function(e){p();var n=s(e,t,!0),i=getOwn(w,e);i.undefed=!0,r(e),delete U[e],delete k[n.url],delete E[e],eachReverse(D,function(t,n){t[0]===e&&D.splice(n,1)}),delete S.defQueueMap[e],i&&(i.events.defined&&(E[e]=i.events),c(e))}),a},enable:function(e){getOwn(w,e.id)&&o(e).enable()},completeLoad:function(e){var t,n,r,a=getOwn(C.shim,e)||{},s=a.exports;for(p();D.length;){if(n=D.shift(),null===n[0]){if(n[0]=e,t)break;t=!0}else n[0]===e&&(t=!0);d(n)}if(S.defQueueMap={},r=getOwn(w,e),!t&&!hasProp(U,e)&&r&&!r.inited){if(!(!C.enforceDefine||s&&getGlobal(s)))return i(e)?void 0:u(makeError("nodefine","No define call for "+e,null,[e]));d([e,a.deps||[],a.exportsFn])}h()},nameToUrl:function(e,t,n){var r,i,a,s,o,l,u,p=getOwn(C.pkgs,e);if(p&&(e=p),u=getOwn(N,e))return S.nameToUrl(u,t,n);if(req.jsExtRegExp.test(e))o=e+(t||"");else{for(r=C.paths,i=e.split("/"),a=i.length;a>0;a-=1)if(s=i.slice(0,a).join("/"),l=getOwn(r,s)){isArray(l)&&(l=l[0]),i.splice(0,a,l);break}o=i.join("/"),o+=t||(/^data\:|^blob\:|\?/.test(o)||n?"":".js"),o=("/"===o.charAt(0)||o.match(/^[\w\+\.\-]+:/)?"":C.baseUrl)+o}return C.urlArgs&&!/^blob\:/.test(o)?o+C.urlArgs(e,o):o},load:function(e,t){req.load(S,e,t)},execCb:function(e,t,n,r){return t.apply(r,n)},onScriptLoad:function(e){if("load"===e.type||readyRegExp.test((e.currentTarget||e.srcElement).readyState)){interactiveScript=null;var t=g(e);S.completeLoad(t.id)}},onScriptError:function(e){var t=g(e);if(!i(t.id)){var n=[];return eachProp(w,function(e,r){0!==r.indexOf("_@r")&&each(e.depMaps,function(e){if(e.id===t.id)return n.push(r),!0})}),u(makeError("scripterror",'Script error for "'+t.id+(n.length?'", needed by: '+n.join(", "):'"'),e,[t.id]))}}},S.require=S.makeRequire(),S}function getInteractiveScript(){return interactiveScript&&"interactive"===interactiveScript.readyState?interactiveScript:(eachReverse(scripts(),function(e){if("interactive"===e.readyState)return interactiveScript=e}),interactiveScript)}var req,s,head,baseElement,dataMain,src,interactiveScript,currentlyAddingScript,mainScript,subPath,version="2.3.5",commentRegExp=/\/\*[\s\S]*?\*\/|([^:"'=]|^)\/\/.*$/gm,cjsRequireRegExp=/[^.]\s*require\s*\(\s*["']([^'"\s]+)["']\s*\)/g,jsSuffixRegExp=/\.js$/,currDirRegExp=/^\.\//,op=Object.prototype,ostring=op.toString,hasOwn=op.hasOwnProperty,isBrowser=!("undefined"==typeof window||"undefined"==typeof navigator||!window.document),isWebWorker=!isBrowser&&"undefined"!=typeof importScripts,readyRegExp=isBrowser&&"PLAYSTATION 3"===navigator.platform?/^complete$/:/^(complete|loaded)$/,defContextName="_",isOpera="undefined"!=typeof opera&&"[object Opera]"===opera.toString(),contexts={},cfg={},globalDefQueue=[],useInteractive=!1;if(void 0===define){if(void 0!==requirejs){if(isFunction(requirejs))return;cfg=requirejs,requirejs=void 0}void 0===require||isFunction(require)||(cfg=require,require=void 0),req=requirejs=function(e,t,n,r){var i,a,s=defContextName;return isArray(e)||"string"==typeof e||(a=e,isArray(t)?(e=t,t=n,n=r):e=[]),a&&a.context&&(s=a.context),i=getOwn(contexts,s),i||(i=contexts[s]=req.s.newContext(s)),a&&i.configure(a),i.require(e,t,n)},req.config=function(e){return req(e)},req.nextTick=void 0!==setTimeout?function(e){setTimeout(e,4)}:function(e){e()},require||(require=req),req.version=version,req.jsExtRegExp=/^\/|:|\?|\.js$/,req.isBrowser=isBrowser,s=req.s={contexts:contexts,newContext:newContext},req({}),each(["toUrl","undef","defined","specified"],function(e){req[e]=function(){var t=contexts[defContextName];return t.require[e].apply(t,arguments)}}),isBrowser&&(head=s.head=document.getElementsByTagName("head")[0],(baseElement=document.getElementsByTagName("base")[0])&&(head=s.head=baseElement.parentNode)),req.onError=defaultOnError,req.createNode=function(e,t,n){var r=e.xhtml?document.createElementNS("http://www.w3.org/1999/xhtml","html:script"):document.createElement("script");return r.type=e.scriptType||"text/javascript",r.charset="utf-8",r.async=!0,r},req.load=function(e,t,n){var r,i=e&&e.config||{};if(isBrowser)return r=req.createNode(i,t,n),r.setAttribute("data-requirecontext",e.contextName),r.setAttribute("data-requiremodule",t),!r.attachEvent||r.attachEvent.toString&&r.attachEvent.toString().indexOf("[native code")<0||isOpera?(r.addEventListener("load",e.onScriptLoad,!1),r.addEventListener("error",e.onScriptError,!1)):(useInteractive=!0,r.attachEvent("onreadystatechange",e.onScriptLoad)),r.src=n,i.onNodeCreated&&i.onNodeCreated(r,i,t,n),currentlyAddingScript=r,baseElement?head.insertBefore(r,baseElement):head.appendChild(r),currentlyAddingScript=null,r;if(isWebWorker)try{setTimeout(function(){},0),importScripts(n),e.completeLoad(t)}catch(r){e.onError(makeError("importscripts","importScripts failed for "+t+" at "+n,r,[t]))}},isBrowser&&!cfg.skipDataMain&&eachReverse(scripts(),function(e){if(head||(head=e.parentNode),dataMain=e.getAttribute("data-main"))return mainScript=dataMain,cfg.baseUrl||-1!==mainScript.indexOf("!")||(src=mainScript.split("/"),mainScript=src.pop(),subPath=src.length?src.join("/")+"/":"./",cfg.baseUrl=subPath),mainScript=mainScript.replace(jsSuffixRegExp,""),req.jsExtRegExp.test(mainScript)&&(mainScript=dataMain),cfg.deps=cfg.deps?cfg.deps.concat(mainScript):[mainScript],!0}),define=function(e,t,n){var r,i;"string"!=typeof e&&(n=t,t=e,e=null),isArray(t)||(n=t,t=null),!t&&isFunction(n)&&(t=[],n.length&&(n.toString().replace(commentRegExp,commentReplace).replace(cjsRequireRegExp,function(e,n){t.push(n)}),t=(1===n.length?["require"]:["require","exports","module"]).concat(t))),useInteractive&&(r=currentlyAddingScript||getInteractiveScript())&&(e||(e=r.getAttribute("data-requiremodule")),i=contexts[r.getAttribute("data-requirecontext")]),i?(i.defQueue.push([e,t,n]),i.defQueueMap[e]=!0):globalDefQueue.push([e,t,n])},define.amd={jQuery:!0},req.exec=function(text){return eval(text)},req(cfg)}}(this,"undefined"==typeof setTimeout?void 0:setTimeout),fs.requirejs=requirejs,fs.require=require,fs.define=define}}(),fs.define("requireLib",function(){}),function(e,t){"object"==typeof exports&&"undefined"!=typeof module?t(exports):"function"==typeof fs.define&&fs.define.amd?fs.define("opentype",["exports"],t):t(e.opentype=e.opentype||{})}(this,function(e){"use strict";function t(){this.table=new Uint16Array(16),this.trans=new Uint16Array(288)}function n(e,n){this.source=e,this.sourceIndex=0,this.tag=0,this.bitcount=0,this.dest=n,this.destLen=0,this.ltree=new t,this.dtree=new t}function r(e,t,n,r){var i,a;for(i=0;i<n;++i)e[i]=0;for(i=0;i<30-n;++i)e[i+n]=i/n|0;for(a=r,i=0;i<30;++i)t[i]=a,a+=1<<e[i]}function i(e,t,n,r){var i,a;for(i=0;i<16;++i)e.table[i]=0;for(i=0;i<r;++i)e.table[t[n+i]]++;for(e.table[0]=0,a=0,i=0;i<16;++i)xi[i]=a,a+=e.table[i];for(i=0;i<r;++i)t[n+i]&&(e.trans[xi[t[n+i]]++]=i)}function a(e){e.bitcount--||(e.tag=e.source[e.sourceIndex++],e.bitcount=7);var t=1&e.tag;return e.tag>>>=1,t}function s(e,t,n){if(!t)return n;for(;e.bitcount<24;)e.tag|=e.source[e.sourceIndex++]<<e.bitcount,e.bitcount+=8;var r=e.tag&65535>>>16-t;return e.tag>>>=t,e.bitcount-=t,r+n}function o(e,t){for(;e.bitcount<24;)e.tag|=e.source[e.sourceIndex++]<<e.bitcount,e.bitcount+=8;var n=0,r=0,i=0,a=e.tag;do{r=2*r+(1&a),a>>>=1,++i,n+=t.table[i],r-=t.table[i]}while(r>=0);return e.tag=a,e.bitcount-=i,t.trans[n+r]}function l(e,t,n){var r,a,l,u,p,c;for(r=s(e,5,257),a=s(e,5,1),l=s(e,4,4),u=0;u<19;++u)Si[u]=0;for(u=0;u<l;++u){var f=s(e,3,0);Si[yi[u]]=f}for(i(bi,Si,0,19),p=0;p<r+a;){var h=o(e,bi);switch(h){case 16:var d=Si[p-1];for(c=s(e,2,3);c;--c)Si[p++]=d;break;case 17:for(c=s(e,3,3);c;--c)Si[p++]=0;break;case 18:for(c=s(e,7,11);c;--c)Si[p++]=0;break;default:Si[p++]=h}}i(t,Si,0,r),i(n,Si,r,a)}function u(e,t,n){for(;;){var r=o(e,t);if(256===r)return pi;if(r<256)e.dest[e.destLen++]=r;else{var i,a,l,u;for(r-=257,i=s(e,di[r],mi[r]),a=o(e,n),l=e.destLen-s(e,gi[a],vi[a]),u=l;u<l+i;++u)e.dest[e.destLen++]=e.dest[u]}}}function p(e){for(var t,n,r;e.bitcount>8;)e.sourceIndex--,e.bitcount-=8;if(t=e.source[e.sourceIndex+1],t=256*t+e.source[e.sourceIndex],n=e.source[e.sourceIndex+3],n=256*n+e.source[e.sourceIndex+2],t!==(65535&~n))return ci;for(e.sourceIndex+=4,r=t;r;--r)e.dest[e.destLen++]=e.source[e.sourceIndex++];return e.bitcount=0,pi}function c(e,t){var r,i,o=new n(e,t);do{switch(r=a(o),s(o,2,0)){case 0:i=p(o);break;case 1:i=u(o,fi,hi);break;case 2:l(o,o.ltree,o.dtree),i=u(o,o.ltree,o.dtree);break;default:i=ci}if(i!==pi)throw new Error("Data error")}while(!r);return o.destLen<o.dest.length?"function"==typeof o.dest.slice?o.dest.slice(0,o.destLen):o.dest.subarray(0,o.destLen):o.dest}function f(e,t,n,r,i){return Math.pow(1-i,3)*e+3*Math.pow(1-i,2)*i*t+3*(1-i)*Math.pow(i,2)*n+Math.pow(i,3)*r}function h(){this.x1=Number.NaN,this.y1=Number.NaN,this.x2=Number.NaN,this.y2=Number.NaN}function d(){this.commands=[],this.fill="black",this.stroke=null,this.strokeWidth=1}function m(e){throw new Error(e)}function g(e,t){e||m(t)}function v(e){return function(){return e}}function y(e){return e>=-128&&e<=127}function b(e,t,n){for(var r=0,i=e.length;t<i&&r<64&&0===e[t];)++t,++r;return n.push(128|r-1),t}function S(e,t,n){for(var r=0,i=e.length,a=t;a<i&&r<64;){var s=e[a];if(!y(s))break;if(0===s&&a+1<i&&0===e[a+1])break;++a,++r}n.push(r-1);for(var o=t;o<a;++o)n.push(e[o]+256&255);return a}function x(e,t,n){for(var r=0,i=e.length,a=t;a<i&&r<64;){var s=e[a];if(0===s)break;if(y(s)&&a+1<i&&y(e[a+1]))break;++a,++r}n.push(64|r-1);for(var o=t;o<a;++o){var l=e[o];n.push(l+65536>>8&255,l+256&255)}return a}function T(e,t,n){for(var r=this,i=0;i<t.length;i+=1){var a=t[i];r[a.name]=a.value}if(this.tableName=e,this.fields=t,n)for(var s=Object.keys(n),o=0;o<s.length;o+=1){var l=s[o],u=n[l];void 0!==r[l]&&(r[l]=u)}}function C(e,t,n){void 0===n&&(n=t.length);var r=new Array(t.length+1);r[0]={name:e+"Count",type:"USHORT",value:n};for(var i=0;i<t.length;i++)r[i+1]={name:e+i,type:"USHORT",value:t[i]};return r}function w(e,t,n){var r=t.length,i=new Array(r+1);i[0]={name:e+"Count",type:"USHORT",value:r};for(var a=0;a<r;a++)i[a+1]={name:e+a,type:"TABLE",value:n(t[a],a)};return i}function O(e,t,n){var r=t.length,i=[];i[0]={name:e+"Count",type:"USHORT",value:r};for(var a=0;a<r;a++)i=i.concat(n(t[a],a));return i}function E(e){1===e.format?T.call(this,"coverageTable",[{name:"coverageFormat",type:"USHORT",value:1}].concat(C("glyph",e.glyphs))):Ci.assert(!1,"Can't create coverage table format 2 yet.")}function D(e){T.call(this,"scriptListTable",O("scriptRecord",e,function(e,t){var n=e.script,r=n.defaultLangSys;return Ci.assert(!!r,"Unable to write GSUB: script "+e.tag+" has no default language system."),[{name:"scriptTag"+t,type:"TAG",value:e.tag},{name:"script"+t,type:"TABLE",value:new T("scriptTable",[{name:"defaultLangSys",type:"TABLE",value:new T("defaultLangSys",[{name:"lookupOrder",type:"USHORT",value:0},{name:"reqFeatureIndex",type:"USHORT",value:r.reqFeatureIndex}].concat(C("featureIndex",r.featureIndexes)))}].concat(O("langSys",n.langSysRecords,function(e,t){var n=e.langSys;return[{name:"langSysTag"+t,type:"TAG",value:e.tag},{name:"langSys"+t,type:"TABLE",value:new T("langSys",[{name:"lookupOrder",type:"USHORT",value:0},{name:"reqFeatureIndex",type:"USHORT",value:n.reqFeatureIndex}].concat(C("featureIndex",n.featureIndexes)))}]})))}]}))}function U(e){T.call(this,"featureListTable",O("featureRecord",e,function(e,t){var n=e.feature;return[{name:"featureTag"+t,type:"TAG",value:e.tag},{name:"feature"+t,type:"TABLE",value:new T("featureTable",[{name:"featureParams",type:"USHORT",value:n.featureParams}].concat(C("lookupListIndex",n.lookupListIndexes)))}]}))}function k(e,t){T.call(this,"lookupListTable",w("lookup",e,function(e){var n=t[e.lookupType];return Ci.assert(!!n,"Unable to write GSUB lookup type "+e.lookupType+" tables."),new T("lookupTable",[{name:"lookupType",type:"USHORT",value:e.lookupType},{name:"lookupFlag",type:"USHORT",value:e.lookupFlag}].concat(w("subtable",e.subtables,n)))}))}function N(e,t){return e.getUint8(t)}function B(e,t){return e.getUint16(t,!1)}function F(e,t){return e.getInt16(t,!1)}function R(e,t){return e.getUint32(t,!1)}function _(e,t){return e.getInt16(t,!1)+e.getUint16(t+2,!1)/65535}function L(e,t){for(var n="",r=t;r<t+4;r+=1)n+=String.fromCharCode(e.getInt8(r));return n}function I(e,t,n){for(var r=0,i=0;i<n;i+=1)r<<=8,r+=e.getUint8(t+i);return r}function A(e,t,n){for(var r=[],i=t;i<n;i+=1)r.push(e.getUint8(i));return r}function M(e){for(var t="",n=0;n<e.length;n+=1)t+=String.fromCharCode(e[n]);return t}function P(e,t){this.data=e,this.offset=t,this.relativeOffset=0}function G(e,t){t.parseUShort(),e.length=t.parseULong(),e.language=t.parseULong();var n;e.groupCount=n=t.parseULong(),e.glyphIndexMap={};for(var r=0;r<n;r+=1)for(var i=t.parseULong(),a=t.parseULong(),s=t.parseULong(),o=i;o<=a;o+=1)e.glyphIndexMap[o]=s,s++}function H(e,t,n,r,i){e.length=t.parseUShort(),e.language=t.parseUShort();var a;e.segCount=a=t.parseUShort()>>1,t.skip("uShort",3),e.glyphIndexMap={};for(var s=new Li.Parser(n,r+i+14),o=new Li.Parser(n,r+i+16+2*a),l=new Li.Parser(n,r+i+16+4*a),u=new Li.Parser(n,r+i+16+6*a),p=r+i+16+8*a,c=0;c<a-1;c+=1)for(var f=void 0,h=s.parseUShort(),d=o.parseUShort(),m=l.parseShort(),g=u.parseUShort(),v=d;v<=h;v+=1)0!==g?(p=u.offset+u.relativeOffset-2,p+=g,p+=2*(v-d),0!==(f=Li.getUShort(n,p))&&(f=f+m&65535)):f=v+m&65535,e.glyphIndexMap[v]=f}function j(e,t){var n={};n.version=Li.getUShort(e,t),Ci.argument(0===n.version,"cmap table version should be 0."),n.numTables=Li.getUShort(e,t+2);for(var r=-1,i=n.numTables-1;i>=0;i-=1){var a=Li.getUShort(e,t+4+8*i),s=Li.getUShort(e,t+4+8*i+2);if(3===a&&(0===s||1===s||10===s)){r=Li.getULong(e,t+4+8*i+4);break}}if(-1===r)throw new Error("No valid cmap sub-tables found.");var o=new Li.Parser(e,t+r);if(n.format=o.parseUShort(),12===n.format)G(n,o);else{if(4!==n.format)throw new Error("Only format 4 and 12 cmap tables are supported (found format "+n.format+").");H(n,o,e,t,r)}return n}function q(e,t,n){e.segments.push({end:t,start:t,delta:-(t-n),offset:0})}function z(e){e.segments.push({end:65535,start:65535,delta:1,offset:0})}function W(e){var t=new Fi.Table("cmap",[{name:"version",type:"USHORT",value:0},{name:"numTables",type:"USHORT",value:1},{name:"platformID",type:"USHORT",value:3},{name:"encodingID",type:"USHORT",value:1},{name:"offset",type:"ULONG",value:12},{name:"format",type:"USHORT",value:4},{name:"length",type:"USHORT",value:0},{name:"language",type:"USHORT",value:0},{name:"segCountX2",type:"USHORT",value:0},{name:"searchRange",type:"USHORT",value:0},{name:"entrySelector",type:"USHORT",value:0},{name:"rangeShift",type:"USHORT",value:0}]);t.segments=[];for(var n=0;n<e.length;n+=1){for(var r=e.get(n),i=0;i<r.unicodes.length;i+=1)q(t,r.unicodes[i],n);t.segments=t.segments.sort(function(e,t){return e.start-t.start})}z(t);var a;a=t.segments.length,t.segCountX2=2*a,t.searchRange=2*Math.pow(2,Math.floor(Math.log(a)/Math.log(2))),t.entrySelector=Math.log(t.searchRange/2)/Math.log(2),t.rangeShift=t.segCountX2-t.searchRange;for(var s=[],o=[],l=[],u=[],p=[],c=0;c<a;c+=1){var f=t.segments[c];s=s.concat({name:"end_"+c,type:"USHORT",value:f.end}),o=o.concat({name:"start_"+c,type:"USHORT",value:f.start}),l=l.concat({name:"idDelta_"+c,type:"SHORT",value:f.delta}),u=u.concat({name:"idRangeOffset_"+c,type:"USHORT",value:f.offset}),void 0!==f.glyphId&&(p=p.concat({name:"glyph_"+c,type:"USHORT",value:f.glyphId}))}return t.fields=t.fields.concat(s),t.fields.push({name:"reservedPad",type:"USHORT",value:0}),t.fields=t.fields.concat(o),t.fields=t.fields.concat(l),t.fields=t.fields.concat(u),t.fields=t.fields.concat(p),t.length=14+2*s.length+2+2*o.length+2*l.length+2*u.length+2*p.length,t}function V(e){this.font=e}function X(e){this.cmap=e}function Y(e,t){this.encoding=e,this.charset=t}function K(e){var t=this;switch(e.version){case 1:this.names=Gi.slice();break;case 2:this.names=new Array(e.numberOfGlyphs);for(var n=0;n<e.numberOfGlyphs;n++)e.glyphNameIndex[n]<Gi.length?t.names[n]=Gi[e.glyphNameIndex[n]]:t.names[n]=e.names[e.glyphNameIndex[n]-Gi.length];break;case 2.5:this.names=new Array(e.numberOfGlyphs);for(var r=0;r<e.numberOfGlyphs;r++)t.names[r]=Gi[r+e.glyphNameIndex[r]];break;case 3:default:this.names=[]}}function Z(e){for(var t,n=e.tables.cmap.glyphIndexMap,r=Object.keys(n),i=0;i<r.length;i+=1){var a=r[i],s=n[a];t=e.glyphs.get(s),t.addUnicode(parseInt(a))}for(var o=0;o<e.glyphs.length;o+=1)t=e.glyphs.get(o),e.cffEncoding?e.isCIDFont?t.name="gid"+o:t.name=e.cffEncoding.charset[o]:e.glyphNames.names&&(t.name=e.glyphNames.glyphIndexToName(o))}function $(e,t,n,r,i){e.beginPath(),e.moveTo(t,n),e.lineTo(r,i),e.stroke()}function J(e,t,n,r,i){var a;return(t&r)>0?(a=e.parseByte(),0==(t&i)&&(a=-a),a=n+a):a=(t&i)>0?n:n+e.parseShort(),a}function Q(e,t,n){var r=new Li.Parser(t,n);e.numberOfContours=r.parseShort(),e._xMin=r.parseShort(),e._yMin=r.parseShort(),e._xMax=r.parseShort(),e._yMax=r.parseShort();var i,a;if(e.numberOfContours>0){for(var s=e.endPointIndices=[],o=0;o<e.numberOfContours;o+=1)s.push(r.parseUShort());e.instructionLength=r.parseUShort(),e.instructions=[];for(var l=0;l<e.instructionLength;l+=1)e.instructions.push(r.parseByte());var u=s[s.length-1]+1;i=[];for(var p=0;p<u;p+=1)if(a=r.parseByte(),i.push(a),(8&a)>0)for(var c=r.parseByte(),f=0;f<c;f+=1)i.push(a),p+=1;if(Ci.argument(i.length===u,"Bad flags."),s.length>0){var h,d=[];if(u>0){for(var m=0;m<u;m+=1)a=i[m],h={},h.onCurve=!!(1&a),h.lastPointOfContour=s.indexOf(m)>=0,d.push(h);for(var g=0,v=0;v<u;v+=1)a=i[v],h=d[v],h.x=J(r,a,g,2,16),g=h.x;for(var y=0,b=0;b<u;b+=1)a=i[b],h=d[b],h.y=J(r,a,y,4,32),y=h.y}e.points=d}else e.points=[]}else if(0===e.numberOfContours)e.points=[];else{e.isComposite=!0,e.points=[],e.components=[];for(var S=!0;S;){i=r.parseUShort();var x={glyphIndex:r.parseUShort(),xScale:1,scale01:0,scale10:0,yScale:1,dx:0,dy:0};(1&i)>0?(2&i)>0?(x.dx=r.parseShort(),x.dy=r.parseShort()):x.matchedPoints=[r.parseUShort(),r.parseUShort()]:(2&i)>0?(x.dx=r.parseChar(),x.dy=r.parseChar()):x.matchedPoints=[r.parseByte(),r.parseByte()],(8&i)>0?x.xScale=x.yScale=r.parseF2Dot14():(64&i)>0?(x.xScale=r.parseF2Dot14(),x.yScale=r.parseF2Dot14()):(128&i)>0&&(x.xScale=r.parseF2Dot14(),x.scale01=r.parseF2Dot14(),x.scale10=r.parseF2Dot14(),x.yScale=r.parseF2Dot14()),e.components.push(x),S=!!(32&i)}if(256&i){e.instructionLength=r.parseUShort(),e.instructions=[];for(var T=0;T<e.instructionLength;T+=1)e.instructions.push(r.parseByte())}}}function ee(e,t){for(var n=[],r=0;r<e.length;r+=1){var i=e[r],a={x:t.xScale*i.x+t.scale01*i.y+t.dx,y:t.scale10*i.x+t.yScale*i.y+t.dy,onCurve:i.onCurve,lastPointOfContour:i.lastPointOfContour};n.push(a)}return n}function te(e){for(var t=[],n=[],r=0;r<e.length;r+=1){var i=e[r];n.push(i),i.lastPointOfContour&&(t.push(n),n=[])}return Ci.argument(0===n.length,"There are still points left in the current contour."),t}function ne(e){var t=new d;if(!e)return t;for(var n=te(e),r=0;r<n.length;++r){var i=n[r],a=null,s=i[i.length-1],o=i[0];if(s.onCurve)t.moveTo(s.x,s.y);else if(o.onCurve)t.moveTo(o.x,o.y);else{var l={x:.5*(s.x+o.x),y:.5*(s.y+o.y)};t.moveTo(l.x,l.y)}for(var u=0;u<i.length;++u)if(a=s,s=o,o=i[(u+1)%i.length],s.onCurve)t.lineTo(s.x,s.y);else{var p=a,c=o;a.onCurve||(p={x:.5*(s.x+a.x),y:.5*(s.y+a.y)},t.lineTo(p.x,p.y)),o.onCurve||(c={x:.5*(s.x+o.x),y:.5*(s.y+o.y)}),t.lineTo(p.x,p.y),t.quadraticCurveTo(s.x,s.y,c.x,c.y)}t.closePath()}return t}function re(e,t){if(t.isComposite)for(var n=0;n<t.components.length;n+=1){var r=t.components[n],i=e.get(r.glyphIndex);if(i.getPath(),i.points){var a=void 0;if(void 0===r.matchedPoints)a=ee(i.points,r);else{if(r.matchedPoints[0]>t.points.length-1||r.matchedPoints[1]>i.points.length-1)throw Error("Matched points out of range in "+t.name);var s=t.points[r.matchedPoints[0]],o=i.points[r.matchedPoints[1]],l={xScale:r.xScale,scale01:r.scale01,scale10:r.scale10,yScale:r.yScale,dx:0,dy:0};o=ee([o],l)[0],l.dx=s.x-o.x,l.dy=s.y-o.y,a=ee(i.points,l)}t.points=t.points.concat(a)}}return ne(t.points)}function ie(e,t,n,r){for(var i=new qi.GlyphSet(r),a=0;a<n.length-1;a+=1){var s=n[a];s!==n[a+1]?i.push(a,qi.ttfGlyphLoader(r,a,Q,e,t+s,re)):i.push(a,qi.glyphLoader(r,a))}return i}function ae(e,t){var n=t||{commands:[]};return{configurable:!0,get:function(){return"function"==typeof n&&(n=n()),n},set:function(e){n=e}}}function se(e){this.bindConstructorValues(e)}function oe(e,t,n){
-Object.defineProperty(e,t,{get:function(){return e.path,e[n]},set:function(t){e[n]=t},enumerable:!0,configurable:!0})}function le(e,t){var n=this;if(this.font=e,this.glyphs={},Array.isArray(t))for(var r=0;r<t.length;r++)n.glyphs[r]=t[r];this.length=t&&t.length||0}function ue(e,t){return new se({index:t,font:e})}function pe(e,t,n,r,i,a){return function(){var s=new se({index:t,font:e});return s.path=function(){n(s,r,i);var t=a(e.glyphs,s);return t.unitsPerEm=e.unitsPerEm,t},oe(s,"xMin","_xMin"),oe(s,"xMax","_xMax"),oe(s,"yMin","_yMin"),oe(s,"yMax","_yMax"),s}}function ce(e,t,n,r){return function(){var i=new se({index:t,font:e});return i.path=function(){var t=n(e,i,r);return t.unitsPerEm=e.unitsPerEm,t},i}}function fe(e,t){if(e===t)return!0;if(Array.isArray(e)&&Array.isArray(t)){if(e.length!==t.length)return!1;for(var n=0;n<e.length;n+=1)if(!fe(e[n],t[n]))return!1;return!0}return!1}function he(e){return e.length<1240?107:e.length<33900?1131:32768}function de(e,t,n){var r,i,a=[],s=[],o=Li.getCard16(e,t);if(0!==o){var l=Li.getByte(e,t+2);r=t+(o+1)*l+2;for(var u=t+3,p=0;p<o+1;p+=1)a.push(Li.getOffset(e,u,l)),u+=l;i=r+a[o]}else i=t+2;for(var c=0;c<a.length-1;c+=1){var f=Li.getBytes(e,r+a[c],r+a[c+1]);n&&(f=n(f)),s.push(f)}return{objects:s,startOffset:t,endOffset:i}}function me(e){for(var t="",n=["0","1","2","3","4","5","6","7","8","9",".","E","E-",null,"-"];;){var r=e.parseByte(),i=r>>4,a=15&r;if(15===i)break;if(t+=n[i],15===a)break;t+=n[a]}return parseFloat(t)}function ge(e,t){var n,r,i,a;if(28===t)return n=e.parseByte(),r=e.parseByte(),n<<8|r;if(29===t)return n=e.parseByte(),r=e.parseByte(),i=e.parseByte(),a=e.parseByte(),n<<24|r<<16|i<<8|a;if(30===t)return me(e);if(t>=32&&t<=246)return t-139;if(t>=247&&t<=250)return n=e.parseByte(),256*(t-247)+n+108;if(t>=251&&t<=254)return n=e.parseByte(),256*-(t-251)-n-108;throw new Error("Invalid b0 "+t)}function ve(e){for(var t={},n=0;n<e.length;n+=1){var r=e[n][0],i=e[n][1],a=void 0;if(a=1===i.length?i[0]:i,t.hasOwnProperty(r)&&!isNaN(t[r]))throw new Error("Object "+t+" already has key "+r);t[r]=a}return t}function ye(e,t,n){t=void 0!==t?t:0;var r=new Li.Parser(e,t),i=[],a=[];for(n=void 0!==n?n:e.length;r.relativeOffset<n;){var s=r.parseByte();s<=21?(12===s&&(s=1200+r.parseByte()),i.push([s,a]),a=[]):a.push(ge(r,s))}return ve(i)}function be(e,t){return t=t<=390?Ai[t]:e[t-391]}function Se(e,t,n){for(var r,i={},a=0;a<t.length;a+=1){var s=t[a];if(Array.isArray(s.type)){var o=[];o.length=s.type.length;for(var l=0;l<s.type.length;l++)r=void 0!==e[s.op]?e[s.op][l]:void 0,void 0===r&&(r=void 0!==s.value&&void 0!==s.value[l]?s.value[l]:null),"SID"===s.type[l]&&(r=be(n,r)),o[l]=r;i[s.name]=o}else r=e[s.op],void 0===r&&(r=void 0!==s.value?s.value:null),"SID"===s.type&&(r=be(n,r)),i[s.name]=r}return i}function xe(e,t){var n={};return n.formatMajor=Li.getCard8(e,t),n.formatMinor=Li.getCard8(e,t+1),n.size=Li.getCard8(e,t+2),n.offsetSize=Li.getCard8(e,t+3),n.startOffset=t,n.endOffset=t+4,n}function Te(e,t){return Se(ye(e,0,e.byteLength),zi,t)}function Ce(e,t,n,r){return Se(ye(e,t,n),Wi,r)}function we(e,t,n,r){for(var i=[],a=0;a<n.length;a+=1){var s=new DataView(new Uint8Array(n[a]).buffer),o=Te(s,r);o._subrs=[],o._subrsBias=0;var l=o.private[0],u=o.private[1];if(0!==l&&0!==u){var p=Ce(e,u+t,l,r);if(o._defaultWidthX=p.defaultWidthX,o._nominalWidthX=p.nominalWidthX,0!==p.subrs){var c=u+p.subrs,f=de(e,c+t);o._subrs=f.objects,o._subrsBias=he(o._subrs)}o._privateDict=p}i.push(o)}return i}function Oe(e,t,n,r){var i,a,s=new Li.Parser(e,t);n-=1;var o=[".notdef"],l=s.parseCard8();if(0===l)for(var u=0;u<n;u+=1)i=s.parseSID(),o.push(be(r,i));else if(1===l)for(;o.length<=n;){i=s.parseSID(),a=s.parseCard8();for(var p=0;p<=a;p+=1)o.push(be(r,i)),i+=1}else{if(2!==l)throw new Error("Unknown charset format "+l);for(;o.length<=n;){i=s.parseSID(),a=s.parseCard16();for(var c=0;c<=a;c+=1)o.push(be(r,i)),i+=1}}return o}function Ee(e,t,n){var r,i={},a=new Li.Parser(e,t),s=a.parseCard8();if(0===s)for(var o=a.parseCard8(),l=0;l<o;l+=1)r=a.parseCard8(),i[r]=l;else{if(1!==s)throw new Error("Unknown encoding format "+s);var u=a.parseCard8();r=1;for(var p=0;p<u;p+=1)for(var c=a.parseCard8(),f=a.parseCard8(),h=c;h<=c+f;h+=1)i[h]=r,r+=1}return new Y(i,n)}function De(e,t,n){function r(e,t){b&&m.closePath(),m.moveTo(e,t),b=!0}function i(){var e;e=g.length%2!=0,e&&!y&&(w=g.shift()+h),v+=g.length>>1,g.length=0,y=!0}function a(n){for(var f,d,T,C,O,E,D,U,k,N,B,F,R=0;R<n.length;){var _=n[R];switch(R+=1,_){case 1:case 3:i();break;case 4:g.length>1&&!y&&(w=g.shift()+h,y=!0),x+=g.pop(),r(S,x);break;case 5:for(;g.length>0;)S+=g.shift(),x+=g.shift(),m.lineTo(S,x);break;case 6:for(;g.length>0&&(S+=g.shift(),m.lineTo(S,x),0!==g.length);)x+=g.shift(),m.lineTo(S,x);break;case 7:for(;g.length>0&&(x+=g.shift(),m.lineTo(S,x),0!==g.length);)S+=g.shift(),m.lineTo(S,x);break;case 8:for(;g.length>0;)s=S+g.shift(),o=x+g.shift(),l=s+g.shift(),u=o+g.shift(),S=l+g.shift(),x=u+g.shift(),m.curveTo(s,o,l,u,S,x);break;case 10:O=g.pop()+c,E=p[O],E&&a(E);break;case 11:return;case 12:switch(_=n[R],R+=1,_){case 35:s=S+g.shift(),o=x+g.shift(),l=s+g.shift(),u=o+g.shift(),D=l+g.shift(),U=u+g.shift(),k=D+g.shift(),N=U+g.shift(),B=k+g.shift(),F=N+g.shift(),S=B+g.shift(),x=F+g.shift(),g.shift(),m.curveTo(s,o,l,u,D,U),m.curveTo(k,N,B,F,S,x);break;case 34:s=S+g.shift(),o=x,l=s+g.shift(),u=o+g.shift(),D=l+g.shift(),U=u,k=D+g.shift(),N=u,B=k+g.shift(),F=x,S=B+g.shift(),m.curveTo(s,o,l,u,D,U),m.curveTo(k,N,B,F,S,x);break;case 36:s=S+g.shift(),o=x+g.shift(),l=s+g.shift(),u=o+g.shift(),D=l+g.shift(),U=u,k=D+g.shift(),N=u,B=k+g.shift(),F=N+g.shift(),S=B+g.shift(),m.curveTo(s,o,l,u,D,U),m.curveTo(k,N,B,F,S,x);break;case 37:s=S+g.shift(),o=x+g.shift(),l=s+g.shift(),u=o+g.shift(),D=l+g.shift(),U=u+g.shift(),k=D+g.shift(),N=U+g.shift(),B=k+g.shift(),F=N+g.shift(),Math.abs(B-S)>Math.abs(F-x)?S=B+g.shift():x=F+g.shift(),m.curveTo(s,o,l,u,D,U),m.curveTo(k,N,B,F,S,x);break;default:console.log("Glyph "+t.index+": unknown operator 1200"+_),g.length=0}break;case 14:g.length>0&&!y&&(w=g.shift()+h,y=!0),b&&(m.closePath(),b=!1);break;case 18:i();break;case 19:case 20:i(),R+=v+7>>3;break;case 21:g.length>2&&!y&&(w=g.shift()+h,y=!0),x+=g.pop(),S+=g.pop(),r(S,x);break;case 22:g.length>1&&!y&&(w=g.shift()+h,y=!0),S+=g.pop(),r(S,x);break;case 23:i();break;case 24:for(;g.length>2;)s=S+g.shift(),o=x+g.shift(),l=s+g.shift(),u=o+g.shift(),S=l+g.shift(),x=u+g.shift(),m.curveTo(s,o,l,u,S,x);S+=g.shift(),x+=g.shift(),m.lineTo(S,x);break;case 25:for(;g.length>6;)S+=g.shift(),x+=g.shift(),m.lineTo(S,x);s=S+g.shift(),o=x+g.shift(),l=s+g.shift(),u=o+g.shift(),S=l+g.shift(),x=u+g.shift(),m.curveTo(s,o,l,u,S,x);break;case 26:for(g.length%2&&(S+=g.shift());g.length>0;)s=S,o=x+g.shift(),l=s+g.shift(),u=o+g.shift(),S=l,x=u+g.shift(),m.curveTo(s,o,l,u,S,x);break;case 27:for(g.length%2&&(x+=g.shift());g.length>0;)s=S+g.shift(),o=x,l=s+g.shift(),u=o+g.shift(),S=l+g.shift(),x=u,m.curveTo(s,o,l,u,S,x);break;case 28:f=n[R],d=n[R+1],g.push((f<<24|d<<16)>>16),R+=2;break;case 29:O=g.pop()+e.gsubrsBias,E=e.gsubrs[O],E&&a(E);break;case 30:for(;g.length>0&&(s=S,o=x+g.shift(),l=s+g.shift(),u=o+g.shift(),S=l+g.shift(),x=u+(1===g.length?g.shift():0),m.curveTo(s,o,l,u,S,x),0!==g.length);)s=S+g.shift(),o=x,l=s+g.shift(),u=o+g.shift(),x=u+g.shift(),S=l+(1===g.length?g.shift():0),m.curveTo(s,o,l,u,S,x);break;case 31:for(;g.length>0&&(s=S+g.shift(),o=x,l=s+g.shift(),u=o+g.shift(),x=u+g.shift(),S=l+(1===g.length?g.shift():0),m.curveTo(s,o,l,u,S,x),0!==g.length);)s=S,o=x+g.shift(),l=s+g.shift(),u=o+g.shift(),S=l+g.shift(),x=u+(1===g.length?g.shift():0),m.curveTo(s,o,l,u,S,x);break;default:_<32?console.log("Glyph "+t.index+": unknown operator "+_):_<247?g.push(_-139):_<251?(f=n[R],R+=1,g.push(256*(_-247)+f+108)):_<255?(f=n[R],R+=1,g.push(256*-(_-251)-f-108)):(f=n[R],d=n[R+1],T=n[R+2],C=n[R+3],R+=4,g.push((f<<24|d<<16|T<<8|C)/65536))}}}var s,o,l,u,p,c,f,h,m=new d,g=[],v=0,y=!1,b=!1,S=0,x=0;if(e.isCIDFont){var T=e.tables.cff.topDict._fdSelect[t.index],C=e.tables.cff.topDict._fdArray[T];p=C._subrs,c=C._subrsBias,f=C._defaultWidthX,h=C._nominalWidthX}else p=e.tables.cff.topDict._subrs,c=e.tables.cff.topDict._subrsBias,f=e.tables.cff.topDict._defaultWidthX,h=e.tables.cff.topDict._nominalWidthX;var w=f;return a(n),t.advanceWidth=w,m}function Ue(e,t,n,r){var i,a=[],s=new Li.Parser(e,t),o=s.parseCard8();if(0===o)for(var l=0;l<n;l++){if((i=s.parseCard8())>=r)throw new Error("CFF table CID Font FDSelect has bad FD index value "+i+" (FD count "+r+")");a.push(i)}else{if(3!==o)throw new Error("CFF Table CID Font FDSelect table has unsupported format "+o);var u=s.parseCard16(),p=s.parseCard16();if(0!==p)throw new Error("CFF Table CID Font FDSelect format 3 range has bad initial GID "+p);for(var c,f=0;f<u;f++){if(i=s.parseCard8(),c=s.parseCard16(),i>=r)throw new Error("CFF table CID Font FDSelect has bad FD index value "+i+" (FD count "+r+")");if(c>n)throw new Error("CFF Table CID Font FDSelect format 3 range has bad GID "+c);for(;p<c;p++)a.push(i);p=c}if(c!==n)throw new Error("CFF Table CID Font FDSelect format 3 range has bad final GID "+c)}return a}function ke(e,t,n){n.tables.cff={};var r=xe(e,t),i=de(e,r.endOffset,Li.bytesToString),a=de(e,i.endOffset),s=de(e,a.endOffset,Li.bytesToString),o=de(e,s.endOffset);n.gsubrs=o.objects,n.gsubrsBias=he(n.gsubrs);var l=we(e,t,a.objects,s.objects);if(1!==l.length)throw new Error("CFF table has too many fonts in 'FontSet' - count of fonts NameIndex.length = "+l.length);var u=l[0];if(n.tables.cff.topDict=u,u._privateDict&&(n.defaultWidthX=u._privateDict.defaultWidthX,n.nominalWidthX=u._privateDict.nominalWidthX),void 0!==u.ros[0]&&void 0!==u.ros[1]&&(n.isCIDFont=!0),n.isCIDFont){var p=u.fdArray,c=u.fdSelect;if(0===p||0===c)throw new Error("Font is marked as a CID font, but FDArray and/or FDSelect information is missing");p+=t;var f=de(e,p),h=we(e,t,f.objects,s.objects);u._fdArray=h,c+=t,u._fdSelect=Ue(e,c,n.numGlyphs,h.length)}var d=t+u.private[1],m=Ce(e,d,u.private[0],s.objects);if(n.defaultWidthX=m.defaultWidthX,n.nominalWidthX=m.nominalWidthX,0!==m.subrs){var g=d+m.subrs,v=de(e,g);n.subrs=v.objects,n.subrsBias=he(n.subrs)}else n.subrs=[],n.subrsBias=0;var y=de(e,t+u.charStrings);n.nGlyphs=y.objects.length;var b=Oe(e,t+u.charset,n.nGlyphs,s.objects);0===u.encoding?n.cffEncoding=new Y(Mi,b):1===u.encoding?n.cffEncoding=new Y(Pi,b):n.cffEncoding=Ee(e,t+u.encoding,b),n.encoding=n.encoding||n.cffEncoding,n.glyphs=new qi.GlyphSet(n);for(var S=0;S<n.nGlyphs;S+=1){var x=y.objects[S];n.glyphs.push(S,qi.cffGlyphLoader(n,S,De,x))}}function Ne(e,t){var n,r=Ai.indexOf(e);return r>=0&&(n=r),r=t.indexOf(e),r>=0?n=r+Ai.length:(n=Ai.length+t.length,t.push(e)),n}function Be(){return new Fi.Record("Header",[{name:"major",type:"Card8",value:1},{name:"minor",type:"Card8",value:0},{name:"hdrSize",type:"Card8",value:4},{name:"major",type:"Card8",value:1}])}function Fe(e){var t=new Fi.Record("Name INDEX",[{name:"names",type:"INDEX",value:[]}]);t.names=[];for(var n=0;n<e.length;n+=1)t.names.push({name:"name_"+n,type:"NAME",value:e[n]});return t}function Re(e,t,n){for(var r={},i=0;i<e.length;i+=1){var a=e[i],s=t[a.name];void 0===s||fe(s,a.value)||("SID"===a.type&&(s=Ne(s,n)),r[a.op]={name:a.name,type:a.type,value:s})}return r}function _e(e,t){var n=new Fi.Record("Top DICT",[{name:"dict",type:"DICT",value:{}}]);return n.dict=Re(zi,e,t),n}function Le(e){var t=new Fi.Record("Top DICT INDEX",[{name:"topDicts",type:"INDEX",value:[]}]);return t.topDicts=[{name:"topDict_0",type:"TABLE",value:e}],t}function Ie(e){var t=new Fi.Record("String INDEX",[{name:"strings",type:"INDEX",value:[]}]);t.strings=[];for(var n=0;n<e.length;n+=1)t.strings.push({name:"string_"+n,type:"STRING",value:e[n]});return t}function Ae(){return new Fi.Record("Global Subr INDEX",[{name:"subrs",type:"INDEX",value:[]}])}function Me(e,t){for(var n=new Fi.Record("Charsets",[{name:"format",type:"Card8",value:0}]),r=0;r<e.length;r+=1){var i=e[r],a=Ne(i,t);n.fields.push({name:"glyph_"+r,type:"SID",value:a})}return n}function Pe(e){var t=[],n=e.path;t.push({name:"width",type:"NUMBER",value:e.advanceWidth});for(var r=0,i=0,a=0;a<n.commands.length;a+=1){var s=void 0,o=void 0,l=n.commands[a];if("Q"===l.type){l={type:"C",x:l.x,y:l.y,x1:1/3*r+2/3*l.x1,y1:1/3*i+2/3*l.y1,x2:1/3*l.x+2/3*l.x1,y2:1/3*l.y+2/3*l.y1}}if("M"===l.type)s=Math.round(l.x-r),o=Math.round(l.y-i),t.push({name:"dx",type:"NUMBER",value:s}),t.push({name:"dy",type:"NUMBER",value:o}),t.push({name:"rmoveto",type:"OP",value:21}),r=Math.round(l.x),i=Math.round(l.y);else if("L"===l.type)s=Math.round(l.x-r),o=Math.round(l.y-i),t.push({name:"dx",type:"NUMBER",value:s}),t.push({name:"dy",type:"NUMBER",value:o}),t.push({name:"rlineto",type:"OP",value:5}),r=Math.round(l.x),i=Math.round(l.y);else if("C"===l.type){var u=Math.round(l.x1-r),p=Math.round(l.y1-i),c=Math.round(l.x2-l.x1),f=Math.round(l.y2-l.y1);s=Math.round(l.x-l.x2),o=Math.round(l.y-l.y2),t.push({name:"dx1",type:"NUMBER",value:u}),t.push({name:"dy1",type:"NUMBER",value:p}),t.push({name:"dx2",type:"NUMBER",value:c}),t.push({name:"dy2",type:"NUMBER",value:f}),t.push({name:"dx",type:"NUMBER",value:s}),t.push({name:"dy",type:"NUMBER",value:o}),t.push({name:"rrcurveto",type:"OP",value:8}),r=Math.round(l.x),i=Math.round(l.y)}}return t.push({name:"endchar",type:"OP",value:14}),t}function Ge(e){for(var t=new Fi.Record("CharStrings INDEX",[{name:"charStrings",type:"INDEX",value:[]}]),n=0;n<e.length;n+=1){var r=e.get(n),i=Pe(r);t.charStrings.push({name:r.name,type:"CHARSTRING",value:i})}return t}function He(e,t){var n=new Fi.Record("Private DICT",[{name:"dict",type:"DICT",value:{}}]);return n.dict=Re(Wi,e,t),n}function je(e,t){for(var n,r=new Fi.Table("CFF ",[{name:"header",type:"RECORD"},{name:"nameIndex",type:"RECORD"},{name:"topDictIndex",type:"RECORD"},{name:"stringIndex",type:"RECORD"},{name:"globalSubrIndex",type:"RECORD"},{name:"charsets",type:"RECORD"},{name:"charStringsIndex",type:"RECORD"},{name:"privateDict",type:"RECORD"}]),i=1/t.unitsPerEm,a={version:t.version,fullName:t.fullName,familyName:t.familyName,weight:t.weightName,fontBBox:t.fontBBox||[0,0,0,0],fontMatrix:[i,0,0,i,0,0],charset:999,encoding:0,charStrings:999,private:[0,999]},s={},o=[],l=1;l<e.length;l+=1)n=e.get(l),o.push(n.name);var u=[];r.header=Be(),r.nameIndex=Fe([t.postScriptName]);var p=_e(a,u);r.topDictIndex=Le(p),r.globalSubrIndex=Ae(),r.charsets=Me(o,u),r.charStringsIndex=Ge(e),r.privateDict=He(s,u),r.stringIndex=Ie(u);var c=r.header.sizeOf()+r.nameIndex.sizeOf()+r.topDictIndex.sizeOf()+r.stringIndex.sizeOf()+r.globalSubrIndex.sizeOf();return a.charset=c,a.encoding=0,a.charStrings=a.charset+r.charsets.sizeOf(),a.private[1]=a.charStrings+r.charStringsIndex.sizeOf(),p=_e(a,u),r.topDictIndex=Le(p),r}function qe(e,t){var n={},r=new Li.Parser(e,t);return n.version=r.parseVersion(),n.fontRevision=Math.round(1e3*r.parseFixed())/1e3,n.checkSumAdjustment=r.parseULong(),n.magicNumber=r.parseULong(),Ci.argument(1594834165===n.magicNumber,"Font header has wrong magic number."),n.flags=r.parseUShort(),n.unitsPerEm=r.parseUShort(),n.created=r.parseLongDateTime(),n.modified=r.parseLongDateTime(),n.xMin=r.parseShort(),n.yMin=r.parseShort(),n.xMax=r.parseShort(),n.yMax=r.parseShort(),n.macStyle=r.parseUShort(),n.lowestRecPPEM=r.parseUShort(),n.fontDirectionHint=r.parseShort(),n.indexToLocFormat=r.parseShort(),n.glyphDataFormat=r.parseShort(),n}function ze(e){var t=Math.round((new Date).getTime()/1e3)+2082844800,n=t;return e.createdTimestamp&&(n=e.createdTimestamp+2082844800),new Fi.Table("head",[{name:"version",type:"FIXED",value:65536},{name:"fontRevision",type:"FIXED",value:65536},{name:"checkSumAdjustment",type:"ULONG",value:0},{name:"magicNumber",type:"ULONG",value:1594834165},{name:"flags",type:"USHORT",value:0},{name:"unitsPerEm",type:"USHORT",value:1e3},{name:"created",type:"LONGDATETIME",value:n},{name:"modified",type:"LONGDATETIME",value:t},{name:"xMin",type:"SHORT",value:0},{name:"yMin",type:"SHORT",value:0},{name:"xMax",type:"SHORT",value:0},{name:"yMax",type:"SHORT",value:0},{name:"macStyle",type:"USHORT",value:0},{name:"lowestRecPPEM",type:"USHORT",value:0},{name:"fontDirectionHint",type:"SHORT",value:2},{name:"indexToLocFormat",type:"SHORT",value:0},{name:"glyphDataFormat",type:"SHORT",value:0}],e)}function We(e,t){var n={},r=new Li.Parser(e,t);return n.version=r.parseVersion(),n.ascender=r.parseShort(),n.descender=r.parseShort(),n.lineGap=r.parseShort(),n.advanceWidthMax=r.parseUShort(),n.minLeftSideBearing=r.parseShort(),n.minRightSideBearing=r.parseShort(),n.xMaxExtent=r.parseShort(),n.caretSlopeRise=r.parseShort(),n.caretSlopeRun=r.parseShort(),n.caretOffset=r.parseShort(),r.relativeOffset+=8,n.metricDataFormat=r.parseShort(),n.numberOfHMetrics=r.parseUShort(),n}function Ve(e){return new Fi.Table("hhea",[{name:"version",type:"FIXED",value:65536},{name:"ascender",type:"FWORD",value:0},{name:"descender",type:"FWORD",value:0},{name:"lineGap",type:"FWORD",value:0},{name:"advanceWidthMax",type:"UFWORD",value:0},{name:"minLeftSideBearing",type:"FWORD",value:0},{name:"minRightSideBearing",type:"FWORD",value:0},{name:"xMaxExtent",type:"FWORD",value:0},{name:"caretSlopeRise",type:"SHORT",value:1},{name:"caretSlopeRun",type:"SHORT",value:0},{name:"caretOffset",type:"SHORT",value:0},{name:"reserved1",type:"SHORT",value:0},{name:"reserved2",type:"SHORT",value:0},{name:"reserved3",type:"SHORT",value:0},{name:"reserved4",type:"SHORT",value:0},{name:"metricDataFormat",type:"SHORT",value:0},{name:"numberOfHMetrics",type:"USHORT",value:0}],e)}function Xe(e,t,n,r,i){for(var a,s,o=new Li.Parser(e,t),l=0;l<r;l+=1){l<n&&(a=o.parseUShort(),s=o.parseShort());var u=i.get(l);u.advanceWidth=a,u.leftSideBearing=s}}function Ye(e){for(var t=new Fi.Table("hmtx",[]),n=0;n<e.length;n+=1){var r=e.get(n),i=r.advanceWidth||0,a=r.leftSideBearing||0;t.fields.push({name:"advanceWidth_"+n,type:"USHORT",value:i}),t.fields.push({name:"leftSideBearing_"+n,type:"SHORT",value:a})}return t}function Ke(e){for(var t=new Fi.Table("ltag",[{name:"version",type:"ULONG",value:1},{name:"flags",type:"ULONG",value:0},{name:"numTags",type:"ULONG",value:e.length}]),n="",r=12+4*e.length,i=0;i<e.length;++i){var a=n.indexOf(e[i]);a<0&&(a=n.length,n+=e[i]),t.fields.push({name:"offset "+i,type:"USHORT",value:r+a}),t.fields.push({name:"length "+i,type:"USHORT",value:e[i].length})}return t.fields.push({name:"stringPool",type:"CHARARRAY",value:n}),t}function Ze(e,t){var n=new Li.Parser(e,t),r=n.parseULong();Ci.argument(1===r,"Unsupported ltag table version."),n.skip("uLong",1);for(var i=n.parseULong(),a=[],s=0;s<i;s++){for(var o="",l=t+n.parseUShort(),u=n.parseUShort(),p=l;p<l+u;++p)o+=String.fromCharCode(e.getInt8(p));a.push(o)}return a}function $e(e,t){var n={},r=new Li.Parser(e,t);return n.version=r.parseVersion(),n.numGlyphs=r.parseUShort(),1===n.version&&(n.maxPoints=r.parseUShort(),n.maxContours=r.parseUShort(),n.maxCompositePoints=r.parseUShort(),n.maxCompositeContours=r.parseUShort(),n.maxZones=r.parseUShort(),n.maxTwilightPoints=r.parseUShort(),n.maxStorage=r.parseUShort(),n.maxFunctionDefs=r.parseUShort(),n.maxInstructionDefs=r.parseUShort(),n.maxStackElements=r.parseUShort(),n.maxSizeOfInstructions=r.parseUShort(),n.maxComponentElements=r.parseUShort(),n.maxComponentDepth=r.parseUShort()),n}function Je(e){return new Fi.Table("maxp",[{name:"version",type:"FIXED",value:20480},{name:"numGlyphs",type:"USHORT",value:e}])}function Qe(e,t,n){switch(e){case 0:if(65535===t)return"und";if(n)return n[t];break;case 1:return Qi[t];case 3:return ta[t]}}function et(e,t,n){switch(e){case 0:return na;case 1:return ia[n]||ra[t];case 3:if(1===t||10===t)return na}}function tt(e,t,n){for(var r={},i=new Li.Parser(e,t),a=i.parseUShort(),s=i.parseUShort(),o=i.offset+i.parseUShort(),l=0;l<s;l++){var u=i.parseUShort(),p=i.parseUShort(),c=i.parseUShort(),f=i.parseUShort(),h=Ji[f]||f,d=i.parseUShort(),m=i.parseUShort(),g=Qe(u,c,n),v=et(u,p,c);if(void 0!==v&&void 0!==g){var y=void 0;if(y=v===na?wi.UTF16(e,o+m,d):wi.MACSTRING(e,o+m,d,v)){var b=r[h];void 0===b&&(b=r[h]={}),b[g]=y}}}return 1===a&&i.parseUShort(),r}function nt(e){var t={};for(var n in e)t[e[n]]=parseInt(n);return t}function rt(e,t,n,r,i,a){return new Fi.Record("NameRecord",[{name:"platformID",type:"USHORT",value:e},{name:"encodingID",type:"USHORT",value:t},{name:"languageID",type:"USHORT",value:n},{name:"nameID",type:"USHORT",value:r},{name:"length",type:"USHORT",value:i},{name:"offset",type:"USHORT",value:a}])}function it(e,t){var n=e.length,r=t.length-n+1;e:for(var i=0;i<r;i++)for(;i<r;i++){for(var a=0;a<n;a++)if(t[i+a]!==e[a])continue e;return i}return-1}function at(e,t){var n=it(e,t);if(n<0){n=t.length;for(var r=0,i=e.length;r<i;++r)t.push(e[r])}return n}function st(e,t){var n,r=[],i={},a=nt(Ji);for(var s in e){var o=a[s];if(void 0===o&&(o=s),n=parseInt(o),isNaN(n))throw new Error('Name table entry "'+s+'" does not exist, see nameTableNames for complete list.');i[n]=e[s],r.push(n)}for(var l=nt(Qi),u=nt(ta),p=[],c=[],f=0;f<r.length;f++){n=r[f];var h=i[n];for(var d in h){var m=h[d],g=1,v=l[d],y=ea[v],b=et(g,y,v),S=Oi.MACSTRING(m,b);void 0===S&&(g=0,v=t.indexOf(d),v<0&&(v=t.length,t.push(d)),y=4,S=Oi.UTF16(m));var x=at(S,c);p.push(rt(g,y,v,n,S.length,x));var T=u[d];if(void 0!==T){var C=Oi.UTF16(m),w=at(C,c);p.push(rt(3,1,T,n,C.length,w))}}}p.sort(function(e,t){return e.platformID-t.platformID||e.encodingID-t.encodingID||e.languageID-t.languageID||e.nameID-t.nameID});for(var O=new Fi.Table("name",[{name:"format",type:"USHORT",value:0},{name:"count",type:"USHORT",value:p.length},{name:"stringOffset",type:"USHORT",value:6+12*p.length}]),E=0;E<p.length;E++)O.fields.push({name:"record_"+E,type:"RECORD",value:p[E]});return O.fields.push({name:"strings",type:"LITERAL",value:c}),O}function ot(e){for(var t=0;t<sa.length;t+=1){var n=sa[t];if(e>=n.begin&&e<n.end)return t}return-1}function lt(e,t){var n={},r=new Li.Parser(e,t);n.version=r.parseUShort(),n.xAvgCharWidth=r.parseShort(),n.usWeightClass=r.parseUShort(),n.usWidthClass=r.parseUShort(),n.fsType=r.parseUShort(),n.ySubscriptXSize=r.parseShort(),n.ySubscriptYSize=r.parseShort(),n.ySubscriptXOffset=r.parseShort(),n.ySubscriptYOffset=r.parseShort(),n.ySuperscriptXSize=r.parseShort(),n.ySuperscriptYSize=r.parseShort(),n.ySuperscriptXOffset=r.parseShort(),n.ySuperscriptYOffset=r.parseShort(),n.yStrikeoutSize=r.parseShort(),n.yStrikeoutPosition=r.parseShort(),n.sFamilyClass=r.parseShort(),n.panose=[];for(var i=0;i<10;i++)n.panose[i]=r.parseByte();return n.ulUnicodeRange1=r.parseULong(),n.ulUnicodeRange2=r.parseULong(),n.ulUnicodeRange3=r.parseULong(),n.ulUnicodeRange4=r.parseULong(),n.achVendID=String.fromCharCode(r.parseByte(),r.parseByte(),r.parseByte(),r.parseByte()),n.fsSelection=r.parseUShort(),n.usFirstCharIndex=r.parseUShort(),n.usLastCharIndex=r.parseUShort(),n.sTypoAscender=r.parseShort(),n.sTypoDescender=r.parseShort(),n.sTypoLineGap=r.parseShort(),n.usWinAscent=r.parseUShort(),n.usWinDescent=r.parseUShort(),n.version>=1&&(n.ulCodePageRange1=r.parseULong(),n.ulCodePageRange2=r.parseULong()),n.version>=2&&(n.sxHeight=r.parseShort(),n.sCapHeight=r.parseShort(),n.usDefaultChar=r.parseUShort(),n.usBreakChar=r.parseUShort(),n.usMaxContent=r.parseUShort()),n}function ut(e){return new Fi.Table("OS/2",[{name:"version",type:"USHORT",value:3},{name:"xAvgCharWidth",type:"SHORT",value:0},{name:"usWeightClass",type:"USHORT",value:0},{name:"usWidthClass",type:"USHORT",value:0},{name:"fsType",type:"USHORT",value:0},{name:"ySubscriptXSize",type:"SHORT",value:650},{name:"ySubscriptYSize",type:"SHORT",value:699},{name:"ySubscriptXOffset",type:"SHORT",value:0},{name:"ySubscriptYOffset",type:"SHORT",value:140},{name:"ySuperscriptXSize",type:"SHORT",value:650},{name:"ySuperscriptYSize",type:"SHORT",value:699},{name:"ySuperscriptXOffset",type:"SHORT",value:0},{name:"ySuperscriptYOffset",type:"SHORT",value:479},{name:"yStrikeoutSize",type:"SHORT",value:49},{name:"yStrikeoutPosition",type:"SHORT",value:258},{name:"sFamilyClass",type:"SHORT",value:0},{name:"bFamilyType",type:"BYTE",value:0},{name:"bSerifStyle",type:"BYTE",value:0},{name:"bWeight",type:"BYTE",value:0},{name:"bProportion",type:"BYTE",value:0},{name:"bContrast",type:"BYTE",value:0},{name:"bStrokeVariation",type:"BYTE",value:0},{name:"bArmStyle",type:"BYTE",value:0},{name:"bLetterform",type:"BYTE",value:0},{name:"bMidline",type:"BYTE",value:0},{name:"bXHeight",type:"BYTE",value:0},{name:"ulUnicodeRange1",type:"ULONG",value:0},{name:"ulUnicodeRange2",type:"ULONG",value:0},{name:"ulUnicodeRange3",type:"ULONG",value:0},{name:"ulUnicodeRange4",type:"ULONG",value:0},{name:"achVendID",type:"CHARARRAY",value:"XXXX"},{name:"fsSelection",type:"USHORT",value:0},{name:"usFirstCharIndex",type:"USHORT",value:0},{name:"usLastCharIndex",type:"USHORT",value:0},{name:"sTypoAscender",type:"SHORT",value:0},{name:"sTypoDescender",type:"SHORT",value:0},{name:"sTypoLineGap",type:"SHORT",value:0},{name:"usWinAscent",type:"USHORT",value:0},{name:"usWinDescent",type:"USHORT",value:0},{name:"ulCodePageRange1",type:"ULONG",value:0},{name:"ulCodePageRange2",type:"ULONG",value:0},{name:"sxHeight",type:"SHORT",value:0},{name:"sCapHeight",type:"SHORT",value:0},{name:"usDefaultChar",type:"USHORT",value:0},{name:"usBreakChar",type:"USHORT",value:0},{name:"usMaxContext",type:"USHORT",value:0}],e)}function pt(e,t){var n={},r=new Li.Parser(e,t);switch(n.version=r.parseVersion(),n.italicAngle=r.parseFixed(),n.underlinePosition=r.parseShort(),n.underlineThickness=r.parseShort(),n.isFixedPitch=r.parseULong(),n.minMemType42=r.parseULong(),n.maxMemType42=r.parseULong(),n.minMemType1=r.parseULong(),n.maxMemType1=r.parseULong(),n.version){case 1:n.names=Gi.slice();break;case 2:n.numberOfGlyphs=r.parseUShort(),n.glyphNameIndex=new Array(n.numberOfGlyphs);for(var i=0;i<n.numberOfGlyphs;i++)n.glyphNameIndex[i]=r.parseUShort();n.names=[];for(var a=0;a<n.numberOfGlyphs;a++)if(n.glyphNameIndex[a]>=Gi.length){var s=r.parseChar();n.names.push(r.parseString(s))}break;case 2.5:n.numberOfGlyphs=r.parseUShort(),n.offset=new Array(n.numberOfGlyphs);for(var o=0;o<n.numberOfGlyphs;o++)n.offset[o]=r.parseChar()}return n}function ct(){return new Fi.Table("post",[{name:"version",type:"FIXED",value:196608},{name:"italicAngle",type:"FIXED",value:0},{name:"underlinePosition",type:"FWORD",value:0},{name:"underlineThickness",type:"FWORD",value:0},{name:"isFixedPitch",type:"ULONG",value:0},{name:"minMemType42",type:"ULONG",value:0},{name:"maxMemType42",type:"ULONG",value:0},{name:"minMemType1",type:"ULONG",value:0},{name:"maxMemType1",type:"ULONG",value:0}])}function ft(e,t){t=t||0;var n=new P(e,t),r=n.parseVersion();return Ci.argument(1===r,"Unsupported GSUB table version."),{version:r,scripts:n.parseScriptList(),features:n.parseFeatureList(),lookups:n.parseLookupList(ua)}}function ht(e){return new Fi.Table("GSUB",[{name:"version",type:"ULONG",value:65536},{name:"scripts",type:"TABLE",value:new Fi.ScriptList(e.scripts)},{name:"features",type:"TABLE",value:new Fi.FeatureList(e.features)},{name:"lookups",type:"TABLE",value:new Fi.LookupList(e.lookups,ca)}])}function dt(e,t){var n=new Li.Parser(e,t),r=n.parseULong();Ci.argument(1===r,"Unsupported META table version."),n.parseULong(),n.parseULong();for(var i=n.parseULong(),a={},s=0;s<i;s++){var o=n.parseTag(),l=n.parseULong(),u=n.parseULong(),p=wi.UTF8(e,t+l,u);a[o]=p}return a}function mt(e){var t=Object.keys(e).length,n="",r=16+12*t,i=new Fi.Table("meta",[{name:"version",type:"ULONG",value:1},{name:"flags",type:"ULONG",value:0},{name:"offset",type:"ULONG",value:r},{name:"numTags",type:"ULONG",value:t}]);for(var a in e){var s=n.length;n+=e[a],i.fields.push({name:"tag "+a,type:"TAG",value:a}),i.fields.push({name:"offset "+a,type:"ULONG",value:r+s}),i.fields.push({name:"length "+a,type:"ULONG",value:e[a].length})}return i.fields.push({name:"stringPool",type:"CHARARRAY",value:n}),i}function gt(e){return Math.log(e)/Math.log(2)|0}function vt(e){for(;e.length%4!=0;)e.push(0);for(var t=0,n=0;n<e.length;n+=4)t+=(e[n]<<24)+(e[n+1]<<16)+(e[n+2]<<8)+e[n+3];return t%=Math.pow(2,32)}function yt(e,t,n,r){return new Fi.Record("Table Record",[{name:"tag",type:"TAG",value:void 0!==e?e:""},{name:"checkSum",type:"ULONG",value:void 0!==t?t:0},{name:"offset",type:"ULONG",value:void 0!==n?n:0},{name:"length",type:"ULONG",value:void 0!==r?r:0}])}function bt(e){var t=new Fi.Table("sfnt",[{name:"version",type:"TAG",value:"OTTO"},{name:"numTables",type:"USHORT",value:0},{name:"searchRange",type:"USHORT",value:0},{name:"entrySelector",type:"USHORT",value:0},{name:"rangeShift",type:"USHORT",value:0}]);t.tables=e,t.numTables=e.length;var n=Math.pow(2,gt(t.numTables));t.searchRange=16*n,t.entrySelector=gt(n),t.rangeShift=16*t.numTables-t.searchRange;for(var r=[],i=[],a=t.sizeOf()+yt().sizeOf()*t.numTables;a%4!=0;)a+=1,i.push({name:"padding",type:"BYTE",value:0});for(var s=0;s<e.length;s+=1){var o=e[s];Ci.argument(4===o.tableName.length,"Table name"+o.tableName+" is invalid.");var l=o.sizeOf(),u=yt(o.tableName,vt(o.encode()),a,l);for(r.push({name:u.tag+" Table Record",type:"RECORD",value:u}),i.push({name:o.tableName+" table",type:"RECORD",value:o}),a+=l,Ci.argument(!isNaN(a),"Something went wrong calculating the offset.");a%4!=0;)a+=1,i.push({name:"padding",type:"BYTE",value:0})}return r.sort(function(e,t){return e.value.tag>t.value.tag?1:-1}),t.fields=t.fields.concat(r),t.fields=t.fields.concat(i),t}function St(e,t,n){for(var r=0;r<t.length;r+=1){var i=e.charToGlyphIndex(t[r]);if(i>0){return e.glyphs.get(i).getMetrics()}}return n}function xt(e){for(var t=0,n=0;n<e.length;n+=1)t+=e[n];return t/e.length}function Tt(e){for(var t,n=[],r=[],i=[],a=[],s=[],o=[],l=[],u=0,p=0,c=0,f=0,h=0,d=0;d<e.glyphs.length;d+=1){var m=e.glyphs.get(d),g=0|m.unicode;if(isNaN(m.advanceWidth))throw new Error("Glyph "+m.name+" ("+d+"): advanceWidth is not a number.");(t>g||void 0===t)&&g>0&&(t=g),u<g&&(u=g);var v=oa.getUnicodeRange(g);if(v<32)p|=1<<v;else if(v<64)c|=1<<v-32;else if(v<96)f|=1<<v-64;else{if(!(v<123))throw new Error("Unicode ranges bits > 123 are reserved for internal usage");h|=1<<v-96}if(".notdef"!==m.name){var y=m.getMetrics();n.push(y.xMin),r.push(y.yMin),i.push(y.xMax),a.push(y.yMax),o.push(y.leftSideBearing),l.push(y.rightSideBearing),s.push(m.advanceWidth)}}var b={xMin:Math.min.apply(null,n),yMin:Math.min.apply(null,r),xMax:Math.max.apply(null,i),yMax:Math.max.apply(null,a),advanceWidthMax:Math.max.apply(null,s),advanceWidthAvg:xt(s),minLeftSideBearing:Math.min.apply(null,o),maxLeftSideBearing:Math.max.apply(null,o),minRightSideBearing:Math.min.apply(null,l)};b.ascender=e.ascender,b.descender=e.descender;var S=Xi.make({flags:3,unitsPerEm:e.unitsPerEm,xMin:b.xMin,yMin:b.yMin,xMax:b.xMax,yMax:b.yMax,lowestRecPPEM:3,createdTimestamp:e.createdTimestamp}),x=Yi.make({ascender:b.ascender,descender:b.descender,advanceWidthMax:b.advanceWidthMax,minLeftSideBearing:b.minLeftSideBearing,minRightSideBearing:b.minRightSideBearing,xMaxExtent:b.maxLeftSideBearing+(b.xMax-b.xMin),numberOfHMetrics:e.glyphs.length}),T=$i.make(e.glyphs.length),C=oa.make({xAvgCharWidth:Math.round(b.advanceWidthAvg),usWeightClass:e.tables.os2.usWeightClass,usWidthClass:e.tables.os2.usWidthClass,usFirstCharIndex:t,usLastCharIndex:u,ulUnicodeRange1:p,ulUnicodeRange2:c,ulUnicodeRange3:f,ulUnicodeRange4:h,fsSelection:e.tables.os2.fsSelection,sTypoAscender:b.ascender,sTypoDescender:b.descender,sTypoLineGap:0,usWinAscent:b.yMax,usWinDescent:Math.abs(b.yMin),ulCodePageRange1:1,sxHeight:St(e,"xyvw",{yMax:Math.round(b.ascender/2)}).yMax,sCapHeight:St(e,"HIKLEFJMNTZBDPRAGOQSUVWXY",b).yMax,usDefaultChar:e.hasChar(" ")?32:0,usBreakChar:e.hasChar(" ")?32:0}),w=Ki.make(e.glyphs),O=Ii.make(e.glyphs),E=e.getEnglishName("fontFamily"),D=e.getEnglishName("fontSubfamily"),U=E+" "+D,k=e.getEnglishName("postScriptName");k||(k=E.replace(/\s/g,"")+"-"+D);var N={};for(var B in e.names)N[B]=e.names[B];N.uniqueID||(N.uniqueID={en:e.getEnglishName("manufacturer")+":"+U}),N.postScriptName||(N.postScriptName={en:k}),N.preferredFamily||(N.preferredFamily=e.names.fontFamily),
-N.preferredSubfamily||(N.preferredSubfamily=e.names.fontSubfamily);var F=[],R=aa.make(N,F),_=F.length>0?Zi.make(F):void 0,L=la.make(),I=Vi.make(e.glyphs,{version:e.getEnglishName("version"),fullName:U,familyName:E,weightName:D,postScriptName:k,unitsPerEm:e.unitsPerEm,fontBBox:[0,b.yMin,b.ascender,b.advanceWidthMax]}),A=e.metas&&Object.keys(e.metas).length>0?ha.make(e.metas):void 0,M=[S,x,T,C,R,O,L,I,w];_&&M.push(_),e.tables.gsub&&M.push(fa.make(e.tables.gsub)),A&&M.push(A);for(var P=bt(M),G=P.encode(),H=vt(G),j=P.fields,q=!1,z=0;z<j.length;z+=1)if("head table"===j[z].name){j[z].value.checkSumAdjustment=2981146554-H,q=!0;break}if(!q)throw new Error("Could not find head table with checkSum to adjust.");return P}function Ct(e,t){for(var n=0,r=e.length-1;n<=r;){var i=n+r>>>1,a=e[i].tag;if(a===t)return i;a<t?n=i+1:r=i-1}return-n-1}function wt(e,t){for(var n=0,r=e.length-1;n<=r;){var i=n+r>>>1,a=e[i];if(a===t)return i;a<t?n=i+1:r=i-1}return-n-1}function Ot(e,t){this.font=e,this.tableName=t}function Et(e){Ot.call(this,e,"gsub")}function Dt(e,t){var n=e.length;if(n!==t.length)return!1;for(var r=0;r<n;r++)if(e[r]!==t[r])return!1;return!0}function Ut(e,t,n){for(var r=e.subtables,i=0;i<r.length;i++){var a=r[i];if(a.substFormat===t)return a}if(n)return r.push(n),n}function kt(){return"undefined"!=typeof window}function Nt(e){for(var t=new ArrayBuffer(e.length),n=new Uint8Array(t),r=0;r<e.length;++r)n[r]=e[r];return t}function Bt(e){for(var t=new Buffer(e.byteLength),n=new Uint8Array(e),r=0;r<t.length;++r)t[r]=n[r];return t}function Ft(e,t){if(!e)throw t}function Rt(e){this.font=e,this._fpgmState=this._prepState=void 0,this._errorState=0}function _t(e){return e}function Lt(e){return Math.sign(e)*Math.round(Math.abs(e))}function It(e){return Math.sign(e)*Math.round(Math.abs(2*e))/2}function At(e){return Math.sign(e)*(Math.round(Math.abs(e)+.5)-.5)}function Mt(e){return Math.sign(e)*Math.ceil(Math.abs(e))}function Pt(e){return Math.sign(e)*Math.floor(Math.abs(e))}function Gt(e,t){this.x=e,this.y=t,this.axis=void 0,this.slope=t/e,this.normalSlope=-e/t,Object.freeze(this)}function Ht(e,t){var n=Math.sqrt(e*e+t*t);return e/=n,t/=n,1===e&&0===t?Sa:0===e&&1===t?xa:new Gt(e,t)}function jt(e,t,n,r){this.x=this.xo=Math.round(64*e)/64,this.y=this.yo=Math.round(64*t)/64,this.lastPointOfContour=n,this.onCurve=r,this.prevPointOnContour=void 0,this.nextPointOnContour=void 0,this.xTouched=!1,this.yTouched=!1,Object.preventExtensions(this)}function qt(e,t){switch(this.env=e,this.stack=[],this.prog=t,e){case"glyf":this.zp0=this.zp1=this.zp2=1,this.rp0=this.rp1=this.rp2=0;case"prep":this.fv=this.pv=this.dpv=Sa,this.round=Lt}}function zt(e){for(var t=e.tZone=new Array(e.gZone.length),n=0;n<t.length;n++)t[n]=new jt(0,0)}function Wt(e,t){var n,r=e.prog,i=e.ip,a=1;do{if(88===(n=r[++i]))a++;else if(89===n)a--;else if(64===n)i+=r[i+1]+1;else if(65===n)i+=2*r[i+1]+1;else if(n>=176&&n<=183)i+=n-176+1;else if(n>=184&&n<=191)i+=2*(n-184+1);else if(t&&1===a&&27===n)break}while(a>0);e.ip=i}function Vt(t,n){e.DEBUG&&console.log(n.step,"SVTCA["+t.axis+"]"),n.fv=n.pv=n.dpv=t}function Xt(t,n){e.DEBUG&&console.log(n.step,"SPVTCA["+t.axis+"]"),n.pv=n.dpv=t}function Yt(t,n){e.DEBUG&&console.log(n.step,"SFVTCA["+t.axis+"]"),n.fv=t}function Kt(t,n){var r=n.stack,i=r.pop(),a=r.pop(),s=n.z2[i],o=n.z1[a];e.DEBUG&&console.log("SPVTL["+t+"]",i,a);var l,u;t?(l=s.y-o.y,u=o.x-s.x):(l=o.x-s.x,u=o.y-s.y),n.pv=n.dpv=Ht(l,u)}function Zt(t,n){var r=n.stack,i=r.pop(),a=r.pop(),s=n.z2[i],o=n.z1[a];e.DEBUG&&console.log("SFVTL["+t+"]",i,a);var l,u;t?(l=s.y-o.y,u=o.x-s.x):(l=o.x-s.x,u=o.y-s.y),n.fv=Ht(l,u)}function $t(t){var n=t.stack,r=n.pop(),i=n.pop();e.DEBUG&&console.log(t.step,"SPVFS[]",r,i),t.pv=t.dpv=Ht(i,r)}function Jt(t){var n=t.stack,r=n.pop(),i=n.pop();e.DEBUG&&console.log(t.step,"SPVFS[]",r,i),t.fv=Ht(i,r)}function Qt(t){var n=t.stack,r=t.pv;e.DEBUG&&console.log(t.step,"GPV[]"),n.push(16384*r.x),n.push(16384*r.y)}function en(t){var n=t.stack,r=t.fv;e.DEBUG&&console.log(t.step,"GFV[]"),n.push(16384*r.x),n.push(16384*r.y)}function tn(t){t.fv=t.pv,e.DEBUG&&console.log(t.step,"SFVTPV[]")}function nn(t){var n=t.stack,r=n.pop(),i=n.pop(),a=n.pop(),s=n.pop(),o=n.pop(),l=t.z0,u=t.z1,p=l[r],c=l[i],f=u[a],h=u[s],d=t.z2[o];e.DEBUG&&console.log("ISECT[], ",r,i,a,s,o);var m=p.x,g=p.y,v=c.x,y=c.y,b=f.x,S=f.y,x=h.x,T=h.y,C=(m-v)*(S-T)-(g-y)*(b-x),w=m*y-g*v,O=b*T-S*x;d.x=(w*(b-x)-O*(m-v))/C,d.y=(w*(S-T)-O*(g-y))/C}function rn(t){t.rp0=t.stack.pop(),e.DEBUG&&console.log(t.step,"SRP0[]",t.rp0)}function an(t){t.rp1=t.stack.pop(),e.DEBUG&&console.log(t.step,"SRP1[]",t.rp1)}function sn(t){t.rp2=t.stack.pop(),e.DEBUG&&console.log(t.step,"SRP2[]",t.rp2)}function on(t){var n=t.stack.pop();switch(e.DEBUG&&console.log(t.step,"SZP0[]",n),t.zp0=n,n){case 0:t.tZone||zt(t),t.z0=t.tZone;break;case 1:t.z0=t.gZone;break;default:throw new Error("Invalid zone pointer")}}function ln(t){var n=t.stack.pop();switch(e.DEBUG&&console.log(t.step,"SZP1[]",n),t.zp1=n,n){case 0:t.tZone||zt(t),t.z1=t.tZone;break;case 1:t.z1=t.gZone;break;default:throw new Error("Invalid zone pointer")}}function un(t){var n=t.stack.pop();switch(e.DEBUG&&console.log(t.step,"SZP2[]",n),t.zp2=n,n){case 0:t.tZone||zt(t),t.z2=t.tZone;break;case 1:t.z2=t.gZone;break;default:throw new Error("Invalid zone pointer")}}function pn(t){var n=t.stack.pop();switch(e.DEBUG&&console.log(t.step,"SZPS[]",n),t.zp0=t.zp1=t.zp2=n,n){case 0:t.tZone||zt(t),t.z0=t.z1=t.z2=t.tZone;break;case 1:t.z0=t.z1=t.z2=t.gZone;break;default:throw new Error("Invalid zone pointer")}}function cn(t){t.loop=t.stack.pop(),e.DEBUG&&console.log(t.step,"SLOOP[]",t.loop)}function fn(t){e.DEBUG&&console.log(t.step,"RTG[]"),t.round=Lt}function hn(t){e.DEBUG&&console.log(t.step,"RTHG[]"),t.round=At}function dn(t){var n=t.stack.pop();e.DEBUG&&console.log(t.step,"SMD[]",n),t.minDis=n/64}function mn(t){e.DEBUG&&console.log(t.step,"ELSE[]"),Wt(t,!1)}function gn(t){var n=t.stack.pop();e.DEBUG&&console.log(t.step,"JMPR[]",n),t.ip+=n-1}function vn(t){var n=t.stack.pop();e.DEBUG&&console.log(t.step,"SCVTCI[]",n),t.cvCutIn=n/64}function yn(t){var n=t.stack;e.DEBUG&&console.log(t.step,"DUP[]"),n.push(n[n.length-1])}function bn(t){e.DEBUG&&console.log(t.step,"POP[]"),t.stack.pop()}function Sn(t){e.DEBUG&&console.log(t.step,"CLEAR[]"),t.stack.length=0}function xn(t){var n=t.stack,r=n.pop(),i=n.pop();e.DEBUG&&console.log(t.step,"SWAP[]"),n.push(r),n.push(i)}function Tn(t){var n=t.stack;e.DEBUG&&console.log(t.step,"DEPTH[]"),n.push(n.length)}function Cn(t){var n=t.stack,r=n.pop(),i=n.pop();e.DEBUG&&console.log(t.step,"LOOPCALL[]",r,i);var a=t.ip,s=t.prog;t.prog=t.funcs[r];for(var o=0;o<i;o++)ga(t),e.DEBUG&&console.log(++t.step,o+1<i?"next loopcall":"done loopcall",o);t.ip=a,t.prog=s}function wn(t){var n=t.stack.pop();e.DEBUG&&console.log(t.step,"CALL[]",n);var r=t.ip,i=t.prog;t.prog=t.funcs[n],ga(t),t.ip=r,t.prog=i,e.DEBUG&&console.log(++t.step,"returning from",n)}function On(t){var n=t.stack,r=n.pop();e.DEBUG&&console.log(t.step,"CINDEX[]",r),n.push(n[n.length-r])}function En(t){var n=t.stack,r=n.pop();e.DEBUG&&console.log(t.step,"MINDEX[]",r),n.push(n.splice(n.length-r,1)[0])}function Dn(t){if("fpgm"!==t.env)throw new Error("FDEF not allowed here");var n=t.stack,r=t.prog,i=t.ip,a=n.pop(),s=i;for(e.DEBUG&&console.log(t.step,"FDEF[]",a);45!==r[++i];);t.ip=i,t.funcs[a]=r.slice(s+1,i)}function Un(t,n){var r=n.stack.pop(),i=n.z0[r],a=n.fv,s=n.pv;e.DEBUG&&console.log(n.step,"MDAP["+t+"]",r);var o=s.distance(i,Ta);t&&(o=n.round(o)),a.setRelative(i,Ta,o,s),a.touch(i),n.rp0=n.rp1=r}function kn(t,n){var r,i,a,s=n.z2,o=s.length-2;e.DEBUG&&console.log(n.step,"IUP["+t.axis+"]");for(var l=0;l<o;l++)r=s[l],t.touched(r)||(i=r.prevTouched(t))!==r&&(a=r.nextTouched(t),i===a&&t.setRelative(r,r,t.distance(i,i,!1,!0),t,!0),t.interpolate(r,i,a,t))}function Nn(t,n){for(var r=n.stack,i=t?n.rp1:n.rp2,a=(t?n.z0:n.z1)[i],s=n.fv,o=n.pv,l=n.loop,u=n.z2;l--;){var p=r.pop(),c=u[p],f=o.distance(a,a,!1,!0);s.setRelative(c,c,f,o),s.touch(c),e.DEBUG&&console.log(n.step,(n.loop>1?"loop "+(n.loop-l)+": ":"")+"SHP["+(t?"rp1":"rp2")+"]",p)}n.loop=1}function Bn(t,n){var r=n.stack,i=t?n.rp1:n.rp2,a=(t?n.z0:n.z1)[i],s=n.fv,o=n.pv,l=r.pop(),u=n.z2[n.contours[l]],p=u;e.DEBUG&&console.log(n.step,"SHC["+t+"]",l);var c=o.distance(a,a,!1,!0);do{p!==a&&s.setRelative(p,p,c,o),p=p.nextPointOnContour}while(p!==u)}function Fn(t,n){var r=n.stack,i=t?n.rp1:n.rp2,a=(t?n.z0:n.z1)[i],s=n.fv,o=n.pv,l=r.pop();e.DEBUG&&console.log(n.step,"SHZ["+t+"]",l);var u;switch(l){case 0:u=n.tZone;break;case 1:u=n.gZone;break;default:throw new Error("Invalid zone")}for(var p,c=o.distance(a,a,!1,!0),f=u.length-2,h=0;h<f;h++)(p=u[h])!==a&&s.setRelative(p,p,c,o)}function Rn(t){for(var n=t.stack,r=t.loop,i=t.fv,a=n.pop()/64,s=t.z2;r--;){var o=n.pop(),l=s[o];e.DEBUG&&console.log(t.step,(t.loop>1?"loop "+(t.loop-r)+": ":"")+"SHPIX[]",o,a),i.setRelative(l,l,a),i.touch(l)}t.loop=1}function _n(t){for(var n=t.stack,r=t.rp1,i=t.rp2,a=t.loop,s=t.z0[r],o=t.z1[i],l=t.fv,u=t.dpv,p=t.z2;a--;){var c=n.pop(),f=p[c];e.DEBUG&&console.log(t.step,(t.loop>1?"loop "+(t.loop-a)+": ":"")+"IP[]",c,r,"<->",i),l.interpolate(f,s,o,u),l.touch(f)}t.loop=1}function Ln(t,n){var r=n.stack,i=r.pop()/64,a=r.pop(),s=n.z1[a],o=n.z0[n.rp0],l=n.fv,u=n.pv;l.setRelative(s,o,i,u),l.touch(s),e.DEBUG&&console.log(n.step,"MSIRP["+t+"]",i,a),n.rp1=n.rp0,n.rp2=a,t&&(n.rp0=a)}function In(t){for(var n=t.stack,r=t.rp0,i=t.z0[r],a=t.loop,s=t.fv,o=t.pv,l=t.z1;a--;){var u=n.pop(),p=l[u];e.DEBUG&&console.log(t.step,(t.loop>1?"loop "+(t.loop-a)+": ":"")+"ALIGNRP[]",u),s.setRelative(p,i,0,o),s.touch(p)}t.loop=1}function An(t){e.DEBUG&&console.log(t.step,"RTDG[]"),t.round=It}function Mn(t,n){var r=n.stack,i=r.pop(),a=r.pop(),s=n.z0[a],o=n.fv,l=n.pv,u=n.cvt[i];t&&(u=n.round(u)),e.DEBUG&&console.log(n.step,"MIAP["+t+"]",i,"(",u,")",a),o.setRelative(s,Ta,u,l),0===n.zp0&&(s.xo=s.x,s.yo=s.y),o.touch(s),n.rp0=n.rp1=a}function Pn(t){var n=t.prog,r=t.ip,i=t.stack,a=n[++r];e.DEBUG&&console.log(t.step,"NPUSHB[]",a);for(var s=0;s<a;s++)i.push(n[++r]);t.ip=r}function Gn(t){var n=t.ip,r=t.prog,i=t.stack,a=r[++n];e.DEBUG&&console.log(t.step,"NPUSHW[]",a);for(var s=0;s<a;s++){var o=r[++n]<<8|r[++n];32768&o&&(o=-(1+(65535^o))),i.push(o)}t.ip=n}function Hn(t){var n=t.stack,r=t.store;r||(r=t.store=[]);var i=n.pop(),a=n.pop();e.DEBUG&&console.log(t.step,"WS",i,a),r[a]=i}function jn(t){var n=t.stack,r=t.store,i=n.pop();e.DEBUG&&console.log(t.step,"RS",i);var a=r&&r[i]||0;n.push(a)}function qn(t){var n=t.stack,r=n.pop(),i=n.pop();e.DEBUG&&console.log(t.step,"WCVTP",r,i),t.cvt[i]=r/64}function zn(t){var n=t.stack,r=n.pop();e.DEBUG&&console.log(t.step,"RCVT",r),n.push(64*t.cvt[r])}function Wn(t,n){var r=n.stack,i=r.pop(),a=n.z2[i];e.DEBUG&&console.log(n.step,"GC["+t+"]",i),r.push(64*n.dpv.distance(a,Ta,t,!1))}function Vn(t,n){var r=n.stack,i=r.pop(),a=r.pop(),s=n.z1[i],o=n.z0[a],l=n.dpv.distance(o,s,t,t);e.DEBUG&&console.log(n.step,"MD["+t+"]",i,a,"->",l),n.stack.push(Math.round(64*l))}function Xn(t){e.DEBUG&&console.log(t.step,"MPPEM[]"),t.stack.push(t.ppem)}function Yn(t){e.DEBUG&&console.log(t.step,"FLIPON[]"),t.autoFlip=!0}function Kn(t){var n=t.stack,r=n.pop(),i=n.pop();e.DEBUG&&console.log(t.step,"LT[]",r,i),n.push(i<r?1:0)}function Zn(t){var n=t.stack,r=n.pop(),i=n.pop();e.DEBUG&&console.log(t.step,"LTEQ[]",r,i),n.push(i<=r?1:0)}function $n(t){var n=t.stack,r=n.pop(),i=n.pop();e.DEBUG&&console.log(t.step,"GT[]",r,i),n.push(i>r?1:0)}function Jn(t){var n=t.stack,r=n.pop(),i=n.pop();e.DEBUG&&console.log(t.step,"GTEQ[]",r,i),n.push(i>=r?1:0)}function Qn(t){var n=t.stack,r=n.pop(),i=n.pop();e.DEBUG&&console.log(t.step,"EQ[]",r,i),n.push(r===i?1:0)}function er(t){var n=t.stack,r=n.pop(),i=n.pop();e.DEBUG&&console.log(t.step,"NEQ[]",r,i),n.push(r!==i?1:0)}function tr(t){var n=t.stack,r=n.pop();e.DEBUG&&console.log(t.step,"ODD[]",r),n.push(Math.trunc(r)%2?1:0)}function nr(t){var n=t.stack,r=n.pop();e.DEBUG&&console.log(t.step,"EVEN[]",r),n.push(Math.trunc(r)%2?0:1)}function rr(t){var n=t.stack.pop();e.DEBUG&&console.log(t.step,"IF[]",n),n||(Wt(t,!0),e.DEBUG&&console.log(t.step,"EIF[]"))}function ir(t){e.DEBUG&&console.log(t.step,"EIF[]")}function ar(t){var n=t.stack,r=n.pop(),i=n.pop();e.DEBUG&&console.log(t.step,"AND[]",r,i),n.push(r&&i?1:0)}function sr(t){var n=t.stack,r=n.pop(),i=n.pop();e.DEBUG&&console.log(t.step,"OR[]",r,i),n.push(r||i?1:0)}function or(t){var n=t.stack,r=n.pop();e.DEBUG&&console.log(t.step,"NOT[]",r),n.push(r?0:1)}function lr(t,n){var r=n.stack,i=r.pop(),a=n.fv,s=n.pv,o=n.ppem,l=n.deltaBase+16*(t-1),u=n.deltaShift,p=n.z0;e.DEBUG&&console.log(n.step,"DELTAP["+t+"]",i,r);for(var c=0;c<i;c++){var f=r.pop(),h=r.pop();if(l+((240&h)>>4)===o){var d=(15&h)-8;d>=0&&d++,e.DEBUG&&console.log(n.step,"DELTAPFIX",f,"by",d*u);var m=p[f];a.setRelative(m,m,d*u,s)}}}function ur(t){var n=t.stack,r=n.pop();e.DEBUG&&console.log(t.step,"SDB[]",r),t.deltaBase=r}function pr(t){var n=t.stack,r=n.pop();e.DEBUG&&console.log(t.step,"SDS[]",r),t.deltaShift=Math.pow(.5,r)}function cr(t){var n=t.stack,r=n.pop(),i=n.pop();e.DEBUG&&console.log(t.step,"ADD[]",r,i),n.push(i+r)}function fr(t){var n=t.stack,r=n.pop(),i=n.pop();e.DEBUG&&console.log(t.step,"SUB[]",r,i),n.push(i-r)}function hr(t){var n=t.stack,r=n.pop(),i=n.pop();e.DEBUG&&console.log(t.step,"DIV[]",r,i),n.push(64*i/r)}function dr(t){var n=t.stack,r=n.pop(),i=n.pop();e.DEBUG&&console.log(t.step,"MUL[]",r,i),n.push(i*r/64)}function mr(t){var n=t.stack,r=n.pop();e.DEBUG&&console.log(t.step,"ABS[]",r),n.push(Math.abs(r))}function gr(t){var n=t.stack,r=n.pop();e.DEBUG&&console.log(t.step,"NEG[]",r),n.push(-r)}function vr(t){var n=t.stack,r=n.pop();e.DEBUG&&console.log(t.step,"FLOOR[]",r),n.push(64*Math.floor(r/64))}function yr(t){var n=t.stack,r=n.pop();e.DEBUG&&console.log(t.step,"CEILING[]",r),n.push(64*Math.ceil(r/64))}function br(t,n){var r=n.stack,i=r.pop();e.DEBUG&&console.log(n.step,"ROUND[]"),r.push(64*n.round(i/64))}function Sr(t){var n=t.stack,r=n.pop(),i=n.pop();e.DEBUG&&console.log(t.step,"WCVTF[]",r,i),t.cvt[i]=r*t.ppem/t.font.unitsPerEm}function xr(t,n){var r=n.stack,i=r.pop(),a=n.ppem,s=n.deltaBase+16*(t-1),o=n.deltaShift;e.DEBUG&&console.log(n.step,"DELTAC["+t+"]",i,r);for(var l=0;l<i;l++){var u=r.pop(),p=r.pop();if(s+((240&p)>>4)===a){var c=(15&p)-8;c>=0&&c++;var f=c*o;e.DEBUG&&console.log(n.step,"DELTACFIX",u,"by",f),n.cvt[u]+=f}}}function Tr(t){var n=t.stack.pop();e.DEBUG&&console.log(t.step,"SROUND[]",n),t.round=ba;var r;switch(192&n){case 0:r=.5;break;case 64:r=1;break;case 128:r=2;break;default:throw new Error("invalid SROUND value")}switch(t.srPeriod=r,48&n){case 0:t.srPhase=0;break;case 16:t.srPhase=.25*r;break;case 32:t.srPhase=.5*r;break;case 48:t.srPhase=.75*r;break;default:throw new Error("invalid SROUND value")}n&=15,t.srThreshold=0===n?0:(n/8-.5)*r}function Cr(t){var n=t.stack.pop();e.DEBUG&&console.log(t.step,"S45ROUND[]",n),t.round=ba;var r;switch(192&n){case 0:r=Math.sqrt(2)/2;break;case 64:r=Math.sqrt(2);break;case 128:r=2*Math.sqrt(2);break;default:throw new Error("invalid S45ROUND value")}switch(t.srPeriod=r,48&n){case 0:t.srPhase=0;break;case 16:t.srPhase=.25*r;break;case 32:t.srPhase=.5*r;break;case 48:t.srPhase=.75*r;break;default:throw new Error("invalid S45ROUND value")}n&=15,t.srThreshold=0===n?0:(n/8-.5)*r}function wr(t){e.DEBUG&&console.log(t.step,"ROFF[]"),t.round=_t}function Or(t){e.DEBUG&&console.log(t.step,"RUTG[]"),t.round=Mt}function Er(t){e.DEBUG&&console.log(t.step,"RDTG[]"),t.round=Pt}function Dr(t){var n=t.stack.pop();e.DEBUG&&console.log(t.step,"SCANCTRL[]",n)}function Ur(t,n){var r=n.stack,i=r.pop(),a=r.pop(),s=n.z2[i],o=n.z1[a];e.DEBUG&&console.log("SDPVTL["+t+"]",i,a);var l,u;t?(l=s.y-o.y,u=o.x-s.x):(l=o.x-s.x,u=o.y-s.y),n.dpv=Ht(l,u)}function kr(t){var n=t.stack,r=n.pop(),i=0;e.DEBUG&&console.log(t.step,"GETINFO[]",r),1&r&&(i=35),32&r&&(i|=4096),n.push(i)}function Nr(t){var n=t.stack,r=n.pop(),i=n.pop(),a=n.pop();e.DEBUG&&console.log(t.step,"ROLL[]"),n.push(i),n.push(r),n.push(a)}function Br(t){var n=t.stack,r=n.pop(),i=n.pop();e.DEBUG&&console.log(t.step,"MAX[]",r,i),n.push(Math.max(i,r))}function Fr(t){var n=t.stack,r=n.pop(),i=n.pop();e.DEBUG&&console.log(t.step,"MIN[]",r,i),n.push(Math.min(i,r))}function Rr(t){var n=t.stack.pop();e.DEBUG&&console.log(t.step,"SCANTYPE[]",n)}function _r(t){var n=t.stack.pop(),r=t.stack.pop();switch(e.DEBUG&&console.log(t.step,"INSTCTRL[]",n,r),n){case 1:return void(t.inhibitGridFit=!!r);case 2:return void(t.ignoreCvt=!!r);default:throw new Error("invalid INSTCTRL[] selector")}}function Lr(t,n){var r=n.stack,i=n.prog,a=n.ip;e.DEBUG&&console.log(n.step,"PUSHB["+t+"]");for(var s=0;s<t;s++)r.push(i[++a]);n.ip=a}function Ir(t,n){var r=n.ip,i=n.prog,a=n.stack;e.DEBUG&&console.log(n.ip,"PUSHW["+t+"]");for(var s=0;s<t;s++){var o=i[++r]<<8|i[++r];32768&o&&(o=-(1+(65535^o))),a.push(o)}n.ip=r}function Ar(t,n,r,i,a,s){var o,l,u,p,c=s.stack,f=t&&c.pop(),h=c.pop(),d=s.rp0,m=s.z0[d],g=s.z1[h],v=s.minDis,y=s.fv,b=s.dpv;l=o=b.distance(g,m,!0,!0),u=l>=0?1:-1,l=Math.abs(l),t&&(p=s.cvt[f],i&&Math.abs(l-p)<s.cvCutIn&&(l=p)),r&&l<v&&(l=v),i&&(l=s.round(l)),y.setRelative(g,m,u*l,b),y.touch(g),e.DEBUG&&console.log(s.step,(t?"MIRP[":"MDRP[")+(n?"M":"m")+(r?">":"_")+(i?"R":"_")+(0===a?"Gr":1===a?"Bl":2===a?"Wh":"")+"]",t?f+"("+s.cvt[f]+","+p+")":"",h,"(d =",o,"->",u*l,")"),s.rp1=s.rp0,s.rp2=h,n&&(s.rp0=h)}function Mr(e){e=e||{},e.empty||(Ft(e.familyName,"When creating a new Font object, familyName is required."),Ft(e.styleName,"When creating a new Font object, styleName is required."),Ft(e.unitsPerEm,"When creating a new Font object, unitsPerEm is required."),Ft(e.ascender,"When creating a new Font object, ascender is required."),Ft(e.descender,"When creating a new Font object, descender is required."),Ft(e.descender<0,"Descender should be negative (e.g. -512)."),this.names={fontFamily:{en:e.familyName||" "},fontSubfamily:{en:e.styleName||" "},fullName:{en:e.fullName||e.familyName+" "+e.styleName},postScriptName:{en:e.postScriptName||e.familyName+e.styleName},designer:{en:e.designer||" "},designerURL:{en:e.designerURL||" "},manufacturer:{en:e.manufacturer||" "},manufacturerURL:{en:e.manufacturerURL||" "},license:{en:e.license||" "},licenseURL:{en:e.licenseURL||" "},version:{en:e.version||"Version 0.1"},description:{en:e.description||" "},copyright:{en:e.copyright||" "},trademark:{en:e.trademark||" "}},this.unitsPerEm=e.unitsPerEm||1e3,this.ascender=e.ascender,this.descender=e.descender,this.createdTimestamp=e.createdTimestamp,this.tables={os2:{usWeightClass:e.weightClass||this.usWeightClasses.MEDIUM,usWidthClass:e.widthClass||this.usWidthClasses.MEDIUM,fsSelection:e.fsSelection||this.fsSelectionValues.REGULAR}}),this.supported=!0,this.glyphs=new qi.GlyphSet(this,e.glyphs||[]),this.encoding=new V(this),this.substitution=new Et(this),this.tables=this.tables||{},Object.defineProperty(this,"hinting",{get:function(){return this._hinting?this._hinting:"truetype"===this.outlinesFormat?this._hinting=new Rt(this):void 0}})}function Pr(e,t){var n=JSON.stringify(e),r=256;for(var i in t){var a=parseInt(i);if(a&&!(a<256)){if(JSON.stringify(t[i])===n)return a;r<=a&&(r=a+1)}}return t[r]=e,r}function Gr(e,t,n){var r=Pr(t.name,n);return[{name:"tag_"+e,type:"TAG",value:t.tag},{name:"minValue_"+e,type:"FIXED",value:t.minValue<<16},{name:"defaultValue_"+e,type:"FIXED",value:t.defaultValue<<16},{name:"maxValue_"+e,type:"FIXED",value:t.maxValue<<16},{name:"flags_"+e,type:"USHORT",value:0},{name:"nameID_"+e,type:"USHORT",value:r}]}function Hr(e,t,n){var r={},i=new Li.Parser(e,t);return r.tag=i.parseTag(),r.minValue=i.parseFixed(),r.defaultValue=i.parseFixed(),r.maxValue=i.parseFixed(),i.skip("uShort",1),r.name=n[i.parseUShort()]||{},r}function jr(e,t,n,r){for(var i=Pr(t.name,r),a=[{name:"nameID_"+e,type:"USHORT",value:i},{name:"flags_"+e,type:"USHORT",value:0}],s=0;s<n.length;++s){var o=n[s].tag;a.push({name:"axis_"+e+" "+o,type:"FIXED",value:t.coordinates[o]<<16})}return a}function qr(e,t,n,r){var i={},a=new Li.Parser(e,t);i.name=r[a.parseUShort()]||{},a.skip("uShort",1),i.coordinates={};for(var s=0;s<n.length;++s)i.coordinates[n[s].tag]=a.parseFixed();return i}function zr(e,t){var n=new Fi.Table("fvar",[{name:"version",type:"ULONG",value:65536},{name:"offsetToData",type:"USHORT",value:0},{name:"countSizePairs",type:"USHORT",value:2},{name:"axisCount",type:"USHORT",value:e.axes.length},{name:"axisSize",type:"USHORT",value:20},{name:"instanceCount",type:"USHORT",value:e.instances.length},{name:"instanceSize",type:"USHORT",value:4+4*e.axes.length}]);n.offsetToData=n.sizeOf();for(var r=0;r<e.axes.length;r++)n.fields=n.fields.concat(Gr(r,e.axes[r],t));for(var i=0;i<e.instances.length;i++)n.fields=n.fields.concat(jr(i,e.instances[i],e.axes,t));return n}function Wr(e,t,n){var r=new Li.Parser(e,t),i=r.parseULong();Ci.argument(65536===i,"Unsupported fvar table version.");var a=r.parseOffset16();r.skip("uShort",1);for(var s=r.parseUShort(),o=r.parseUShort(),l=r.parseUShort(),u=r.parseUShort(),p=[],c=0;c<s;c++)p.push(Hr(e,t+a+c*o,n));for(var f=[],h=t+a+s*o,d=0;d<l;d++)f.push(qr(e,h+d*u,p,n));return{axes:p,instances:f}}function Vr(e,t){for(var n=new Li.Parser(e,t),r=n.parseUShort(),i=[],a=0;a<r;a++)i[n.parseTag()]={offset:n.parseUShort()};return i}function Xr(e,t){var n=new Li.Parser(e,t),r=n.parseUShort(),i=n.parseUShort();if(1===r)return n.parseUShortList(i);if(2===r){for(var a=[];i--;)for(var s=n.parseUShort(),o=n.parseUShort(),l=n.parseUShort(),u=s;u<=o;u++)a[l++]=u;return a}}function Yr(e,t){var n=new Li.Parser(e,t),r=n.parseUShort();if(1===r){var i=n.parseUShort(),a=n.parseUShort(),s=n.parseUShortList(a);return function(e){return s[e-i]||0}}if(2===r){for(var o=n.parseUShort(),l=[],u=[],p=[],c=0;c<o;c++)l[c]=n.parseUShort(),u[c]=n.parseUShort(),p[c]=n.parseUShort();return function(e){for(var t=0,n=l.length-1;t<n;){var r=t+n+1>>1;e<l[r]?n=r-1:t=r}return l[t]<=e&&e<=u[t]?p[t]||0:0}}}function Kr(e,t){var n,r=new Li.Parser(e,t),i=r.parseUShort(),a=r.parseUShort(),s=Xr(e,t+a),o=r.parseUShort(),l=r.parseUShort();if(4===o&&0===l){var u={};if(1===i){for(var p=r.parseUShort(),c=[],f=r.parseOffset16List(p),h=0;h<p;h++){var d=f[h],m=u[d];if(!m){m={},r.relativeOffset=d;for(var g=r.parseUShort();g--;){var v=r.parseUShort();o&&(n=r.parseShort()),l&&r.parseShort(),m[v]=n}}c[s[h]]=m}return function(e,t){var n=c[e];if(n)return n[t]}}if(2===i){for(var y=r.parseUShort(),b=r.parseUShort(),S=r.parseUShort(),x=r.parseUShort(),T=Yr(e,t+y),C=Yr(e,t+b),w=[],O=0;O<S;O++)for(var E=w[O]=[],D=0;D<x;D++)o&&(n=r.parseShort()),l&&r.parseShort(),E[D]=n;for(var U={},k=0;k<s.length;k++)U[s[k]]=1;return function(e,t){if(U[e]){var n=T(e),r=C(t),i=w[n];return i?i[r]:void 0}}}}}function Zr(e,t){var n=new Li.Parser(e,t),r=n.parseUShort(),i=n.parseUShort(),a=16&i,s=n.parseUShort(),o=n.parseOffset16List(s),l={lookupType:r,lookupFlag:i,markFilteringSet:a?n.parseUShort():-1};if(2===r){for(var u=[],p=0;p<s;p++){var c=Kr(e,t+o[p]);c&&u.push(c)}l.getKerningValue=function(e,t){for(var n=u.length;n--;){var r=u[n](e,t);if(void 0!==r)return r}return 0}}return l}function $r(e,t,n){var r=new Li.Parser(e,t),i=r.parseFixed();Ci.argument(1===i,"Unsupported GPOS table version."),Vr(e,t+r.parseUShort()),Vr(e,t+r.parseUShort());var a=r.parseUShort();r.relativeOffset=a;for(var s=r.parseUShort(),o=r.parseOffset16List(s),l=t+a,u=0;u<s;u++){var p=Zr(e,l+o[u]);2!==p.lookupType||n.getGposKerningValue||(n.getGposKerningValue=p.getKerningValue)}}function Jr(e){var t={};e.skip("uShort");var n=e.parseUShort();Ci.argument(0===n,"Unsupported kern sub-table version."),e.skip("uShort",2);var r=e.parseUShort();e.skip("uShort",3);for(var i=0;i<r;i+=1){var a=e.parseUShort(),s=e.parseUShort(),o=e.parseShort();t[a+","+s]=o}return t}function Qr(e){var t={};e.skip("uShort"),e.parseULong()>1&&console.warn("Only the first kern subtable is supported."),e.skip("uLong");var n=e.parseUShort(),r=255&n;if(e.skip("uShort"),0===r){var i=e.parseUShort();e.skip("uShort",3);for(var a=0;a<i;a+=1){var s=e.parseUShort(),o=e.parseUShort(),l=e.parseShort();t[s+","+o]=l}}return t}function ei(e,t){var n=new Li.Parser(e,t),r=n.parseUShort();if(0===r)return Jr(n);if(1===r)return Qr(n);throw new Error("Unsupported kern table version ("+r+").")}function ti(e,t,n,r){for(var i=new Li.Parser(e,t),a=r?i.parseUShort:i.parseULong,s=[],o=0;o<n+1;o+=1){var l=a.call(i);r&&(l*=2),s.push(l)}return s}function ni(e,t){require("fs").readFile(e,function(e,n){if(e)return t(e.message);t(null,Nt(n))})}function ri(e,t){var n=new XMLHttpRequest;n.open("get",e,!0),n.responseType="arraybuffer",n.onload=function(){return 200!==n.status?t("Font could not be loaded: "+n.statusText):t(null,n.response)},n.onerror=function(){t("Font could not be loaded")},n.send()}function ii(e,t){for(var n=[],r=12,i=0;i<t;i+=1){var a=Li.getTag(e,r),s=Li.getULong(e,r+4),o=Li.getULong(e,r+8),l=Li.getULong(e,r+12);n.push({tag:a,checksum:s,offset:o,length:l,compression:!1}),r+=16}return n}function ai(e,t){for(var n=[],r=44,i=0;i<t;i+=1){var a=Li.getTag(e,r),s=Li.getULong(e,r+4),o=Li.getULong(e,r+8),l=Li.getULong(e,r+12),u=void 0;u=o<l&&"WOFF",n.push({tag:a,offset:s,compression:u,compressedLength:o,length:l}),r+=20}return n}function si(e,t){if("WOFF"===t.compression){var n=new Uint8Array(e.buffer,t.offset+2,t.compressedLength-2),r=new Uint8Array(t.length);if(Ti(n,r),r.byteLength!==t.length)throw new Error("Decompression error: "+t.tag+" decompressed length doesn't match recorded length");return{data:new DataView(r.buffer,0),offset:0}}return{data:e,offset:t.offset}}function oi(e){var t,n,r,i=new Mr({empty:!0}),a=new DataView(e,0),s=[],o=Li.getTag(a,0);if(o===String.fromCharCode(0,1,0,0)||"true"===o||"typ1"===o)i.outlinesFormat="truetype",r=Li.getUShort(a,4),s=ii(a,r);else if("OTTO"===o)i.outlinesFormat="cff",r=Li.getUShort(a,4),s=ii(a,r);else{if("wOFF"!==o)throw new Error("Unsupported OpenType signature "+o);var l=Li.getTag(a,4);if(l===String.fromCharCode(0,1,0,0))i.outlinesFormat="truetype";else{if("OTTO"!==l)throw new Error("Unsupported OpenType flavor "+o);i.outlinesFormat="cff"}r=Li.getUShort(a,12),s=ai(a,r)}for(var u,p,c,f,h,d,m,g,v,y,b,S=0;S<r;S+=1){var x=s[S],T=void 0;switch(x.tag){case"cmap":T=si(a,x),i.tables.cmap=Ii.parse(T.data,T.offset),i.encoding=new X(i.tables.cmap);break;case"cvt ":T=si(a,x),b=new Li.Parser(T.data,T.offset),i.tables.cvt=b.parseShortList(x.length/2);break;case"fvar":p=x;break;case"fpgm":T=si(a,x),b=new Li.Parser(T.data,T.offset),i.tables.fpgm=b.parseByteList(x.length);break;case"head":T=si(a,x),i.tables.head=Xi.parse(T.data,T.offset),i.unitsPerEm=i.tables.head.unitsPerEm,t=i.tables.head.indexToLocFormat;break;case"hhea":T=si(a,x),i.tables.hhea=Yi.parse(T.data,T.offset),i.ascender=i.tables.hhea.ascender,i.descender=i.tables.hhea.descender,i.numberOfHMetrics=i.tables.hhea.numberOfHMetrics;break;case"hmtx":d=x;break;case"ltag":T=si(a,x),n=Zi.parse(T.data,T.offset);break;case"maxp":T=si(a,x),i.tables.maxp=$i.parse(T.data,T.offset),i.numGlyphs=i.tables.maxp.numGlyphs;break;case"name":v=x;break;case"OS/2":T=si(a,x),i.tables.os2=oa.parse(T.data,T.offset);break;case"post":T=si(a,x),i.tables.post=la.parse(T.data,T.offset),i.glyphNames=new K(i.tables.post);break;case"prep":T=si(a,x),b=new Li.Parser(T.data,T.offset),i.tables.prep=b.parseByteList(x.length);break;case"glyf":c=x;break;case"loca":g=x;break;case"CFF ":u=x;break;case"kern":m=x;break;case"GPOS":f=x;break;case"GSUB":h=x;break;case"meta":y=x}}var C=si(a,v);if(i.tables.name=aa.parse(C.data,C.offset,n),i.names=i.tables.name,c&&g){var w=0===t,O=si(a,g),E=Da.parse(O.data,O.offset,i.numGlyphs,w),D=si(a,c);i.glyphs=ji.parse(D.data,D.offset,E,i)}else{if(!u)throw new Error("Font doesn't contain TrueType or CFF outlines.");var U=si(a,u);Vi.parse(U.data,U.offset,i)}var k=si(a,d);if(Ki.parse(k.data,k.offset,i.numberOfHMetrics,i.numGlyphs,i.glyphs),Z(i),m){var N=si(a,m);i.kerningPairs=Ea.parse(N.data,N.offset)}else i.kerningPairs={};if(f){var B=si(a,f);Oa.parse(B.data,B.offset,i)}if(h){var F=si(a,h);i.tables.gsub=fa.parse(F.data,F.offset)}if(p){var R=si(a,p);i.tables.fvar=wa.parse(R.data,R.offset,i.names)}if(y){var _=si(a,y);i.tables.meta=ha.parse(_.data,_.offset),i.metas=i.tables.meta}return i}function li(e,t){("undefined"==typeof window?ni:ri)(e,function(e,n){if(e)return t(e);var r;try{r=oi(n)}catch(e){return t(e,null)}return t(null,r)})}function ui(e){return oi(Nt(require("fs").readFileSync(e)))}var pi=0,ci=-3,fi=new t,hi=new t,di=new Uint8Array(30),mi=new Uint16Array(30),gi=new Uint8Array(30),vi=new Uint16Array(30),yi=new Uint8Array([16,17,18,0,8,7,9,6,10,5,11,4,12,3,13,2,14,1,15]),bi=new t,Si=new Uint8Array(320),xi=new Uint16Array(16);!function(e,t){var n;for(n=0;n<7;++n)e.table[n]=0;for(e.table[7]=24,e.table[8]=152,e.table[9]=112,n=0;n<24;++n)e.trans[n]=256+n;for(n=0;n<144;++n)e.trans[24+n]=n;for(n=0;n<8;++n)e.trans[168+n]=280+n;for(n=0;n<112;++n)e.trans[176+n]=144+n;for(n=0;n<5;++n)t.table[n]=0;for(t.table[5]=32,n=0;n<32;++n)t.trans[n]=n}(fi,hi),r(di,mi,4,3),r(gi,vi,2,1),di[28]=0,mi[28]=258;var Ti=c;h.prototype.isEmpty=function(){return isNaN(this.x1)||isNaN(this.y1)||isNaN(this.x2)||isNaN(this.y2)},h.prototype.addPoint=function(e,t){"number"==typeof e&&((isNaN(this.x1)||isNaN(this.x2))&&(this.x1=e,this.x2=e),e<this.x1&&(this.x1=e),e>this.x2&&(this.x2=e)),"number"==typeof t&&((isNaN(this.y1)||isNaN(this.y2))&&(this.y1=t,this.y2=t),t<this.y1&&(this.y1=t),t>this.y2&&(this.y2=t))},h.prototype.addX=function(e){this.addPoint(e,null)},h.prototype.addY=function(e){this.addPoint(null,e)},h.prototype.addBezier=function(e,t,n,r,i,a,s,o){var l=this,u=[e,t],p=[n,r],c=[i,a],h=[s,o];this.addPoint(e,t),this.addPoint(s,o);for(var d=0;d<=1;d++){var m=6*u[d]-12*p[d]+6*c[d],g=-3*u[d]+9*p[d]-9*c[d]+3*h[d],v=3*p[d]-3*u[d];if(0!==g){var y=Math.pow(m,2)-4*v*g;if(!(y<0)){var b=(-m+Math.sqrt(y))/(2*g);0<b&&b<1&&(0===d&&l.addX(f(u[d],p[d],c[d],h[d],b)),1===d&&l.addY(f(u[d],p[d],c[d],h[d],b)));var S=(-m-Math.sqrt(y))/(2*g);0<S&&S<1&&(0===d&&l.addX(f(u[d],p[d],c[d],h[d],S)),1===d&&l.addY(f(u[d],p[d],c[d],h[d],S)))}}else{if(0===m)continue;var x=-v/m;0<x&&x<1&&(0===d&&l.addX(f(u[d],p[d],c[d],h[d],x)),1===d&&l.addY(f(u[d],p[d],c[d],h[d],x)))}}},h.prototype.addQuad=function(e,t,n,r,i,a){var s=e+2/3*(n-e),o=t+2/3*(r-t),l=s+1/3*(i-e),u=o+1/3*(a-t);this.addBezier(e,t,s,o,l,u,i,a)},d.prototype.moveTo=function(e,t){this.commands.push({type:"M",x:e,y:t})},d.prototype.lineTo=function(e,t){this.commands.push({type:"L",x:e,y:t})},d.prototype.curveTo=d.prototype.bezierCurveTo=function(e,t,n,r,i,a){this.commands.push({type:"C",x1:e,y1:t,x2:n,y2:r,x:i,y:a})},d.prototype.quadTo=d.prototype.quadraticCurveTo=function(e,t,n,r){this.commands.push({type:"Q",x1:e,y1:t,x:n,y:r})},d.prototype.close=d.prototype.closePath=function(){this.commands.push({type:"Z"})},d.prototype.extend=function(e){if(e.commands)e=e.commands;else if(e instanceof h){var t=e;return this.moveTo(t.x1,t.y1),this.lineTo(t.x2,t.y1),this.lineTo(t.x2,t.y2),this.lineTo(t.x1,t.y2),void this.close()}Array.prototype.push.apply(this.commands,e)},d.prototype.getBoundingBox=function(){for(var e=this,t=new h,n=0,r=0,i=0,a=0,s=0;s<this.commands.length;s++){var o=e.commands[s];switch(o.type){case"M":t.addPoint(o.x,o.y),n=i=o.x,r=a=o.y;break;case"L":t.addPoint(o.x,o.y),i=o.x,a=o.y;break;case"Q":t.addQuad(i,a,o.x1,o.y1,o.x,o.y),i=o.x,a=o.y;break;case"C":t.addBezier(i,a,o.x1,o.y1,o.x2,o.y2,o.x,o.y),i=o.x,a=o.y;break;case"Z":i=n,a=r;break;default:throw new Error("Unexpected path command "+o.type)}}return t.isEmpty()&&t.addPoint(0,0),t},d.prototype.draw=function(e){var t=this;e.beginPath();for(var n=0;n<this.commands.length;n+=1){var r=t.commands[n];"M"===r.type?e.moveTo(r.x,r.y):"L"===r.type?e.lineTo(r.x,r.y):"C"===r.type?e.bezierCurveTo(r.x1,r.y1,r.x2,r.y2,r.x,r.y):"Q"===r.type?e.quadraticCurveTo(r.x1,r.y1,r.x,r.y):"Z"===r.type&&e.closePath()}this.fill&&(e.fillStyle=this.fill,e.fill()),this.stroke&&(e.strokeStyle=this.stroke,e.lineWidth=this.strokeWidth,e.stroke())},d.prototype.toPathData=function(e){function t(t){return Math.round(t)===t?""+Math.round(t):t.toFixed(e)}function n(){
-for(var e=arguments,n="",r=0;r<arguments.length;r+=1){var i=e[r];i>=0&&r>0&&(n+=" "),n+=t(i)}return n}var r=this;e=void 0!==e?e:2;for(var i="",a=0;a<this.commands.length;a+=1){var s=r.commands[a];"M"===s.type?i+="M"+n(s.x,s.y):"L"===s.type?i+="L"+n(s.x,s.y):"C"===s.type?i+="C"+n(s.x1,s.y1,s.x2,s.y2,s.x,s.y):"Q"===s.type?i+="Q"+n(s.x1,s.y1,s.x,s.y):"Z"===s.type&&(i+="Z")}return i},d.prototype.toSVG=function(e){var t='<path d="';return t+=this.toPathData(e),t+='"',this.fill&&"black"!==this.fill&&(null===this.fill?t+=' fill="none"':t+=' fill="'+this.fill+'"'),this.stroke&&(t+=' stroke="'+this.stroke+'" stroke-width="'+this.strokeWidth+'"'),t+="/>"},d.prototype.toDOMElement=function(e){var t=this.toPathData(e),n=document.createElementNS("http://www.w3.org/2000/svg","path");return n.setAttribute("d",t),n};var Ci={fail:m,argument:g,assert:g},wi={},Oi={},Ei={};Oi.BYTE=function(e){return Ci.argument(e>=0&&e<=255,"Byte value should be between 0 and 255."),[e]},Ei.BYTE=v(1),Oi.CHAR=function(e){return[e.charCodeAt(0)]},Ei.CHAR=v(1),Oi.CHARARRAY=function(e){for(var t=[],n=0;n<e.length;n+=1)t[n]=e.charCodeAt(n);return t},Ei.CHARARRAY=function(e){return e.length},Oi.USHORT=function(e){return[e>>8&255,255&e]},Ei.USHORT=v(2),Oi.SHORT=function(e){return e>=32768&&(e=-(65536-e)),[e>>8&255,255&e]},Ei.SHORT=v(2),Oi.UINT24=function(e){return[e>>16&255,e>>8&255,255&e]},Ei.UINT24=v(3),Oi.ULONG=function(e){return[e>>24&255,e>>16&255,e>>8&255,255&e]},Ei.ULONG=v(4),Oi.LONG=function(e){return e>=2147483648&&(e=-(4294967296-e)),[e>>24&255,e>>16&255,e>>8&255,255&e]},Ei.LONG=v(4),Oi.FIXED=Oi.ULONG,Ei.FIXED=Ei.ULONG,Oi.FWORD=Oi.SHORT,Ei.FWORD=Ei.SHORT,Oi.UFWORD=Oi.USHORT,Ei.UFWORD=Ei.USHORT,Oi.LONGDATETIME=function(e){return[0,0,0,0,e>>24&255,e>>16&255,e>>8&255,255&e]},Ei.LONGDATETIME=v(8),Oi.TAG=function(e){return Ci.argument(4===e.length,"Tag should be exactly 4 ASCII characters."),[e.charCodeAt(0),e.charCodeAt(1),e.charCodeAt(2),e.charCodeAt(3)]},Ei.TAG=v(4),Oi.Card8=Oi.BYTE,Ei.Card8=Ei.BYTE,Oi.Card16=Oi.USHORT,Ei.Card16=Ei.USHORT,Oi.OffSize=Oi.BYTE,Ei.OffSize=Ei.BYTE,Oi.SID=Oi.USHORT,Ei.SID=Ei.USHORT,Oi.NUMBER=function(e){return e>=-107&&e<=107?[e+139]:e>=108&&e<=1131?(e-=108,[247+(e>>8),255&e]):e>=-1131&&e<=-108?(e=-e-108,[251+(e>>8),255&e]):e>=-32768&&e<=32767?Oi.NUMBER16(e):Oi.NUMBER32(e)},Ei.NUMBER=function(e){return Oi.NUMBER(e).length},Oi.NUMBER16=function(e){return[28,e>>8&255,255&e]},Ei.NUMBER16=v(3),Oi.NUMBER32=function(e){return[29,e>>24&255,e>>16&255,e>>8&255,255&e]},Ei.NUMBER32=v(5),Oi.REAL=function(e){var t=e.toString(),n=/\.(\d*?)(?:9{5,20}|0{5,20})\d{0,2}(?:e(.+)|$)/.exec(t);if(n){var r=parseFloat("1e"+((n[2]?+n[2]:0)+n[1].length));t=(Math.round(e*r)/r).toString()}for(var i="",a=0,s=t.length;a<s;a+=1){var o=t[a];i+="e"===o?"-"===t[++a]?"c":"b":"."===o?"a":"-"===o?"e":o}i+=1&i.length?"f":"ff";for(var l=[30],u=0,p=i.length;u<p;u+=2)l.push(parseInt(i.substr(u,2),16));return l},Ei.REAL=function(e){return Oi.REAL(e).length},Oi.NAME=Oi.CHARARRAY,Ei.NAME=Ei.CHARARRAY,Oi.STRING=Oi.CHARARRAY,Ei.STRING=Ei.CHARARRAY,wi.UTF8=function(e,t,n){for(var r=[],i=n,a=0;a<i;a++,t+=1)r[a]=e.getUint8(t);return String.fromCharCode.apply(null,r)},wi.UTF16=function(e,t,n){for(var r=[],i=n/2,a=0;a<i;a++,t+=2)r[a]=e.getUint16(t);return String.fromCharCode.apply(null,r)},Oi.UTF16=function(e){for(var t=[],n=0;n<e.length;n+=1){var r=e.charCodeAt(n);t[t.length]=r>>8&255,t[t.length]=255&r}return t},Ei.UTF16=function(e){return 2*e.length};var Di={"x-mac-croatian":"ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®Š™´¨≠ŽØ∞±≤≥∆µ∂∑∏š∫ªºΩžø¿¡¬√ƒ≈Ć«Č… ÀÃÕŒœĐ—“”‘’÷◊©⁄€‹›Æ»–·‚„‰ÂćÁčÈÍÎÏÌÓÔđÒÚÛÙıˆ˜¯πË˚¸Êæˇ","x-mac-cyrillic":"АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ†°Ґ£§•¶І®©™Ђђ≠Ѓѓ∞±≤≥іµґЈЄєЇїЉљЊњјЅ¬√ƒ≈∆«»… ЋћЌќѕ–—“”‘’÷„ЎўЏџ№Ёёяабвгдежзийклмнопрстуфхцчшщъыьэю","x-mac-gaelic":"ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ÆØḂ±≤≥ḃĊċḊḋḞḟĠġṀæøṁṖṗɼƒſṠ«»… ÀÃÕŒœ–—“”‘’ṡẛÿŸṪ€‹›Ŷŷṫ·Ỳỳ⁊ÂÊÁËÈÍÎÏÌÓÔ♣ÒÚÛÙıÝýŴŵẄẅẀẁẂẃ","x-mac-greek":"Ä¹²É³ÖÜ΅àâä΄¨çéèêë£™îï•½‰ôö¦€ùûü†ΓΔΘΛΞΠß®©ΣΪ§≠°·Α±≤≥¥ΒΕΖΗΙΚΜΦΫΨΩάΝ¬ΟΡ≈Τ«»… ΥΧΆΈœ–―“”‘’÷ΉΊΌΎέήίόΏύαβψδεφγηιξκλμνοπώρστθωςχυζϊϋΐΰ­","x-mac-icelandic":"ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûüÝ°¢£§•¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€ÐðÞþý·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ","x-mac-inuit":"ᐃᐄᐅᐆᐊᐋᐱᐲᐳᐴᐸᐹᑉᑎᑏᑐᑑᑕᑖᑦᑭᑮᑯᑰᑲᑳᒃᒋᒌᒍᒎᒐᒑ°ᒡᒥᒦ•¶ᒧ®©™ᒨᒪᒫᒻᓂᓃᓄᓅᓇᓈᓐᓯᓰᓱᓲᓴᓵᔅᓕᓖᓗᓘᓚᓛᓪᔨᔩᔪᔫᔭ… ᔮᔾᕕᕖᕗ–—“”‘’ᕘᕙᕚᕝᕆᕇᕈᕉᕋᕌᕐᕿᖀᖁᖂᖃᖄᖅᖏᖐᖑᖒᖓᖔᖕᙱᙲᙳᙴᙵᙶᖖᖠᖡᖢᖣᖤᖥᖦᕼŁł","x-mac-ce":"ÄĀāÉĄÖÜáąČäčĆćéŹźĎíďĒēĖóėôöõúĚěü†°Ę£§•¶ß®©™ę¨≠ģĮįĪ≤≥īĶ∂∑łĻļĽľĹĺŅņŃ¬√ńŇ∆«»… ňŐÕőŌ–—“”‘’÷◊ōŔŕŘ‹›řŖŗŠ‚„šŚśÁŤťÍŽžŪÓÔūŮÚůŰűŲųÝýķŻŁżĢˇ",macintosh:"ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›ﬁﬂ‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ","x-mac-romanian":"ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ĂȘ∞±≤≥¥µ∂∑∏π∫ªºΩăș¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›Țț‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ","x-mac-turkish":"ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸĞğİıŞş‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙˆ˜¯˘˙˚¸˝˛ˇ"};wi.MACSTRING=function(e,t,n,r){var i=Di[r];if(void 0!==i){for(var a="",s=0;s<n;s++){var o=e.getUint8(t+s);a+=o<=127?String.fromCharCode(o):i[127&o]}return a}};var Ui,ki="function"==typeof WeakMap&&new WeakMap,Ni=function(e){if(!Ui){Ui={};for(var t in Di)Ui[t]=new String(t)}var n=Ui[e];if(void 0!==n){if(ki){var r=ki.get(n);if(void 0!==r)return r}var i=Di[e];if(void 0!==i){for(var a={},s=0;s<i.length;s++)a[i.charCodeAt(s)]=s+128;return ki&&ki.set(n,a),a}}};Oi.MACSTRING=function(e,t){var n=Ni(t);if(void 0!==n){for(var r=[],i=0;i<e.length;i++){var a=e.charCodeAt(i);if(a>=128&&void 0===(a=n[a]))return;r[i]=a}return r}},Ei.MACSTRING=function(e,t){var n=Oi.MACSTRING(e,t);return void 0!==n?n.length:0},Oi.VARDELTAS=function(e){for(var t=0,n=[];t<e.length;){var r=e[t];t=0===r?b(e,t,n):r>=-128&&r<=127?S(e,t,n):x(e,t,n)}return n},Oi.INDEX=function(e){for(var t=1,n=[t],r=[],i=0;i<e.length;i+=1){var a=Oi.OBJECT(e[i]);Array.prototype.push.apply(r,a),t+=a.length,n.push(t)}if(0===r.length)return[0,0];for(var s=[],o=1+Math.floor(Math.log(t)/Math.log(2))/8|0,l=[void 0,Oi.BYTE,Oi.USHORT,Oi.UINT24,Oi.ULONG][o],u=0;u<n.length;u+=1){var p=l(n[u]);Array.prototype.push.apply(s,p)}return Array.prototype.concat(Oi.Card16(e.length),Oi.OffSize(o),s,r)},Ei.INDEX=function(e){return Oi.INDEX(e).length},Oi.DICT=function(e){for(var t=[],n=Object.keys(e),r=n.length,i=0;i<r;i+=1){var a=parseInt(n[i],0),s=e[a];t=t.concat(Oi.OPERAND(s.value,s.type)),t=t.concat(Oi.OPERATOR(a))}return t},Ei.DICT=function(e){return Oi.DICT(e).length},Oi.OPERATOR=function(e){return e<1200?[e]:[12,e-1200]},Oi.OPERAND=function(e,t){var n=[];if(Array.isArray(t))for(var r=0;r<t.length;r+=1)Ci.argument(e.length===t.length,"Not enough arguments given for type"+t),n=n.concat(Oi.OPERAND(e[r],t[r]));else if("SID"===t)n=n.concat(Oi.NUMBER(e));else if("offset"===t)n=n.concat(Oi.NUMBER32(e));else if("number"===t)n=n.concat(Oi.NUMBER(e));else{if("real"!==t)throw new Error("Unknown operand type "+t);n=n.concat(Oi.REAL(e))}return n},Oi.OP=Oi.BYTE,Ei.OP=Ei.BYTE;var Bi="function"==typeof WeakMap&&new WeakMap;Oi.CHARSTRING=function(e){if(Bi){var t=Bi.get(e);if(void 0!==t)return t}for(var n=[],r=e.length,i=0;i<r;i+=1){var a=e[i];n=n.concat(Oi[a.type](a.value))}return Bi&&Bi.set(e,n),n},Ei.CHARSTRING=function(e){return Oi.CHARSTRING(e).length},Oi.OBJECT=function(e){var t=Oi[e.type];return Ci.argument(void 0!==t,"No encoding function for type "+e.type),t(e.value)},Ei.OBJECT=function(e){var t=Ei[e.type];return Ci.argument(void 0!==t,"No sizeOf function for type "+e.type),t(e.value)},Oi.TABLE=function(e){for(var t=[],n=e.fields.length,r=[],i=[],a=0;a<n;a+=1){var s=e.fields[a],o=Oi[s.type];Ci.argument(void 0!==o,"No encoding function for field type "+s.type+" ("+s.name+")");var l=e[s.name];void 0===l&&(l=s.value);var u=o(l);"TABLE"===s.type?(i.push(t.length),t=t.concat([0,0]),r.push(u)):t=t.concat(u)}for(var p=0;p<r.length;p+=1){var c=i[p],f=t.length;Ci.argument(f<65536,"Table "+e.tableName+" too big."),t[c]=f>>8,t[c+1]=255&f,t=t.concat(r[p])}return t},Ei.TABLE=function(e){for(var t=0,n=e.fields.length,r=0;r<n;r+=1){var i=e.fields[r],a=Ei[i.type];Ci.argument(void 0!==a,"No sizeOf function for field type "+i.type+" ("+i.name+")");var s=e[i.name];void 0===s&&(s=i.value),t+=a(s),"TABLE"===i.type&&(t+=2)}return t},Oi.RECORD=Oi.TABLE,Ei.RECORD=Ei.TABLE,Oi.LITERAL=function(e){return e},Ei.LITERAL=function(e){return e.length},T.prototype.encode=function(){return Oi.TABLE(this)},T.prototype.sizeOf=function(){return Ei.TABLE(this)},E.prototype=Object.create(T.prototype),E.prototype.constructor=E,D.prototype=Object.create(T.prototype),D.prototype.constructor=D,U.prototype=Object.create(T.prototype),U.prototype.constructor=U,k.prototype=Object.create(T.prototype),k.prototype.constructor=k;var Fi={Table:T,Record:T,Coverage:E,ScriptList:D,FeatureList:U,LookupList:k,ushortList:C,tableList:w,recordList:O},Ri={byte:1,uShort:2,short:2,uLong:4,fixed:4,longDateTime:8,tag:4};P.prototype.parseByte=function(){var e=this.data.getUint8(this.offset+this.relativeOffset);return this.relativeOffset+=1,e},P.prototype.parseChar=function(){var e=this.data.getInt8(this.offset+this.relativeOffset);return this.relativeOffset+=1,e},P.prototype.parseCard8=P.prototype.parseByte,P.prototype.parseUShort=function(){var e=this.data.getUint16(this.offset+this.relativeOffset);return this.relativeOffset+=2,e},P.prototype.parseCard16=P.prototype.parseUShort,P.prototype.parseSID=P.prototype.parseUShort,P.prototype.parseOffset16=P.prototype.parseUShort,P.prototype.parseShort=function(){var e=this.data.getInt16(this.offset+this.relativeOffset);return this.relativeOffset+=2,e},P.prototype.parseF2Dot14=function(){var e=this.data.getInt16(this.offset+this.relativeOffset)/16384;return this.relativeOffset+=2,e},P.prototype.parseULong=function(){var e=R(this.data,this.offset+this.relativeOffset);return this.relativeOffset+=4,e},P.prototype.parseFixed=function(){var e=_(this.data,this.offset+this.relativeOffset);return this.relativeOffset+=4,e},P.prototype.parseString=function(e){var t=this.data,n=this.offset+this.relativeOffset,r="";this.relativeOffset+=e;for(var i=0;i<e;i++)r+=String.fromCharCode(t.getUint8(n+i));return r},P.prototype.parseTag=function(){return this.parseString(4)},P.prototype.parseLongDateTime=function(){var e=R(this.data,this.offset+this.relativeOffset+4);return e-=2082844800,this.relativeOffset+=8,e},P.prototype.parseVersion=function(){var e=B(this.data,this.offset+this.relativeOffset),t=B(this.data,this.offset+this.relativeOffset+2);return this.relativeOffset+=4,e+t/4096/10},P.prototype.skip=function(e,t){void 0===t&&(t=1),this.relativeOffset+=Ri[e]*t},P.prototype.parseOffset16List=P.prototype.parseUShortList=function(e){void 0===e&&(e=this.parseUShort());for(var t=new Array(e),n=this.data,r=this.offset+this.relativeOffset,i=0;i<e;i++)t[i]=n.getUint16(r),r+=2;return this.relativeOffset+=2*e,t},P.prototype.parseShortList=function(e){for(var t=new Array(e),n=this.data,r=this.offset+this.relativeOffset,i=0;i<e;i++)t[i]=n.getInt16(r),r+=2;return this.relativeOffset+=2*e,t},P.prototype.parseByteList=function(e){for(var t=new Array(e),n=this.data,r=this.offset+this.relativeOffset,i=0;i<e;i++)t[i]=n.getUint8(r++);return this.relativeOffset+=e,t},P.prototype.parseList=function(e,t){var n=this;t||(t=e,e=this.parseUShort());for(var r=new Array(e),i=0;i<e;i++)r[i]=t.call(n);return r},P.prototype.parseRecordList=function(e,t){var n=this;t||(t=e,e=this.parseUShort());for(var r=new Array(e),i=Object.keys(t),a=0;a<e;a++){for(var s={},o=0;o<i.length;o++){var l=i[o],u=t[l];s[l]=u.call(n)}r[a]=s}return r},P.prototype.parseStruct=function(e){var t=this;if("function"==typeof e)return e.call(this);for(var n=Object.keys(e),r={},i=0;i<n.length;i++){var a=n[i],s=e[a];r[a]=s.call(t)}return r},P.prototype.parsePointer=function(e){var t=this.parseOffset16();if(t>0)return new P(this.data,this.offset+t).parseStruct(e)},P.prototype.parseListOfLists=function(e){for(var t=this,n=this.parseOffset16List(),r=n.length,i=this.relativeOffset,a=new Array(r),s=0;s<r;s++){var o=n[s];if(0!==o)if(t.relativeOffset=o,e){for(var l=t.parseOffset16List(),u=new Array(l.length),p=0;p<l.length;p++)t.relativeOffset=o+l[p],u[p]=e.call(t);a[s]=u}else a[s]=t.parseUShortList();else a[s]=void 0}return this.relativeOffset=i,a},P.prototype.parseCoverage=function(){var e=this,t=this.offset+this.relativeOffset,n=this.parseUShort(),r=this.parseUShort();if(1===n)return{format:1,glyphs:this.parseUShortList(r)};if(2===n){for(var i=new Array(r),a=0;a<r;a++)i[a]={start:e.parseUShort(),end:e.parseUShort(),index:e.parseUShort()};return{format:2,ranges:i}}throw new Error("0x"+t.toString(16)+": Coverage format must be 1 or 2.")},P.prototype.parseClassDef=function(){var e=this.offset+this.relativeOffset,t=this.parseUShort();if(1===t)return{format:1,startGlyph:this.parseUShort(),classes:this.parseUShortList()};if(2===t)return{format:2,ranges:this.parseRecordList({start:P.uShort,end:P.uShort,classId:P.uShort})};throw new Error("0x"+e.toString(16)+": ClassDef format must be 1 or 2.")},P.list=function(e,t){return function(){return this.parseList(e,t)}},P.recordList=function(e,t){return function(){return this.parseRecordList(e,t)}},P.pointer=function(e){return function(){return this.parsePointer(e)}},P.tag=P.prototype.parseTag,P.byte=P.prototype.parseByte,P.uShort=P.offset16=P.prototype.parseUShort,P.uShortList=P.prototype.parseUShortList,P.struct=P.prototype.parseStruct,P.coverage=P.prototype.parseCoverage,P.classDef=P.prototype.parseClassDef;var _i={reserved:P.uShort,reqFeatureIndex:P.uShort,featureIndexes:P.uShortList};P.prototype.parseScriptList=function(){return this.parsePointer(P.recordList({tag:P.tag,script:P.pointer({defaultLangSys:P.pointer(_i),langSysRecords:P.recordList({tag:P.tag,langSys:P.pointer(_i)})})}))},P.prototype.parseFeatureList=function(){return this.parsePointer(P.recordList({tag:P.tag,feature:P.pointer({featureParams:P.offset16,lookupListIndexes:P.uShortList})}))},P.prototype.parseLookupList=function(e){return this.parsePointer(P.list(P.pointer(function(){var t=this.parseUShort();Ci.argument(1<=t&&t<=8,"GSUB lookup type "+t+" unknown.");var n=this.parseUShort(),r=16&n;return{lookupType:t,lookupFlag:n,subtables:this.parseList(P.pointer(e[t])),markFilteringSet:r?this.parseUShort():void 0}})))};var Li={getByte:N,getCard8:N,getUShort:B,getCard16:B,getShort:F,getULong:R,getFixed:_,getTag:L,getOffset:I,getBytes:A,bytesToString:M,Parser:P},Ii={parse:j,make:W},Ai=[".notdef","space","exclam","quotedbl","numbersign","dollar","percent","ampersand","quoteright","parenleft","parenright","asterisk","plus","comma","hyphen","period","slash","zero","one","two","three","four","five","six","seven","eight","nine","colon","semicolon","less","equal","greater","question","at","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","bracketleft","backslash","bracketright","asciicircum","underscore","quoteleft","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","braceleft","bar","braceright","asciitilde","exclamdown","cent","sterling","fraction","yen","florin","section","currency","quotesingle","quotedblleft","guillemotleft","guilsinglleft","guilsinglright","fi","fl","endash","dagger","daggerdbl","periodcentered","paragraph","bullet","quotesinglbase","quotedblbase","quotedblright","guillemotright","ellipsis","perthousand","questiondown","grave","acute","circumflex","tilde","macron","breve","dotaccent","dieresis","ring","cedilla","hungarumlaut","ogonek","caron","emdash","AE","ordfeminine","Lslash","Oslash","OE","ordmasculine","ae","dotlessi","lslash","oslash","oe","germandbls","onesuperior","logicalnot","mu","trademark","Eth","onehalf","plusminus","Thorn","onequarter","divide","brokenbar","degree","thorn","threequarters","twosuperior","registered","minus","eth","multiply","threesuperior","copyright","Aacute","Acircumflex","Adieresis","Agrave","Aring","Atilde","Ccedilla","Eacute","Ecircumflex","Edieresis","Egrave","Iacute","Icircumflex","Idieresis","Igrave","Ntilde","Oacute","Ocircumflex","Odieresis","Ograve","Otilde","Scaron","Uacute","Ucircumflex","Udieresis","Ugrave","Yacute","Ydieresis","Zcaron","aacute","acircumflex","adieresis","agrave","aring","atilde","ccedilla","eacute","ecircumflex","edieresis","egrave","iacute","icircumflex","idieresis","igrave","ntilde","oacute","ocircumflex","odieresis","ograve","otilde","scaron","uacute","ucircumflex","udieresis","ugrave","yacute","ydieresis","zcaron","exclamsmall","Hungarumlautsmall","dollaroldstyle","dollarsuperior","ampersandsmall","Acutesmall","parenleftsuperior","parenrightsuperior","266 ff","onedotenleader","zerooldstyle","oneoldstyle","twooldstyle","threeoldstyle","fouroldstyle","fiveoldstyle","sixoldstyle","sevenoldstyle","eightoldstyle","nineoldstyle","commasuperior","threequartersemdash","periodsuperior","questionsmall","asuperior","bsuperior","centsuperior","dsuperior","esuperior","isuperior","lsuperior","msuperior","nsuperior","osuperior","rsuperior","ssuperior","tsuperior","ff","ffi","ffl","parenleftinferior","parenrightinferior","Circumflexsmall","hyphensuperior","Gravesmall","Asmall","Bsmall","Csmall","Dsmall","Esmall","Fsmall","Gsmall","Hsmall","Ismall","Jsmall","Ksmall","Lsmall","Msmall","Nsmall","Osmall","Psmall","Qsmall","Rsmall","Ssmall","Tsmall","Usmall","Vsmall","Wsmall","Xsmall","Ysmall","Zsmall","colonmonetary","onefitted","rupiah","Tildesmall","exclamdownsmall","centoldstyle","Lslashsmall","Scaronsmall","Zcaronsmall","Dieresissmall","Brevesmall","Caronsmall","Dotaccentsmall","Macronsmall","figuredash","hypheninferior","Ogoneksmall","Ringsmall","Cedillasmall","questiondownsmall","oneeighth","threeeighths","fiveeighths","seveneighths","onethird","twothirds","zerosuperior","foursuperior","fivesuperior","sixsuperior","sevensuperior","eightsuperior","ninesuperior","zeroinferior","oneinferior","twoinferior","threeinferior","fourinferior","fiveinferior","sixinferior","seveninferior","eightinferior","nineinferior","centinferior","dollarinferior","periodinferior","commainferior","Agravesmall","Aacutesmall","Acircumflexsmall","Atildesmall","Adieresissmall","Aringsmall","AEsmall","Ccedillasmall","Egravesmall","Eacutesmall","Ecircumflexsmall","Edieresissmall","Igravesmall","Iacutesmall","Icircumflexsmall","Idieresissmall","Ethsmall","Ntildesmall","Ogravesmall","Oacutesmall","Ocircumflexsmall","Otildesmall","Odieresissmall","OEsmall","Oslashsmall","Ugravesmall","Uacutesmall","Ucircumflexsmall","Udieresissmall","Yacutesmall","Thornsmall","Ydieresissmall","001.000","001.001","001.002","001.003","Black","Bold","Book","Light","Medium","Regular","Roman","Semibold"],Mi=["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","space","exclam","quotedbl","numbersign","dollar","percent","ampersand","quoteright","parenleft","parenright","asterisk","plus","comma","hyphen","period","slash","zero","one","two","three","four","five","six","seven","eight","nine","colon","semicolon","less","equal","greater","question","at","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","bracketleft","backslash","bracketright","asciicircum","underscore","quoteleft","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","braceleft","bar","braceright","asciitilde","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","exclamdown","cent","sterling","fraction","yen","florin","section","currency","quotesingle","quotedblleft","guillemotleft","guilsinglleft","guilsinglright","fi","fl","","endash","dagger","daggerdbl","periodcentered","","paragraph","bullet","quotesinglbase","quotedblbase","quotedblright","guillemotright","ellipsis","perthousand","","questiondown","","grave","acute","circumflex","tilde","macron","breve","dotaccent","dieresis","","ring","cedilla","","hungarumlaut","ogonek","caron","emdash","","","","","","","","","","","","","","","","","AE","","ordfeminine","","","","","Lslash","Oslash","OE","ordmasculine","","","","","","ae","","","","dotlessi","","","lslash","oslash","oe","germandbls"],Pi=["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","space","exclamsmall","Hungarumlautsmall","","dollaroldstyle","dollarsuperior","ampersandsmall","Acutesmall","parenleftsuperior","parenrightsuperior","twodotenleader","onedotenleader","comma","hyphen","period","fraction","zerooldstyle","oneoldstyle","twooldstyle","threeoldstyle","fouroldstyle","fiveoldstyle","sixoldstyle","sevenoldstyle","eightoldstyle","nineoldstyle","colon","semicolon","commasuperior","threequartersemdash","periodsuperior","questionsmall","","asuperior","bsuperior","centsuperior","dsuperior","esuperior","","","isuperior","","","lsuperior","msuperior","nsuperior","osuperior","","","rsuperior","ssuperior","tsuperior","","ff","fi","fl","ffi","ffl","parenleftinferior","","parenrightinferior","Circumflexsmall","hyphensuperior","Gravesmall","Asmall","Bsmall","Csmall","Dsmall","Esmall","Fsmall","Gsmall","Hsmall","Ismall","Jsmall","Ksmall","Lsmall","Msmall","Nsmall","Osmall","Psmall","Qsmall","Rsmall","Ssmall","Tsmall","Usmall","Vsmall","Wsmall","Xsmall","Ysmall","Zsmall","colonmonetary","onefitted","rupiah","Tildesmall","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","exclamdownsmall","centoldstyle","Lslashsmall","","","Scaronsmall","Zcaronsmall","Dieresissmall","Brevesmall","Caronsmall","","Dotaccentsmall","","","Macronsmall","","","figuredash","hypheninferior","","","Ogoneksmall","Ringsmall","Cedillasmall","","","","onequarter","onehalf","threequarters","questiondownsmall","oneeighth","threeeighths","fiveeighths","seveneighths","onethird","twothirds","","","zerosuperior","onesuperior","twosuperior","threesuperior","foursuperior","fivesuperior","sixsuperior","sevensuperior","eightsuperior","ninesuperior","zeroinferior","oneinferior","twoinferior","threeinferior","fourinferior","fiveinferior","sixinferior","seveninferior","eightinferior","nineinferior","centinferior","dollarinferior","periodinferior","commainferior","Agravesmall","Aacutesmall","Acircumflexsmall","Atildesmall","Adieresissmall","Aringsmall","AEsmall","Ccedillasmall","Egravesmall","Eacutesmall","Ecircumflexsmall","Edieresissmall","Igravesmall","Iacutesmall","Icircumflexsmall","Idieresissmall","Ethsmall","Ntildesmall","Ogravesmall","Oacutesmall","Ocircumflexsmall","Otildesmall","Odieresissmall","OEsmall","Oslashsmall","Ugravesmall","Uacutesmall","Ucircumflexsmall","Udieresissmall","Yacutesmall","Thornsmall","Ydieresissmall"],Gi=[".notdef",".null","nonmarkingreturn","space","exclam","quotedbl","numbersign","dollar","percent","ampersand","quotesingle","parenleft","parenright","asterisk","plus","comma","hyphen","period","slash","zero","one","two","three","four","five","six","seven","eight","nine","colon","semicolon","less","equal","greater","question","at","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","bracketleft","backslash","bracketright","asciicircum","underscore","grave","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","braceleft","bar","braceright","asciitilde","Adieresis","Aring","Ccedilla","Eacute","Ntilde","Odieresis","Udieresis","aacute","agrave","acircumflex","adieresis","atilde","aring","ccedilla","eacute","egrave","ecircumflex","edieresis","iacute","igrave","icircumflex","idieresis","ntilde","oacute","ograve","ocircumflex","odieresis","otilde","uacute","ugrave","ucircumflex","udieresis","dagger","degree","cent","sterling","section","bullet","paragraph","germandbls","registered","copyright","trademark","acute","dieresis","notequal","AE","Oslash","infinity","plusminus","lessequal","greaterequal","yen","mu","partialdiff","summation","product","pi","integral","ordfeminine","ordmasculine","Omega","ae","oslash","questiondown","exclamdown","logicalnot","radical","florin","approxequal","Delta","guillemotleft","guillemotright","ellipsis","nonbreakingspace","Agrave","Atilde","Otilde","OE","oe","endash","emdash","quotedblleft","quotedblright","quoteleft","quoteright","divide","lozenge","ydieresis","Ydieresis","fraction","currency","guilsinglleft","guilsinglright","fi","fl","daggerdbl","periodcentered","quotesinglbase","quotedblbase","perthousand","Acircumflex","Ecircumflex","Aacute","Edieresis","Egrave","Iacute","Icircumflex","Idieresis","Igrave","Oacute","Ocircumflex","apple","Ograve","Uacute","Ucircumflex","Ugrave","dotlessi","circumflex","tilde","macron","breve","dotaccent","ring","cedilla","hungarumlaut","ogonek","caron","Lslash","lslash","Scaron","scaron","Zcaron","zcaron","brokenbar","Eth","eth","Yacute","yacute","Thorn","thorn","minus","multiply","onesuperior","twosuperior","threesuperior","onehalf","onequarter","threequarters","franc","Gbreve","gbreve","Idotaccent","Scedilla","scedilla","Cacute","cacute","Ccaron","ccaron","dcroat"];V.prototype.charToGlyphIndex=function(e){var t=e.charCodeAt(0),n=this.font.glyphs;if(n)for(var r=0;r<n.length;r+=1)for(var i=n.get(r),a=0;a<i.unicodes.length;a+=1)if(i.unicodes[a]===t)return r;return null},X.prototype.charToGlyphIndex=function(e){return this.cmap.glyphIndexMap[e.charCodeAt(0)]||0},Y.prototype.charToGlyphIndex=function(e){var t=e.charCodeAt(0),n=this.encoding[t];return this.charset.indexOf(n)},K.prototype.nameToGlyphIndex=function(e){return this.names.indexOf(e)},K.prototype.glyphIndexToName=function(e){return this.names[e]};var Hi={line:$},ji={getPath:ne,parse:ie};se.prototype.bindConstructorValues=function(e){this.index=e.index||0,this.name=e.name||null,this.unicode=e.unicode||void 0,this.unicodes=e.unicodes||void 0!==e.unicode?[e.unicode]:[],e.xMin&&(this.xMin=e.xMin),e.yMin&&(this.yMin=e.yMin),e.xMax&&(this.xMax=e.xMax),e.yMax&&(this.yMax=e.yMax),e.advanceWidth&&(this.advanceWidth=e.advanceWidth),Object.defineProperty(this,"path",ae(this,e.path))},se.prototype.addUnicode=function(e){0===this.unicodes.length&&(this.unicode=e),this.unicodes.push(e)},se.prototype.getBoundingBox=function(){return this.path.getBoundingBox()},se.prototype.getPath=function(e,t,n,r,i){e=void 0!==e?e:0,t=void 0!==t?t:0,n=void 0!==n?n:72;var a,s;r||(r={});var o=r.xScale,l=r.yScale;if(r.hinting&&i&&i.hinting&&(s=this.path&&i.hinting.exec(this,n)),s)a=ji.getPath(s).commands,e=Math.round(e),t=Math.round(t),o=l=1;else{a=this.path.commands;var u=1/this.path.unitsPerEm*n;void 0===o&&(o=u),void 0===l&&(l=u)}for(var p=new d,c=0;c<a.length;c+=1){var f=a[c];"M"===f.type?p.moveTo(e+f.x*o,t+-f.y*l):"L"===f.type?p.lineTo(e+f.x*o,t+-f.y*l):"Q"===f.type?p.quadraticCurveTo(e+f.x1*o,t+-f.y1*l,e+f.x*o,t+-f.y*l):"C"===f.type?p.curveTo(e+f.x1*o,t+-f.y1*l,e+f.x2*o,t+-f.y2*l,e+f.x*o,t+-f.y*l):"Z"===f.type&&p.closePath()}return p},se.prototype.getContours=function(){var e=this;if(void 0===this.points)return[];for(var t=[],n=[],r=0;r<this.points.length;r+=1){var i=e.points[r];n.push(i),i.lastPointOfContour&&(t.push(n),n=[])}return Ci.argument(0===n.length,"There are still points left in the current contour."),t},se.prototype.getMetrics=function(){for(var e=this.path.commands,t=[],n=[],r=0;r<e.length;r+=1){var i=e[r];"Z"!==i.type&&(t.push(i.x),n.push(i.y)),"Q"!==i.type&&"C"!==i.type||(t.push(i.x1),n.push(i.y1)),"C"===i.type&&(t.push(i.x2),n.push(i.y2))}var a={xMin:Math.min.apply(null,t),yMin:Math.min.apply(null,n),xMax:Math.max.apply(null,t),yMax:Math.max.apply(null,n),leftSideBearing:this.leftSideBearing};return isFinite(a.xMin)||(a.xMin=0),isFinite(a.xMax)||(a.xMax=this.advanceWidth),isFinite(a.yMin)||(a.yMin=0),isFinite(a.yMax)||(a.yMax=0),a.rightSideBearing=this.advanceWidth-a.leftSideBearing-(a.xMax-a.xMin),a},se.prototype.draw=function(e,t,n,r,i){this.getPath(t,n,r,i).draw(e)},se.prototype.drawPoints=function(e,t,n,r){function i(t,n,r,i){var a=2*Math.PI;e.beginPath();for(var s=0;s<t.length;s+=1)e.moveTo(n+t[s].x*i,r+t[s].y*i),e.arc(n+t[s].x*i,r+t[s].y*i,2,0,a,!1);e.closePath(),e.fill()}t=void 0!==t?t:0,n=void 0!==n?n:0,r=void 0!==r?r:24;for(var a=1/this.path.unitsPerEm*r,s=[],o=[],l=this.path,u=0;u<l.commands.length;u+=1){var p=l.commands[u];void 0!==p.x&&s.push({x:p.x,y:-p.y}),void 0!==p.x1&&o.push({x:p.x1,y:-p.y1}),void 0!==p.x2&&o.push({x:p.x2,y:-p.y2})}e.fillStyle="blue",i(s,t,n,a),e.fillStyle="red",i(o,t,n,a)},se.prototype.drawMetrics=function(e,t,n,r){var i;t=void 0!==t?t:0,n=void 0!==n?n:0,r=void 0!==r?r:24,i=1/this.path.unitsPerEm*r,e.lineWidth=1,e.strokeStyle="black",Hi.line(e,t,-1e4,t,1e4),Hi.line(e,-1e4,n,1e4,n);var a=this.xMin||0,s=this.yMin||0,o=this.xMax||0,l=this.yMax||0,u=this.advanceWidth||0;e.strokeStyle="blue",Hi.line(e,t+a*i,-1e4,t+a*i,1e4),Hi.line(e,t+o*i,-1e4,t+o*i,1e4),Hi.line(e,-1e4,n+-s*i,1e4,n+-s*i),Hi.line(e,-1e4,n+-l*i,1e4,n+-l*i),e.strokeStyle="green",Hi.line(e,t+u*i,-1e4,t+u*i,1e4)},le.prototype.get=function(e){return"function"==typeof this.glyphs[e]&&(this.glyphs[e]=this.glyphs[e]()),this.glyphs[e]},le.prototype.push=function(e,t){this.glyphs[e]=t,this.length++};var qi={GlyphSet:le,glyphLoader:ue,ttfGlyphLoader:pe,cffGlyphLoader:ce},zi=[{name:"version",op:0,type:"SID"},{name:"notice",op:1,type:"SID"},{name:"copyright",op:1200,type:"SID"},{name:"fullName",op:2,type:"SID"},{name:"familyName",op:3,type:"SID"},{name:"weight",op:4,type:"SID"},{name:"isFixedPitch",op:1201,type:"number",value:0},{name:"italicAngle",op:1202,type:"number",value:0},{name:"underlinePosition",op:1203,type:"number",value:-100},{name:"underlineThickness",op:1204,type:"number",value:50},{name:"paintType",op:1205,type:"number",value:0},{name:"charstringType",op:1206,type:"number",value:2},{name:"fontMatrix",op:1207,type:["real","real","real","real","real","real"],value:[.001,0,0,.001,0,0]},{name:"uniqueId",op:13,type:"number"},{name:"fontBBox",op:5,type:["number","number","number","number"],value:[0,0,0,0]},{name:"strokeWidth",op:1208,type:"number",value:0},{name:"xuid",op:14,type:[],value:null},{name:"charset",op:15,type:"offset",value:0},{name:"encoding",op:16,type:"offset",value:0},{name:"charStrings",op:17,type:"offset",value:0},{name:"private",op:18,type:["number","offset"],value:[0,0]},{name:"ros",op:1230,type:["SID","SID","number"]},{name:"cidFontVersion",op:1231,type:"number",value:0},{name:"cidFontRevision",op:1232,type:"number",value:0},{name:"cidFontType",op:1233,type:"number",value:0},{name:"cidCount",op:1234,type:"number",value:8720},{name:"uidBase",op:1235,type:"number"},{name:"fdArray",op:1236,type:"offset"},{name:"fdSelect",op:1237,type:"offset"},{name:"fontName",op:1238,type:"SID"}],Wi=[{name:"subrs",op:19,type:"offset",value:0},{name:"defaultWidthX",op:20,type:"number",value:0},{name:"nominalWidthX",op:21,type:"number",value:0}],Vi={parse:ke,make:je},Xi={parse:qe,make:ze},Yi={parse:We,make:Ve},Ki={parse:Xe,make:Ye},Zi={make:Ke,parse:Ze},$i={parse:$e,make:Je},Ji=["copyright","fontFamily","fontSubfamily","uniqueID","fullName","version","postScriptName","trademark","manufacturer","designer","description","manufacturerURL","designerURL","license","licenseURL","reserved","preferredFamily","preferredSubfamily","compatibleFullName","sampleText","postScriptFindFontName","wwsFamily","wwsSubfamily"],Qi={0:"en",1:"fr",2:"de",3:"it",4:"nl",5:"sv",6:"es",7:"da",8:"pt",9:"no",10:"he",11:"ja",12:"ar",13:"fi",14:"el",15:"is",16:"mt",17:"tr",18:"hr",19:"zh-Hant",20:"ur",21:"hi",22:"th",23:"ko",24:"lt",25:"pl",26:"hu",27:"es",28:"lv",29:"se",30:"fo",31:"fa",32:"ru",33:"zh",34:"nl-BE",35:"ga",36:"sq",37:"ro",38:"cz",39:"sk",40:"si",41:"yi",42:"sr",43:"mk",44:"bg",45:"uk",46:"be",47:"uz",48:"kk",49:"az-Cyrl",50:"az-Arab",51:"hy",52:"ka",53:"mo",54:"ky",55:"tg",56:"tk",57:"mn-CN",58:"mn",59:"ps",60:"ks",61:"ku",62:"sd",63:"bo",64:"ne",65:"sa",66:"mr",67:"bn",68:"as",69:"gu",70:"pa",71:"or",72:"ml",73:"kn",74:"ta",75:"te",76:"si",77:"my",78:"km",79:"lo",80:"vi",81:"id",82:"tl",83:"ms",84:"ms-Arab",85:"am",86:"ti",87:"om",88:"so",89:"sw",90:"rw",91:"rn",92:"ny",93:"mg",94:"eo",128:"cy",129:"eu",
-130:"ca",131:"la",132:"qu",133:"gn",134:"ay",135:"tt",136:"ug",137:"dz",138:"jv",139:"su",140:"gl",141:"af",142:"br",143:"iu",144:"gd",145:"gv",146:"ga",147:"to",148:"el-polyton",149:"kl",150:"az",151:"nn"},ea={0:0,1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0,10:5,11:1,12:4,13:0,14:6,15:0,16:0,17:0,18:0,19:2,20:4,21:9,22:21,23:3,24:29,25:29,26:29,27:29,28:29,29:0,30:0,31:4,32:7,33:25,34:0,35:0,36:0,37:0,38:29,39:29,40:0,41:5,42:7,43:7,44:7,45:7,46:7,47:7,48:7,49:7,50:4,51:24,52:23,53:7,54:7,55:7,56:7,57:27,58:7,59:4,60:4,61:4,62:4,63:26,64:9,65:9,66:9,67:13,68:13,69:11,70:10,71:12,72:17,73:16,74:14,75:15,76:18,77:19,78:20,79:22,80:30,81:0,82:0,83:0,84:4,85:28,86:28,87:28,88:0,89:0,90:0,91:0,92:0,93:0,94:0,128:0,129:0,130:0,131:0,132:0,133:0,134:0,135:7,136:4,137:26,138:0,139:0,140:0,141:0,142:0,143:28,144:0,145:0,146:0,147:0,148:6,149:0,150:0,151:0},ta={1078:"af",1052:"sq",1156:"gsw",1118:"am",5121:"ar-DZ",15361:"ar-BH",3073:"ar",2049:"ar-IQ",11265:"ar-JO",13313:"ar-KW",12289:"ar-LB",4097:"ar-LY",6145:"ary",8193:"ar-OM",16385:"ar-QA",1025:"ar-SA",10241:"ar-SY",7169:"aeb",14337:"ar-AE",9217:"ar-YE",1067:"hy",1101:"as",2092:"az-Cyrl",1068:"az",1133:"ba",1069:"eu",1059:"be",2117:"bn",1093:"bn-IN",8218:"bs-Cyrl",5146:"bs",1150:"br",1026:"bg",1027:"ca",3076:"zh-HK",5124:"zh-MO",2052:"zh",4100:"zh-SG",1028:"zh-TW",1155:"co",1050:"hr",4122:"hr-BA",1029:"cs",1030:"da",1164:"prs",1125:"dv",2067:"nl-BE",1043:"nl",3081:"en-AU",10249:"en-BZ",4105:"en-CA",9225:"en-029",16393:"en-IN",6153:"en-IE",8201:"en-JM",17417:"en-MY",5129:"en-NZ",13321:"en-PH",18441:"en-SG",7177:"en-ZA",11273:"en-TT",2057:"en-GB",1033:"en",12297:"en-ZW",1061:"et",1080:"fo",1124:"fil",1035:"fi",2060:"fr-BE",3084:"fr-CA",1036:"fr",5132:"fr-LU",6156:"fr-MC",4108:"fr-CH",1122:"fy",1110:"gl",1079:"ka",3079:"de-AT",1031:"de",5127:"de-LI",4103:"de-LU",2055:"de-CH",1032:"el",1135:"kl",1095:"gu",1128:"ha",1037:"he",1081:"hi",1038:"hu",1039:"is",1136:"ig",1057:"id",1117:"iu",2141:"iu-Latn",2108:"ga",1076:"xh",1077:"zu",1040:"it",2064:"it-CH",1041:"ja",1099:"kn",1087:"kk",1107:"km",1158:"quc",1159:"rw",1089:"sw",1111:"kok",1042:"ko",1088:"ky",1108:"lo",1062:"lv",1063:"lt",2094:"dsb",1134:"lb",1071:"mk",2110:"ms-BN",1086:"ms",1100:"ml",1082:"mt",1153:"mi",1146:"arn",1102:"mr",1148:"moh",1104:"mn",2128:"mn-CN",1121:"ne",1044:"nb",2068:"nn",1154:"oc",1096:"or",1123:"ps",1045:"pl",1046:"pt",2070:"pt-PT",1094:"pa",1131:"qu-BO",2155:"qu-EC",3179:"qu",1048:"ro",1047:"rm",1049:"ru",9275:"smn",4155:"smj-NO",5179:"smj",3131:"se-FI",1083:"se",2107:"se-SE",8251:"sms",6203:"sma-NO",7227:"sms",1103:"sa",7194:"sr-Cyrl-BA",3098:"sr",6170:"sr-Latn-BA",2074:"sr-Latn",1132:"nso",1074:"tn",1115:"si",1051:"sk",1060:"sl",11274:"es-AR",16394:"es-BO",13322:"es-CL",9226:"es-CO",5130:"es-CR",7178:"es-DO",12298:"es-EC",17418:"es-SV",4106:"es-GT",18442:"es-HN",2058:"es-MX",19466:"es-NI",6154:"es-PA",15370:"es-PY",10250:"es-PE",20490:"es-PR",3082:"es",1034:"es",21514:"es-US",14346:"es-UY",8202:"es-VE",2077:"sv-FI",1053:"sv",1114:"syr",1064:"tg",2143:"tzm",1097:"ta",1092:"tt",1098:"te",1054:"th",1105:"bo",1055:"tr",1090:"tk",1152:"ug",1058:"uk",1070:"hsb",1056:"ur",2115:"uz-Cyrl",1091:"uz",1066:"vi",1106:"cy",1160:"wo",1157:"sah",1144:"ii",1130:"yo"},na="utf-16",ra={0:"macintosh",1:"x-mac-japanese",2:"x-mac-chinesetrad",3:"x-mac-korean",6:"x-mac-greek",7:"x-mac-cyrillic",9:"x-mac-devanagai",10:"x-mac-gurmukhi",11:"x-mac-gujarati",12:"x-mac-oriya",13:"x-mac-bengali",14:"x-mac-tamil",15:"x-mac-telugu",16:"x-mac-kannada",17:"x-mac-malayalam",18:"x-mac-sinhalese",19:"x-mac-burmese",20:"x-mac-khmer",21:"x-mac-thai",22:"x-mac-lao",23:"x-mac-georgian",24:"x-mac-armenian",25:"x-mac-chinesesimp",26:"x-mac-tibetan",27:"x-mac-mongolian",28:"x-mac-ethiopic",29:"x-mac-ce",30:"x-mac-vietnamese",31:"x-mac-extarabic"},ia={15:"x-mac-icelandic",17:"x-mac-turkish",18:"x-mac-croatian",24:"x-mac-ce",25:"x-mac-ce",26:"x-mac-ce",27:"x-mac-ce",28:"x-mac-ce",30:"x-mac-icelandic",37:"x-mac-romanian",38:"x-mac-ce",39:"x-mac-ce",40:"x-mac-ce",143:"x-mac-inuit",146:"x-mac-gaelic"},aa={parse:tt,make:st},sa=[{begin:0,end:127},{begin:128,end:255},{begin:256,end:383},{begin:384,end:591},{begin:592,end:687},{begin:688,end:767},{begin:768,end:879},{begin:880,end:1023},{begin:11392,end:11519},{begin:1024,end:1279},{begin:1328,end:1423},{begin:1424,end:1535},{begin:42240,end:42559},{begin:1536,end:1791},{begin:1984,end:2047},{begin:2304,end:2431},{begin:2432,end:2559},{begin:2560,end:2687},{begin:2688,end:2815},{begin:2816,end:2943},{begin:2944,end:3071},{begin:3072,end:3199},{begin:3200,end:3327},{begin:3328,end:3455},{begin:3584,end:3711},{begin:3712,end:3839},{begin:4256,end:4351},{begin:6912,end:7039},{begin:4352,end:4607},{begin:7680,end:7935},{begin:7936,end:8191},{begin:8192,end:8303},{begin:8304,end:8351},{begin:8352,end:8399},{begin:8400,end:8447},{begin:8448,end:8527},{begin:8528,end:8591},{begin:8592,end:8703},{begin:8704,end:8959},{begin:8960,end:9215},{begin:9216,end:9279},{begin:9280,end:9311},{begin:9312,end:9471},{begin:9472,end:9599},{begin:9600,end:9631},{begin:9632,end:9727},{begin:9728,end:9983},{begin:9984,end:10175},{begin:12288,end:12351},{begin:12352,end:12447},{begin:12448,end:12543},{begin:12544,end:12591},{begin:12592,end:12687},{begin:43072,end:43135},{begin:12800,end:13055},{begin:13056,end:13311},{begin:44032,end:55215},{begin:55296,end:57343},{begin:67840,end:67871},{begin:19968,end:40959},{begin:57344,end:63743},{begin:12736,end:12783},{begin:64256,end:64335},{begin:64336,end:65023},{begin:65056,end:65071},{begin:65040,end:65055},{begin:65104,end:65135},{begin:65136,end:65279},{begin:65280,end:65519},{begin:65520,end:65535},{begin:3840,end:4095},{begin:1792,end:1871},{begin:1920,end:1983},{begin:3456,end:3583},{begin:4096,end:4255},{begin:4608,end:4991},{begin:5024,end:5119},{begin:5120,end:5759},{begin:5760,end:5791},{begin:5792,end:5887},{begin:6016,end:6143},{begin:6144,end:6319},{begin:10240,end:10495},{begin:40960,end:42127},{begin:5888,end:5919},{begin:66304,end:66351},{begin:66352,end:66383},{begin:66560,end:66639},{begin:118784,end:119039},{begin:119808,end:120831},{begin:1044480,end:1048573},{begin:65024,end:65039},{begin:917504,end:917631},{begin:6400,end:6479},{begin:6480,end:6527},{begin:6528,end:6623},{begin:6656,end:6687},{begin:11264,end:11359},{begin:11568,end:11647},{begin:19904,end:19967},{begin:43008,end:43055},{begin:65536,end:65663},{begin:65856,end:65935},{begin:66432,end:66463},{begin:66464,end:66527},{begin:66640,end:66687},{begin:66688,end:66735},{begin:67584,end:67647},{begin:68096,end:68191},{begin:119552,end:119647},{begin:73728,end:74751},{begin:119648,end:119679},{begin:7040,end:7103},{begin:7168,end:7247},{begin:7248,end:7295},{begin:43136,end:43231},{begin:43264,end:43311},{begin:43312,end:43359},{begin:43520,end:43615},{begin:65936,end:65999},{begin:66e3,end:66047},{begin:66208,end:66271},{begin:127024,end:127135}],oa={parse:lt,make:ut,unicodeRanges:sa,getUnicodeRange:ot},la={parse:pt,make:ct},ua=new Array(9);ua[1]=function(){var e=this.offset+this.relativeOffset,t=this.parseUShort();return 1===t?{substFormat:1,coverage:this.parsePointer(P.coverage),deltaGlyphId:this.parseUShort()}:2===t?{substFormat:2,coverage:this.parsePointer(P.coverage),substitute:this.parseOffset16List()}:void Ci.assert(!1,"0x"+e.toString(16)+": lookup type 1 format must be 1 or 2.")},ua[2]=function(){var e=this.parseUShort();return Ci.argument(1===e,"GSUB Multiple Substitution Subtable identifier-format must be 1"),{substFormat:e,coverage:this.parsePointer(P.coverage),sequences:this.parseListOfLists()}},ua[3]=function(){var e=this.parseUShort();return Ci.argument(1===e,"GSUB Alternate Substitution Subtable identifier-format must be 1"),{substFormat:e,coverage:this.parsePointer(P.coverage),alternateSets:this.parseListOfLists()}},ua[4]=function(){var e=this.parseUShort();return Ci.argument(1===e,"GSUB ligature table identifier-format must be 1"),{substFormat:e,coverage:this.parsePointer(P.coverage),ligatureSets:this.parseListOfLists(function(){return{ligGlyph:this.parseUShort(),components:this.parseUShortList(this.parseUShort()-1)}})}};var pa={sequenceIndex:P.uShort,lookupListIndex:P.uShort};ua[5]=function(){var e=this.offset+this.relativeOffset,t=this.parseUShort();if(1===t)return{substFormat:t,coverage:this.parsePointer(P.coverage),ruleSets:this.parseListOfLists(function(){var e=this.parseUShort(),t=this.parseUShort();return{input:this.parseUShortList(e-1),lookupRecords:this.parseRecordList(t,pa)}})};if(2===t)return{substFormat:t,coverage:this.parsePointer(P.coverage),classDef:this.parsePointer(P.classDef),classSets:this.parseListOfLists(function(){var e=this.parseUShort(),t=this.parseUShort();return{classes:this.parseUShortList(e-1),lookupRecords:this.parseRecordList(t,pa)}})};if(3===t){var n=this.parseUShort(),r=this.parseUShort();return{substFormat:t,coverages:this.parseList(n,P.pointer(P.coverage)),lookupRecords:this.parseRecordList(r,pa)}}Ci.assert(!1,"0x"+e.toString(16)+": lookup type 5 format must be 1, 2 or 3.")},ua[6]=function(){var e=this.offset+this.relativeOffset,t=this.parseUShort();return 1===t?{substFormat:1,coverage:this.parsePointer(P.coverage),chainRuleSets:this.parseListOfLists(function(){return{backtrack:this.parseUShortList(),input:this.parseUShortList(this.parseShort()-1),lookahead:this.parseUShortList(),lookupRecords:this.parseRecordList(pa)}})}:2===t?{substFormat:2,coverage:this.parsePointer(P.coverage),backtrackClassDef:this.parsePointer(P.classDef),inputClassDef:this.parsePointer(P.classDef),lookaheadClassDef:this.parsePointer(P.classDef),chainClassSet:this.parseListOfLists(function(){return{backtrack:this.parseUShortList(),input:this.parseUShortList(this.parseShort()-1),lookahead:this.parseUShortList(),lookupRecords:this.parseRecordList(pa)}})}:3===t?{substFormat:3,backtrackCoverage:this.parseList(P.pointer(P.coverage)),inputCoverage:this.parseList(P.pointer(P.coverage)),lookaheadCoverage:this.parseList(P.pointer(P.coverage)),lookupRecords:this.parseRecordList(pa)}:void Ci.assert(!1,"0x"+e.toString(16)+": lookup type 6 format must be 1, 2 or 3.")},ua[7]=function(){var e=this.parseUShort();Ci.argument(1===e,"GSUB Extension Substitution subtable identifier-format must be 1");var t=this.parseUShort(),n=new P(this.data,this.offset+this.parseULong());return{substFormat:1,lookupType:t,extension:ua[t].call(n)}},ua[8]=function(){var e=this.parseUShort();return Ci.argument(1===e,"GSUB Reverse Chaining Contextual Single Substitution Subtable identifier-format must be 1"),{substFormat:e,coverage:this.parsePointer(P.coverage),backtrackCoverage:this.parseList(P.pointer(P.coverage)),lookaheadCoverage:this.parseList(P.pointer(P.coverage)),substitutes:this.parseUShortList()}};var ca=new Array(9);ca[1]=function(e){return 1===e.substFormat?new Fi.Table("substitutionTable",[{name:"substFormat",type:"USHORT",value:1},{name:"coverage",type:"TABLE",value:new Fi.Coverage(e.coverage)},{name:"deltaGlyphID",type:"USHORT",value:e.deltaGlyphId}]):new Fi.Table("substitutionTable",[{name:"substFormat",type:"USHORT",value:2},{name:"coverage",type:"TABLE",value:new Fi.Coverage(e.coverage)}].concat(Fi.ushortList("substitute",e.substitute)))},ca[3]=function(e){return Ci.assert(1===e.substFormat,"Lookup type 3 substFormat must be 1."),new Fi.Table("substitutionTable",[{name:"substFormat",type:"USHORT",value:1},{name:"coverage",type:"TABLE",value:new Fi.Coverage(e.coverage)}].concat(Fi.tableList("altSet",e.alternateSets,function(e){return new Fi.Table("alternateSetTable",Fi.ushortList("alternate",e))})))},ca[4]=function(e){return Ci.assert(1===e.substFormat,"Lookup type 4 substFormat must be 1."),new Fi.Table("substitutionTable",[{name:"substFormat",type:"USHORT",value:1},{name:"coverage",type:"TABLE",value:new Fi.Coverage(e.coverage)}].concat(Fi.tableList("ligSet",e.ligatureSets,function(e){return new Fi.Table("ligatureSetTable",Fi.tableList("ligature",e,function(e){return new Fi.Table("ligatureTable",[{name:"ligGlyph",type:"USHORT",value:e.ligGlyph}].concat(Fi.ushortList("component",e.components,e.components.length+1)))}))})))};var fa={parse:ft,make:ht},ha={parse:dt,make:mt},da={make:bt,fontToTable:Tt,computeCheckSum:vt};Ot.prototype={searchTag:Ct,binSearch:wt,getTable:function(e){var t=this.font.tables[this.tableName];return!t&&e&&(t=this.font.tables[this.tableName]=this.createDefaultTable()),t},getScriptNames:function(){var e=this.getTable();return e?e.scripts.map(function(e){return e.tag}):[]},getDefaultScriptName:function(){var e=this.getTable();if(e){for(var t=!1,n=0;n<e.scripts.length;n++){var r=e.scripts[n].tag;if("DFLT"===r)return r;"latn"===r&&(t=!0)}return t?"latn":void 0}},getScriptTable:function(e,t){var n=this.getTable(t);if(n){e=e||"DFLT";var r=n.scripts,i=Ct(n.scripts,e);if(i>=0)return r[i].script;if(t){var a={tag:e,script:{defaultLangSys:{reserved:0,reqFeatureIndex:65535,featureIndexes:[]},langSysRecords:[]}};return r.splice(-1-i,0,a),a.script}}},getLangSysTable:function(e,t,n){var r=this.getScriptTable(e,n);if(r){if(!t||"dflt"===t||"DFLT"===t)return r.defaultLangSys;var i=Ct(r.langSysRecords,t);if(i>=0)return r.langSysRecords[i].langSys;if(n){var a={tag:t,langSys:{reserved:0,reqFeatureIndex:65535,featureIndexes:[]}};return r.langSysRecords.splice(-1-i,0,a),a.langSys}}},getFeatureTable:function(e,t,n,r){var i=this.getLangSysTable(e,t,r);if(i){for(var a,s=i.featureIndexes,o=this.font.tables[this.tableName].features,l=0;l<s.length;l++)if(a=o[s[l]],a.tag===n)return a.feature;if(r){var u=o.length;return Ci.assert(0===u||n>=o[u-1].tag,"Features must be added in alphabetical order."),a={tag:n,feature:{params:0,lookupListIndexes:[]}},o.push(a),s.push(u),a.feature}}},getLookupTables:function(e,t,n,r,i){var a=this.getFeatureTable(e,t,n,i),s=[];if(a){for(var o,l=a.lookupListIndexes,u=this.font.tables[this.tableName].lookups,p=0;p<l.length;p++)o=u[l[p]],o.lookupType===r&&s.push(o);if(0===s.length&&i){o={lookupType:r,lookupFlag:0,subtables:[],markFilteringSet:void 0};var c=u.length;return u.push(o),l.push(c),[o]}}return s},expandCoverage:function(e){if(1===e.format)return e.glyphs;for(var t=[],n=e.ranges,r=0;r<n.length;r++)for(var i=n[r],a=i.start,s=i.end,o=a;o<=s;o++)t.push(o);return t}},Et.prototype=Ot.prototype,Et.prototype.createDefaultTable=function(){return{version:1,scripts:[{tag:"DFLT",script:{defaultLangSys:{reserved:0,reqFeatureIndex:65535,featureIndexes:[]},langSysRecords:[]}}],features:[],lookups:[]}},Et.prototype.getSingle=function(e,t,n){for(var r=this,i=[],a=this.getLookupTables(t,n,e,1),s=0;s<a.length;s++)for(var o=a[s].subtables,l=0;l<o.length;l++){var u=o[l],p=r.expandCoverage(u.coverage),c=void 0;if(1===u.substFormat){var f=u.deltaGlyphId;for(c=0;c<p.length;c++){var h=p[c];i.push({sub:h,by:h+f})}}else{var d=u.substitute;for(c=0;c<p.length;c++)i.push({sub:p[c],by:d[c]})}}return i},Et.prototype.getAlternates=function(e,t,n){for(var r=this,i=[],a=this.getLookupTables(t,n,e,3),s=0;s<a.length;s++)for(var o=a[s].subtables,l=0;l<o.length;l++)for(var u=o[l],p=r.expandCoverage(u.coverage),c=u.alternateSets,f=0;f<p.length;f++)i.push({sub:p[f],by:c[f]});return i},Et.prototype.getLigatures=function(e,t,n){for(var r=this,i=[],a=this.getLookupTables(t,n,e,4),s=0;s<a.length;s++)for(var o=a[s].subtables,l=0;l<o.length;l++)for(var u=o[l],p=r.expandCoverage(u.coverage),c=u.ligatureSets,f=0;f<p.length;f++)for(var h=p[f],d=c[f],m=0;m<d.length;m++){var g=d[m];i.push({sub:[h].concat(g.components),by:g.ligGlyph})}return i},Et.prototype.addSingle=function(e,t,n,r){var i=this.getLookupTables(n,r,e,1,!0)[0],a=Ut(i,2,{substFormat:2,coverage:{format:1,glyphs:[]},substitute:[]});Ci.assert(1===a.coverage.format,"Ligature: unable to modify coverage table format "+a.coverage.format);var s=t.sub,o=this.binSearch(a.coverage.glyphs,s);o<0&&(o=-1-o,a.coverage.glyphs.splice(o,0,s),a.substitute.splice(o,0,0)),a.substitute[o]=t.by},Et.prototype.addAlternate=function(e,t,n,r){var i=this.getLookupTables(n,r,e,3,!0)[0],a=Ut(i,1,{substFormat:1,coverage:{format:1,glyphs:[]},alternateSets:[]});Ci.assert(1===a.coverage.format,"Ligature: unable to modify coverage table format "+a.coverage.format);var s=t.sub,o=this.binSearch(a.coverage.glyphs,s);o<0&&(o=-1-o,a.coverage.glyphs.splice(o,0,s),a.alternateSets.splice(o,0,0)),a.alternateSets[o]=t.by},Et.prototype.addLigature=function(e,t,n,r){var i=this.getLookupTables(n,r,e,4,!0)[0],a=i.subtables[0];a||(a={substFormat:1,coverage:{format:1,glyphs:[]},ligatureSets:[]},i.subtables[0]=a),Ci.assert(1===a.coverage.format,"Ligature: unable to modify coverage table format "+a.coverage.format);var s=t.sub[0],o=t.sub.slice(1),l={ligGlyph:t.by,components:o},u=this.binSearch(a.coverage.glyphs,s);if(u>=0){for(var p=a.ligatureSets[u],c=0;c<p.length;c++)if(Dt(p[c].components,o))return;p.push(l)}else u=-1-u,a.coverage.glyphs.splice(u,0,s),a.ligatureSets.splice(u,0,[l])},Et.prototype.getFeature=function(e,t,n){if(/ss\d\d/.test(e))return this.getSingle(e,t,n);switch(e){case"aalt":case"salt":return this.getSingle(e,t,n).concat(this.getAlternates(e,t,n));case"dlig":case"liga":case"rlig":return this.getLigatures(e,t,n)}},Et.prototype.add=function(e,t,n,r){if(/ss\d\d/.test(e))return this.addSingle(e,t,n,r);switch(e){case"aalt":case"salt":return"number"==typeof t.by?this.addSingle(e,t,n,r):this.addAlternate(e,t,n,r);case"dlig":case"liga":case"rlig":return this.addLigature(e,t,n,r)}};var ma,ga,va,ya,ba=function(e){var t=this.srPeriod,n=this.srPhase,r=this.srThreshold,i=1;return e<0&&(e=-e,i=-1),e+=r-n,e=Math.trunc(e/t)*t,e+=n,i>0&&e<0?n:i<0&&e>0?-n:e*i},Sa={x:1,y:0,axis:"x",distance:function(e,t,n,r){return(n?e.xo:e.x)-(r?t.xo:t.x)},interpolate:function(e,t,n,r){var i,a,s,o,l,u,p;return r&&r!==this?(i=r.distance(e,t,!0,!0),a=r.distance(e,n,!0,!0),l=r.distance(t,t,!1,!0),u=r.distance(n,n,!1,!0),s=Math.abs(i),o=Math.abs(a),0===(p=s+o)?void Sa.setRelative(e,e,(l+u)/2,r,!0):void Sa.setRelative(e,e,(l*o+u*s)/p,r,!0)):(i=e.xo-t.xo,a=e.xo-n.xo,l=t.x-t.xo,u=n.x-n.xo,s=Math.abs(i),o=Math.abs(a),0===(p=s+o)?void(e.x=e.xo+(l+u)/2):void(e.x=e.xo+(l*o+u*s)/p))},normalSlope:Number.NEGATIVE_INFINITY,setRelative:function(e,t,n,r,i){if(!r||r===this)return void(e.x=(i?t.xo:t.x)+n);var a=i?t.xo:t.x,s=i?t.yo:t.y,o=a+n*r.x,l=s+n*r.y;e.x=o+(e.y-l)/r.normalSlope},slope:0,touch:function(e){e.xTouched=!0},touched:function(e){return e.xTouched},untouch:function(e){e.xTouched=!1}},xa={x:0,y:1,axis:"y",distance:function(e,t,n,r){return(n?e.yo:e.y)-(r?t.yo:t.y)},interpolate:function(e,t,n,r){var i,a,s,o,l,u,p;return r&&r!==this?(i=r.distance(e,t,!0,!0),a=r.distance(e,n,!0,!0),l=r.distance(t,t,!1,!0),u=r.distance(n,n,!1,!0),s=Math.abs(i),o=Math.abs(a),0===(p=s+o)?void xa.setRelative(e,e,(l+u)/2,r,!0):void xa.setRelative(e,e,(l*o+u*s)/p,r,!0)):(i=e.yo-t.yo,a=e.yo-n.yo,l=t.y-t.yo,u=n.y-n.yo,s=Math.abs(i),o=Math.abs(a),0===(p=s+o)?void(e.y=e.yo+(l+u)/2):void(e.y=e.yo+(l*o+u*s)/p))},normalSlope:0,setRelative:function(e,t,n,r,i){if(!r||r===this)return void(e.y=(i?t.yo:t.y)+n);var a=i?t.xo:t.x,s=i?t.yo:t.y,o=a+n*r.x,l=s+n*r.y;e.y=l+r.normalSlope*(e.x-o)},slope:Number.POSITIVE_INFINITY,touch:function(e){e.yTouched=!0},touched:function(e){return e.yTouched},untouch:function(e){e.yTouched=!1}};Object.freeze(Sa),Object.freeze(xa),Gt.prototype.distance=function(e,t,n,r){return this.x*Sa.distance(e,t,n,r)+this.y*xa.distance(e,t,n,r)},Gt.prototype.interpolate=function(e,t,n,r){var i,a,s,o,l,u,p;if(s=r.distance(e,t,!0,!0),o=r.distance(e,n,!0,!0),i=r.distance(t,t,!1,!0),a=r.distance(n,n,!1,!0),l=Math.abs(s),u=Math.abs(o),0===(p=l+u))return void this.setRelative(e,e,(i+a)/2,r,!0);this.setRelative(e,e,(i*u+a*l)/p,r,!0)},Gt.prototype.setRelative=function(e,t,n,r,i){r=r||this;var a=i?t.xo:t.x,s=i?t.yo:t.y,o=a+n*r.x,l=s+n*r.y,u=r.normalSlope,p=this.slope,c=e.x,f=e.y;e.x=(p*c-u*o+l-f)/(p-u),e.y=p*(e.x-c)+f},Gt.prototype.touch=function(e){e.xTouched=!0,e.yTouched=!0},jt.prototype.nextTouched=function(e){for(var t=this.nextPointOnContour;!e.touched(t)&&t!==this;)t=t.nextPointOnContour;return t},jt.prototype.prevTouched=function(e){for(var t=this.prevPointOnContour;!e.touched(t)&&t!==this;)t=t.prevPointOnContour;return t};var Ta=Object.freeze(new jt(0,0)),Ca={cvCutIn:17/16,deltaBase:9,deltaShift:.125,loop:1,minDis:1,autoFlip:!0};Rt.prototype.exec=function(t,n){if("number"!=typeof n)throw new Error("Point size is not a number!");if(!(this._errorState>2)){var r=this.font,i=this._prepState;if(!i||i.ppem!==n){var a=this._fpgmState;if(!a){qt.prototype=Ca,a=this._fpgmState=new qt("fpgm",r.tables.fpgm),a.funcs=[],a.font=r,e.DEBUG&&(console.log("---EXEC FPGM---"),a.step=-1);try{ga(a)}catch(e){return console.log("Hinting error in FPGM:"+e),void(this._errorState=3)}}qt.prototype=a,i=this._prepState=new qt("prep",r.tables.prep),i.ppem=n;var s=r.tables.cvt;if(s)for(var o=i.cvt=new Array(s.length),l=n/r.unitsPerEm,u=0;u<s.length;u++)o[u]=s[u]*l;else i.cvt=[];e.DEBUG&&(console.log("---EXEC PREP---"),i.step=-1);try{ga(i)}catch(e){this._errorState<2&&console.log("Hinting error in PREP:"+e),this._errorState=2}}if(!(this._errorState>1))try{return va(t,i)}catch(e){return this._errorState<1&&(console.log("Hinting error:"+e),console.log("Note: further hinting errors are silenced")),void(this._errorState=1)}}},va=function(t,n){var r,i,a,s=n.ppem/n.font.unitsPerEm,o=s,l=t.components;if(qt.prototype=n,l){var u=n.font;i=[],r=[];for(var p=0;p<l.length;p++){var c=l[p],f=u.glyphs.get(c.glyphIndex);a=new qt("glyf",f.instructions),e.DEBUG&&(console.log("---EXEC COMP "+p+"---"),a.step=-1),ya(f,a,s,o);for(var h=Math.round(c.dx*s),d=Math.round(c.dy*o),m=a.gZone,g=a.contours,v=0;v<m.length;v++){var y=m[v];y.xTouched=y.yTouched=!1,y.xo=y.x=y.x+h,y.yo=y.y=y.y+d}var b=i.length;i.push.apply(i,m);for(var S=0;S<g.length;S++)r.push(g[S]+b)}t.instructions&&!a.inhibitGridFit&&(a=new qt("glyf",t.instructions),a.gZone=a.z0=a.z1=a.z2=i,a.contours=r,i.push(new jt(0,0),new jt(Math.round(t.advanceWidth*s),0)),e.DEBUG&&(console.log("---EXEC COMPOSITE---"),a.step=-1),ga(a),i.length-=2)}else a=new qt("glyf",t.instructions),e.DEBUG&&(console.log("---EXEC GLYPH---"),a.step=-1),ya(t,a,s,o),i=a.gZone;return i},ya=function(t,n,r,i){for(var a,s=t.points||[],o=s.length,l=n.gZone=n.z0=n.z1=n.z2=[],u=n.contours=[],p=0;p<o;p++)a=s[p],l[p]=new jt(a.x*r,a.y*i,a.lastPointOfContour,a.onCurve);for(var c,f,h=0;h<o;h++)a=l[h],c||(c=a,u.push(h)),a.lastPointOfContour?(a.nextPointOnContour=c,c.prevPointOnContour=a,c=void 0):(f=l[h+1],a.nextPointOnContour=f,f.prevPointOnContour=a);if(!n.inhibitGridFit&&(l.push(new jt(0,0),new jt(Math.round(t.advanceWidth*r),0)),ga(n),l.length-=2,e.DEBUG)){console.log("FINISHED GLYPH",n.stack);for(var d=0;d<o;d++)console.log(d,l[d].x,l[d].y)}},ga=function(t){var n=t.prog;if(n){var r,i=n.length;for(t.ip=0;t.ip<i;t.ip++){if(e.DEBUG&&t.step++,!(r=ma[n[t.ip]]))throw new Error("unknown instruction: 0x"+Number(n[t.ip]).toString(16));r(t)}}},ma=[Vt.bind(void 0,xa),Vt.bind(void 0,Sa),Xt.bind(void 0,xa),Xt.bind(void 0,Sa),Yt.bind(void 0,xa),Yt.bind(void 0,Sa),Kt.bind(void 0,0),Kt.bind(void 0,1),Zt.bind(void 0,0),Zt.bind(void 0,1),$t,Jt,Qt,en,tn,nn,rn,an,sn,on,ln,un,pn,cn,fn,hn,dn,mn,gn,vn,void 0,void 0,yn,bn,Sn,xn,Tn,On,En,void 0,void 0,void 0,Cn,wn,Dn,void 0,Un.bind(void 0,0),Un.bind(void 0,1),kn.bind(void 0,xa),kn.bind(void 0,Sa),Nn.bind(void 0,0),Nn.bind(void 0,1),Bn.bind(void 0,0),Bn.bind(void 0,1),Fn.bind(void 0,0),Fn.bind(void 0,1),Rn,_n,Ln.bind(void 0,0),Ln.bind(void 0,1),In,An,Mn.bind(void 0,0),Mn.bind(void 0,1),Pn,Gn,Hn,jn,qn,zn,Wn.bind(void 0,0),Wn.bind(void 0,1),void 0,Vn.bind(void 0,0),Vn.bind(void 0,1),Xn,void 0,Yn,void 0,void 0,Kn,Zn,$n,Jn,Qn,er,tr,nr,rr,ir,ar,sr,or,lr.bind(void 0,1),ur,pr,cr,fr,hr,dr,mr,gr,vr,yr,br.bind(void 0,0),br.bind(void 0,1),br.bind(void 0,2),br.bind(void 0,3),void 0,void 0,void 0,void 0,Sr,lr.bind(void 0,2),lr.bind(void 0,3),xr.bind(void 0,1),xr.bind(void 0,2),xr.bind(void 0,3),Tr,Cr,void 0,void 0,wr,void 0,Or,Er,bn,bn,void 0,void 0,void 0,void 0,void 0,Dr,Ur.bind(void 0,0),Ur.bind(void 0,1),kr,void 0,Nr,Br,Fr,Rr,_r,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0,Lr.bind(void 0,1),Lr.bind(void 0,2),Lr.bind(void 0,3),Lr.bind(void 0,4),Lr.bind(void 0,5),Lr.bind(void 0,6),Lr.bind(void 0,7),Lr.bind(void 0,8),Ir.bind(void 0,1),Ir.bind(void 0,2),Ir.bind(void 0,3),Ir.bind(void 0,4),Ir.bind(void 0,5),Ir.bind(void 0,6),Ir.bind(void 0,7),Ir.bind(void 0,8),Ar.bind(void 0,0,0,0,0,0),Ar.bind(void 0,0,0,0,0,1),Ar.bind(void 0,0,0,0,0,2),Ar.bind(void 0,0,0,0,0,3),Ar.bind(void 0,0,0,0,1,0),Ar.bind(void 0,0,0,0,1,1),Ar.bind(void 0,0,0,0,1,2),Ar.bind(void 0,0,0,0,1,3),Ar.bind(void 0,0,0,1,0,0),Ar.bind(void 0,0,0,1,0,1),Ar.bind(void 0,0,0,1,0,2),Ar.bind(void 0,0,0,1,0,3),Ar.bind(void 0,0,0,1,1,0),Ar.bind(void 0,0,0,1,1,1),Ar.bind(void 0,0,0,1,1,2),Ar.bind(void 0,0,0,1,1,3),Ar.bind(void 0,0,1,0,0,0),Ar.bind(void 0,0,1,0,0,1),Ar.bind(void 0,0,1,0,0,2),Ar.bind(void 0,0,1,0,0,3),Ar.bind(void 0,0,1,0,1,0),Ar.bind(void 0,0,1,0,1,1),Ar.bind(void 0,0,1,0,1,2),Ar.bind(void 0,0,1,0,1,3),Ar.bind(void 0,0,1,1,0,0),Ar.bind(void 0,0,1,1,0,1),Ar.bind(void 0,0,1,1,0,2),Ar.bind(void 0,0,1,1,0,3),Ar.bind(void 0,0,1,1,1,0),Ar.bind(void 0,0,1,1,1,1),Ar.bind(void 0,0,1,1,1,2),Ar.bind(void 0,0,1,1,1,3),Ar.bind(void 0,1,0,0,0,0),Ar.bind(void 0,1,0,0,0,1),Ar.bind(void 0,1,0,0,0,2),Ar.bind(void 0,1,0,0,0,3),Ar.bind(void 0,1,0,0,1,0),Ar.bind(void 0,1,0,0,1,1),Ar.bind(void 0,1,0,0,1,2),Ar.bind(void 0,1,0,0,1,3),Ar.bind(void 0,1,0,1,0,0),Ar.bind(void 0,1,0,1,0,1),Ar.bind(void 0,1,0,1,0,2),Ar.bind(void 0,1,0,1,0,3),Ar.bind(void 0,1,0,1,1,0),Ar.bind(void 0,1,0,1,1,1),Ar.bind(void 0,1,0,1,1,2),Ar.bind(void 0,1,0,1,1,3),Ar.bind(void 0,1,1,0,0,0),Ar.bind(void 0,1,1,0,0,1),Ar.bind(void 0,1,1,0,0,2),Ar.bind(void 0,1,1,0,0,3),Ar.bind(void 0,1,1,0,1,0),Ar.bind(void 0,1,1,0,1,1),Ar.bind(void 0,1,1,0,1,2),Ar.bind(void 0,1,1,0,1,3),Ar.bind(void 0,1,1,1,0,0),Ar.bind(void 0,1,1,1,0,1),Ar.bind(void 0,1,1,1,0,2),Ar.bind(void 0,1,1,1,0,3),Ar.bind(void 0,1,1,1,1,0),Ar.bind(void 0,1,1,1,1,1),Ar.bind(void 0,1,1,1,1,2),Ar.bind(void 0,1,1,1,1,3)],Mr.prototype.hasChar=function(e){return null!==this.encoding.charToGlyphIndex(e)},Mr.prototype.charToGlyphIndex=function(e){return this.encoding.charToGlyphIndex(e)},Mr.prototype.charToGlyph=function(e){var t=this.charToGlyphIndex(e),n=this.glyphs.get(t);return n||(n=this.glyphs.get(0)),n},Mr.prototype.stringToGlyphs=function(e,t){var n=this;t=t||this.defaultRenderOptions;for(var r=[],i=0;i<e.length;i+=1){var a=e[i];r.push(n.charToGlyphIndex(a))}var s=r.length;if(t.features){var o=t.script||this.substitution.getDefaultScriptName(),l=[];t.features.liga&&(l=l.concat(this.substitution.getFeature("liga",o,t.language))),t.features.rlig&&(l=l.concat(this.substitution.getFeature("rlig",o,t.language)));for(var u=0;u<s;u+=1)for(var p=0;p<l.length;p++){for(var c=l[p],f=c.sub,h=f.length,d=0;d<h&&f[d]===r[u+d];)d++;d===h&&(r.splice(u,h,c.by),s=s-h+1)}}for(var m=new Array(s),g=this.glyphs.get(0),v=0;v<s;v+=1)m[v]=n.glyphs.get(r[v])||g;return m},Mr.prototype.nameToGlyphIndex=function(e){return this.glyphNames.nameToGlyphIndex(e)},Mr.prototype.nameToGlyph=function(e){var t=this.nameToGlyphIndex(e),n=this.glyphs.get(t);return n||(n=this.glyphs.get(0)),n},Mr.prototype.glyphIndexToName=function(e){return this.glyphNames.glyphIndexToName?this.glyphNames.glyphIndexToName(e):""},Mr.prototype.getKerningValue=function(e,t){e=e.index||e,t=t.index||t;var n=this.getGposKerningValue;return n?n(e,t):this.kerningPairs[e+","+t]||0},Mr.prototype.defaultRenderOptions={kerning:!0,features:{liga:!0,rlig:!0}},Mr.prototype.forEachGlyph=function(e,t,n,r,i,a){var s=this;t=void 0!==t?t:0,n=void 0!==n?n:0,r=void 0!==r?r:72,i=i||this.defaultRenderOptions;for(var o=1/this.unitsPerEm*r,l=this.stringToGlyphs(e,i),u=0;u<l.length;u+=1){var p=l[u];if(a.call(s,p,t,n,r,i),p.advanceWidth&&(t+=p.advanceWidth*o),i.kerning&&u<l.length-1){t+=s.getKerningValue(p,l[u+1])*o}i.letterSpacing?t+=i.letterSpacing*r:i.tracking&&(t+=i.tracking/1e3*r)}return t},Mr.prototype.getPath=function(e,t,n,r,i){var a=new d;return this.forEachGlyph(e,t,n,r,i,function(e,t,n,r){var s=e.getPath(t,n,r,i,this);a.extend(s)}),a},Mr.prototype.getPaths=function(e,t,n,r,i){var a=[];return this.forEachGlyph(e,t,n,r,i,function(e,t,n,r){var s=e.getPath(t,n,r,i,this);a.push(s)}),a},Mr.prototype.getAdvanceWidth=function(e,t,n){return this.forEachGlyph(e,0,0,t,n,function(){})},Mr.prototype.draw=function(e,t,n,r,i,a){this.getPath(t,n,r,i,a).draw(e)},Mr.prototype.drawPoints=function(e,t,n,r,i,a){this.forEachGlyph(t,n,r,i,a,function(t,n,r,i){t.drawPoints(e,n,r,i)})},Mr.prototype.drawMetrics=function(e,t,n,r,i,a){this.forEachGlyph(t,n,r,i,a,function(t,n,r,i){t.drawMetrics(e,n,r,i)})},Mr.prototype.getEnglishName=function(e){var t=this.names[e];if(t)return t.en},Mr.prototype.validate=function(){function e(e,t){e||n.push(t)}function t(t){var n=r.getEnglishName(t);e(n&&n.trim().length>0,"No English "+t+" specified.")}var n=[],r=this;t("fontFamily"),t("weightName"),t("manufacturer"),t("copyright"),t("version"),e(this.unitsPerEm>0,"No unitsPerEm specified.")},Mr.prototype.toTables=function(){return da.fontToTable(this)},Mr.prototype.toBuffer=function(){return console.warn("Font.toBuffer is deprecated. Use Font.toArrayBuffer instead."),this.toArrayBuffer()},Mr.prototype.toArrayBuffer=function(){for(var e=this.toTables(),t=e.encode(),n=new ArrayBuffer(t.length),r=new Uint8Array(n),i=0;i<t.length;i++)r[i]=t[i];return n},Mr.prototype.download=function(e){var t=this.getEnglishName("fontFamily"),n=this.getEnglishName("fontSubfamily");e=e||t.replace(/\s/g,"")+"-"+n+".otf";var r=this.toArrayBuffer();if(kt())window.requestFileSystem=window.requestFileSystem||window.webkitRequestFileSystem,window.requestFileSystem(window.TEMPORARY,r.byteLength,function(t){t.root.getFile(e,{create:!0},function(e){e.createWriter(function(t){var n=new DataView(r),i=new Blob([n],{type:"font/opentype"});t.write(i),t.addEventListener("writeend",function(){location.href=e.toURL()},!1)})})},function(e){throw new Error(e.name+": "+e.message)});else{var i=require("fs"),a=Bt(r);i.writeFileSync(e,a)}},Mr.prototype.fsSelectionValues={ITALIC:1,UNDERSCORE:2,NEGATIVE:4,OUTLINED:8,STRIKEOUT:16,BOLD:32,REGULAR:64,USER_TYPO_METRICS:128,WWS:256,OBLIQUE:512},Mr.prototype.usWidthClasses={ULTRA_CONDENSED:1,EXTRA_CONDENSED:2,CONDENSED:3,SEMI_CONDENSED:4,MEDIUM:5,SEMI_EXPANDED:6,EXPANDED:7,EXTRA_EXPANDED:8,ULTRA_EXPANDED:9},Mr.prototype.usWeightClasses={THIN:100,EXTRA_LIGHT:200,LIGHT:300,NORMAL:400,MEDIUM:500,SEMI_BOLD:600,BOLD:700,EXTRA_BOLD:800,BLACK:900};var wa={make:zr,parse:Wr},Oa={parse:$r},Ea={parse:ei},Da={parse:ti};e.Font=Mr,e.Glyph=se,e.Path=d,e.BoundingBox=h,e._parse=Li,e.parse=oi,e.load=li,e.loadSync=ui,Object.defineProperty(e,"__esModule",{value:!0})}),fs.define("specimenTools/loadFonts",["opentype"],function(e){"use strict";function t(e,t){var n=e.state,r=e.index,i=e.name,a=t.error,s=t.font,o=t.arraybuffer;a?(console.warn("Can't load font",i," with error:",a),n.countAll--):(n.pubsub.publish("loadFont",r,i,s,o),n.countLoaded+=1),n.countLoaded===n.countAll&&n.pubsub.publish("allFontsLoaded",n.countAll)}function n(t,n){var r=t||null,i=null;if(!t)try{i=e.parse(n)}catch(e){r=e}return{error:r,font:i,arraybuffer:n}}function r(e,r,i,a){var s,o,l,u,p;for(e.loaded[r]=s=n(i,a),o=e.queues[r],delete e.queues[r],l=0,u=o.length;l<u;l++)p=o[l],t(p,s)}function i(e,r,i){t(e,n(r,i))}function a(e,t){var n=new XMLHttpRequest,r=e.url;n.open("get",r,!0),n.responseType="arraybuffer",n.onload=function(){return 200!==n.status?t("Font could not be loaded: "+n.statusText):t(null,n.response)},n.send()}function s(e,t){e(null,this.result)}function o(e,t){e(this.error)}function l(e,t){var n=new FileReader;n.onload=s.bind(n,t),n.onerror=o.bind(n,t),n.readAsArrayBuffer(e)}function u(e,t){f(e,t,l)}function p(e,t,n){var r,i,s=[];for(r=0,i=t.length;r<i;r++){if(!t[r])throw new Error("The url at index "+r+" appears to be invalid.");s.push({name:t[r],url:t[r],
-key:t[r]})}f(e,s,a,n)}function c(e){"loaded"in e||(e.loaded=Object.create(null)),"queues"in e||(e.queues=Object.create(null))}function f(e,n,a,s){var o,l,u,p,f,h,d,m={countLoaded:0,countAll:n.length,pubsub:e};s&&c(s);e:for(o=0,l=n.length;o<l;o++){if(u=n[o],e.publish("prepareFont",o,u.name,l),h={state:m,index:o,name:u.name},f=null,s){if((p=u.key)in s.loaded){d=s.loaded[p],setTimeout(t.bind(null,h,d),0);continue e}p in s.queues||(s.queues[p]=[],f=r.bind(null,s,p)),s.queues[p].push(h)}else f=i.bind(null,h);f&&a(u,f)}}return u.needsPubSub=!0,{fromUrl:p,fromFileInput:u}}),fs.define("specimenTools/initDocumentWidgets",[],function(){"use strict";function e(e,t,n){var r,i,a,s,o,l,u,p,c,f,h=[];for(r=0,i=t.length;r<i;r++)if(a=t[r][0],s=e.getElementsByClassName(a),s.length)for(o=t[r][1],l=0,u=s.length;l<u;l++)p=s[l],h.push(p),c=[p,n],Array.prototype.push.apply(c,t[r].slice(2)),f=Object.create(o.prototype),o.apply(f,c);return h}return e}),fs.define("specimenTools/services/PubSub",[],function(){"use strict";function e(){this._callbacks=Object.create(null)}var t=e.prototype;return t.subscribe=function(e,t){var n=this._callbacks[e];n||(this._callbacks[e]=n=[]),n.push(t)},t.publish=function(e){var t,n,r=[],i=this._callbacks[e]||[];for(t=1,n=arguments.length;t<n;t++)r.push(arguments[t]);for(t=0,n=i.length;t<n;t++)i[t].apply(null,r)},e}),fs.define("specimenTools/services/dom-tool",[],function(){"use strict";function e(e,t,n){if(t)if("string"==typeof t&&(t=t.split(" ").filter(function(e){return!!e})),e.classList)e.classList[n?"remove":"add"].apply(e.classList,t);else{var r,i,a;n?(r=new Set(t),a=function(e){return!r.has(e)}):(i=new Set,e.setAttribute("class",e.getAttribute("class")+" "+t.join(" ")),a=function(e){return!i.has(e)&&(i.add(e),!0)}),e.setAttribute("class",e.getAttribute("class").split(" ").filter(a).join(" "))}}function t(e,t,n){var r=e.children||e.childNodes,i=r.length;void 0===n||n>i?n=i:n<0&&(n=r.length+n)<0&&(n=0),n===i?e.appendChild(t):e.insertBefore(t,r[n])}return{applyClasses:e,insertElement:t}}),fs.define("specimenTools/_BaseWidget",["./services/dom-tool"],function(e){"use strict";function t(e){this._options=this._makeOptions(e)}t.defaultOptions={};var n=t.prototype;return n.constructor=t,n._makeOptions=function(e){var t,n,r=e?Object.keys(e):[],i=Object.create(this.constructor.defaultOptions);for(t=0,n=r.length;t<n;t++)i[r[t]]=e[r[t]];return i},n._applyClasses=e.applyClasses,n._cssName2jsName=function(e){var t,n,r=e.split("-");for(t=1,n=r.length;t<n;t++)r[t]=r[t][0].toUpperCase()+r[t].slice(1);return r.join("")},t}),fs.define("require/text",["module"],function(e){"use strict";function t(e,t){return void 0===e||""===e?t:e}function n(e,n,r,i){if(n===i)return!0;if(e===r){if("http"===e)return t(n,"80")===t(i,"80");if("https"===e)return t(n,"443")===t(i,"443")}return!1}var r,i,a,s,o,l=["Msxml2.XMLHTTP","Microsoft.XMLHTTP","Msxml2.XMLHTTP.4.0"],u=/^\s*<\?xml(\s)+version=[\'\"](\d)*.(\d)*[\'\"](\s)*\?>/im,p=/<body[^>]*>\s*([\s\S]+)\s*<\/body>/im,c="undefined"!=typeof location&&location.href,f=c&&location.protocol&&location.protocol.replace(/\:/,""),h=c&&location.hostname,d=c&&(location.port||void 0),m={},g=e.config&&e.config()||{};return r={version:"2.0.15",strip:function(e){if(e){e=e.replace(u,"");var t=e.match(p);t&&(e=t[1])}else e="";return e},jsEscape:function(e){return e.replace(/(['\\])/g,"\\$1").replace(/[\f]/g,"\\f").replace(/[\b]/g,"\\b").replace(/[\n]/g,"\\n").replace(/[\t]/g,"\\t").replace(/[\r]/g,"\\r").replace(/[\u2028]/g,"\\u2028").replace(/[\u2029]/g,"\\u2029")},createXhr:g.createXhr||function(){var e,t,n;if("undefined"!=typeof XMLHttpRequest)return new XMLHttpRequest;if("undefined"!=typeof ActiveXObject)for(t=0;t<3;t+=1){n=l[t];try{e=new ActiveXObject(n)}catch(e){}if(e){l=[n];break}}return e},parseName:function(e){var t,n,r,i=!1,a=e.lastIndexOf("."),s=0===e.indexOf("./")||0===e.indexOf("../");return-1!==a&&(!s||a>1)?(t=e.substring(0,a),n=e.substring(a+1)):t=e,r=n||t,a=r.indexOf("!"),-1!==a&&(i="strip"===r.substring(a+1),r=r.substring(0,a),n?n=r:t=r),{moduleName:t,ext:n,strip:i}},xdRegExp:/^((\w+)\:)?\/\/([^\/\\]+)/,useXhr:function(e,t,i,a){var s,o,l,u=r.xdRegExp.exec(e);return!u||(s=u[2],o=u[3],o=o.split(":"),l=o[1],o=o[0],(!s||s===t)&&(!o||o.toLowerCase()===i.toLowerCase())&&(!l&&!o||n(s,l,t,a)))},finishLoad:function(e,t,n,i){n=t?r.strip(n):n,g.isBuild&&(m[e]=n),i(n)},load:function(e,t,n,i){if(i&&i.isBuild&&!i.inlineText)return void n();g.isBuild=i&&i.isBuild;var a=r.parseName(e),s=a.moduleName+(a.ext?"."+a.ext:""),o=t.toUrl(s),l=g.useXhr||r.useXhr;if(0===o.indexOf("empty:"))return void n();!c||l(o,f,h,d)?r.get(o,function(t){r.finishLoad(e,a.strip,t,n)},function(e){n.error&&n.error(e)}):t([s],function(e){r.finishLoad(a.moduleName+"."+a.ext,a.strip,e,n)})},write:function(e,t,n,i){if(m.hasOwnProperty(t)){var a=r.jsEscape(m[t]);n.asModule(e+"!"+t,"define(function () { return '"+a+"';});\n")}},writeFile:function(e,t,n,i,a){var s=r.parseName(t),o=s.ext?"."+s.ext:"",l=s.moduleName+o,u=n.toUrl(s.moduleName+o)+".js";r.load(l,n,function(t){var n=function(e){return i(u,e)};n.asModule=function(e,t){return i.asModule(e,u,t)},r.write(e,l,n,a)},a)}},"node"===g.env||!g.env&&"undefined"!=typeof process&&process.versions&&process.versions.node&&!process.versions["node-webkit"]&&!process.versions["atom-shell"]?(i=require.nodeRequire("fs"),r.get=function(e,t,n){try{var r=i.readFileSync(e,"utf8");"\ufeff"===r[0]&&(r=r.substring(1)),t(r)}catch(e){n&&n(e)}}):"xhr"===g.env||!g.env&&r.createXhr()?r.get=function(e,t,n,i){var a,s=r.createXhr();if(s.open("GET",e,!0),i)for(a in i)i.hasOwnProperty(a)&&s.setRequestHeader(a.toLowerCase(),i[a]);g.onXhr&&g.onXhr(s,e),s.onreadystatechange=function(r){var i,a;4===s.readyState&&(i=s.status||0,i>399&&i<600?(a=new Error(e+" HTTP status: "+i),a.xhr=s,n&&n(a)):t(s.responseText),g.onXhrComplete&&g.onXhrComplete(s,e))},s.send(null)}:"rhino"===g.env||!g.env&&"undefined"!=typeof Packages&&"undefined"!=typeof java?r.get=function(e,t){var n,r,i=new java.io.File(e),a=java.lang.System.getProperty("line.separator"),s=new java.io.BufferedReader(new java.io.InputStreamReader(new java.io.FileInputStream(i),"utf-8")),o="";try{for(n=new java.lang.StringBuffer,r=s.readLine(),r&&r.length()&&65279===r.charAt(0)&&(r=r.substring(1)),null!==r&&n.append(r);null!==(r=s.readLine());)n.append(a),n.append(r);o=String(n.toString())}finally{s.close()}t(o)}:("xpconnect"===g.env||!g.env&&"undefined"!=typeof Components&&Components.classes&&Components.interfaces)&&(a=Components.classes,s=Components.interfaces,Components.utils.import("resource://gre/modules/FileUtils.jsm"),o="@mozilla.org/windows-registry-key;1"in a,r.get=function(e,t){var n,r,i,l={};o&&(e=e.replace(/\//g,"\\")),i=new FileUtils.File(e);try{n=a["@mozilla.org/network/file-input-stream;1"].createInstance(s.nsIFileInputStream),n.init(i,1,0,!1),r=a["@mozilla.org/intl/converter-input-stream;1"].createInstance(s.nsIConverterInputStream),r.init(n,"utf-8",n.available(),s.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER),r.readString(n.available(),l),r.close(),n.close(),t(l.value)}catch(e){throw new Error((i&&i.path||"")+": "+e)}}),r}),fs.define("require/text!specimenTools/services/languageCharSets.json",[],function(){
-return'{"Afrikaans":"aáâbcdeéèêëfghiîïjklmnoôöpqrstuûvwxyzAÁÂBCDEÉÈÊËFGHIÎÏJKLMNOÔÖPQRSTUÛVWXYZ-‐–—,;:!?.…\'‘’\\\\\\"“”()[]§@*/&#†‡′″","Amharic":"ሀሁሂሃሄህሆለሉሊላሌልሎሏሐሑሒሓሔሕሖሗመሙሚማሜምሞሟሠሡሢሣሤሥሦሧረሩሪራሬርሮሯሰሱሲሳሴስሶሷሸሹሺሻሼሽሾሿቀቁቂቃቄቅቆቈቊቋቌቍበቡቢባቤብቦቧቨቩቪቫቬቭቮቯተቱቲታቴትቶቷቸቹቺቻቼችቾቿኀኁኂኃኄኅኆኈኊኋኌኍነኑኒናኔንኖኗኘኙኚኛኜኝኞኟአኡኢኣኤእኦኧከኩኪካኬክኮኰኲኳኴኵኸኹኺኻኼኽኾወዉዊዋዌውዎዐዑዒዓዔዕዖዘዙዚዛዜዝዞዟዠዡዢዣዤዥዦዧየዩዪያዬይዮደዱዲዳዴድዶዷጀጁጂጃጄጅጆጇገጉጊጋጌግጎጐጒጓጔጕጠጡጢጣጤጥጦጧጨጩጪጫጬጭጮጯጰጱጲጳጴጵጶጷጸጹጺጻጼጽጾጿፀፁፂፃፄፅፆፈፉፊፋፌፍፎፏፐፑፒፓፔፕፖፗ‐–,፡፣፤፥፦!?.።‹›«»()[]","Arabic":"ًٌٍَُِّْٰءأؤإئاآبةتثجحخدذرزسشصضطظعغفقكلمنهوىي-‐–—،؛:!؟.\'\\\\\\"()[]","Azerbaijani":"abcçdeəfgğhxıiİjkqlmnoöprsştuüvyzABCÇDEƏFGĞHXIJKQLMNOÖPRSŞTUÜVYZ-‐–—,;:!?.…\'‘’\\\\\\"“”()[]§@*/&#†‡′″","Belarusian":"абвгджзеёійклмнопрстуўфхцчшыьэюяАБВГДЖЗЕЁІЙКЛМНОПРСТУЎФХЦЧШЫЬЭЮЯ-,;:!?.«»()[]{}","Bulgarian":"абвгдежзийклмнопрстуфхцчшщъьюяАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ-‐–—,;:!?.…\'‘‚\\\\\\"“„()[]§*/″№","Bangla":"়৺অআইঈউঊঋৠঌৡএঐওঔংঃঁক\\\\u09CDষখগঘঙচছজঝঞটঠডBঢণতৎথদধনপফবভমযরলশসহঽািীুূৃৄৢৣেৈোৌ্ৗU-,;:!?.()[]{}","Bosnian":"abcčćdžđefghijklmnoprsštuvzABCČĆDŽĐEFGHIJKLMNOPRSŠTUVZ-,;:!?.()[]{}","Catalan":"·aàbcçdeéèfghiíïjklmnoóòpqrstuúüvwxyzAÀBCÇDEÉÈFGHIÍÏJKLMNOÓÒPQRSTUÚÜVWXYZ-‐–—,;:!¡?¿.…\'‘’\\\\\\"“”«»()[]§@*/\\\\\\\\&#†‡′″","Czech":"aábcčdďeéěfghiíjklmnňoópqrřsštťuúůvwxyýzžAÁBCČDĎEÉĚFGHIÍJKLMNŇOÓPQRŘSŠTŤUÚŮVWXYÝZŽ-‐–,;:!?.…‘‚“„()[]§@*/&","Welsh":"aáàâäbchdeéèêëfgniíìîïjlmoóòôöprstuúùûüwẃẁŵẅyýỳŷÿAÁÀÂÄBCHDEÉÈÊËFGNIÍÌÎÏJLMOÓÒÔÖPRSTUÚÙÛÜWẂẀŴẄYÝỲŶŸ-‐–—,;:!?.…\'‘’\\\\\\"“”()[]§@*/&#†‡′″","Danish":"abcdefghijklmnopqrstuvwxyzæøåABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ-‐–,;:!?.…\'‘’\\\\\\"“”()[]§@*/&#†′″","German":"aäbcdefghijklmnoöpqrsßtuüvwxyzAÄBCDEFGHIJKLMNOÖPQRSSSTUÜVWXYZ-‐–—,;:!?.…\'‘‚\\\\\\"“„«»()[]{}§@*/&#","Greek":"αάβγδεέζηήθιίϊΐκλμνξοόπρσςτυύϋΰφχψωώΑΆΒΓΔΕΈΖΗΉΘΙΊΪΪ́ΚΛΜΝΞΟΌΠΡΣΤΥΎΫΫ́ΦΧΨΩΏ-‐–—,;:!.…\\\\\\"«»()[]§@*/\\\\\\\\&","English":"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-‐–—,;:!?.…\'‘’\\\\\\"“”()[]§@*/&#†‡′″","Spanish":"aábcdeéfghiíïjklmnñoópqrstuúüvwxyýzAÁBCDEÉFGHIÍÏJKLMNÑOÓPQRSTUÚÜVWXYÝZ-‐–—,;:!¡?¿.…\'‘’\\\\\\"“”«»()[]§@*/\\\\\\\\&#†‡′″","Estonian":"abcdefghijklmnopqrsšzžtuvwõäöüxyABCDEFGHIJKLMNOPQRSŠZŽTUVWÕÄÖÜXY-,;:!?.()[]{}","Basque":"abcçdefghijklmnñopqrstuvwxyzABCÇDEFGHIJKLMNÑOPQRSTUVWXYZ-‐–—,;:!?.…\'‘’\\\\\\"“”()[]§@*/&#†‡′″","Persian":"ًٌٍّٔآاءأؤئبپتثجچحخدذرزژسشصضطظعغفقکگلمنوهةی-‐،٫٬؛:!؟.…‹›«»()[]*/\\\\\\\\","Finnish":"abcdefghijklmnopqrsštuvwxyzžåäöABCDEFGHIJKLMNOPQRSŠTUVWXYZŽÅÄÖ‐–,;:!?.…’”»()[]§@*/\\\\\\\\&#","Filipino":"abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ-‐–—,;:!?.…\'‘’\\\\\\"“”()[]§*/&#′″","Faroese":"aábdðefghiíjklmnoóprstuúvyýæøAÁBDÐEFGHIÍJKLMNOÓPRSTUÚVYÝÆØ-‐–,;:!?.…\'‘’\\\\\\"“”()[]§@*/&#†′″","French":"aàâæbcçdeéèêëfghiîïjklmnoôœpqrstuùûüvwxyÿzAÀÂÆBCÇDEÉÈÊËFGHIÎÏJKLMNOÔŒPQRSTUÙÛÜVWXYŸZ-‐–—,;:!?.…’\\\\\\"“”«»()[]§@*/&#†‡","Irish":"aábcdeéfghiílmnoóprstuúAÁBCDEÉFGHIÍLMNOÓPRSTUÚ-,;:!?.()[]{}","Galician":"aábcdeéfghiíjklmnñoópqrstuúüvwxyzAÁBCDEÉFGHIÍJKLMNÑOÓPQRSTUÚÜVWXYZ-‐–—,;:!?.…\'‘’\\\\\\"“”()[]§@*/&#†‡′″","Gujarati":"઼ૐંઁઃઅઆઇઈઉઊઋૠઍએઐઑઓઔકખગઘઙચછજઝઞટઠડઢણતથદધનપફબભમયરલવશષસહળઽાિીુૂૃૄૅેૈૉોૌ્-‐–—,;:!?.…\'‘’\\\\\\"“”()[]§@*/&#†‡′″","Hebrew":"אבגדהוזחטיכךלמםנןסעפףצץקרשת-‐–—,;:!?.׳\'\\\\\\"()[]/״־","Hindi":"़ॐंँःअआइईउऊऋऌऍएऐऑओऔकखगघङचछजझञटठडढणतथदधनपफबभमयरलळवशषसहऽािीुूृॄॅेैॉोौ्-,;:!?.‘’“”()[]{}॰","Croatian":"abcčćdžđefghijklmnoprsštuvzABCČĆDŽĐEFGHIJKLMNOPRSŠTUVZ‐–—,;:!?.…\'‘’‚\\\\\\"“”„()[]@*/′″","Hungarian":"aábcsdzeéfgyhiíjklmnoóöőprtuúüűvAÁBCSDZEÉFGYHIÍJKLMNOÓÖŐPRTUÚÜŰV-–,;:!?.…\'’\\\\\\"”„«»()[]{}⟨⟩§@*/&#~⁒","Armenian":"աբգդեզէըթժիլխծկհձղճմյնշոչպջռսվտրցւփքևօֆԱԲԳԴԵԶԷԸԹԺԻԼԽԾԿՀՁՂՃՄՅՆՇՈՉՊՋՌՍՎՏՐՑՒՓՔԵՒՕՖ֊,՝:՜՞.«»՚՛՟","Indonesian":"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ‐–—,;:!?.…\'‘’“”()[]/","Icelandic":"aábdðeéfghiíjklmnoóprstuúvxyýþæöAÁBDÐEÉFGHIÍJKLMNOÓPRSTUÚVXYÝÞÆÖ-‐–—,;:!?.…\'‘‚\\\\\\"“„()[]§@*/&#†‡′″","Italian":"aàbcdeéèfghiìjklmnoóòpqrstuùvwxyzAÀBCDEÉÈFGHIÌJKLMNOÓÒPQRSTUÙVWXYZ-—,;:!?.…\'’\\\\\\"“”«»()[]{}@/","Japanese":"々ゝヽゞヾーぁァあアぃィいイぅゥうウヴぇェえエぉォおオヵかカがガきキぎギくクぐグヶけケげゲこコごゴさサざザしシじジすスずズせセぜゼそソぞゾたタだダちチぢヂっッつツづヅてテでデとトどドなナにニぬヌねネのノはハばバぱパひヒびビぴピふフぶブぷプへヘべベぺペほホぼボぽポまマみミむムめメもモゃャやヤゅュゆユょョよヨらラりリるルれレろロゎヮわワゐヰゑヱをヲんン一丁七万丈三上下不与丑且世丘丙両並中丸丹主久乏乗乙九乱乳乾亀了予争事二互五井亜亡交亥亨享京亭人仁今介仏仕他付仙代令以仮仰仲件任企伊伏伐休会伝伯伴伸伺似但位低住佐体何余作佳併使例侍供依価侮侯侵便係促俊俗保信修俳俵俸俺倉個倍倒候借倣値倫倹偉偏停健側偵偶偽傍傑傘備催債傷傾働像僕僚僧儀億儒償優元兄充兆先光克免兎児党入全八公六共兵具典兼内円冊再冒冗写冠冬冷准凍凝凡処凶凸凹出刀刃分切刈刊刑列初判別利到制刷券刺刻則削前剖剛剣剤副剰割創劇力功加劣助努励労効劾勅勇勉動勘務勝募勢勤勧勲勺匁包化北匠匹区医匿十千升午半卑卒卓協南単博占卯印危即却卵卸厄厘厚原厳去参又及友双反収叔取受叙口古句叫召可台史右号司各合吉同名后吏吐向君吟否含吸吹呈呉告周味呼命和咲哀品員哲唆唇唐唯唱商問啓善喚喜喝喪喫営嗣嘆嘉嘱器噴嚇囚四回因団困囲図固国圏園土圧在地坂均坊坑坪垂型垣埋城域執培基埼堀堂堅堕堤堪報場塀塁塊塑塔塗塚塩塾境墓増墜墨墳墾壁壇壊壌士壬壮声壱売変夏夕外多夜夢大天太夫央失奇奈奉奏契奔奥奨奪奮女奴好如妃妄妊妙妥妨妹妻姉始姓委姫姻姿威娘娠娯婆婚婦婿媒嫁嫌嫡嬢子孔字存孝季孤学孫宅宇守安完宗官宙定宜宝実客宣室宮宰害宴宵家容宿寂寄寅密富寒寛寝察寡寧審寮寸寺対寿封専射将尉尊尋導小少尚就尺尼尽尾尿局居屈届屋展属層履屯山岐岡岩岬岳岸峠峡峰島崇崎崩川州巡巣工左巧巨差己巳巻市布帆希帝帥師席帯帰帳常帽幅幕幣干平年幸幹幻幼幽幾庁広床序底店庚府度座庫庭庶康庸廃廉廊延廷建弁弊式弐弓弔引弘弟弦弧弱張強弾当形彩彫彰影役彼往征径待律後徐徒従得御復循微徳徴徹心必忌忍志忘忙応忠快念怒怖思怠急性怪恋恐恒恥恨恩恭息恵悔悟悠患悦悩悪悲悼情惑惜惨惰想愁愉意愚愛感慈態慌慎慕慢慣慨慮慰慶憂憎憤憩憲憶憾懇懐懲懸戊戌成我戒戦戯戸戻房所扇扉手才打払扱扶批承技抄把抑投抗折抜択披抱抵抹押抽担拍拐拒拓拘拙招拝拠拡括拷拾持指挑挙挟振挿捕捜捨据掃授掌排掘掛採探接控推措掲描提揚換握揮援揺損搬搭携搾摂摘摩撃撤撮撲擁操擦擬支改攻放政故敏救敗教敢散敬数整敵敷文斉斎斗料斜斤斥断新方施旅旋族旗既日旧旨早旬昆昇昌明易昔星映春昨昭是昼時晩普景晴晶暁暇暑暖暗暦暫暮暴曇曜曲更書曹替最月有服朕朗望朝期木未末本札朱朴机朽杉材村束条来杯東松板析林枚果枝枠枢枯架柄某染柔柱柳査栄栓校株核根格栽桃案桑桜桟梅械棄棋棒棚棟森棺植検業極楼楽概構様槽標模権横樹橋機欄欠次欧欲欺款歌歓止正武歩歯歳歴死殉殊残殖殴段殺殻殿母毎毒比毛氏民気水氷永汁求汎汗汚江池決汽沈沖没沢河沸油治沼沿況泉泊泌法泡波泣泥注泰泳洋洗洞津洪活派流浄浅浜浦浪浮浴海浸消涙涯液涼淑淡深混添清渇済渉渋渓減渡渦温測港湖湯湾湿満源準溝溶滅滋滑滝滞滴漁漂漆漏演漠漢漫漬漸潔潜潟潤潮澄激濁濃濫濯瀬火灯灰災炉炊炎炭点為烈無焦然焼煙照煩煮熟熱燃燥爆爵父片版牙牛牧物牲特犠犬犯状狂狩独狭猛猟猪猫献猶猿獄獣獲玄率玉王珍珠班現球理琴環璽瓶甘甚生産用田由甲申男町画界畑畔留畜畝略番異畳疎疑疫疲疾病症痘痛痢痴療癒癖癸発登白百的皆皇皮皿盆益盗盛盟監盤目盲直相盾省看県真眠眺眼着睡督瞬矛矢知短矯石砂研砕砲破硝硫硬碁碑確磁磨礁礎示礼社祈祉祖祚祝神祥票祭禁禄禅禍禎福秀私秋科秒秘租秩称移程税稚種稲稼稿穀穂積穏穫穴究空突窃窒窓窮窯立竜章童端競竹笑笛符第筆等筋筒答策箇算管箱節範築篤簡簿籍米粉粋粒粗粘粛粧精糖糧糸系糾紀約紅紋納純紙級紛素紡索紫累細紳紹紺終組経結絞絡給統絵絶絹継続維綱網綿緊総緑緒線締編緩緯練縁縄縛縦縫縮績繁繊織繕繭繰缶罪置罰署罷羅羊美群義羽翁翌習翻翼老考者耐耕耗耳聖聞聴職肉肌肖肝肢肥肩肪肯育肺胃胆背胎胞胴胸能脂脅脈脚脱脳脹腐腕腰腸腹膚膜膨臓臣臨自臭至致興舌舎舗舞舟航般舶船艇艦良色芋芝花芳芸芽苗若苦英茂茎茶草荒荘荷菊菌菓菜華落葉著葬蒸蓄蔵薄薦薪薫薬藤藩藻虎虐虚虜虞虫蚊蚕蛇蛍蛮融血衆行術街衛衝衡衣表衰衷袋被裁裂装裏裕補裸製複褐褒襟襲西要覆覇見規視覚覧親観角解触言訂計討訓託記訟訪設許訳訴診証詐詔評詞詠試詩詰話該詳誇誉誌認誓誕誘語誠誤説読誰課調談請論諭諮諸諾謀謁謄謙講謝謡謹識譜警議譲護谷豆豊豚象豪貝貞負財貢貧貨販貫責貯貴買貸費貿賀賃賄資賊賓賛賜賞賠賢賦質購贈赤赦走赴起超越趣足距跡路跳践踊踏躍身車軌軍軒軟転軸軽較載輝輩輪輸轄辛辞辰辱農辺込迅迎近返迫迭述迷追退送逃逆透逐逓途通逝速造連逮週進逸遂遅遇遊運遍過道達違遠遣適遭遮遵遷選遺避還邦邪邸郊郎郡部郭郵郷都酉酌配酒酔酢酪酬酵酷酸醜醸釈里重野量金針釣鈍鈴鉄鉛鉢鉱銀銃銅銑銘銭鋭鋳鋼錘錠錬錯録鍛鎖鎮鏡鐘鑑長門閉開閏閑間関閣閥閲闘阪防阻附降限陛院陣除陥陪陰陳陵陶陸険陽隅隆隊階随隔際障隠隣隷隻雄雅集雇雉雌雑離難雨雪雰雲零雷電需震霊霜霧露青静非面革靴韓音韻響頂頃項順預頑頒領頭頻頼題額顔顕願類顧風飛食飢飯飲飼飽飾養餓館首香馬駄駅駆駐騎騒験騰驚骨髄高髪鬼魂魅魔魚鮮鯨鳥鳴鶏鹿麗麦麻黄黒黙鼓鼠鼻齢‾_＿-－‐—―〜・･,，、､;；:：!！?？.．‥…。｡＇‘’\\\\\\"＂“”(（)）[［]］{｛}｝〈〉《》「｢」｣『』【】〔〕‖§¶@＠*＊/／\\\\\\\\＼&＆#＃%％‰†‡′″〃※","Georgian":"აბგდევზთიკლმნოპჟრსტუფქღყშჩცძწჭხჯჰ-‐–—,;:!?.…჻\'‘‚“„«»()[]{}§@*/&#†‡′″№","Kazakh":"аәбвгғдеёжзийкқлмнңоөпрстуұүфхһцчшщъыіьэюяАӘБВГҒДЕЁЖЗИЙКҚЛМНҢОӨПРСТУҰҮФХҺЦЧШЩЪЫІЬЭЮЯ-‐–—,;:!?.…\'‘’\\\\\\"“”«»()[]{}§@*/&#","Khmer":"័ៈ់៉៊៍កខគឃងចឆជឈញដឋឌឍណតថទធនបផពភមយរឫឬលឭឮវសហឡអាឥឦឧឩឪឯឰឱឲឳិីឹឺុូួើឿៀេែៃោៅំះ្-,៖!?.។៕‘’\\\\\\"“”()[]{}៙៚","Kannada":"಼೦೧೨೩೪೫೬೭೮೯ಅಆಇಈಉಊಋೠಌೡಎಏಐಒಓಔಂಃಕಖಗಘಙಚಛಜಝಞಟಠಡಢಣತಥದಧನಪಫಬಭಮಯರಱಲವಶಷಸಹಳಽಾಿೀುೂೃೄೆೇೈೊೋೌ್ೕೖ-‐–—,;:!?.…\'‘’\\\\\\"“”()[]@*/&#′″","Korean":"가각갂갃간갅갆갇갈갉갊갋갌갍갎갏감갑값갓갔강갖갗갘같갚갛개객갞갟갠갡갢갣갤갥갦갧갨갩갪갫갬갭갮갯갰갱갲갳갴갵갶갷갸갹갺갻갼갽갾갿걀걁걂걃걄걅걆걇걈걉걊걋걌걍걎걏걐걑걒걓걔걕걖걗걘걙걚걛걜걝걞걟걠걡걢걣걤걥걦걧걨걩걪걫걬걭걮걯거걱걲걳건걵걶걷걸걹걺걻걼걽걾걿검겁겂것겄겅겆겇겈겉겊겋게겍겎겏겐겑겒겓겔겕겖겗겘겙겚겛겜겝겞겟겠겡겢겣겤겥겦겧겨격겪겫견겭겮겯결겱겲겳겴겵겶겷겸겹겺겻겼경겾겿곀곁곂곃계곅곆곇곈곉곊곋곌곍곎곏곐곑곒곓곔곕곖곗곘곙곚곛곜곝곞곟고곡곢곣곤곥곦곧골곩곪곫곬곭곮곯곰곱곲곳곴공곶곷곸곹곺곻과곽곾곿관괁괂괃괄괅괆괇괈괉괊괋괌괍괎괏괐광괒괓괔괕괖괗괘괙괚괛괜괝괞괟괠괡괢괣괤괥괦괧괨괩괪괫괬괭괮괯괰괱괲괳괴괵괶괷괸괹괺괻괼괽괾괿굀굁굂굃굄굅굆굇굈굉굊굋굌굍굎굏교굑굒굓굔굕굖굗굘굙굚굛굜굝굞굟굠굡굢굣굤굥굦굧굨굩굪굫구국굮굯군굱굲굳굴굵굶굷굸굹굺굻굼굽굾굿궀궁궂궃궄궅궆궇궈궉궊궋권궍궎궏궐궑궒궓궔궕궖궗궘궙궚궛궜궝궞궟궠궡궢궣궤궥궦궧궨궩궪궫궬궭궮궯궰궱궲궳궴궵궶궷궸궹궺궻궼궽궾궿귀귁귂귃귄귅귆귇귈귉귊귋귌귍귎귏귐귑귒귓귔귕귖귗귘귙귚귛규귝귞귟균귡귢귣귤귥귦귧귨귩귪귫귬귭귮귯귰귱귲귳귴귵귶귷그극귺귻근귽귾귿글긁긂긃긄긅긆긇금급긊긋긌긍긎긏긐긑긒긓긔긕긖긗긘긙긚긛긜긝긞긟긠긡긢긣긤긥긦긧긨긩긪긫긬긭긮긯기긱긲긳긴긵긶긷길긹긺긻긼긽긾긿김깁깂깃깄깅깆깇깈깉깊깋까깍깎깏깐깑깒깓깔깕깖깗깘깙깚깛깜깝깞깟깠깡깢깣깤깥깦깧깨깩깪깫깬깭깮깯깰깱깲깳깴깵깶깷깸깹깺깻깼깽깾깿꺀꺁꺂꺃꺄꺅꺆꺇꺈꺉꺊꺋꺌꺍꺎꺏꺐꺑꺒꺓꺔꺕꺖꺗꺘꺙꺚꺛꺜꺝꺞꺟꺠꺡꺢꺣꺤꺥꺦꺧꺨꺩꺪꺫꺬꺭꺮꺯꺰꺱꺲꺳꺴꺵꺶꺷꺸꺹꺺꺻꺼꺽꺾꺿껀껁껂껃껄껅껆껇껈껉껊껋껌껍껎껏껐껑껒껓껔껕껖껗께껙껚껛껜껝껞껟껠껡껢껣껤껥껦껧껨껩껪껫껬껭껮껯껰껱껲껳껴껵껶껷껸껹껺껻껼껽껾껿꼀꼁꼂꼃꼄꼅꼆꼇꼈꼉꼊꼋꼌꼍꼎꼏꼐꼑꼒꼓꼔꼕꼖꼗꼘꼙꼚꼛꼜꼝꼞꼟꼠꼡꼢꼣꼤꼥꼦꼧꼨꼩꼪꼫꼬꼭꼮꼯꼰꼱꼲꼳꼴꼵꼶꼷꼸꼹꼺꼻꼼꼽꼾꼿꽀꽁꽂꽃꽄꽅꽆꽇꽈꽉꽊꽋꽌꽍꽎꽏꽐꽑꽒꽓꽔꽕꽖꽗꽘꽙꽚꽛꽜꽝꽞꽟꽠꽡꽢꽣꽤꽥꽦꽧꽨꽩꽪꽫꽬꽭꽮꽯꽰꽱꽲꽳꽴꽵꽶꽷꽸꽹꽺꽻꽼꽽꽾꽿꾀꾁꾂꾃꾄꾅꾆꾇꾈꾉꾊꾋꾌꾍꾎꾏꾐꾑꾒꾓꾔꾕꾖꾗꾘꾙꾚꾛꾜꾝꾞꾟꾠꾡꾢꾣꾤꾥꾦꾧꾨꾩꾪꾫꾬꾭꾮꾯꾰꾱꾲꾳꾴꾵꾶꾷꾸꾹꾺꾻꾼꾽꾾꾿꿀꿁꿂꿃꿄꿅꿆꿇꿈꿉꿊꿋꿌꿍꿎꿏꿐꿑꿒꿓꿔꿕꿖꿗꿘꿙꿚꿛꿜꿝꿞꿟꿠꿡꿢꿣꿤꿥꿦꿧꿨꿩꿪꿫꿬꿭꿮꿯꿰꿱꿲꿳꿴꿵꿶꿷꿸꿹꿺꿻꿼꿽꿾꿿뀀뀁뀂뀃뀄뀅뀆뀇뀈뀉뀊뀋뀌뀍뀎뀏뀐뀑뀒뀓뀔뀕뀖뀗뀘뀙뀚뀛뀜뀝뀞뀟뀠뀡뀢뀣뀤뀥뀦뀧뀨뀩뀪뀫뀬뀭뀮뀯뀰뀱뀲뀳뀴뀵뀶뀷뀸뀹뀺뀻뀼뀽뀾뀿끀끁끂끃끄끅끆끇끈끉끊끋끌끍끎끏끐끑끒끓끔끕끖끗끘끙끚끛끜끝끞끟끠끡끢끣끤끥끦끧끨끩끪끫끬끭끮끯끰끱끲끳끴끵끶끷끸끹끺끻끼끽끾끿낀낁낂낃낄낅낆낇낈낉낊낋낌낍낎낏낐낑낒낓낔낕낖낗나낙낚낛난낝낞낟날낡낢낣낤낥낦낧남납낪낫났낭낮낯낰낱낲낳내낵낶낷낸낹낺낻낼낽낾낿냀냁냂냃냄냅냆냇냈냉냊냋냌냍냎냏냐냑냒냓냔냕냖냗냘냙냚냛냜냝냞냟냠냡냢냣냤냥냦냧냨냩냪냫냬냭냮냯냰냱냲냳냴냵냶냷냸냹냺냻냼냽냾냿넀넁넂넃넄넅넆넇너넉넊넋넌넍넎넏널넑넒넓넔넕넖넗넘넙넚넛넜넝넞넟넠넡넢넣네넥넦넧넨넩넪넫넬넭넮넯넰넱넲넳넴넵넶넷넸넹넺넻넼넽넾넿녀녁녂녃년녅녆녇녈녉녊녋녌녍녎녏념녑녒녓녔녕녖녗녘녙녚녛녜녝녞녟녠녡녢녣녤녥녦녧녨녩녪녫녬녭녮녯녰녱녲녳녴녵녶녷노녹녺녻논녽녾녿놀놁놂놃놄놅놆놇놈놉놊놋놌농놎놏놐놑높놓놔놕놖놗놘놙놚놛놜놝놞놟놠놡놢놣놤놥놦놧놨놩놪놫놬놭놮놯놰놱놲놳놴놵놶놷놸놹놺놻놼놽놾놿뇀뇁뇂뇃뇄뇅뇆뇇뇈뇉뇊뇋뇌뇍뇎뇏뇐뇑뇒뇓뇔뇕뇖뇗뇘뇙뇚뇛뇜뇝뇞뇟뇠뇡뇢뇣뇤뇥뇦뇧뇨뇩뇪뇫뇬뇭뇮뇯뇰뇱뇲뇳뇴뇵뇶뇷뇸뇹뇺뇻뇼뇽뇾뇿눀눁눂눃누눅눆눇눈눉눊눋눌눍눎눏눐눑눒눓눔눕눖눗눘눙눚눛눜눝눞눟눠눡눢눣눤눥눦눧눨눩눪눫눬눭눮눯눰눱눲눳눴눵눶눷눸눹눺눻눼눽눾눿뉀뉁뉂뉃뉄뉅뉆뉇뉈뉉뉊뉋뉌뉍뉎뉏뉐뉑뉒뉓뉔뉕뉖뉗뉘뉙뉚뉛뉜뉝뉞뉟뉠뉡뉢뉣뉤뉥뉦뉧뉨뉩뉪뉫뉬뉭뉮뉯뉰뉱뉲뉳뉴뉵뉶뉷뉸뉹뉺뉻뉼뉽뉾뉿늀늁늂늃늄늅늆늇늈늉늊늋늌늍늎늏느늑늒늓는늕늖늗늘늙늚늛늜늝늞늟늠늡늢늣늤능늦늧늨늩늪늫늬늭늮늯늰늱늲늳늴늵늶늷늸늹늺늻늼늽늾늿닀닁닂닃닄닅닆닇니닉닊닋닌닍닎닏닐닑닒닓닔닕닖닗님닙닚닛닜닝닞닟닠닡닢닣다닥닦닧단닩닪닫달닭닮닯닰닱닲닳담답닶닷닸당닺닻닼닽닾닿대댁댂댃댄댅댆댇댈댉댊댋댌댍댎댏댐댑댒댓댔댕댖댗댘댙댚댛댜댝댞댟댠댡댢댣댤댥댦댧댨댩댪댫댬댭댮댯댰댱댲댳댴댵댶댷댸댹댺댻댼댽댾댿덀덁덂덃덄덅덆덇덈덉덊덋덌덍덎덏덐덑덒덓더덕덖덗던덙덚덛덜덝덞덟덠덡덢덣덤덥덦덧덨덩덪덫덬덭덮덯데덱덲덳덴덵덶덷델덹덺덻덼덽덾덿뎀뎁뎂뎃뎄뎅뎆뎇뎈뎉뎊뎋뎌뎍뎎뎏뎐뎑뎒뎓뎔뎕뎖뎗뎘뎙뎚뎛뎜뎝뎞뎟뎠뎡뎢뎣뎤뎥뎦뎧뎨뎩뎪뎫뎬뎭뎮뎯뎰뎱뎲뎳뎴뎵뎶뎷뎸뎹뎺뎻뎼뎽뎾뎿돀돁돂돃도독돆돇돈돉돊돋돌돍돎돏돐돑돒돓돔돕돖돗돘동돚돛돜돝돞돟돠돡돢돣돤돥돦돧돨돩돪돫돬돭돮돯돰돱돲돳돴돵돶돷돸돹돺돻돼돽돾돿됀됁됂됃됄됅됆됇됈됉됊됋됌됍됎됏됐됑됒됓됔됕됖됗되됙됚됛된됝됞됟될됡됢됣됤됥됦됧됨됩됪됫됬됭됮됯됰됱됲됳됴됵됶됷됸됹됺됻됼됽됾됿둀둁둂둃둄둅둆둇둈둉둊둋둌둍둎둏두둑둒둓둔둕둖둗둘둙둚둛둜둝둞둟둠둡둢둣둤둥둦둧둨둩둪둫둬둭둮둯둰둱둲둳둴둵둶둷둸둹둺둻둼둽둾둿뒀뒁뒂뒃뒄뒅뒆뒇뒈뒉뒊뒋뒌뒍뒎뒏뒐뒑뒒뒓뒔뒕뒖뒗뒘뒙뒚뒛뒜뒝뒞뒟뒠뒡뒢뒣뒤뒥뒦뒧뒨뒩뒪뒫뒬뒭뒮뒯뒰뒱뒲뒳뒴뒵뒶뒷뒸뒹뒺뒻뒼뒽뒾뒿듀듁듂듃듄듅듆듇듈듉듊듋듌듍듎듏듐듑듒듓듔듕듖듗듘듙듚듛드득듞듟든듡듢듣들듥듦듧듨듩듪듫듬듭듮듯듰등듲듳듴듵듶듷듸듹듺듻듼듽듾듿딀딁딂딃딄딅딆딇딈딉딊딋딌딍딎딏딐딑딒딓디딕딖딗딘딙딚딛딜딝딞딟딠딡딢딣딤딥딦딧딨딩딪딫딬딭딮딯따딱딲딳딴딵딶딷딸딹딺딻딼딽딾딿땀땁땂땃땄땅땆땇땈땉땊땋때땍땎땏땐땑땒땓땔땕땖땗땘땙땚땛땜땝땞땟땠땡땢땣땤땥땦땧땨땩땪땫땬땭땮땯땰땱땲땳땴땵땶땷땸땹땺땻땼땽땾땿떀떁떂떃떄떅떆떇떈떉떊떋떌떍떎떏떐떑떒떓떔떕떖떗떘떙떚떛떜떝떞떟떠떡떢떣떤떥떦떧떨떩떪떫떬떭떮떯떰떱떲떳떴떵떶떷떸떹떺떻떼떽떾떿뗀뗁뗂뗃뗄뗅뗆뗇뗈뗉뗊뗋뗌뗍뗎뗏뗐뗑뗒뗓뗔뗕뗖뗗뗘뗙뗚뗛뗜뗝뗞뗟뗠뗡뗢뗣뗤뗥뗦뗧뗨뗩뗪뗫뗬뗭뗮뗯뗰뗱뗲뗳뗴뗵뗶뗷뗸뗹뗺뗻뗼뗽뗾뗿똀똁똂똃똄똅똆똇똈똉똊똋똌똍똎똏또똑똒똓똔똕똖똗똘똙똚똛똜똝똞똟똠똡똢똣똤똥똦똧똨똩똪똫똬똭똮똯똰똱똲똳똴똵똶똷똸똹똺똻똼똽똾똿뙀뙁뙂뙃뙄뙅뙆뙇뙈뙉뙊뙋뙌뙍뙎뙏뙐뙑뙒뙓뙔뙕뙖뙗뙘뙙뙚뙛뙜뙝뙞뙟뙠뙡뙢뙣뙤뙥뙦뙧뙨뙩뙪뙫뙬뙭뙮뙯뙰뙱뙲뙳뙴뙵뙶뙷뙸뙹뙺뙻뙼뙽뙾뙿뚀뚁뚂뚃뚄뚅뚆뚇뚈뚉뚊뚋뚌뚍뚎뚏뚐뚑뚒뚓뚔뚕뚖뚗뚘뚙뚚뚛뚜뚝뚞뚟뚠뚡뚢뚣뚤뚥뚦뚧뚨뚩뚪뚫뚬뚭뚮뚯뚰뚱뚲뚳뚴뚵뚶뚷뚸뚹뚺뚻뚼뚽뚾뚿뛀뛁뛂뛃뛄뛅뛆뛇뛈뛉뛊뛋뛌뛍뛎뛏뛐뛑뛒뛓뛔뛕뛖뛗뛘뛙뛚뛛뛜뛝뛞뛟뛠뛡뛢뛣뛤뛥뛦뛧뛨뛩뛪뛫뛬뛭뛮뛯뛰뛱뛲뛳뛴뛵뛶뛷뛸뛹뛺뛻뛼뛽뛾뛿뜀뜁뜂뜃뜄뜅뜆뜇뜈뜉뜊뜋뜌뜍뜎뜏뜐뜑뜒뜓뜔뜕뜖뜗뜘뜙뜚뜛뜜뜝뜞뜟뜠뜡뜢뜣뜤뜥뜦뜧뜨뜩뜪뜫뜬뜭뜮뜯뜰뜱뜲뜳뜴뜵뜶뜷뜸뜹뜺뜻뜼뜽뜾뜿띀띁띂띃띄띅띆띇띈띉띊띋띌띍띎띏띐띑띒띓띔띕띖띗띘띙띚띛띜띝띞띟띠띡띢띣띤띥띦띧띨띩띪띫띬띭띮띯띰띱띲띳띴띵띶띷띸띹띺띻라락띾띿란랁랂랃랄랅랆랇랈랉랊랋람랍랎랏랐랑랒랓랔랕랖랗래랙랚랛랜랝랞랟랠랡랢랣랤랥랦랧램랩랪랫랬랭랮랯랰랱랲랳랴략랶랷랸랹랺랻랼랽랾랿럀럁럂럃럄럅럆럇럈량럊럋럌럍럎럏럐럑럒럓럔럕럖럗럘럙럚럛럜럝럞럟럠럡럢럣럤럥럦럧럨럩럪럫러럭럮럯런럱럲럳럴럵럶럷럸럹럺럻럼럽럾럿렀렁렂렃렄렅렆렇레렉렊렋렌렍렎렏렐렑렒렓렔렕렖렗렘렙렚렛렜렝렞렟렠렡렢렣려력렦렧련렩렪렫렬렭렮렯렰렱렲렳렴렵렶렷렸령렺렻렼렽렾렿례롁롂롃롄롅롆롇롈롉롊롋롌롍롎롏롐롑롒롓롔롕롖롗롘롙롚롛로록롞롟론롡롢롣롤롥롦롧롨롩롪롫롬롭롮롯롰롱롲롳롴롵롶롷롸롹롺롻롼롽롾롿뢀뢁뢂뢃뢄뢅뢆뢇뢈뢉뢊뢋뢌뢍뢎뢏뢐뢑뢒뢓뢔뢕뢖뢗뢘뢙뢚뢛뢜뢝뢞뢟뢠뢡뢢뢣뢤뢥뢦뢧뢨뢩뢪뢫뢬뢭뢮뢯뢰뢱뢲뢳뢴뢵뢶뢷뢸뢹뢺뢻뢼뢽뢾뢿룀룁룂룃룄룅룆룇룈룉룊룋료룍룎룏룐룑룒룓룔룕룖룗룘룙룚룛룜룝룞룟룠룡룢룣룤룥룦룧루룩룪룫룬룭룮룯룰룱룲룳룴룵룶룷룸룹룺룻룼룽룾룿뤀뤁뤂뤃뤄뤅뤆뤇뤈뤉뤊뤋뤌뤍뤎뤏뤐뤑뤒뤓뤔뤕뤖뤗뤘뤙뤚뤛뤜뤝뤞뤟뤠뤡뤢뤣뤤뤥뤦뤧뤨뤩뤪뤫뤬뤭뤮뤯뤰뤱뤲뤳뤴뤵뤶뤷뤸뤹뤺뤻뤼뤽뤾뤿륀륁륂륃륄륅륆륇륈륉륊륋륌륍륎륏륐륑륒륓륔륕륖륗류륙륚륛륜륝륞륟률륡륢륣륤륥륦륧륨륩륪륫륬륭륮륯륰륱륲륳르륵륶륷른륹륺륻를륽륾륿릀릁릂릃름릅릆릇릈릉릊릋릌릍릎릏릐릑릒릓릔릕릖릗릘릙릚릛릜릝릞릟릠릡릢릣릤릥릦릧릨릩릪릫리릭릮릯린릱릲릳릴릵릶릷릸릹릺릻림립릾릿맀링맂맃맄맅맆맇마막맊맋만맍많맏말맑맒맓맔맕맖맗맘맙맚맛맜망맞맟맠맡맢맣매맥맦맧맨맩맪맫맬맭맮맯맰맱맲맳맴맵맶맷맸맹맺맻맼맽맾맿먀먁먂먃먄먅먆먇먈먉먊먋먌먍먎먏먐먑먒먓먔먕먖먗먘먙먚먛먜먝먞먟먠먡먢먣먤먥먦먧먨먩먪먫먬먭먮먯먰먱먲먳먴먵먶먷머먹먺먻먼먽먾먿멀멁멂멃멄멅멆멇멈멉멊멋멌멍멎멏멐멑멒멓메멕멖멗멘멙멚멛멜멝멞멟멠멡멢멣멤멥멦멧멨멩멪멫멬멭멮멯며멱멲멳면멵멶멷멸멹멺멻멼멽멾멿몀몁몂몃몄명몆몇몈몉몊몋몌몍몎몏몐몑몒몓몔몕몖몗몘몙몚몛몜몝몞몟몠몡몢몣몤몥몦몧모목몪몫몬몭몮몯몰몱몲몳몴몵몶몷몸몹몺못몼몽몾몿뫀뫁뫂뫃뫄뫅뫆뫇뫈뫉뫊뫋뫌뫍뫎뫏뫐뫑뫒뫓뫔뫕뫖뫗뫘뫙뫚뫛뫜뫝뫞뫟뫠뫡뫢뫣뫤뫥뫦뫧뫨뫩뫪뫫뫬뫭뫮뫯뫰뫱뫲뫳뫴뫵뫶뫷뫸뫹뫺뫻뫼뫽뫾뫿묀묁묂묃묄묅묆묇묈묉묊묋묌묍묎묏묐묑묒묓묔묕묖묗묘묙묚묛묜묝묞묟묠묡묢묣묤묥묦묧묨묩묪묫묬묭묮묯묰묱묲묳무묵묶묷문묹묺묻물묽묾묿뭀뭁뭂뭃뭄뭅뭆뭇뭈뭉뭊뭋뭌뭍뭎뭏뭐뭑뭒뭓뭔뭕뭖뭗뭘뭙뭚뭛뭜뭝뭞뭟뭠뭡뭢뭣뭤뭥뭦뭧뭨뭩뭪뭫뭬뭭뭮뭯뭰뭱뭲뭳뭴뭵뭶뭷뭸뭹뭺뭻뭼뭽뭾뭿뮀뮁뮂뮃뮄뮅뮆뮇뮈뮉뮊뮋뮌뮍뮎뮏뮐뮑뮒뮓뮔뮕뮖뮗뮘뮙뮚뮛뮜뮝뮞뮟뮠뮡뮢뮣뮤뮥뮦뮧뮨뮩뮪뮫뮬뮭뮮뮯뮰뮱뮲뮳뮴뮵뮶뮷뮸뮹뮺뮻뮼뮽뮾뮿므믁믂믃믄믅믆믇믈믉믊믋믌믍믎믏믐믑믒믓믔믕믖믗믘믙믚믛믜믝믞믟믠믡믢믣믤믥믦믧믨믩믪믫믬믭믮믯믰믱믲믳믴믵믶믷미믹믺믻민믽믾믿밀밁밂밃밄밅밆밇밈밉밊밋밌밍밎및밐밑밒밓바박밖밗반밙밚받발밝밞밟밠밡밢밣밤밥밦밧밨방밪밫밬밭밮밯배백밲밳밴밵밶밷밸밹밺밻밼밽밾밿뱀뱁뱂뱃뱄뱅뱆뱇뱈뱉뱊뱋뱌뱍뱎뱏뱐뱑뱒뱓뱔뱕뱖뱗뱘뱙뱚뱛뱜뱝뱞뱟뱠뱡뱢뱣뱤뱥뱦뱧뱨뱩뱪뱫뱬뱭뱮뱯뱰뱱뱲뱳뱴뱵뱶뱷뱸뱹뱺뱻뱼뱽뱾뱿벀벁벂벃버벅벆벇번벉벊벋벌벍벎벏벐벑벒벓범법벖벗벘벙벚벛벜벝벞벟베벡벢벣벤벥벦벧벨벩벪벫벬벭벮벯벰벱벲벳벴벵벶벷벸벹벺벻벼벽벾벿변볁볂볃별볅볆볇볈볉볊볋볌볍볎볏볐병볒볓볔볕볖볗볘볙볚볛볜볝볞볟볠볡볢볣볤볥볦볧볨볩볪볫볬볭볮볯볰볱볲볳보복볶볷본볹볺볻볼볽볾볿봀봁봂봃봄봅봆봇봈봉봊봋봌봍봎봏봐봑봒봓봔봕봖봗봘봙봚봛봜봝봞봟봠봡봢봣봤봥봦봧봨봩봪봫봬봭봮봯봰봱봲봳봴봵봶봷봸봹봺봻봼봽봾봿뵀뵁뵂뵃뵄뵅뵆뵇뵈뵉뵊뵋뵌뵍뵎뵏뵐뵑뵒뵓뵔뵕뵖뵗뵘뵙뵚뵛뵜뵝뵞뵟뵠뵡뵢뵣뵤뵥뵦뵧뵨뵩뵪뵫뵬뵭뵮뵯뵰뵱뵲뵳뵴뵵뵶뵷뵸뵹뵺뵻뵼뵽뵾뵿부북붂붃분붅붆붇불붉붊붋붌붍붎붏붐붑붒붓붔붕붖붗붘붙붚붛붜붝붞붟붠붡붢붣붤붥붦붧붨붩붪붫붬붭붮붯붰붱붲붳붴붵붶붷붸붹붺붻붼붽붾붿뷀뷁뷂뷃뷄뷅뷆뷇뷈뷉뷊뷋뷌뷍뷎뷏뷐뷑뷒뷓뷔뷕뷖뷗뷘뷙뷚뷛뷜뷝뷞뷟뷠뷡뷢뷣뷤뷥뷦뷧뷨뷩뷪뷫뷬뷭뷮뷯뷰뷱뷲뷳뷴뷵뷶뷷뷸뷹뷺뷻뷼뷽뷾뷿븀븁븂븃븄븅븆븇븈븉븊븋브븍븎븏븐븑븒븓블븕븖븗븘븙븚븛븜븝븞븟븠븡븢븣븤븥븦븧븨븩븪븫븬븭븮븯븰븱븲븳븴븵븶븷븸븹븺븻븼븽븾븿빀빁빂빃비빅빆빇빈빉빊빋빌빍빎빏빐빑빒빓빔빕빖빗빘빙빚빛빜빝빞빟빠빡빢빣빤빥빦빧빨빩빪빫빬빭빮빯빰빱빲빳빴빵빶빷빸빹빺빻빼빽빾빿뺀뺁뺂뺃뺄뺅뺆뺇뺈뺉뺊뺋뺌뺍뺎뺏뺐뺑뺒뺓뺔뺕뺖뺗뺘뺙뺚뺛뺜뺝뺞뺟뺠뺡뺢뺣뺤뺥뺦뺧뺨뺩뺪뺫뺬뺭뺮뺯뺰뺱뺲뺳뺴뺵뺶뺷뺸뺹뺺뺻뺼뺽뺾뺿뻀뻁뻂뻃뻄뻅뻆뻇뻈뻉뻊뻋뻌뻍뻎뻏뻐뻑뻒뻓뻔뻕뻖뻗뻘뻙뻚뻛뻜뻝뻞뻟뻠뻡뻢뻣뻤뻥뻦뻧뻨뻩뻪뻫뻬뻭뻮뻯뻰뻱뻲뻳뻴뻵뻶뻷뻸뻹뻺뻻뻼뻽뻾뻿뼀뼁뼂뼃뼄뼅뼆뼇뼈뼉뼊뼋뼌뼍뼎뼏뼐뼑뼒뼓뼔뼕뼖뼗뼘뼙뼚뼛뼜뼝뼞뼟뼠뼡뼢뼣뼤뼥뼦뼧뼨뼩뼪뼫뼬뼭뼮뼯뼰뼱뼲뼳뼴뼵뼶뼷뼸뼹뼺뼻뼼뼽뼾뼿뽀뽁뽂뽃뽄뽅뽆뽇뽈뽉뽊뽋뽌뽍뽎뽏뽐뽑뽒뽓뽔뽕뽖뽗뽘뽙뽚뽛뽜뽝뽞뽟뽠뽡뽢뽣뽤뽥뽦뽧뽨뽩뽪뽫뽬뽭뽮뽯뽰뽱뽲뽳뽴뽵뽶뽷뽸뽹뽺뽻뽼뽽뽾뽿뾀뾁뾂뾃뾄뾅뾆뾇뾈뾉뾊뾋뾌뾍뾎뾏뾐뾑뾒뾓뾔뾕뾖뾗뾘뾙뾚뾛뾜뾝뾞뾟뾠뾡뾢뾣뾤뾥뾦뾧뾨뾩뾪뾫뾬뾭뾮뾯뾰뾱뾲뾳뾴뾵뾶뾷뾸뾹뾺뾻뾼뾽뾾뾿뿀뿁뿂뿃뿄뿅뿆뿇뿈뿉뿊뿋뿌뿍뿎뿏뿐뿑뿒뿓뿔뿕뿖뿗뿘뿙뿚뿛뿜뿝뿞뿟뿠뿡뿢뿣뿤뿥뿦뿧뿨뿩뿪뿫뿬뿭뿮뿯뿰뿱뿲뿳뿴뿵뿶뿷뿸뿹뿺뿻뿼뿽뿾뿿쀀쀁쀂쀃쀄쀅쀆쀇쀈쀉쀊쀋쀌쀍쀎쀏쀐쀑쀒쀓쀔쀕쀖쀗쀘쀙쀚쀛쀜쀝쀞쀟쀠쀡쀢쀣쀤쀥쀦쀧쀨쀩쀪쀫쀬쀭쀮쀯쀰쀱쀲쀳쀴쀵쀶쀷쀸쀹쀺쀻쀼쀽쀾쀿쁀쁁쁂쁃쁄쁅쁆쁇쁈쁉쁊쁋쁌쁍쁎쁏쁐쁑쁒쁓쁔쁕쁖쁗쁘쁙쁚쁛쁜쁝쁞쁟쁠쁡쁢쁣쁤쁥쁦쁧쁨쁩쁪쁫쁬쁭쁮쁯쁰쁱쁲쁳쁴쁵쁶쁷쁸쁹쁺쁻쁼쁽쁾쁿삀삁삂삃삄삅삆삇삈삉삊삋삌삍삎삏삐삑삒삓삔삕삖삗삘삙삚삛삜삝삞삟삠삡삢삣삤삥삦삧삨삩삪삫사삭삮삯산삱삲삳살삵삶삷삸삹삺삻삼삽삾삿샀상샂샃샄샅샆샇새색샊샋샌샍샎샏샐샑샒샓샔샕샖샗샘샙샚샛샜생샞샟샠샡샢샣샤샥샦샧샨샩샪샫샬샭샮샯샰샱샲샳샴샵샶샷샸샹샺샻샼샽샾샿섀섁섂섃섄섅섆섇섈섉섊섋섌섍섎섏섐섑섒섓섔섕섖섗섘섙섚섛서석섞섟선섡섢섣설섥섦섧섨섩섪섫섬섭섮섯섰성섲섳섴섵섶섷세섹섺섻센섽섾섿셀셁셂셃셄셅셆셇셈셉셊셋셌셍셎셏셐셑셒셓셔셕셖셗션셙셚셛셜셝셞셟셠셡셢셣셤셥셦셧셨셩셪셫셬셭셮셯셰셱셲셳셴셵셶셷셸셹셺셻셼셽셾셿솀솁솂솃솄솅솆솇솈솉솊솋소속솎솏손솑솒솓솔솕솖솗솘솙솚솛솜솝솞솟솠송솢솣솤솥솦솧솨솩솪솫솬솭솮솯솰솱솲솳솴솵솶솷솸솹솺솻솼솽솾솿쇀쇁쇂쇃쇄쇅쇆쇇쇈쇉쇊쇋쇌쇍쇎쇏쇐쇑쇒쇓쇔쇕쇖쇗쇘쇙쇚쇛쇜쇝쇞쇟쇠쇡쇢쇣쇤쇥쇦쇧쇨쇩쇪쇫쇬쇭쇮쇯쇰쇱쇲쇳쇴쇵쇶쇷쇸쇹쇺쇻쇼쇽쇾쇿숀숁숂숃숄숅숆숇숈숉숊숋숌숍숎숏숐숑숒숓숔숕숖숗수숙숚숛순숝숞숟술숡숢숣숤숥숦숧숨숩숪숫숬숭숮숯숰숱숲숳숴숵숶숷숸숹숺숻숼숽숾숿쉀쉁쉂쉃쉄쉅쉆쉇쉈쉉쉊쉋쉌쉍쉎쉏쉐쉑쉒쉓쉔쉕쉖쉗쉘쉙쉚쉛쉜쉝쉞쉟쉠쉡쉢쉣쉤쉥쉦쉧쉨쉩쉪쉫쉬쉭쉮쉯쉰쉱쉲쉳쉴쉵쉶쉷쉸쉹쉺쉻쉼쉽쉾쉿슀슁슂슃슄슅슆슇슈슉슊슋슌슍슎슏슐슑슒슓슔슕슖슗슘슙슚슛슜슝슞슟슠슡슢슣스슥슦슧슨슩슪슫슬슭슮슯슰슱슲슳슴습슶슷슸승슺슻슼슽슾슿싀싁싂싃싄싅싆싇싈싉싊싋싌싍싎싏싐싑싒싓싔싕싖싗싘싙싚싛시식싞싟신싡싢싣실싥싦싧싨싩싪싫심십싮싯싰싱싲싳싴싵싶싷싸싹싺싻싼싽싾싿쌀쌁쌂쌃쌄쌅쌆쌇쌈쌉쌊쌋쌌쌍쌎쌏쌐쌑쌒쌓쌔쌕쌖쌗쌘쌙쌚쌛쌜쌝쌞쌟쌠쌡쌢쌣쌤쌥쌦쌧쌨쌩쌪쌫쌬쌭쌮쌯쌰쌱쌲쌳쌴쌵쌶쌷쌸쌹쌺쌻쌼쌽쌾쌿썀썁썂썃썄썅썆썇썈썉썊썋썌썍썎썏썐썑썒썓썔썕썖썗썘썙썚썛썜썝썞썟썠썡썢썣썤썥썦썧써썩썪썫썬썭썮썯썰썱썲썳썴썵썶썷썸썹썺썻썼썽썾썿쎀쎁쎂쎃쎄쎅쎆쎇쎈쎉쎊쎋쎌쎍쎎쎏쎐쎑쎒쎓쎔쎕쎖쎗쎘쎙쎚쎛쎜쎝쎞쎟쎠쎡쎢쎣쎤쎥쎦쎧쎨쎩쎪쎫쎬쎭쎮쎯쎰쎱쎲쎳쎴쎵쎶쎷쎸쎹쎺쎻쎼쎽쎾쎿쏀쏁쏂쏃쏄쏅쏆쏇쏈쏉쏊쏋쏌쏍쏎쏏쏐쏑쏒쏓쏔쏕쏖쏗쏘쏙쏚쏛쏜쏝쏞쏟쏠쏡쏢쏣쏤쏥쏦쏧쏨쏩쏪쏫쏬쏭쏮쏯쏰쏱쏲쏳쏴쏵쏶쏷쏸쏹쏺쏻쏼쏽쏾쏿쐀쐁쐂쐃쐄쐅쐆쐇쐈쐉쐊쐋쐌쐍쐎쐏쐐쐑쐒쐓쐔쐕쐖쐗쐘쐙쐚쐛쐜쐝쐞쐟쐠쐡쐢쐣쐤쐥쐦쐧쐨쐩쐪쐫쐬쐭쐮쐯쐰쐱쐲쐳쐴쐵쐶쐷쐸쐹쐺쐻쐼쐽쐾쐿쑀쑁쑂쑃쑄쑅쑆쑇쑈쑉쑊쑋쑌쑍쑎쑏쑐쑑쑒쑓쑔쑕쑖쑗쑘쑙쑚쑛쑜쑝쑞쑟쑠쑡쑢쑣쑤쑥쑦쑧쑨쑩쑪쑫쑬쑭쑮쑯쑰쑱쑲쑳쑴쑵쑶쑷쑸쑹쑺쑻쑼쑽쑾쑿쒀쒁쒂쒃쒄쒅쒆쒇쒈쒉쒊쒋쒌쒍쒎쒏쒐쒑쒒쒓쒔쒕쒖쒗쒘쒙쒚쒛쒜쒝쒞쒟쒠쒡쒢쒣쒤쒥쒦쒧쒨쒩쒪쒫쒬쒭쒮쒯쒰쒱쒲쒳쒴쒵쒶쒷쒸쒹쒺쒻쒼쒽쒾쒿쓀쓁쓂쓃쓄쓅쓆쓇쓈쓉쓊쓋쓌쓍쓎쓏쓐쓑쓒쓓쓔쓕쓖쓗쓘쓙쓚쓛쓜쓝쓞쓟쓠쓡쓢쓣쓤쓥쓦쓧쓨쓩쓪쓫쓬쓭쓮쓯쓰쓱쓲쓳쓴쓵쓶쓷쓸쓹쓺쓻쓼쓽쓾쓿씀씁씂씃씄씅씆씇씈씉씊씋씌씍씎씏씐씑씒씓씔씕씖씗씘씙씚씛씜씝씞씟씠씡씢씣씤씥씦씧씨씩씪씫씬씭씮씯씰씱씲씳씴씵씶씷씸씹씺씻씼씽씾씿앀앁앂앃아악앆앇안앉않앋알앍앎앏앐앑앒앓암압앖앗았앙앚앛앜앝앞앟애액앢앣앤앥앦앧앨앩앪앫앬앭앮앯앰앱앲앳앴앵앶앷앸앹앺앻야약앾앿얀얁얂얃얄얅얆얇얈얉얊얋얌얍얎얏얐양얒얓얔얕얖얗얘얙얚얛얜얝얞얟얠얡얢얣얤얥얦얧얨얩얪얫얬얭얮얯얰얱얲얳어억얶얷언얹얺얻얼얽얾얿엀엁엂엃엄업없엇었엉엊엋엌엍엎엏에엑엒엓엔엕엖엗엘엙엚엛엜엝엞엟엠엡엢엣엤엥엦엧엨엩엪엫여역엮엯연엱엲엳열엵엶엷엸엹엺엻염엽엾엿였영옂옃옄옅옆옇예옉옊옋옌옍옎옏옐옑옒옓옔옕옖옗옘옙옚옛옜옝옞옟옠옡옢옣오옥옦옧온옩옪옫올옭옮옯옰옱옲옳옴옵옶옷옸옹옺옻옼옽옾옿와왁왂왃완왅왆왇왈왉왊왋왌왍왎왏왐왑왒왓왔왕왖왗왘왙왚왛왜왝왞왟왠왡왢왣왤왥왦왧왨왩왪왫왬왭왮왯왰왱왲왳왴왵왶왷외왹왺왻왼왽왾왿욀욁욂욃욄욅욆욇욈욉욊욋욌욍욎욏욐욑욒욓요욕욖욗욘욙욚욛욜욝욞욟욠욡욢욣욤욥욦욧욨용욪욫욬욭욮욯우욱욲욳운욵욶욷울욹욺욻욼욽욾욿움웁웂웃웄웅웆웇웈웉웊웋워웍웎웏원웑웒웓월웕웖웗웘웙웚웛웜웝웞웟웠웡웢웣웤웥웦웧웨웩웪웫웬웭웮웯웰웱웲웳웴웵웶웷웸웹웺웻웼웽웾웿윀윁윂윃위윅윆윇윈윉윊윋윌윍윎윏윐윑윒윓윔윕윖윗윘윙윚윛윜윝윞윟유육윢윣윤윥윦윧율윩윪윫윬윭윮윯윰윱윲윳윴융윶윷윸윹윺윻으윽윾윿은읁읂읃을읅읆읇읈읉읊읋음읍읎읏읐응읒읓읔읕읖읗의읙읚읛읜읝읞읟읠읡읢읣읤읥읦읧읨읩읪읫읬읭읮읯읰읱읲읳이익읶읷인읹읺읻일읽읾읿잀잁잂잃임입잆잇있잉잊잋잌잍잎잏자작잒잓잔잕잖잗잘잙잚잛잜잝잞잟잠잡잢잣잤장잦잧잨잩잪잫재잭잮잯잰잱잲잳잴잵잶잷잸잹잺잻잼잽잾잿쟀쟁쟂쟃쟄쟅쟆쟇쟈쟉쟊쟋쟌쟍쟎쟏쟐쟑쟒쟓쟔쟕쟖쟗쟘쟙쟚쟛쟜쟝쟞쟟쟠쟡쟢쟣쟤쟥쟦쟧쟨쟩쟪쟫쟬쟭쟮쟯쟰쟱쟲쟳쟴쟵쟶쟷쟸쟹쟺쟻쟼쟽쟾쟿저적젂젃전젅젆젇절젉젊젋젌젍젎젏점접젒젓젔정젖젗젘젙젚젛제젝젞젟젠젡젢젣젤젥젦젧젨젩젪젫젬젭젮젯젰젱젲젳젴젵젶젷져젹젺젻젼젽젾젿졀졁졂졃졄졅졆졇졈졉졊졋졌졍졎졏졐졑졒졓졔졕졖졗졘졙졚졛졜졝졞졟졠졡졢졣졤졥졦졧졨졩졪졫졬졭졮졯조족졲졳존졵졶졷졸졹졺졻졼졽졾졿좀좁좂좃좄종좆좇좈좉좊좋좌좍좎좏좐좑좒좓좔좕좖좗좘좙좚좛좜좝좞좟좠좡좢좣좤좥좦좧좨좩좪좫좬좭좮좯좰좱좲좳좴좵좶좷좸좹좺좻좼좽좾좿죀죁죂죃죄죅죆죇죈죉죊죋죌죍죎죏죐죑죒죓죔죕죖죗죘죙죚죛죜죝죞죟죠죡죢죣죤죥죦죧죨죩죪죫죬죭죮죯죰죱죲죳죴죵죶죷죸죹죺죻주죽죾죿준줁줂줃줄줅줆줇줈줉줊줋줌줍줎줏줐중줒줓줔줕줖줗줘줙줚줛줜줝줞줟줠줡줢줣줤줥줦줧줨줩줪줫줬줭줮줯줰줱줲줳줴줵줶줷줸줹줺줻줼줽줾줿쥀쥁쥂쥃쥄쥅쥆쥇쥈쥉쥊쥋쥌쥍쥎쥏쥐쥑쥒쥓쥔쥕쥖쥗쥘쥙쥚쥛쥜쥝쥞쥟쥠쥡쥢쥣쥤쥥쥦쥧쥨쥩쥪쥫쥬쥭쥮쥯쥰쥱쥲쥳쥴쥵쥶쥷쥸쥹쥺쥻쥼쥽쥾쥿즀즁즂즃즄즅즆즇즈즉즊즋즌즍즎즏즐즑즒즓즔즕즖즗즘즙즚즛즜증즞즟즠즡즢즣즤즥즦즧즨즩즪즫즬즭즮즯즰즱즲즳즴즵즶즷즸즹즺즻즼즽즾즿지직짂짃진짅짆짇질짉짊짋짌짍짎짏짐집짒짓짔징짖짗짘짙짚짛짜짝짞짟짠짡짢짣짤짥짦짧짨짩짪짫짬짭짮짯짰짱짲짳짴짵짶짷째짹짺짻짼짽짾짿쨀쨁쨂쨃쨄쨅쨆쨇쨈쨉쨊쨋쨌쨍쨎쨏쨐쨑쨒쨓쨔쨕쨖쨗쨘쨙쨚쨛쨜쨝쨞쨟쨠쨡쨢쨣쨤쨥쨦쨧쨨쨩쨪쨫쨬쨭쨮쨯쨰쨱쨲쨳쨴쨵쨶쨷쨸쨹쨺쨻쨼쨽쨾쨿쩀쩁쩂쩃쩄쩅쩆쩇쩈쩉쩊쩋쩌쩍쩎쩏쩐쩑쩒쩓쩔쩕쩖쩗쩘쩙쩚쩛쩜쩝쩞쩟쩠쩡쩢쩣쩤쩥쩦쩧쩨쩩쩪쩫쩬쩭쩮쩯쩰쩱쩲쩳쩴쩵쩶쩷쩸쩹쩺쩻쩼쩽쩾쩿쪀쪁쪂쪃쪄쪅쪆쪇쪈쪉쪊쪋쪌쪍쪎쪏쪐쪑쪒쪓쪔쪕쪖쪗쪘쪙쪚쪛쪜쪝쪞쪟쪠쪡쪢쪣쪤쪥쪦쪧쪨쪩쪪쪫쪬쪭쪮쪯쪰쪱쪲쪳쪴쪵쪶쪷쪸쪹쪺쪻쪼쪽쪾쪿쫀쫁쫂쫃쫄쫅쫆쫇쫈쫉쫊쫋쫌쫍쫎쫏쫐쫑쫒쫓쫔쫕쫖쫗쫘쫙쫚쫛쫜쫝쫞쫟쫠쫡쫢쫣쫤쫥쫦쫧쫨쫩쫪쫫쫬쫭쫮쫯쫰쫱쫲쫳쫴쫵쫶쫷쫸쫹쫺쫻쫼쫽쫾쫿쬀쬁쬂쬃쬄쬅쬆쬇쬈쬉쬊쬋쬌쬍쬎쬏쬐쬑쬒쬓쬔쬕쬖쬗쬘쬙쬚쬛쬜쬝쬞쬟쬠쬡쬢쬣쬤쬥쬦쬧쬨쬩쬪쬫쬬쬭쬮쬯쬰쬱쬲쬳쬴쬵쬶쬷쬸쬹쬺쬻쬼쬽쬾쬿쭀쭁쭂쭃쭄쭅쭆쭇쭈쭉쭊쭋쭌쭍쭎쭏쭐쭑쭒쭓쭔쭕쭖쭗쭘쭙쭚쭛쭜쭝쭞쭟쭠쭡쭢쭣쭤쭥쭦쭧쭨쭩쭪쭫쭬쭭쭮쭯쭰쭱쭲쭳쭴쭵쭶쭷쭸쭹쭺쭻쭼쭽쭾쭿쮀쮁쮂쮃쮄쮅쮆쮇쮈쮉쮊쮋쮌쮍쮎쮏쮐쮑쮒쮓쮔쮕쮖쮗쮘쮙쮚쮛쮜쮝쮞쮟쮠쮡쮢쮣쮤쮥쮦쮧쮨쮩쮪쮫쮬쮭쮮쮯쮰쮱쮲쮳쮴쮵쮶쮷쮸쮹쮺쮻쮼쮽쮾쮿쯀쯁쯂쯃쯄쯅쯆쯇쯈쯉쯊쯋쯌쯍쯎쯏쯐쯑쯒쯓쯔쯕쯖쯗쯘쯙쯚쯛쯜쯝쯞쯟쯠쯡쯢쯣쯤쯥쯦쯧쯨쯩쯪쯫쯬쯭쯮쯯쯰쯱쯲쯳쯴쯵쯶쯷쯸쯹쯺쯻쯼쯽쯾쯿찀찁찂찃찄찅찆찇찈찉찊찋찌찍찎찏찐찑찒찓찔찕찖찗찘찙찚찛찜찝찞찟찠찡찢찣찤찥찦찧차착찪찫찬찭찮찯찰찱찲찳찴찵찶찷참찹찺찻찼창찾찿챀챁챂챃채책챆챇챈챉챊챋챌챍챎챏챐챑챒챓챔챕챖챗챘챙챚챛챜챝챞챟챠챡챢챣챤챥챦챧챨챩챪챫챬챭챮챯챰챱챲챳챴챵챶챷챸챹챺챻챼챽챾챿첀첁첂첃첄첅첆첇첈첉첊첋첌첍첎첏첐첑첒첓첔첕첖첗처척첚첛천첝첞첟철첡첢첣첤첥첦첧첨첩첪첫첬청첮첯첰첱첲첳체첵첶첷첸첹첺첻첼첽첾첿쳀쳁쳂쳃쳄쳅쳆쳇쳈쳉쳊쳋쳌쳍쳎쳏쳐쳑쳒쳓쳔쳕쳖쳗쳘쳙쳚쳛쳜쳝쳞쳟쳠쳡쳢쳣쳤쳥쳦쳧쳨쳩쳪쳫쳬쳭쳮쳯쳰쳱쳲쳳쳴쳵쳶쳷쳸쳹쳺쳻쳼쳽쳾쳿촀촁촂촃촄촅촆촇초촉촊촋촌촍촎촏촐촑촒촓촔촕촖촗촘촙촚촛촜총촞촟촠촡촢촣촤촥촦촧촨촩촪촫촬촭촮촯촰촱촲촳촴촵촶촷촸촹촺촻촼촽촾촿쵀쵁쵂쵃쵄쵅쵆쵇쵈쵉쵊쵋쵌쵍쵎쵏쵐쵑쵒쵓쵔쵕쵖쵗쵘쵙쵚쵛최쵝쵞쵟쵠쵡쵢쵣쵤쵥쵦쵧쵨쵩쵪쵫쵬쵭쵮쵯쵰쵱쵲쵳쵴쵵쵶쵷쵸쵹쵺쵻쵼쵽쵾쵿춀춁춂춃춄춅춆춇춈춉춊춋춌춍춎춏춐춑춒춓추축춖춗춘춙춚춛출춝춞춟춠춡춢춣춤춥춦춧춨충춪춫춬춭춮춯춰춱춲춳춴춵춶춷춸춹춺춻춼춽춾춿췀췁췂췃췄췅췆췇췈췉췊췋췌췍췎췏췐췑췒췓췔췕췖췗췘췙췚췛췜췝췞췟췠췡췢췣췤췥췦췧취췩췪췫췬췭췮췯췰췱췲췳췴췵췶췷췸췹췺췻췼췽췾췿츀츁츂츃츄츅츆츇츈츉츊츋츌츍츎츏츐츑츒츓츔츕츖츗츘츙츚츛츜츝츞츟츠측츢츣츤츥츦츧츨츩츪츫츬츭츮츯츰츱츲츳츴층츶츷츸츹츺츻츼츽츾츿칀칁칂칃칄칅칆칇칈칉칊칋칌칍칎칏칐칑칒칓칔칕칖칗치칙칚칛친칝칞칟칠칡칢칣칤칥칦칧침칩칪칫칬칭칮칯칰칱칲칳카칵칶칷칸칹칺칻칼칽칾칿캀캁캂캃캄캅캆캇캈캉캊캋캌캍캎캏캐캑캒캓캔캕캖캗캘캙캚캛캜캝캞캟캠캡캢캣캤캥캦캧캨캩캪캫캬캭캮캯캰캱캲캳캴캵캶캷캸캹캺캻캼캽캾캿컀컁컂컃컄컅컆컇컈컉컊컋컌컍컎컏컐컑컒컓컔컕컖컗컘컙컚컛컜컝컞컟컠컡컢컣커컥컦컧컨컩컪컫컬컭컮컯컰컱컲컳컴컵컶컷컸컹컺컻컼컽컾컿케켁켂켃켄켅켆켇켈켉켊켋켌켍켎켏켐켑켒켓켔켕켖켗켘켙켚켛켜켝켞켟켠켡켢켣켤켥켦켧켨켩켪켫켬켭켮켯켰켱켲켳켴켵켶켷켸켹켺켻켼켽켾켿콀콁콂콃콄콅콆콇콈콉콊콋콌콍콎콏콐콑콒콓코콕콖콗콘콙콚콛콜콝콞콟콠콡콢콣콤콥콦콧콨콩콪콫콬콭콮콯콰콱콲콳콴콵콶콷콸콹콺콻콼콽콾콿쾀쾁쾂쾃쾄쾅쾆쾇쾈쾉쾊쾋쾌쾍쾎쾏쾐쾑쾒쾓쾔쾕쾖쾗쾘쾙쾚쾛쾜쾝쾞쾟쾠쾡쾢쾣쾤쾥쾦쾧쾨쾩쾪쾫쾬쾭쾮쾯쾰쾱쾲쾳쾴쾵쾶쾷쾸쾹쾺쾻쾼쾽쾾쾿쿀쿁쿂쿃쿄쿅쿆쿇쿈쿉쿊쿋쿌쿍쿎쿏쿐쿑쿒쿓쿔쿕쿖쿗쿘쿙쿚쿛쿜쿝쿞쿟쿠쿡쿢쿣쿤쿥쿦쿧쿨쿩쿪쿫쿬쿭쿮쿯쿰쿱쿲쿳쿴쿵쿶쿷쿸쿹쿺쿻쿼쿽쿾쿿퀀퀁퀂퀃퀄퀅퀆퀇퀈퀉퀊퀋퀌퀍퀎퀏퀐퀑퀒퀓퀔퀕퀖퀗퀘퀙퀚퀛퀜퀝퀞퀟퀠퀡퀢퀣퀤퀥퀦퀧퀨퀩퀪퀫퀬퀭퀮퀯퀰퀱퀲퀳퀴퀵퀶퀷퀸퀹퀺퀻퀼퀽퀾퀿큀큁큂큃큄큅큆큇큈큉큊큋큌큍큎큏큐큑큒큓큔큕큖큗큘큙큚큛큜큝큞큟큠큡큢큣큤큥큦큧큨큩큪큫크큭큮큯큰큱큲큳클큵큶큷큸큹큺큻큼큽큾큿킀킁킂킃킄킅킆킇킈킉킊킋킌킍킎킏킐킑킒킓킔킕킖킗킘킙킚킛킜킝킞킟킠킡킢킣키킥킦킧킨킩킪킫킬킭킮킯킰킱킲킳킴킵킶킷킸킹킺킻킼킽킾킿타탁탂탃탄탅탆탇탈탉탊탋탌탍탎탏탐탑탒탓탔탕탖탗탘탙탚탛태택탞탟탠탡탢탣탤탥탦탧탨탩탪탫탬탭탮탯탰탱탲탳탴탵탶탷탸탹탺탻탼탽탾탿턀턁턂턃턄턅턆턇턈턉턊턋턌턍턎턏턐턑턒턓턔턕턖턗턘턙턚턛턜턝턞턟턠턡턢턣턤턥턦턧턨턩턪턫턬턭턮턯터턱턲턳턴턵턶턷털턹턺턻턼턽턾턿텀텁텂텃텄텅텆텇텈텉텊텋테텍텎텏텐텑텒텓텔텕텖텗텘텙텚텛템텝텞텟텠텡텢텣텤텥텦텧텨텩텪텫텬텭텮텯텰텱텲텳텴텵텶텷텸텹텺텻텼텽텾텿톀톁톂톃톄톅톆톇톈톉톊톋톌톍톎톏톐톑톒톓톔톕톖톗톘톙톚톛톜톝톞톟토톡톢톣톤톥톦톧톨톩톪톫톬톭톮톯톰톱톲톳톴통톶톷톸톹톺톻톼톽톾톿퇀퇁퇂퇃퇄퇅퇆퇇퇈퇉퇊퇋퇌퇍퇎퇏퇐퇑퇒퇓퇔퇕퇖퇗퇘퇙퇚퇛퇜퇝퇞퇟퇠퇡퇢퇣퇤퇥퇦퇧퇨퇩퇪퇫퇬퇭퇮퇯퇰퇱퇲퇳퇴퇵퇶퇷퇸퇹퇺퇻퇼퇽퇾퇿툀툁툂툃툄툅툆툇툈툉툊툋툌툍툎툏툐툑툒툓툔툕툖툗툘툙툚툛툜툝툞툟툠툡툢툣툤툥툦툧툨툩툪툫투툭툮툯툰툱툲툳툴툵툶툷툸툹툺툻툼툽툾툿퉀퉁퉂퉃퉄퉅퉆퉇퉈퉉퉊퉋퉌퉍퉎퉏퉐퉑퉒퉓퉔퉕퉖퉗퉘퉙퉚퉛퉜퉝퉞퉟퉠퉡퉢퉣퉤퉥퉦퉧퉨퉩퉪퉫퉬퉭퉮퉯퉰퉱퉲퉳퉴퉵퉶퉷퉸퉹퉺퉻퉼퉽퉾퉿튀튁튂튃튄튅튆튇튈튉튊튋튌튍튎튏튐튑튒튓튔튕튖튗튘튙튚튛튜튝튞튟튠튡튢튣튤튥튦튧튨튩튪튫튬튭튮튯튰튱튲튳튴튵튶튷트특튺튻튼튽튾튿틀틁틂틃틄틅틆틇틈틉틊틋틌틍틎틏틐틑틒틓틔틕틖틗틘틙틚틛틜틝틞틟틠틡틢틣틤틥틦틧틨틩틪틫틬틭틮틯티틱틲틳틴틵틶틷틸틹틺틻틼틽틾틿팀팁팂팃팄팅팆팇팈팉팊팋파팍팎팏판팑팒팓팔팕팖팗팘팙팚팛팜팝팞팟팠팡팢팣팤팥팦팧패팩팪팫팬팭팮팯팰팱팲팳팴팵팶팷팸팹팺팻팼팽팾팿퍀퍁퍂퍃퍄퍅퍆퍇퍈퍉퍊퍋퍌퍍퍎퍏퍐퍑퍒퍓퍔퍕퍖퍗퍘퍙퍚퍛퍜퍝퍞퍟퍠퍡퍢퍣퍤퍥퍦퍧퍨퍩퍪퍫퍬퍭퍮퍯퍰퍱퍲퍳퍴퍵퍶퍷퍸퍹퍺퍻퍼퍽퍾퍿펀펁펂펃펄펅펆펇펈펉펊펋펌펍펎펏펐펑펒펓펔펕펖펗페펙펚펛펜펝펞펟펠펡펢펣펤펥펦펧펨펩펪펫펬펭펮펯펰펱펲펳펴펵펶펷편펹펺펻펼펽펾펿폀폁폂폃폄폅폆폇폈평폊폋폌폍폎폏폐폑폒폓폔폕폖폗폘폙폚폛폜폝폞폟폠폡폢폣폤폥폦폧폨폩폪폫포폭폮폯폰폱폲폳폴폵폶폷폸폹폺폻폼폽폾폿퐀퐁퐂퐃퐄퐅퐆퐇퐈퐉퐊퐋퐌퐍퐎퐏퐐퐑퐒퐓퐔퐕퐖퐗퐘퐙퐚퐛퐜퐝퐞퐟퐠퐡퐢퐣퐤퐥퐦퐧퐨퐩퐪퐫퐬퐭퐮퐯퐰퐱퐲퐳퐴퐵퐶퐷퐸퐹퐺퐻퐼퐽퐾퐿푀푁푂푃푄푅푆푇푈푉푊푋푌푍푎푏푐푑푒푓푔푕푖푗푘푙푚푛표푝푞푟푠푡푢푣푤푥푦푧푨푩푪푫푬푭푮푯푰푱푲푳푴푵푶푷푸푹푺푻푼푽푾푿풀풁풂풃풄풅풆풇품풉풊풋풌풍풎풏풐풑풒풓풔풕풖풗풘풙풚풛풜풝풞풟풠풡풢풣풤풥풦풧풨풩풪풫풬풭풮풯풰풱풲풳풴풵풶풷풸풹풺풻풼풽풾풿퓀퓁퓂퓃퓄퓅퓆퓇퓈퓉퓊퓋퓌퓍퓎퓏퓐퓑퓒퓓퓔퓕퓖퓗퓘퓙퓚퓛퓜퓝퓞퓟퓠퓡퓢퓣퓤퓥퓦퓧퓨퓩퓪퓫퓬퓭퓮퓯퓰퓱퓲퓳퓴퓵퓶퓷퓸퓹퓺퓻퓼퓽퓾퓿픀픁픂픃프픅픆픇픈픉픊픋플픍픎픏픐픑픒픓픔픕픖픗픘픙픚픛픜픝픞픟픠픡픢픣픤픥픦픧픨픩픪픫픬픭픮픯픰픱픲픳픴픵픶픷픸픹픺픻피픽픾픿핀핁핂핃필핅핆핇핈핉핊핋핌핍핎핏핐핑핒핓핔핕핖핗하학핚핛한핝핞핟할핡핢핣핤핥핦핧함합핪핫핬항핮핯핰핱핲핳해핵핶핷핸핹핺핻핼핽핾핿햀햁햂햃햄햅햆햇했행햊햋햌햍햎햏햐햑햒햓햔햕햖햗햘햙햚햛햜햝햞햟햠햡햢햣햤향햦햧햨햩햪햫햬햭햮햯햰햱햲햳햴햵햶햷햸햹햺햻햼햽햾햿헀헁헂헃헄헅헆헇허헉헊헋헌헍헎헏헐헑헒헓헔헕헖헗험헙헚헛헜헝헞헟헠헡헢헣헤헥헦헧헨헩헪헫헬헭헮헯헰헱헲헳헴헵헶헷헸헹헺헻헼헽헾헿혀혁혂혃현혅혆혇혈혉혊혋혌혍혎혏혐협혒혓혔형혖혗혘혙혚혛혜혝혞혟혠혡혢혣혤혥혦혧혨혩혪혫혬혭혮혯혰혱혲혳혴혵혶혷호혹혺혻혼혽혾혿홀홁홂홃홄홅홆홇홈홉홊홋홌홍홎홏홐홑홒홓화확홖홗환홙홚홛활홝홞홟홠홡홢홣홤홥홦홧홨황홪홫홬홭홮홯홰홱홲홳홴홵홶홷홸홹홺홻홼홽홾홿횀횁횂횃횄횅횆횇횈횉횊횋회획횎횏횐횑횒횓횔횕횖횗횘횙횚횛횜횝횞횟횠횡횢횣횤횥횦횧효횩횪횫횬횭횮횯횰횱횲횳횴횵횶횷횸횹횺횻횼횽횾횿훀훁훂훃후훅훆훇훈훉훊훋훌훍훎훏훐훑훒훓훔훕훖훗훘훙훚훛훜훝훞훟훠훡훢훣훤훥훦훧훨훩훪훫훬훭훮훯훰훱훲훳훴훵훶훷훸훹훺훻훼훽훾훿휀휁휂휃휄휅휆휇휈휉휊휋휌휍휎휏휐휑휒휓휔휕휖휗휘휙휚휛휜휝휞휟휠휡휢휣휤휥휦휧휨휩휪휫휬휭휮휯휰휱휲휳휴휵휶휷휸휹휺휻휼휽휾휿흀흁흂흃흄흅흆흇흈흉흊흋흌흍흎흏흐흑흒흓흔흕흖흗흘흙흚흛흜흝흞흟흠흡흢흣흤흥흦흧흨흩흪흫희흭흮흯흰흱흲흳흴흵흶흷흸흹흺흻흼흽흾흿힀힁힂힃힄힅힆힇히힉힊힋힌힍힎힏힐힑힒힓힔힕힖힗힘힙힚힛힜힝힞힟힠힡힢힣‾_＿-－‐—―〜・,，、;；:：!！¡?？¿.．‥…。·＇‘’\\\\\\"＂“”(（)）[［]］{｛}｝〈〉《》「」『』【】〔〕§¶@＠*＊/／\\\\\\\\＼&＆#＃%％‰†‡′″〃※","Kyrgyz":"абгдеёжзийклмнӊоөпрстуүхчшъыэюяАБГДЕЁЖЗИЙКЛМНӉОӨПРСТУҮХЧШЪЫЭЮЯ-‐–—,;:!?.…\'‘‚\\\\\\"“„«»()[]{}§@*/&#","Lao":"່້໊໋໌ໍໆກຂຄງຈສຊຍດຕຖທນບປຜຝພຟມຢຣລວຫໜໝອຮຯະັາຳິີຶືຸູົຼຽເແໂໃໄ-,;:!?.()[]{}","Lithuanian":"aąbcčdeęėfghiįyjklmnoprsštuųūvzžAĄBCČDEĘĖFGHIĮYJKLMNOPRSŠTUŲŪVZŽ-‐–—,;:!?.…“„()[]{}","Latvian":"aābcčdeēfgģhiījkķlļmnņoprsštuūvzžAĀBCČDEĒFGĢHIĪJKĶLĻMNŅOPRSŠTUŪVZŽ-‐–—,;:!?.…\'‘’‚\\\\\\"“”„()[]§@*/&#†‡′″","Macedonian":"абвгдѓежзѕијклљмнњопрстќуфхцчџшАБВГДЃЕЖЗЅИЈКЛЉМНЊОПРСТЌУФХЦЧЏШ-‐–—,;:!?.…‘‚“„()[]{}","Malayalam":"‌ഃഅആഇഈഉഊഋൠഌൡഎഏഐഒഓഔകൿഖഗഘങചഛജഝഞടഠഡഢണൺതഥദധനൻപഫബഭമംയരർലൽവശഷസഹളൾഴറാിീുൂൃെേൈൊോൌൗ്-,;:!?.\'‘’\\\\\\"“”()[]{}","Mongolian":"абвгдеёжзийклмноөпрстуүфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОӨПРСТУҮФХЦЧШЩЪЫЬЭЮЯ-‐–—,;:!?.…\'‘’\\\\\\"“”()[]§@*/&#†‡′″","Marathi":"़ॐंँःअआइईउऊऋऌऍएऐऑओऔकखगघङचछजझञटठडढणतथदधनपफबभमयरलवशषसहळऽािीुूृॄॅेैॉोौ्-‐–—,;:!?.…\'‘’\\\\\\"“”()[]@*/&#′″","Malay":"aiubcdzefghjklmnyopqrstvwxAIUBCDZEFGHJKLMNYOPQRSTVWX-‐–—,;:!?.…\'‘’\\\\\\"“”()[]§@*/&#†‡′″","Burmese":"ကခဂဃငစဆဇဈဉညဋဌဍဎဏတထဒဓနပဖဗဘမယရလဝသဟဠအဣဤဥဦဧဩဪာါိီုူေဲံဿျြွှ့္်း၊။‘’“”","Norwegian Bokmål":"aàbcdeéfghijklmnoóòôpqrstuvwxyzæøåAÀBCDEÉFGHIJKLMNOÓÒÔPQRSTUVWXYZÆØÅ-–,;:!?.\'\\\\\\"«»()[]{}§@*/\\\\\\\\","Nepali":"़ँंःॐअआइईउऊऋऌऍएऐऑओऔकखगघङचछजझञटठडढणतथदधनपफबभमयरलळवशषसहऽािीुूृॄॅेैॉोौ्-,;:!?.()[]{}","Dutch":"aáäbcdeéëfghiíïj\\\\u031klmnoóöpqrstúüvwxyzAÁÄBCDEÉËFGHIÍÏJUKLMNOÓÖPQRSTÚÜVWXYZ-‐–—,;:!?.…\'‘’\\"“”()[]§@*/&#†‡′″","Punjabi":"ੱੰ਼੦੧੨੩੪੫੬੭੮੯ੴੳਉਊਓਅਆਐਔੲਇਈਏਸ\\\\u0A3Cਹਕਖਗਘਙਚਛਜਝਞਟਠਡਢਣਤਥਦਧਨਪਫਬਭਮਯਰਲਵੜ੍ਾਿੀੁੂੇੈੋੌU-‐–—,;:!?.\'‘’\\"“”()[]/&′″","Polish":"aąbcćdeęfghijklłmnńoóprsśtuwyzźżAĄBCĆDEĘFGHIJKLŁMNŃOÓPRSŚTUWYZŹŻ-‐–—,;:!?.…\'\\\\\\"”„«»()[]{}§@*/&#%†‡′″°~","Portuguese":"aáàâãbcçdeéêfghiíjklmnoóòôõpqrstuúvwxyzAÁÀÂÃBCÇDEÉÊFGHIÍJKLMNOÓÒÔÕPQRSTUÚVWXYZ-‐–—,;:!?.…\'‘’\\\\\\"“”()[]§@*/&#†‡′″","Romanian":"aăâbcdefghiîjklmnoprsștțuvxzAĂÂBCDEFGHIÎJKLMNOPRSȘTȚUVXZ-‐–—,;:!?.…\'‘\\\\\\"“”„«»()[]@*/","Russian":"абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ-‐–—,;:!?.…\'‘‚\\\\\\"“„«»()[]{}§@*/&#","Sinhala":"අආඇඈඉඊඋඌඍඑඒඓඔඕඖංඃකඛගඝඞඟචඡජඣඥඤටඨඩඪණඬතථදධනඳපඵබභමඹයරලවශෂසහළෆාැෑිීුූෘෲෟෙේෛොෝෞ්-‐–—,;:!?.…\'‘’\\\\\\"“”()[]§@*/&#†‡′″","Slovak":"aáäbcčdďeéfghiíjklĺľmnňoóôpqrŕsštťuúvwxyýzžAÁÄBCČDĎEÉFGHIÍJKLĹĽMNŇOÓÔPQRŔSŠTŤUÚVWXYÝZŽ-‐–,;:!?.…‘‚“„()[]§@*/&","Slovenian":"abcčdefghijklmnoprsštuvzžABCČDEFGHIJKLMNOPRSŠTUVZŽ-,;:!?.()[]{}","Albanian":"abcçdheëfgjiklmnopqrstuvxyzABCÇDHEËFGJIKLMNOPQRSTUVXYZ-‐–—,;:!?.…\'‘’\\\\\\"“”«»()[]§@*/&#′″~","Serbian":"абвгдђежзијклљмнњопрстћуфхцчџшАБВГДЂЕЖЗИЈКЛЉМНЊОПРСТЋУФХЦЧЏШ-‐–,;:!?.…‘‚“„()[]{}*#","Swedish":"aàbcdeéfghijklmnopqrstuvwxyzåäöAÀBCDEÉFGHIJKLMNOPQRSTUVWXYZÅÄÖ-‐–—,;:!?.…\'‘’\\\\\\"“”()[]§@*/&#†‡′″","Swahili":"abchdefgijklmnoprstuvwyzABCHDEFGIJKLMNOPRSTUVWYZ-,;:!?.()[]{}","Tamil":"அஆஇஈஉஊஎஏஐஒஓஔஃகஙசஞடணதநபமயரலவழளறனஜஷஸஹாிீுூெேைொோௌ்-,;:!?.()[]{}","Telugu":"అఆఇఈఉఊఋౠఌౡఎఏఐఒఓఔఁంఃకఖగఘఙచఛజఝఞటఠడఢణతథదధనపఫబభమయరఱలవశషసహళాిీుూృౄెేైొోౌ్ౕౖ-,;:!?.\'‘’\\\\\\"“”()[]{}","Thai":"ฯๆ๎์็่้๊๋กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรฤลฦวศษสหฬอฮํะัาๅำิีึืุูเแโใไฺ!\\\\\\"#\'()*,-./:@[]‐–—‘’“”…′″","Tongan":"aáāeéēfhiíīklmngoóōpstuúūvʻAÁĀEÉĒFHIÍĪKLMNGOÓŌPSTUÚŪV-‐–—,;:!?.…\'‘’\\\\\\"“”()[]§@*/&#†‡′″","Turkish":"abcçdefgğhıiİjklmnoöprsştuüvyzABCÇDEFGĞHIJKLMNOÖPRSŞTUÜVYZ-‐–—,;:!?.…\'‘’\\\\\\"“”()[]§@*/&#†‡′″","Ukrainian":"абвгґдеєжзиіїйклмнопрстуфхцчшщьюяʼАБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ-–,;:!?.\'\\\\\\"“„«»()[]{}§@*/\\\\\\\\№","Urdu":"اأآبپتٹثجچحخدڈذرڑزژسشصضطظعغفقکگلمنںوؤہۂھءیئےةه،؍٫٬؛:؟.۔()[]","Uzbek":"abdefghijklmnopqrstuvxyzʻcʼABDEFGHIJKLMNOPQRSTUVXYZC-‐–—,;:!?.…\'‘’\\\\\\"“”„«»()[]{}§@*/&#′″","Vietnamese":"aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵzAÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZ-‐–—,;:!?.…\'‘’\\\\\\"“”()[]§@*/&#†‡′″","Cantonese":"一丁七丈三上下丌不丑且世丘丙丟並中串丸丹主乃久么之乎乏乖乘乙九也乾亂了予事二于云互五井些亞亡交亥亦亨享京亮人什仁仇今介仍仔他付仙代令以仰仲件任份企伊伍伐休伙伯估伴伸似伽但佈佉位低住佔何余佛作你佩佳使來例供依侯侵便係促俄俊俗保俠信修俱俾個倍們倒候倚借倫值假偉偏做停健側偵偶偷傑備傢傣傲傳傷傻傾僅像僑僧價儀億儒儘優允元兄充兇先光克免兒兔入內全兩八公六兮共兵其具典兼冊再冒冠冬冰冷准凌凝凡凰凱出函刀分切刊列初判別利刪到制刷刺刻則剌前剛剩剪副割創劃劇劉劍力功加助努劫勁勇勉勒動務勝勞勢勤勵勸勿包匈化北匹區十千升午半卒卓協南博卜卡卯印危即卷卻厄厘厚原厭厲去參又及友反叔取受口古句另只叫召叭可台史右司吃各合吉吊同名后吐向吒君吝吞吟吠否吧含吳吵吸吹吾呀呂呆告呢周味呵呼命和咖咦咧咪咬咱哀品哇哈哉哎員哥哦哩哪哭哲唉唐唔唬售唯唱唷唸商啊問啟啡啥啦啪喀喂善喇喊喔喜喝喬單喵嗎嗚嗨嗯嘆嘉嘗嘛嘴嘻嘿器噴嚇嚴囉四回因困固圈國圍園圓圖團圜土在圭地圾址均坎坐坡坤坦坪垂垃型埃城埔域執培基堂堅堆堡堪報場塊塔塗塞填塵境增墨墮壁壇壓壘壞壢士壬壯壽夏夕外多夜夠夢夥大天太夫央失夷夸夾奇奈奉奎奏契奔套奧奪奮女奴奶她好如妙妝妥妨妮妳妹妻姆姊始姐姑姓委姿威娃娘娛婁婆婚婦媒媽嫌嫩子孔字存孝孟季孤孩孫學它宅宇守安宋完宏宗官宙定宛宜客宣室宮害家容宿寂寄寅密富寒寞察寢實寧寨審寫寬寮寵寶封射將專尊尋對導小少尖尚尤就尺尼尾局屁居屆屋屏展屠層屬山岡岩岸峰島峽崇崙崴嵐嶺川州巡工左巧巨巫差己已巳巴巷市布希帕帖帛帝帥師席帳帶常帽幅幕幣幫干平年幸幹幻幼幽幾庇床序底店庚府度座庫庭康庸廉廖廠廢廣廳延廷建弄式引弗弘弟弦弱張強彈彊彌彎彝彞形彥彩彬彭彰影役彼往征待很律後徐徑徒得從復微徵德徹心必忌忍志忘忙忠快念忽怎怒怕怖思怡急性怨怪恆恐恢恥恨恩恭息恰悅悉悔悟悠您悲悶情惑惜惠惡惱想惹愁愈愉意愚愛感慈態慕慘慢慣慧慮慰慶慾憂憐憑憲憶憾懂應懶懷懼戀戈戊戌成我戒或截戰戲戴戶房所扁扇手才扎打托扣扥扭扯批找承技抄把抓投抗折披抬抱抵抹抽拆拉拋拍拏拒拔拖招拜括拳拼拾拿持指按挑挖挪振挺捐捕捨捲捷掃授掉掌排掛採探接控推措描提插揚換握揮援損搖搜搞搬搭搶摘摩摸撐撒撞撣撥播撾撿擁擇擊擋操擎擔據擠擦擬擴擺擾攝支收改攻放政故效敍敏救敗敘教敝敢散敦敬整敵數文斐斗料斯新斷方於施旁旅旋族旗既日旦早旭旺昂昆昇昌明昏易星映春昨昭是時晉晒晚晨普景晴晶智暑暖暗暫暴曆曉曰曲更書曼曾替最會月有朋服朗望朝期木未末本札朱朵杉李材村杜束杯杰東松板析林果枝架柏某染柔查柬柯柳柴校核根格桃案桌桑梁梅條梨梯械梵棄棉棋棒棚森椅植椰楊楓楚業極概榜榮構槍樂樓標樞模樣樹橋機橫檀檔檢欄權次欣欲欺欽款歉歌歐歡止正此步武歲歷歸死殊殘段殺殼毀毅母每毒比毛毫氏民氣水永求汗汝江池污汪汶決汽沃沈沉沒沖沙河油治沿況泉泊法泡波泥注泰泳洋洗洛洞洩洪洲活洽派流浦浩浪浮海涇消涉涯液涵涼淑淚淡淨深混淺清減渡測港游湖湯源準溝溪溫滄滅滋滑滴滾滿漂漏演漠漢漫漲漸潔潘潛潮澤澳激濃濟濤濫濱瀏灌灣火灰災炎炮炸為烈烏烤無焦然煙煞照煩熊熟熱燃燈燒營爆爐爛爪爬爭爵父爸爺爽爾牆片版牌牙牛牠牧物牲特牽犧犯狀狂狐狗狠狼猛猜猴猶獄獅獎獨獲獸獻玄率玉王玩玫玲玻珊珍珠珥班現球理琉琪琴瑙瑜瑞瑟瑤瑪瑰環瓜瓦瓶甘甚甜生產用田由甲申男甸界留畢略番畫異當疆疏疑疼病痕痛痴瘋療癡癸登發白百的皆皇皮盃益盛盜盟盡監盤盧目盲直相盼盾省眉看真眠眼眾睛睡督瞧瞭矛矣知短石砂砍研砲破硬碎碗碟碧碩碰確碼磁磨磯礎礙示社祕祖祚祛祝神祥票祿禁禍禎福禪禮秀私秋科秒秘租秤秦移稅程稍種稱稿穆穌積穩究穹空穿突窗窩窮窶立站竟章童端競竹笑笛符笨第筆等筋答策简算管箭箱節範篇築簡簫簽簿籃籌籍籤米粉粗粵精糊糕糟系糾紀約紅納紐純紙級紛素索紫累細紹終組結絕絡給統絲經綜綠維綱網緊緒線緣編緩緬緯練縛縣縮縱總績繁繆織繞繪繳繼續缸缺罕罪置罰署罵罷羅羊美羞群義羽翁習翔翰翹翻翼耀老考者而耍耐耗耳耶聊聖聚聞聯聰聲職聽肉肚股肥肩肯育背胎胖胞胡胸能脆脫腓腔腦腰腳腿膽臉臘臣臥臨自臭至致臺與興舉舊舌舍舒舞舟航般船艦良色艾芝芬花芳若苦英茅茫茲茶草荒荷荼莉莊莎莫菜菩華菲萄萊萬落葉著葛葡蒂蒙蒲蒼蓋蓮蔕蔡蔣蕭薄薦薩薪藉藍藏藝藤藥蘆蘇蘭虎處虛號虧蛇蛋蛙蜂蜜蝶融螢蟲蟹蠍蠻血行術街衛衝衡衣表袋被裁裂裕補裝裡製複褲西要覆見規視親覺覽觀角解觸言訂計訊討訓託記訥訪設許訴註証評詞詢試詩話該詳誇誌認誓誕語誠誤說誰課誼調談請諒論諸諺諾謀謂講謝證識譜警譯議護譽讀變讓讚谷豆豈豐象豪豬貌貓貝貞負財貢貨貪貫責貴買費貼賀資賈賓賜賞賢賣賤賦質賭賴賺購賽贈贊贏赤赫走起超越趕趙趣趨足跌跎跑距跟跡路跳踏踢蹟蹤躍身躲車軌軍軒軟較載輔輕輛輝輩輪輯輸轉轟辛辦辨辭辯辰辱農迅迎近返迦迪迫述迴迷追退送逃逆透逐途這通逛逝速造逢連週進逸逼遇遊運遍過道達違遙遜遠適遭遮遲遷選遺避邀邁還邊邏那邦邪邱郎部郭郵都鄂鄉鄭鄰酉配酒酷酸醉醒醜醫采釋里重野量金針釣鈴鉢銀銅銖銘銳銷鋒鋼錄錢錦錫錯鍋鍵鍾鎊鎖鎮鏡鐘鐵鑑長門閃閉開閏閒間閣閱闆闊闍闐關闡防阻阿陀附降限院陣除陪陰陳陵陶陷陸陽隆隊階隔際障隨險隱隻雄雅集雉雖雙雜雞離難雨雪雲零雷電需震霍霧露霸霹靂靈青靖靜非靠面革靼鞋韃韋韓音韻響頁頂項順須預頑頓頗領頞頭頻顆題額顏願類顧顯風飄飛食飯飲飽飾餅養餐餘館首香馬駐駕駛騎騙騷驅驗驚骨體高髮鬆鬥鬧鬱鬼魁魂魅魔魚魯鮮鳥鳳鳴鴻鵝鷹鹿麗麥麵麻麼黃黎黑默點黨鼓鼠鼻齊齋齒齡龍龜‾﹉﹊﹋﹌_＿﹍﹎﹏︳︴-－﹣‐–︲—﹘︱,，﹐、﹑;；﹔:：﹕!！﹗?？﹖.．﹒‥︰…。·＇‘’\\\\\\"＂“”〝〞(（﹙︵)）﹚︶[［]］{｛﹛︷}｝﹜︸〈︿〉﹀《︽》︾「﹁」﹂『﹃』﹄【︻】︼〔﹝︹〕﹞︺§@＠﹫*＊﹡/／\\\\\\\\＼﹨&＆﹠#＃﹟%％﹪‰†‡‧′″‵〃※","Chinese":"一丁七万丈三上下丌不与丑专且世丘丙业东丝丢两严丧个中丰串临丸丹为主丽举乃久么义之乌乍乎乏乐乔乖乘乙九也习乡书买乱乾了予争事二于亏云互五井亚些亡交亥亦产亨享京亮亲人亿什仁仅仇今介仍从仔他付仙代令以仪们仰仲件价任份仿企伊伍伏伐休众优伙会伟传伤伦伯估伴伸似伽但位低住佐佑体何余佛作你佤佩佳使例供依侠侦侧侨侬侯侵便促俄俊俗保信俩修俱俾倍倒候倚借倦值倾假偌偏做停健偶偷储催傲傻像僧儒儿允元兄充兆先光克免兑兔党入全八公六兮兰共关兴兵其具典兹养兼兽内冈册再冒写军农冠冬冰冲决况冷准凌减凝几凡凤凭凯凰出击函刀分切刊刑划列刘则刚创初判利别到制刷券刺刻剂前剑剧剩剪副割力劝办功加务劣动助努劫励劲劳势勇勉勋勒勤勾勿包匆匈化北匙匹区医十千升午半华协卒卓单卖南博占卡卢卫卯印危即却卷厂厄厅历厉压厌厍厚原去县参又叉及友双反发叔取受变叙口古句另只叫召叭可台史右叶号司叹吃各合吉吊同名后吐向吓吗君吝吟否吧含听启吵吸吹吻吾呀呆呈告呐员呜呢呦周味呵呼命和咖咦咧咨咪咬咯咱哀品哇哈哉响哎哟哥哦哩哪哭哲唉唐唤唬售唯唱唷商啊啡啥啦啪喀喂善喇喊喏喔喜喝喵喷喻嗒嗨嗯嘉嘛嘴嘻嘿器四回因团园困围固国图圆圈土圣在圭地圳场圾址均坎坐坑块坚坛坜坡坤坦坪垂垃型垒埃埋城埔域培基堂堆堕堡堪塑塔塞填境增墨壁壤士壬壮声处备复夏夕外多夜够夥大天太夫央失头夷夸夹夺奇奈奉奋奏契奔奖套奥女奴奶她好如妇妈妖妙妥妨妮妹妻姆姊始姐姑姓委姿威娃娄娘娜娟娱婆婚媒嫁嫌嫩子孔孕字存孙孜孝孟季孤学孩宁它宇守安宋完宏宗官宙定宛宜宝实审客宣室宪害宴家容宽宾宿寂寄寅密寇富寒寝寞察寡寨寸对寻导寿封射将尊小少尔尖尘尚尝尤就尺尼尽尾局屁层居屋屏展属屠山岁岂岗岘岚岛岳岸峡峰崇崩崴川州巡工左巧巨巫差己已巳巴巷币市布帅师希帐帕帖帝带席帮常帽幅幕干平年并幸幻幼幽广庆床序库应底店庙庚府庞废度座庭康庸廉廖延廷建开异弃弄弊式引弗弘弟张弥弦弯弱弹强归当录彝形彩彬彭彰影彷役彻彼往征径待很律後徐徒得循微徵德心必忆忌忍志忘忙忠忧快念忽怀态怎怒怕怖思怡急性怨怪总恋恐恢恨恩恭息恰恶恼悄悉悔悟悠患您悲情惑惜惠惧惨惯想惹愁愈愉意愚感愧慈慎慕慢慧慰憾懂懒戈戊戌戏成我戒或战截戴户房所扁扇手才扎扑打托扣执扩扫扬扭扮扯批找承技抄把抑抓投抗折抢护报披抬抱抵抹抽担拆拉拍拒拔拖拘招拜拟拥拦拨择括拳拷拼拾拿持指按挑挖挝挡挤挥挪振挺捉捐捕损捡换据捷授掉掌排探接控推掩措掸描提插握援搜搞搬搭摄摆摊摔摘摩摸撒撞播操擎擦支收改攻放政故效敌敏救教敝敢散敦敬数敲整文斋斐斗料斜斥断斯新方於施旁旅旋族旗无既日旦旧旨早旭时旺昂昆昌明昏易星映春昨昭是显晃晋晒晓晚晨普景晴晶智暂暑暖暗暮暴曰曲更曹曼曾替最月有朋服朗望朝期木未末本札术朱朵机杀杂权杉李材村杜束条来杨杯杰松板极构析林果枝枢枪枫架柏某染柔查柬柯柳柴标栋栏树校样核根格桃框案桌桑档桥梁梅梦梯械梵检棉棋棒棚森椅植椰楚楼概榜模樱檀欠次欢欣欧欲欺款歉歌止正此步武歪死殊残段毅母每毒比毕毛毫氏民气氛水永求汇汉汗汝江池污汤汪汶汽沃沈沉沙沟没沧河油治沿泉泊法泛泡波泣泥注泰泳泽洋洗洛洞津洪洲活洽派流浅测济浏浑浓浙浦浩浪浮浴海涅消涉涛涨涯液涵淋淑淘淡深混添清渐渡渣温港渴游湖湾源溜溪滋滑满滥滨滴漂漏演漠漫潘潜潮澎澳激灌火灭灯灰灵灿炉炎炮炸点烂烈烤烦烧热焦然煌煞照煮熊熟燃燕爆爪爬爱爵父爷爸爽片版牌牙牛牡牢牧物牲牵特牺犯状犹狂狐狗狠独狮狱狼猛猜猪献猴玄率玉王玛玩玫环现玲玻珀珊珍珠班球理琊琪琳琴琼瑙瑜瑞瑟瑰瑶璃瓜瓦瓶甘甚甜生用田由甲申电男甸画畅界留略番疆疏疑疗疯疲疼疾病痕痛痴癸登白百的皆皇皮盈益监盒盖盘盛盟目直相盼盾省眉看真眠眼着睛睡督瞧矛矣知短石矶码砂砍研破础硕硬确碍碎碗碟碧碰磁磅磨示礼社祖祚祝神祥票祯祸禁禅福离秀私秋种科秒秘租秤秦秩积称移稀程稍税稣稳稿穆究穷穹空穿突窗窝立站竞竟章童端竹笑笔笛符笨第等筋筑答策筹签简算管箭箱篇篮簿籍米类粉粒粗粤粹精糊糕糖糟系素索紧紫累繁红约级纪纯纲纳纵纷纸纽线练组细织终绍经结绕绘给络绝统继绩绪续维绵综绿缅缓编缘缠缩缴缶缸缺罐网罕罗罚罢罪置署羊美羞群羯羽翁翅翔翘翠翰翻翼耀老考者而耍耐耗耳耶聊职联聘聚聪肉肖肚股肤肥肩肯育胁胆背胎胖胜胞胡胶胸能脆脑脱脸腊腐腓腰腹腾腿臂臣自臭至致舌舍舒舞舟航般舰船良色艺艾节芒芝芦芬芭花芳苍苏苗若苦英茂范茨茫茶草荐荒荣药荷莉莎莪莫莱莲获菜菩菲萄萍萤营萧萨落著葛葡蒂蒋蒙蓉蓝蓬蔑蔡薄薪藉藏藤虎虑虫虹虽虾蚁蛇蛋蛙蛮蜂蜜蝶融蟹蠢血行街衡衣补表袋被袭裁裂装裕裤西要覆见观规视览觉角解言誉誓警计订认讨让训议讯记讲讷许论设访证评识诉词译试诗诚话诞询该详语误说请诸诺读课谁调谅谈谊谋谓谜谢谨谱谷豆象豪貌贝贞负贡财责贤败货质贩贪购贯贱贴贵贸费贺贼贾资赋赌赏赐赔赖赚赛赞赠赢赤赫走赵起趁超越趋趣足跃跌跑距跟路跳踏踢踩身躲车轨轩转轮软轰轻载较辅辆辈辉辑输辛辞辨辩辰辱边达迁迅过迈迎运近返还这进远违连迟迦迪迫述迷追退送适逃逆选逊透逐递途通逛逝速造逢逸逻逼遇遍道遗遭遮遵避邀邓那邦邪邮邱邻郎郑部郭都鄂酉酋配酒酷酸醉醒采释里重野量金针钓钟钢钦钱钻铁铃铜铢铭银铺链销锁锅锋错锡锦键锺镇镜镭长门闪闭问闰闲间闷闹闻阁阅阐阔队阮防阳阴阵阶阻阿陀附际陆陈降限院除险陪陵陶陷隆随隐隔障难雄雅集雉雨雪雯雳零雷雾需震霍霖露霸霹青靖静非靠面革靼鞋鞑韦韩音页顶项顺须顽顾顿预领颇频颗题额风飘飙飞食餐饭饮饰饱饼馆首香馨马驱驶驻驾验骑骗骚骤骨高鬼魂魅魔鱼鲁鲜鸟鸡鸣鸭鸿鹅鹤鹰鹿麦麻黄黎黑默鼓鼠鼻齐齿龄龙龟﹉﹊﹋﹌_＿﹍﹎﹏︳︴-－﹣‐–—︱―,，﹐、﹑;；﹔:：﹕!！﹗?？﹖.．﹒‥︰…。·＇‘’\\\\\\"＂“”〝〞(（﹙︵)）﹚︶[［]］{｛﹛︷}｝﹜︸〈︿〉﹀《︽》︾「﹁」﹂『﹃』﹄【︻】︼〔﹝︹〕﹞︺〖〗‖§@＠﹫*＊﹡/／\\\\\\\\＼﹨&＆﹠#＃﹟%％﹪‰′″‵〃※","Zulu":"abhcdlyefgqxijkpmntsoruvwzABHCDLYEFGQXIJKPMNTSORUVWZ-,;:!?.()[]{}"}\n'}),fs.define("specimenTools/services/FontsData",["specimenTools/_BaseWidget","!require/text!specimenTools/services/languageCharSets.json"],function(e,t){"use strict";function n(t,n){e.call(this,n),this._pubSub=t,this._pubSub.subscribe("loadFont",this._onLoadFont.bind(this)),this._data=[],Object.defineProperty(this._data,"globalCache",{value:Object.create(null)})}function r(e,t){var n,r,i,a,s,o=[];for(i=t[1],a=Object.keys(i).sort(),n=0,r=a.length;n<r;n++)s=i[a[n]],"normal"in s&&o.push(s.normal),"italic"in s&&o.push(s.italic);return e.concat(o)}function i(e,t){for(var n in t)n in e&&("object"==typeof t[n]?n=i(e[n],t[n]):e[n]=t[n]);return e}var a={100:"Thin",200:"Light",250:"Thin",275:"ExtraLight",300:"Light",400:"Regular",500:"Medium",600:"SemiBold",700:"Bold",800:"ExtraBold",900:"Black",260:"Thin",280:"ExtraLight"},s={100:"100",200:"200",250:"100",275:"200",300:"300",400:"400",500:"500",600:"600",700:"700",800:"800",900:"900",260:"100",280:"200"},o={"ultra-condensed":"ultra-condensed","extra-condensed":"extra-condensed",condensed:"condensed","semi-condensed":"semi-condensed",normal:"normal","semi-expanded":"semi-expanded",expanded:"expanded","extra-expanded":"extra-expanded","ultra-expanded":"ultra-expanded",narrow:"condensed",wide:"expanded"},l=n.prototype=Object.create(e.prototype);return l.constructor=n,n.defaultOptions={useLaxDetection:!1},n._cacheDecorator=function(e){return function(t){var n,r,i,a=[];for(n=0,r=arguments.length;n<r;n++)a[n]=arguments[n];return i=this._aquireFontData(t),e in i.cache?i.cache[e]:i.cache[e]=this[e].apply(this,a)}},n._installPublicCachedInterface=function(e){var t,r;for(t in e)r=t.slice(1),0!==t.indexOf("_get")||"function"!=typeof e[t]||r in e||(e[r]=n._cacheDecorator(t))},n._getFeatures=function(e,t,n){var r,i,a,s;for(r=0,i=n.length;r<i;r++)a=n[r],s=e[a].tag,this[s]||(this[s]=[]),this[s].push(t)},n.getFeatures=function(e){var t,r,i,a,s,o,l,u,p,c={};if(!("gsub"in e.tables&&e.tables.gsub.scripts))return c;for(t=e.tables.gsub,r=e.tables.gsub.scripts,i=0,a=r.length;i<a;i++){if(l=r[i].script,u=r[i].tag,l.defaultLangSys&&(p="Default",n._getFeatures.call(c,t.features,[u,p].join(":"),l.defaultLangSys.featureIndexes)),l.langSysRecords)for(s=0,o=l.langSysRecords.length;s<o;s++)p=l.langSysRecords[s].tag,n._getFeatures.call(c,t.features,[u,p].join(":"),l.langSysRecords[s].langSys.featureIndexes);return c}},n.languageCharSets=JSON.parse(t),n.sortCoverage=function(e,t){return e[1]===t[1]?e[0].localeCompare(t[0]):t[1]-e[1]},n.DEFAULT_LAX_CHAR_LIST=new Set([8208,8242,8243,10216,10217,8274]),n.getLanguageCoverage=function(e,t){var r,i,a,s,o,l,u,p,c,f,h,d=[];if("string"==typeof t)for(h=new Set,p=0,c=t.length;p<c;p++)h.add(t.codePointAt(p));else h=n.DEFAULT_LAX_CHAR_LIST;for(s in n.languageCharSets){for(o=n.languageCharSets[s],u=0,f=c=o.length,r=[],i=[],a=[],p=0;p<c;p++)l=o.codePointAt(p),l in e.encoding.cmap.glyphIndexMap?(u+=1,r.push(l)):t&&h.has(l)?(f-=1,a.push(l)):i.push(l);d.push([s,u/f,u,f,i,r,a])}return d.sort(n.sortCoverage),d},l._aquireFontData=function(e){var t=this._data[e];if(!t)throw new Error('FontIndex "'+e+'" is not available.');return t},l._onLoadFont=function(e,t,n,r){"object"==typeof this._options.overwrites&&this._options.overwrites[t]&&(n=i(n,this._options.overwrites[t])),this._data[e]={font:n,fileName:t,originalArraybuffer:r,cache:Object.create(null)}},l._getLanguageCoverage=function(e){return n.getLanguageCoverage(this._data[e].font,this._options.useLaxDetection)},l._getLanguageCoverageStrict=function(e){return n.getLanguageCoverage(this._data[e].font,!1)},l._getLanguageCoverageLax=function(e){return n.getLanguageCoverage(this._data[e].font,!0)},l._getSupportedLanguages=function(e){var t,n,r,i=this.getLanguageCoverage(e),a=[];for(t=0,n=i.length;t<n;t++)r=i[t][0],1===i[t][1]&&a.push(r);return a.sort(),a},l._getNumberGlyphs=function(e){return this._data[e].font.glyphNames.names.length},l._getFeatures=function(e){return n.getFeatures(this._data[e].font)},l._getFamilyName=function(e){var t,n=this._data[e].font;return t=n.names.postScriptName.en||Object.values(n.names.postScriptName)[0]||n.names.fontFamily,t=t.split("-")[0]},l._getFullName=function(e){var t=(this._data[e].font,""),n=this.getFileName(e);return t=[this.getFamilyName(e),this.getStyleName(e)].join(" "),"object"==typeof this._options.overwrites&&"object"==typeof this._options.overwrites[n]&&"object"==typeof this._options.overwrites[n].transforms&&"function"==typeof this._options.overwrites[n].transforms._getFullName&&(t=this._options.overwrites[n].transforms._getFullName(t)),t},l._getOS2FontWeight=function(e){return this._data[e].font.tables.os2.usWeightClass},l._getCSSFamilyName=function(e){return this._getFamilyName(e).replace(/\s/gi,"")},l._getIsItalic=function(e){var t=this._data[e].font,n=!!(t.tables.os2.fsSelection&t.fsSelectionValues.ITALIC),r=this.getSubfamilyName(e).toLowerCase(),i=-1!==r.indexOf("italic")||-1!==r.indexOf("oblique");return n||i},l.getFamiliesData=function(){if("getFamiliesData"in this._data.globalCache)return this._data.globalCache.getFamiliesData;var e,t,n,r,i,a,s,o,l=Object.create(null);for(a=0,s=this._data.length;a<s;a++)n=this.getFamilyName(a),r=this.getCSSWeight(a),i=this.getCSSStyle(a),e=l[n],e||(l[n]=e=Object.create(null)),t=e[r],t||(e[r]=t=Object.create(null)),i in t?console.warn("A font with weight "+r+' and style "'+i+'" has already appeared for "'+n+'".\nFirst was the file: '+t[i]+" "+this.getFileName(t[i])+".\nNow the file: "+a+" "+this.getFileName(a)+" is in conflict.\nThis may hint to a bad OS/2 table entry.\nSkipping."):t[i]=a;return o=Object.keys(l).sort().map(function(e){return[e,this[e]]
-},l),this._data.globalCache.getFamiliesData=o,o},l.getNumberSupportedLanguages=function(e){return this.getSupportedLanguages(e).length},l.getFont=function(e){return this._aquireFontData(e).font},l.getFileName=function(e){return this._aquireFontData(e).fileName},l.getOriginalArraybuffer=function(e){return this._aquireFontData(e).originalArraybuffer},l.getCSSWeight=function(e){return s[this.getOS2FontWeight(e)]},l.getWeightName=function(e){return a[this.getOS2FontWeight(e)]},l.getCSSStyle=function(e){return this.getIsItalic(e)?"italic":"normal"},l.getStyleName=function(e){return this.getWeightName(e)+(this.getIsItalic(e)?" Italic":"")},l.getCSSStretch=function(e){return this.getStretchName(e)},l.getStretchName=function(e){var t,n,r,i,a,s=this._data[e].font,l=Object.keys(o);for(t=s.names.postScriptName.en||Object.values(s.names.postScriptName)[0]||s.names.fontFamily,n=t.indexOf("-")>-1?t.substring(t.indexOf("-")+1):t,n=n.toLowerCase(),i=0,a=l.length;i<a;i++)if("normal"!==(r=l[i])&&n.indexOf(r)>-1)return o[r];return"normal"},l.getPostScriptName=function(e){return this._aquireFontData(e).font.names.postScriptName},l.getSubfamilyName=function(e){var t,n=this._data[e].font;return t=n.names.postScriptName.en||Object.values(n.names.postScriptName)[0]||n.names.fontFamily,t.indexOf("-")>-1?t.substring(t.indexOf("-")+1):t},l.getGlyphByName=function(e,t){var n=this._aquireFontData(e).font,r=n.glyphNames.nameToGlyphIndex(t);return n.glyphs.get(r)},l.getFontValue=function(e,t){var n=this._aquireFontData(e).font;switch(t){case"xHeight":return n.tables.os2.sxHeight;case"capHeight":return n.tables.os2.sCapHeight;case"ascender":case"descender":return n[t];default:console.warn("getFontValue: don't know how to get \""+t+'".')}},l.getFontIndexesInFamilyOrder=function(){return this.getFamiliesData().reduce(r,[])},l.getFontIndexes=function(){var e,t,n=[];for(e=0,t=this._data.length;e<t;e++)n.push(e);return n},String.prototype.codePointAt||function(){var e=function(e){if(null==this)throw TypeError();var t,n,r=String(this),i=r.length,a=e?Number(e):0;if(a!=a&&(a=0),!(a<0||a>=i))return t=r.charCodeAt(a),t>=55296&&t<=56319&&i>a+1&&(n=r.charCodeAt(a+1))>=56320&&n<=57343?1024*(t-55296)+n-56320+65536:t};Object.defineProperty?Object.defineProperty(String.prototype,"codePointAt",{value:e,configurable:!0,writable:!0}):String.prototype.codePointAt=e}(),n._installPublicCachedInterface(l),n}),fs.define("specimenTools/services/WebfontProvider",["specimenTools/_BaseWidget"],function(e){"use strict";function t(t,n,r,i){e.call(this,i),this._window=t,this._pubSub=n,this._fontData=r,this._pubSub.subscribe("loadFont",this._onLoadFont.bind(this)),this._data=[],this._blobs=[],this.__stylesheet=null}var n=t.prototype=Object.create(e.prototype);return n.constructor=t,t.defaultOptions={},Object.defineProperty(n,"_styleSheet",{get:function(){if(!this.__stylesheet){var e=this._window.document.createElement("style");e.appendChild(this._window.document.createTextNode("")),this._window.document.head.appendChild(e),this.__stylesheet=e.sheet}return this.__stylesheet}}),n._makeWebfont=function(e){var t,n,r,i,a=this._fontData.getOriginalArraybuffer(e),s=this._fontData.getCSSFamilyName(e),o=this._fontData.getCSSWeight(e),l=this._fontData.getCSSStyle(e),u=this._fontData.getCSSStretch(e);this._data[e]=i=Object.create(null),i["font-style"]=l,i["font-weight"]=o,i["font-family"]=s,i["font-stretch"]=u,Object.defineProperty(i,"_props",{value:null,enumerable:!1,writable:!0}),"FontFace"in this._window?(t=new this._window.FontFace(s,a,{stretch:u,weight:o,style:l}),this._window.document.fonts.add(t)):(r=new this._window.Blob([a],{type:"font/opentype"}),this._blobs[e]=r,n=this._window.URL.createObjectURL(r),this._styleSheet.insertRule(["@font-face {",this.getStyleProperties(e),"src: url("+n+");","}"].join(""),this._styleSheet.cssRules.length))},n._onLoadFont=function(e){this._makeWebfont(e)},n.getStyleProperties=function(e){var t,n,r=this._data[e];if(!r)throw new Error('FontIndex "'+e+'" is not loaded.');if(!(t=r._props)){t=[];for(n in r)t.push(n,": ",r[n],";");t=t.join("")}return t},n.setStyleOfElement=function(e,t){var n,r=this._data[e];if(!r)throw new Error('FontIndex "'+e+'" is not loaded.');for(n in r)t.style[this._cssName2jsName(n)]=r[n]},t}),fs.define("specimenTools/widgets/GenericFontData",["specimenTools/_BaseWidget"],function(e){"use strict";function t(t,n,r,i){e.call(this,i),this._container=t,this._pubSub=n,this._fontData=r,this._pubSub.subscribe("activateFont",this._onActivateFont.bind(this))}var n=t.prototype=Object.create(e.prototype);return n.constructor=t,t.defaultOptions={getValue:null},n._defaultGetValue=function(e){var t,n;if(n=t=this._container.getAttribute("data-getter"),0!==n.indexOf("get")&&(n=["get",n[0].toUpperCase(),n.slice(1)].join("")),!(n in this._fontData)||"function"!=typeof this._fontData[n])throw new Error('Unknown getter "'+t+'"'+(n!==t?'(as "'+n+'")':"")+".");return this._fontData[n](e)},n._getValue=function(e){var t;return null!==this._options.getValue?this._options.getValue.call(this,e):(t=this._defaultGetValue(e),"number"==typeof t.length&&"string"!=typeof t&&(t=Array.prototype.join.call(t,", ")),t)},n._onActivateFont=function(e){this._container.textContent=this._getValue(e)},t}),fs.define("specimenTools/widgets/CurrentWebFont",["specimenTools/_BaseWidget"],function(e){"use strict";function t(t,n,r,i){e.call(this,i),this._container=t,this._webFontProvider=r,this._pubSub=n,this._pubSub.subscribe("activateFont",this._onActivateFont.bind(this))}var n=t.prototype=Object.create(e.prototype);return n.constructor=t,t.defaultOptions={},n._onActivateFont=function(e){this._webFontProvider.setStyleOfElement(e,this._container)},t}),fs.define("specimenTools/services/OTFeatureInfo",["specimenTools/_BaseWidget"],function(e){"use strict";function t(e){var n;if("object"==typeof e){for(n in e)t(e[n]);try{Object.freeze(e)}catch(e){return}}}function n(t,n){e.call(this,n),this._pubsub=t,this._caches={optional:null,default:null,unknown:null,all:null}}function r(e,t,n){function r(){var e,r=this._caches[t];if(null===r){this._caches[t]=r=Object.create(null);for(e in i)n&&!n(i[e])||(r[e]=i[e]);Object.freeze(r)}return r}Object.defineProperty(e,t,{get:r,enumerable:!0})}var i=Object.create(null);i.aalt={friendlyName:"Access All Alternates",onByDefault:null,slSensitivity:[]},i.abvf={friendlyName:"Above-base Forms",onByDefault:!0,slSensitivity:["Khmer script"]},i.abvm={friendlyName:"Above-base Mark Positioning",onByDefault:!0,slSensitivity:["Indic scripts"]},i.abvs={friendlyName:"Above-base Substitutions",onByDefault:!0,slSensitivity:["Indic scripts"]},i.afrc={friendlyName:"Alternative Fractions",onByDefault:!1,slSensitivity:[]},i.akhn={friendlyName:"Akhands",onByDefault:null,slSensitivity:["Indic scripts"]},i.blwf={friendlyName:"Below-base Forms",onByDefault:null,slSensitivity:["Indic scripts"]},i.blwm={friendlyName:"Below-base Mark Positioning",onByDefault:!0,slSensitivity:["Indic scripts"]},i.blws={friendlyName:"Below-base Substitutions",onByDefault:!0,slSensitivity:["Indic scripts"]},i.calt={friendlyName:"Contextual Alternates",onByDefault:!0,slSensitivity:[]},i.case={friendlyName:"Case-Sensitive Forms",onByDefault:!1,slSensitivity:["European scripts","Spanish Language"],exampleText:"¡!(H-{E[L]L}O)"},i.ccmp={friendlyName:"Glyph Composition / Decomposition",onByDefault:!0,slSensitivity:[]},i.cfar={friendlyName:"Conjunct Form After Ro",onByDefault:null,slSensitivity:["Khmer scripts"]},i.cjct={friendlyName:"Conjunct Forms",onByDefault:null,slSensitivity:[" Indic scripts that show similarity to Devanagari"]},i.clig={friendlyName:"Contextual Ligatures",onByDefault:!0,slSensitivity:[]},i.cpct={friendlyName:"Centered CJK Punctuation",onByDefault:!1,slSensitivity:["Chinese"]},i.cpsp={friendlyName:"\tCapital Spacing",onByDefault:!0,slSensitivity:["Should not be used in connecting scripts (e.g. most Arabic)"]},i.cswh={friendlyName:"Contextual Swash",onByDefault:!1,slSensitivity:[]},i.curs={friendlyName:"Cursive Positioning",onByDefault:null,slSensitivity:[]},function(e){var t,n,r;for(t=1;t<100;t++)n=("0"+t).slice(-2),r="cv"+n,e[r]={friendlyName:"Character Variants "+t,onByDefault:!1,slSensitivity:[]}}(i),i.c2pc={friendlyName:"Petite Capitals From Capitals",onByDefault:!1,slSensitivity:["scripts with both upper- and lowercase forms","Latin","Cyrillic","Greek"]},i.c2sc={friendlyName:"Small Capitals From Capitals",onByDefault:!1,slSensitivity:["bicameral scripts","Latin","Greek","Cyrillic","Armenian"],exampleText:"HELLO WORLD"},i.dist={friendlyName:"Distances",onByDefault:null,slSensitivity:["Indic scripts"]},i.dlig={friendlyName:"Discretionary Ligatures",onByDefault:!1,slSensitivity:[],exampleText:"act stand (1) (7)"},i.dnom={friendlyName:"Denominators",onByDefault:null,slSensitivity:[]},i.dtls={friendlyName:"Dotless Forms",onByDefault:null,slSensitivity:["math formula layout"]},i.expt={friendlyName:"Expert Forms",onByDefault:null,slSensitivity:["Japanese"]},i.falt={friendlyName:"Final Glyph on Line Alternates",onByDefault:null,slSensitivity:["any cursive script","Arabic"]},i.fin2={friendlyName:"Terminal Forms #2",onByDefault:!0,slSensitivity:["Syriac"]},i.fin3={friendlyName:"Terminal Forms #3",onByDefault:!0,slSensitivity:["Syriac"]},i.fina={friendlyName:"Terminal Forms",onByDefault:!1,slSensitivity:["script with joining behavior","Arabic"]},i.flac={friendlyName:"Flattened accent forms",onByDefault:null,slSensitivity:["math formula layout"]},i.frac={friendlyName:"Fractions",onByDefault:!1,slSensitivity:[],exampleText:"1/2 1/4"},i.fwid={friendlyName:"Full Widths",onByDefault:!1,slSensitivity:["scripts which can use monospaced forms"]},i.half={friendlyName:"Half Forms",onByDefault:null,slSensitivity:[" Indic scripts that show similarity to Devanagari"]},i.haln={friendlyName:"Halant Forms",onByDefault:!0,slSensitivity:["Indic scripts"]},i.halt={friendlyName:"Alternate Half Widths",onByDefault:!1,slSensitivity:["CJKV"]},i.hist={friendlyName:"Historical Forms",onByDefault:!1,slSensitivity:[],exampleText:"basic"},i.hkna={friendlyName:"Horizontal Kana Alternates",onByDefault:!1,slSensitivity:["hiragana","katakana"]},i.hlig={friendlyName:"Historical Ligatures",onByDefault:!1,slSensitivity:[],exampleText:"baſic ſs ſl"},i.hngl={friendlyName:"Hangul",onByDefault:!1,slSensitivity:["Korean"]},i.hojo={friendlyName:"Hojo Kanji Forms (JIS X 0212-1990 Kanji Forms)",onByDefault:!1,slSensitivity:["Kanji"]},i.hwid={friendlyName:"Half Widths",onByDefault:!1,slSensitivity:["CJKV"]},i.init={friendlyName:"Initial Forms",onByDefault:!1,slSensitivity:["script with joining behavior","Arabic"]},i.isol={friendlyName:"Isolated Forms",onByDefault:null,slSensitivity:["script with joining behavior","Arabic"]},i.ital={friendlyName:"Italics",onByDefault:null,slSensitivity:["mostly Latin"]},i.jalt={friendlyName:"Justification Alternates",onByDefault:null,slSensitivity:["any cursive script"]},i.jp78={friendlyName:"JIS78 Forms",onByDefault:!1,slSensitivity:["Japanese"]},i.jp83={friendlyName:"JIS83 Forms",onByDefault:!1,slSensitivity:["Japanese"]},i.jp90={friendlyName:"JIS90 Forms",onByDefault:!1,slSensitivity:["Japanese"]},i.jp04={friendlyName:"JIS2004 Forms",onByDefault:!1,slSensitivity:["Kanji"]},i.kern={friendlyName:"Kerning",onByDefault:!0,slSensitivity:[]},i.lfbd={friendlyName:"Left Bounds",onByDefault:null,slSensitivity:[]},i.liga={friendlyName:"Standard Ligatures",onByDefault:!0,slSensitivity:[]},i.ljmo={friendlyName:"Leading Jamo Forms",onByDefault:!0,slSensitivity:["Hangul + Ancient Hangul"]},i.lnum={friendlyName:"Lining Figures",onByDefault:!1,slSensitivity:[],exampleText:"31337 H4X0R"},i.locl={friendlyName:"Localized Forms",onByDefault:!0,slSensitivity:[]},i.ltra={friendlyName:"Left-to-right alternates",onByDefault:null,slSensitivity:["Left-to-right runs of text"]},i.ltrm={friendlyName:"Left-to-right mirrored forms",onByDefault:null,slSensitivity:["Left-to-right runs of text"]},i.mark={friendlyName:"Mark Positioning",onByDefault:null,slSensitivity:[]},i.med2={friendlyName:"Medial Forms #2",onByDefault:!0,slSensitivity:["Syriac"]},i.medi={friendlyName:"Medial Forms",onByDefault:null,slSensitivity:["script with joining behavior","Arabic"]},i.mgrk={friendlyName:"Mathematical Greek",onByDefault:!1,slSensitivity:["Greek script"]},i.mkmk={friendlyName:"Mark to Mark Positioning",onByDefault:!0,slSensitivity:[]},i.mset={friendlyName:"Mark Positioning via Substitution",onByDefault:null,slSensitivity:["Arabic"]},i.nalt={friendlyName:"Alternate Annotation Forms",onByDefault:!1,slSensitivity:["CJKV","European scripts"],exampleText:"359264"},i.nlck={friendlyName:"NLC Kanji Forms",onByDefault:!1,slSensitivity:["Kanji"]},i.nukt={friendlyName:"Nukta Forms",onByDefault:null,slSensitivity:[" Indic scripts"]},i.numr={friendlyName:"Numerators",onByDefault:null,slSensitivity:[]},i.onum={friendlyName:"Oldstyle Figures",onByDefault:!1,slSensitivity:[],exampleText:"123678"},i.opbd={friendlyName:"Optical Bounds",onByDefault:!0,slSensitivity:[]},i.ordn={friendlyName:"Ordinals",onByDefault:!1,slSensitivity:["Latin"],exampleText:"1a 9a 2o 7o"},i.ornm={friendlyName:"Ornaments",onByDefault:null,slSensitivity:[]},i.palt={friendlyName:"Proportional Alternate Widths",onByDefault:!1,slSensitivity:["CJKV"]},i.pcap={friendlyName:"Petite Capitals",onByDefault:!1,slSensitivity:["scripts with both upper- and lowercase forms","Latin","Cyrillic","Greek"]},i.pkna={friendlyName:"Proportional Kana",onByDefault:!1,slSensitivity:["Japanese"]},i.pnum={friendlyName:"Proportional Figures",onByDefault:!1,slSensitivity:[],exampleText:"123678"},i.pref={friendlyName:"Pre-Base Forms",onByDefault:null,slSensitivity:["Khmer and Myanmar (Burmese) scripts"]},i.pres={friendlyName:"Pre-base Substitutions",onByDefault:!0,slSensitivity:["Indic scripts"]},i.pstf={friendlyName:"Post-base Forms",onByDefault:null,slSensitivity:["scripts of south and southeast Asia that have post-base forms for consonants","Gurmukhi","Malayalam","Khmer"]},i.psts={friendlyName:"Post-base Substitutions",onByDefault:!0,slSensitivity:["any alphabetic script","Indic scripts"]},i.pwid={friendlyName:"Proportional Widths",onByDefault:null,slSensitivity:["CJKV","European scripts"]},i.qwid={friendlyName:"Quarter Widths",onByDefault:!1,slSensitivity:["CJKV"]},i.rand={friendlyName:"Randomize",onByDefault:!0,slSensitivity:[]},i.rclt={friendlyName:"Required Contextual Alternates",onByDefault:!0,slSensitivity:["any script","important for many styles of Arabic"]},i.rkrf={friendlyName:"Rakar Forms",onByDefault:null,slSensitivity:["Devanagari","Gujarati"]},i.rlig={friendlyName:"Required Ligatures",onByDefault:!0,slSensitivity:["Arabic","Syriac","May apply to some other scripts"]},i.rphf={friendlyName:"Reph Forms",onByDefault:null,slSensitivity:["Indic scripts","Devanagari","Kannada"]},i.rtbd={friendlyName:"Right Bounds",onByDefault:null,slSensitivity:[]},i.rtla={friendlyName:"Right-to-left alternates",onByDefault:null,slSensitivity:["Right-to-left runs of text"]},i.rtlm={friendlyName:"Right-to-left mirrored forms",onByDefault:null,slSensitivity:["Right-to-left runs of text"]},i.ruby={friendlyName:"Ruby Notation Forms",onByDefault:!1,slSensitivity:["Japanese"]},i.rvrn={friendlyName:"Required Variation Alternates",onByDefault:null,slSensitivity:[]},i.salt={friendlyName:"Stylistic Alternates",onByDefault:null,slSensitivity:[]},i.sinf={friendlyName:"Scientific Inferiors",onByDefault:!1,slSensitivity:[],exampleText:"1902835746"},i.size={friendlyName:"Optical size",onByDefault:!0,slSensitivity:[]},i.smcp={friendlyName:"Small Capitals",onByDefault:!1,slSensitivity:[" bicameral scripts","Latin","Greek","Cyrillic","Armenian"],exampleText:"Hello World"},i.smpl={friendlyName:"Simplified Forms",onByDefault:!1,slSensitivity:["Chinese","Japanese"]},function(e){var t,n,r;for(t=1;t<21;t++)n=("0"+t).slice(-2),r="ss"+n,e[r]={friendlyName:"Stylistic Set "+t,onByDefault:!1,slSensitivity:[]}}(i),i.ssty={friendlyName:"Math script style alternates",onByDefault:null,slSensitivity:["math formula layout"]},i.stch={friendlyName:"Stretching Glyph Decomposition",onByDefault:!0,slSensitivity:[]},i.subs={friendlyName:"Subscript",onByDefault:!1,slSensitivity:[],exampleText:"a1 b4 c9"},i.sups={friendlyName:"Superscript",onByDefault:!1,slSensitivity:[],exampleText:"x2 y5 z7"},i.swsh={friendlyName:"Swash",onByDefault:!1,slSensitivity:["Does not apply to ideographic scripts"]},i.titl={friendlyName:"Titling",onByDefault:!1,slSensitivity:[]},i.tjmo={friendlyName:"Trailing Jamo Forms",onByDefault:!0,slSensitivity:["Hangul + Ancient Hangul"]},i.tnam={friendlyName:"Traditional Name Forms",onByDefault:!1,slSensitivity:["Japanese"]},i.tnum={friendlyName:"Tabular Figures",onByDefault:!1,slSensitivity:[],exampleText:"123678"},i.trad={friendlyName:"Traditional Forms",onByDefault:!1,slSensitivity:["Chinese","Japanese"]},i.twid={friendlyName:"Third Widths",onByDefault:!1,slSensitivity:["CJKV"]},i.unic={friendlyName:"Unicase",onByDefault:!1,slSensitivity:["scripts with both upper- and lowercase forms","Latin","Cyrillic","Greek"]},i.valt={friendlyName:"Alternate Vertical Metrics",onByDefault:null,slSensitivity:["scripts with vertical writing modes"]},i.vatu={friendlyName:"Vattu Variants",onByDefault:null,slSensitivity:["Indic scripts","Devanagari"]},i.vert={friendlyName:"Vertical Writing",onByDefault:null,slSensitivity:["scripts with vertical writing capability."]},i.vhal={friendlyName:"Alternate Vertical Half Metrics",onByDefault:!1,slSensitivity:["CJKV"]},i.vjmo={friendlyName:"Vowel Jamo Forms",onByDefault:!0,slSensitivity:["Hangul + Ancient Hangul"]},i.vkna={friendlyName:"Vertical Kana Alternates",onByDefault:!1,slSensitivity:["hiragana","katakana"]},i.vkrn={friendlyName:"Vertical Kerning",onByDefault:!0,slSensitivity:[]},i.vpal={friendlyName:"Proportional Alternate Vertical Metrics",onByDefault:!1,slSensitivity:["CJKV"]},i.vrt2={friendlyName:"Vertical Alternates and Rotation",onByDefault:!0,slSensitivity:["scripts with vertical writing capability"]},i.vrtr={friendlyName:"Vertical Alternates for Rotation",onByDefault:!0,slSensitivity:[]},i.zero={friendlyName:"Slashed Zero",onByDefault:!1,slSensitivity:[],exampleText:"0123"},t(i);var a=n.prototype=Object.create(e.prototype);return a.constructor=n,n.defaultOptions={},r(a,"optional",function(e){return!1===e.onByDefault}),r(a,"default",function(e){return!0===e.onByDefault}),r(a,"unknown",function(e){return null===e.onByDefault}),r(a,"all",!1),a.getSubset=function(e,t){var n,r,i,a=this[e],s=Object.create(null);for(n=0,r=t.length;n<r;n++)(i=t[n])in a&&(s[i]=a[i]);return s},a.getFeature=function(e){return i[e]},new n}),fs.define("specimenTools/widgets/TypeTester",["specimenTools/_BaseWidget","specimenTools/services/OTFeatureInfo"],function(e,t){"use strict";function n(t,n,r,i){e.call(this,i),this._container=t,this._pubSub=n,this._fontsData=r,this._pubSub.subscribe("activateFont",this._onActivateFont.bind(this)),this._pubSub.subscribe("onChangeFontFeatures",this._onChangeFontFeatures.bind(this)),this._contentContainers=this._getByClass(this._options.contentContainerClass),this._controls={features:{containers:Object.create(null),active:Object.create(null),buttons:null,tags:null}},this._activeFeatures=Object.create(null),this._values=Object.create(null),this.__sliderInputHandler=this._sliderInputHandler.bind(this),this._initControls(),this._applyValues()}var r=n.prototype=Object.create(e.prototype);return r.constructor=n,n.defaultOptions={slider_default_min:10,slider_default_max:128,slider_default_value:32,slider_default_step:1,slider_default_unit:"px",slider_default_class:"specimen-slider",optionalFeaturesControlsClass:"type-tester__features--optional",defaultFeaturesControlsClass:"type-tester__features--default",sliderControlsClass:"type-tester__slider",contentContainerClass:"type-tester__content",labelControlsClass:"type-tester__label",setCssValueToInput:function(e,t){e.value=t},optionalFeatureButtonClasses:"",defaultFeatureButtonClasses:"",activateFeatureControls:null,featureButtonActiveClass:"active"},r._sliderInputHandler=function(e){for(var t=e.target.parentElement,n=null,r=e.target.value;t!==this._container;){if(void 0!==t.dataset.targetProperty){n=t.dataset.targetProperty;break}t=t.parentElement}null!==n&&(this._setCssValue(n,r),this._applyValues())},r._setSliderOptions=function(e){var t,n,r=["min","max","unit","step","value","class"];for(this._options[e]={},n=0;n<r.length;n++)t=[r[n],e.substr(0,1).toUpperCase(),e.substr(1)].join(""),t in this._container.dataset?this._options[e][r[n]]=this._container.dataset[t]:this._options[e][r[n]]=this._options["slider_default_"+r[n]]},r._initSlider=function(e){var t,n=this._container.ownerDocument.createElement("input"),r=e.dataset.targetProperty,i=this._cssName2jsName(r),a=[i,"_slider"].join(""),s={min:this._options[i].min,max:this._options[i].max,step:this._options[i].step};a in this._controls||(this._controls[a]=[]),this._controls[a].push({input:n,container:e}),this._applyClasses(n,this._options[i].class),n.setAttribute("type","range");for(t in s)n.setAttribute(t,s[t]);e.appendChild(n),n.addEventListener("input",this.__sliderInputHandler)},r._initLabel=function(e){var t=this._cssName2jsName(e.dataset.targetProperty),n=[t,"_label"].join("");n in this._controls||(this._controls[n]=[]),this._controls[n].push(e)},r._initFeaturesControl=function(e,t){t in this._controls.features.containers||(this._controls.features.containers[t]=[]),this._controls.features.containers[t].push(e),e.addEventListener("click",this._switchFeatureTagHandler.bind(this,e))},r._initControls=function(){var e,t,n,r,i,a,s,o,l,u,p=this._getByClass(this._options.sliderControlsClass),c=this._getByClass(this._options.labelControlsClass),f={optionalFeatures:[this._getByClass(this._options.optionalFeaturesControlsClass),["_initFeaturesControl","optional"]],defaultFeatures:[this._getByClass(this._options.defaultFeaturesControlsClass),["_initFeaturesControl","default"]]},h=[];for(l=0;l<p.length;l++)i=p[l].dataset.targetProperty,a=this._cssName2jsName(i),s=[a,"_slider"].join(""),s in f||(this._setSliderOptions(a),f[s]=[[],["_initSlider"]]),f[s][0].push(p[l]);for(l=0;l<c.length;l++)i=c[l].dataset.targetProperty,a=this._cssName2jsName(i),o=[a,"_label"].join(""),o in f||(f[o]=[[],["_initLabel"],this._setCssValue.bind(this,i,this._options[a].value)]),f[o][0].push(c[l]);for(r in f)for(e=f[r][1][0],t=f[r][1].slice(1),f[r][2]&&h.push(f[r][2]),n=f[r][0],l=0,u=n.length;l<u;l++)this[e].apply(this,[n[l]].concat(t));for(l=0,u=h.length;l<u;l++)h[l]()},r._switchFeatureTagHandler=function(e,t){var n,r,i,a=null,s=this._controls.features.active;for(i=t.target;i&&i!==e;){if(i.hasAttribute("data-feature-tag")){a=i.getAttribute("data-feature-tag");break}i=i.parentElement}if(null!==a){if(a in s)delete s[a];else{if("default"===(n=this._getFeatureTypeByTag(a)))r="0";else{if("optional"!==n)return;r="1"}s[a]=r}this._setFeatureButtonsState(),this._setFeatures(),this._applyValues()}},r._setFeatures=function(){if(this._features_from_event)return this._values["font-feature-settings"]=this._features_from_event,void(this._features_from_event="");var e,t=this._controls.features.active,n=this._controls.features.buttons,r=[];for(e in t)e in n&&r.push('"'+e+'" '+t[e]);this._values["font-feature-settings"]=r.join(", ")},r._updateFeatureControlContainer=function(e,t,n,r){var i,a,s,o,l,u,p=e.ownerDocument,c=[];for(r||(r=Object.keys(n).sort()),a=e.children.length-1;a>=0;a--)t===e.children[a].getAttribute("data-feature-type")&&e.removeChild(e.children[a]);for(a=0,s=r.length;a<s;a++)i=r[a],o=n[i],l=[i,o.friendlyName].join(": "),u=p.createElement("button"),u.textContent=l,u.setAttribute("data-feature-tag",i),u.setAttribute("data-feature-type",t),this._applyClasses(u,this._options[t+"FeatureButtonClasses"]),e.appendChild(u),c.push(u),i in this._controls.features.buttons||(this._controls.features.buttons[i]=[]),this._controls.features.buttons[i].push(u);return c},r._getFeatureTypeByTag=function(e){var t=this._controls.features.tags;return"default"in t&&e in t.default.features?"default":"optional"in t&&e in t.optional.features?"optional":null},r._updateFeatureControls=function(e){var n,r,i,a,s,o,l,u,p,c=this._fontsData.getFeatures(e),f=Object.keys(c),h=["default","optional"],d=this._controls.features,m=[];for(d.buttons=Object.create(null),d.tags=Object.create(null),r=0,i=h.length;r<i;r++)for(n=h[r],u=t.getSubset(n,f),p=Object.keys(u).sort(),d.tags[n]={features:u,order:p},l=d.containers[n]||[],a=0,s=l.length;a<s;a++)o=this._updateFeatureControlContainer(l[a],n,u,p),Array.prototype.push.apply(m,o);this._options.activateFeatureControls&&this._options.activateFeatureControls.call(this,m),this._setFeatureButtonsState()},r._setFeatureButtonActiveState=function(e,t){this._applyClasses(e,this._options.featureButtonActiveClass,!t)},r._setFeatureButtonsState=function(){var e,t,n,r,i,a,s,o=this._controls.features;for(e in o.buttons){if(n=o.buttons[e],t=e in o.active,"default"===(i=this._getFeatureTypeByTag(e)))r=!t;else{if("optional"!==i)continue;r=t}for(a=0,s=n.length;a<s;a++)this._setFeatureButtonActiveState.call(this,n[a],r)}},r._setCssValue=function(e,t){var n,r,i=this._cssName2jsName(e),a=[t,this._options[i].unit],s=this._controls[i+"_slider"],o=this._controls[i+"_label"];for(n=0,r=s.length;n<r;n++)this._options.setCssValueToInput.call(this,s[n].input,t);for(n=0,r=o.length;n<r;n++)o[n].textContent=a.join(" ");this._values[e]=a.join("")},r._getByClass=function(e){return this._container.getElementsByClassName(e)},r._applyValues=function(){var e,t,n,r;for(e=0,t=this._contentContainers.length;e<t;e++){n=this._contentContainers[e];for(r in this._values)n.style[this._cssName2jsName(r)]=this._values[r]}},r._onChangeFontFeatures=function(e){this._features_from_event=e,this._values["font-feature-settings"]=e,this._applyValues()},r._onActivateFont=function(e){this._updateFeatureControls(e),this._setFeatures(),this._applyValues()},n}),fs.define("specimenTools/widgets/FontLister",["specimenTools/_BaseWidget"],function(e){"use strict";function t(t,n,r,i){e.call(this,i),this._container=t,this._pubSub=n,this._fontsData=r,this._elements=[],this._selectContainer=this._container.ownerDocument.createElement("select"),this._selectContainer.addEventListener("change",this._selectFont.bind(this)),this._selectContainer.enabled=!1,this._container.appendChild(this._selectContainer),this._pubSub.subscribe("allFontsLoaded",this._onAllFontsLoaded.bind(this)),this._pubSub.subscribe("activateFont",this._onActivateFont.bind(this))}var n=t.prototype=Object.create(e.prototype);return n.constructor=t,t.defaultOptions={order:"load"},n._onActivateFont=function(e){var t,n,r,i=this._selectContainer.children;for(t=0,n=i.length;t<n;t++)r=i[t],r.selected=r.value==e},n._onAllFontsLoaded=function(){var e,t,n,r,i;switch(this._options.order){case"family":e=this._fontsData.getFontIndexesInFamilyOrder();case"load":default:e=this._fontsData.getFontIndexes()}for(t=0,n=e.length;t<n;t++)i=e[t],r=this._selectContainer.ownerDocument.createElement("option"),r.textContent=this._fontsData.getFullName(i),r.value=i,this._elements.push(r),this._selectContainer.appendChild(r);this._selectContainer.enabled=!0},n._selectFont=function(e){this._pubSub.publish("activateFont",e.target.value)},t}),fs.define("specimenTools/widgets/FeatureLister",["specimenTools/_BaseWidget","specimenTools/services/OTFeatureInfo"],function(e,t){"use strict";function n(t,n,r,i){e.call(this,i),this._container=t,this._pubSub=n,this._fontsData=r,this._pubSub.subscribe("activateFont",this._onActivateFont.bind(this)),this._controls={features:{containers:Object.create(null),active:Object.create(null),buttons:null,tags:null}},this._values=Object.create(null),this._initFeaturesControl("default"),this._initFeaturesControl("optional"),this._applyValues()}var r=n.prototype=Object.create(e.prototype);return r.constructor=n,n.defaultOptions={optionalFeaturesControlsClass:"feature-lister__features--optional",defaultFeaturesControlsClass:"feature-lister__features--default",emptyFeaturesClass:"feature-lister__features-empty",optionalFeatureButtonClasses:"",defaultFeatureButtonClasses:"",activateFeatureControls:null,featureButtonActiveClass:"active"},r._initFeaturesControl=function(e){var t,n,r,i="default"===e?this._getByClass(this._options.defaultFeaturesControlsClass):this._getByClass(this._options.optionalFeaturesControlsClass);for(n=0,r=i.length;n<r;n++)t=i[n],t.setAttribute("data-feature-type",e),e in this._controls.features.containers||(this._controls.features.containers[e]=[]),this._controls.features.containers[e].push(t)},r._switchFeatureTagHandler=function(e){var t,n,r,i=null,a=this._controls.features.active;for(i=e.target.value,r=e.target;r&&r!==this._container;){if(r.hasAttribute("data-feature-tag")){i=r.getAttribute("data-feature-tag");break}r=r.parentElement}if(null!==i){if(i in a)delete a[i];else{if("default"===(t=this._getFeatureTypeByTag(i)))n="0";else{if("optional"!==t)return;n="1"}a[i]=n}this._setFeatureButtonsState(),this._setFeatures(),this._applyValues()}},r._setFeatures=function(){var e,t=this._controls.features.active,n=this._controls.features.buttons,r=[];for(e in t)e in n&&r.push('"'+e+'" '+t[e]);this._values["font-feature-settings"]=r.join(", ")},r._updateFeatureControlContainer=function(e,t,n,r){var i,a,s,o,l,u,p,c=e.ownerDocument,f=[];for(r||(r=Object.keys(n).sort()),a=e.children.length-1;a>=0;a--)e.children[a].firstChild.removeEventListener("change",this._switchFeatureTagHandler),e.removeChild(e.children[a]);for(a=0,s=r.length;a<s;a++)i=r[a],o=n[i],p=c.createElement("label"),l=c.createElement("span"),l.textContent=o.friendlyName,u=c.createElement("input"),u.setAttribute("type","checkbox"),u.setAttribute("data-feature-tag",i),u.setAttribute("data-feature-type",t),u.setAttribute("value",i),u.addEventListener("change",this._switchFeatureTagHandler.bind(this)),this._applyClasses(u,this._options[t+"FeaturecheckboxClasses"]),p.appendChild(u),p.appendChild(l),this._controls.features.containers[t][0].appendChild(p),f.push(u),i in this._controls.features.buttons||(this._controls.features.buttons[i]=[]),this._controls.features.buttons[i].push(u);return f},r._getFeatureTypeByTag=function(e){var t=this._controls.features.tags;return"default"in t&&e in t.default.features?"default":"optional"in t&&e in t.optional.features?"optional":null},r._updateFeatureControls=function(e){var n,r,i,a,s,o,l,u,p,c=this._fontsData.getFeatures(e),f=Object.keys(c),h=["default","optional"],d=this._controls.features,m=[],g=this._container.className.split(" "),v=g.indexOf(this._options.emptyFeaturesClass);for(0===f.length?this._container.className+=" "+this._options.emptyFeaturesClass:(v>-1&&g.splice(v),this._container.className=g.join(" ")),d.buttons=Object.create(null),d.tags=Object.create(null),r=0,i=h.length;r<i;r++)for(n=h[r],u=t.getSubset(n,f),p=Object.keys(u).sort(),d.tags[n]={features:u,order:p},l=d.containers[n]||[],a=0,s=l.length;a<s;a++)o=this._updateFeatureControlContainer(l[a],n,u,p),Array.prototype.push.apply(m,o);this._options.activateFeatureControls&&this._options.activateFeatureControls.call(this,m),this._setFeatureButtonsState()},r._setFeatureButtonActiveState=function(e,t){this._applyClasses(e,this._options.featureButtonActiveClass,!t),t?e.setAttribute("checked","checked"):e.removeAttribute("checked","checked")},r._setFeatureButtonsState=function(){var e,t,n,r,i,a,s,o=this._controls.features;for(e in o.buttons){if(n=o.buttons[e],t=e in o.active,"default"===(i=this._getFeatureTypeByTag(e)))r=!t;else{if("optional"!==i)continue;r=t}for(a=0,s=n.length;a<s;a++)this._setFeatureButtonActiveState.call(this,n[a],r)}},r._getByClass=function(e){return this._container.getElementsByClassName(e)},r._applyValues=function(){this._pubSub.publish("onChangeFontFeatures",this._values["font-feature-settings"])},r._onActivateFont=function(e){this._updateFeatureControls(e),this._setFeatures(),this._applyValues()},n}),
-fs.define("js/specimentools-init",["specimenTools/loadFonts","specimenTools/initDocumentWidgets","specimenTools/services/PubSub","specimenTools/services/FontsData","specimenTools/services/WebfontProvider","specimenTools/widgets/GenericFontData","specimenTools/widgets/CurrentWebFont","specimenTools/widgets/TypeTester","specimenTools/widgets/FontLister","specimenTools/widgets/FeatureLister"],function(e,t,n,r,i,a,s,o,l,u){"use strict";function p(p,c){for(var f=p.document.getElementsByClassName("fontsampler-wrapper"),h=[],d=0;d<f.length;d++){var m=f[d],g=0!==m.dataset.fonts.indexOf(",")?m.dataset.fonts.split(","):[m.dataset.fonts],v=m.dataset.initialFont,y=g.indexOf(v),b=m.dataset.overwrites?JSON.parse(m.dataset.overwrites):{};for(var S in b)b[S]={names:{postScriptName:{en:b[S]}},tables:{os2:{usWeightClass:400}},transforms:{_getFullName:function(e){var t=e.lastIndexOf(" Regular");return-1!==t?e.substring(0,t):e}}};if(!m.classList.contains("initialized")){var x,T=new n,C=new r(T,{useLaxDetection:!0,overwrites:b}),w=new i(p,T,C);x=[["font-lister",l,C],["feature-lister",u,C],["font-data",a,C],["current-font",s,w],["type-tester",o,C]],t(m,x,T);var O={pubsub:T,wrapper:m,fontsData:C,initialFont:y>-1?y:0,webFontProvider:w};T.subscribe("allFontsLoaded",function(){this.pubsub.publish("activateFont",this.initialFont),this.wrapper.dataset.initialFontName=this.fontsData.getFont(this.initialFont).names.fullName.en,"function"==typeof c&&c(this.wrapper,this.pubsub,this.fontsData)}.bind(O));var E=p.xhrFontCache;E||(E=p.xhrFontCache={}),e.fromUrl(T,g,E),m.className+=" initialized",h.push(O)}}return h}return p}),fs.define("js/selection",[],function(){function e(e){var t,n=0,r=e.ownerDocument||e.document,i=r.defaultView||r.parentWindow;if(void 0!==i.getSelection){if(t=i.getSelection(),t.rangeCount>0){var a=i.getSelection().getRangeAt(0),s=a.cloneRange();s.selectNodeContents(e),s.setEnd(a.endContainer,a.endOffset),n=s.toString().length}}else if((t=r.selection)&&"Control"!=t.type){var o=t.createRange(),l=r.body.createTextRange();l.moveToElementText(e),l.setEndPoint("EndToEnd",o),n=l.text.length}return n}var t=null;return window.getSelection&&document.createRange?t=function(e,t,n){var r=0,i=document.createRange();i.setStart(e,0),i.collapse(!0);for(var a,s=[e],o=!1,l=!1;!l&&(a=s.pop());)if(3==a.nodeType){var u=r+a.length;!o&&t>=r&&t<=u&&(i.setStart(a,t-r),o=!0),o&&n>=r&&n<=u&&(i.setEnd(a,n-r),l=!0),r=u}else for(var p=a.childNodes.length;p--;)s.push(a.childNodes[p]);var c=window.getSelection();c.removeAllRanges(),c.addRange(i)}:document.selection&&(t=function(e,t,n){var r=document.body.createTextRange();r.moveToElementText(e),r.collapse(!0),r.moveEnd("character",n),r.moveStart("character",t),r.select()}),{setCaret:t,getCaret:e}}),function(e){"use strict";"function"==typeof fs.define&&fs.define.amd?fs.define("rangeslider",["jquery"],e):"object"==typeof exports?module.exports=e(require("jquery")):e(jQuery)}(function(e){"use strict";function t(e,t){var n=Array.prototype.slice.call(arguments,2);return setTimeout(function(){return e.apply(null,n)},t)}function n(e,t){return t=t||100,function(){if(!e.debouncing){var n=Array.prototype.slice.apply(arguments);e.lastReturnVal=e.apply(window,n),e.debouncing=!0}return clearTimeout(e.debounceTimeout),e.debounceTimeout=setTimeout(function(){e.debouncing=!1},t),e.lastReturnVal}}function r(e){return e&&(0===e.offsetWidth||0===e.offsetHeight||!1===e.open)}function i(e){for(var t=[],n=e.parentNode;r(n);)t.push(n),n=n.parentNode;return t}function a(e,t){function n(e){void 0!==e.open&&(e.open=!e.open)}var r=i(e),a=r.length,s=[],o=e[t];if(a){for(var l=0;l<a;l++)s[l]=r[l].style.cssText,r[l].style.setProperty?r[l].style.setProperty("display","block","important"):r[l].style.cssText+=";display: block !important",r[l].style.height="0",r[l].style.overflow="hidden",r[l].style.visibility="hidden",n(r[l]);o=e[t];for(var u=0;u<a;u++)r[u].style.cssText=s[u],n(r[u])}return o}function s(e,t){var n=parseFloat(e);return Number.isNaN(n)?t:n}function o(e){return e.charAt(0).toUpperCase()+e.substr(1)}function l(e,t){var n=e[0].getAttribute("data-direction")||("vertical"===t?"btt":"ltr");return d.orientation[t].direction[n]?n:"vertical"===t?"btt":"ltr"}function u(r,i){if(this.$window=e(window),this.$document=e(document),this.$element=e(r),this.options=e.extend({},h,i),this.polyfill=this.options.polyfill,this.orientation=this.$element[0].getAttribute("data-orientation")||this.options.orientation,this.dir=l(this.$element,this.orientation),this.onInit=this.options.onInit,this.onSlide=this.options.onSlide,this.onSlideEnd=this.options.onSlideEnd,this.DIMENSION=d.orientation[this.orientation].dimension,this.DIRECTION=d.orientation[this.orientation].direction[this.dir],this.DIRECTION_STYLE=d.orientation[this.orientation].directionStyle[this.dir],this.COORDINATE=d.orientation[this.orientation].coordinate,this.polyfill&&f)return!1;this.identifier="js-"+p+"-"+c++,this.startEvent=this.options.startEvent.join("."+this.identifier+" ")+"."+this.identifier,this.moveEvent=this.options.moveEvent.join("."+this.identifier+" ")+"."+this.identifier,this.endEvent=this.options.endEvent.join("."+this.identifier+" ")+"."+this.identifier,this.toFixed=(this.step+"").replace(".","").length-1,this.$fill=e('<div class="'+this.options.fillClass+" "+("ttb"===this.dir&&"vertical"===this.orientation?this.options.dirTTBClass:"")+'" />'),this.$handle=e('<div class="'+this.options.handleClass+'" />'),this.$range=e('<div class="'+this.options.rangeClass+" "+("rtl"===this.dir&&"horizontal"===this.orientation?this.options.dirRTLClass:"")+" "+this.options[this.orientation+"Class"]+'" id="'+this.identifier+'" />').insertAfter(this.$element).prepend(this.$fill,this.$handle),this.$element.css({position:"absolute",width:"1px",height:"1px",overflow:"hidden",opacity:"0"}),this.handleDown=e.proxy(this.handleDown,this),this.handleMove=e.proxy(this.handleMove,this),this.handleEnd=e.proxy(this.handleEnd,this),this.init();var a=this;this.$window.on("resize."+this.identifier,n(function(){t(function(){a.update(!1,!1)},300)},20)),this.$document.on(this.startEvent,"#"+this.identifier+":not(."+this.options.disabledClass+")",this.handleDown),this.$element.on("change."+this.identifier,function(e,t){if(!t||t.origin!==a.identifier){var n=e.target.value,r=a.getPositionFromValue(n);a.setPosition(r)}})}Number.isNaN=Number.isNaN||function(e){return"number"==typeof e&&e!==e};var p="rangeslider",c=0,f=function(){var e=document.createElement("input");return e.setAttribute("type","range"),"text"!==e.type}(),h={polyfill:!0,orientation:"horizontal",rangeClass:"rangeslider",disabledClass:"rangeslider--disabled",activeClass:"rangeslider--active",horizontalClass:"rangeslider--horizontal",verticalClass:"rangeslider--vertical",dirRTLClass:"rangeslider__rtl",dirTTBClass:"rangeslider__ttb",fillClass:"rangeslider__fill",handleClass:"rangeslider__handle",startEvent:["mousedown","touchstart","pointerdown"],moveEvent:["mousemove","touchmove","pointermove"],endEvent:["mouseup","touchend","pointerup"]},d={orientation:{horizontal:{dimension:"width",direction:{ltr:"left",rtl:"right"},directionStyle:{ltr:"left",rtl:"right"},coordinate:"x"},vertical:{dimension:"height",direction:{btt:"top",ttb:"bottom"},directionStyle:{btt:"bottom",ttb:"top"},coordinate:"y"}}};return u.prototype.init=function(){this.update(!0,!1),this.onInit&&"function"==typeof this.onInit&&this.onInit()},u.prototype.update=function(e,t){e=e||!1,e&&(this.min=s(this.$element[0].getAttribute("min"),0),this.max=s(this.$element[0].getAttribute("max"),100),this.value=s(this.$element[0].value,Math.round(this.min+(this.max-this.min)/2)),this.step=s(this.$element[0].getAttribute("step"),1)),this.handleDimension=a(this.$handle[0],"offset"+o(this.DIMENSION)),this.rangeDimension=a(this.$range[0],"offset"+o(this.DIMENSION)),this.maxHandlePos=this.rangeDimension-this.handleDimension,this.grabPos=this.handleDimension/2,this.position=this.getPositionFromValue(this.value),this.$element[0].disabled?this.$range.addClass(this.options.disabledClass):this.$range.removeClass(this.options.disabledClass),this.setPosition(this.position,t)},u.prototype.handleDown=function(e){if(e.preventDefault(),!(e.button&&0!==e.button||(this.$document.on(this.moveEvent,this.handleMove),this.$document.on(this.endEvent,this.handleEnd),this.$range.addClass(this.options.activeClass),(" "+e.target.className+" ").replace(/[\n\t]/g," ").indexOf(this.options.handleClass)>-1))){var t=this.getRelativePosition(e),n=this.$range[0].getBoundingClientRect()[this.DIRECTION],r=this.getPositionFromNode(this.$handle[0])-n,i="vertical"===this.orientation?this.maxHandlePos-(t-this.grabPos):t-this.grabPos;this.setPosition(i),t>=r&&t<r+this.handleDimension&&(this.grabPos=t-r)}},u.prototype.handleMove=function(e){e.preventDefault();var t=this.getRelativePosition(e),n="vertical"===this.orientation?this.maxHandlePos-(t-this.grabPos):t-this.grabPos;this.setPosition(n)},u.prototype.handleEnd=function(e){e.preventDefault(),this.$document.off(this.moveEvent,this.handleMove),this.$document.off(this.endEvent,this.handleEnd),this.$range.removeClass(this.options.activeClass),this.$element.trigger("change",{origin:this.identifier}),this.onSlideEnd&&"function"==typeof this.onSlideEnd&&this.onSlideEnd(this.position,this.value)},u.prototype.cap=function(e,t,n){return e<t?t:e>n?n:e},u.prototype.setPosition=function(e,t){var n,r;void 0===t&&(t=!0),n=this.getValueFromPosition(this.cap(e,0,this.maxHandlePos)),r=this.getPositionFromValue(n),this.$fill[0].style[this.DIMENSION]=r+this.grabPos+"px",this.$handle[0].style[this.DIRECTION_STYLE]=r+"px",this.setValue(n),this.position=r,this.value=n,t&&this.onSlide&&"function"==typeof this.onSlide&&this.onSlide(r,n)},u.prototype.getPositionFromNode=function(e){for(var t=0;null!==e;)t+=e.offsetLeft,e=e.offsetParent;return t},u.prototype.getRelativePosition=function(e){var t=o(this.COORDINATE),n=this.$range[0].getBoundingClientRect()[this.DIRECTION],r=0;return void 0!==e.originalEvent["client"+t]?r=e.originalEvent["client"+t]:e.originalEvent.touches&&e.originalEvent.touches[0]&&void 0!==e.originalEvent.touches[0]["client"+t]?r=e.originalEvent.touches[0]["client"+t]:e.currentPoint&&void 0!==e.currentPoint[this.COORDINATE]&&(r=e.currentPoint[this.COORDINATE]),"rtl"===this.dir||"ttb"===this.dir?n-r:r-n},u.prototype.getPositionFromValue=function(e){var t;return t=(e-this.min)/(this.max-this.min),Number.isNaN(t)?0:t*this.maxHandlePos},u.prototype.getValueFromPosition=function(e){var t,n;return t=e/(this.maxHandlePos||1),n=this.step*Math.round(t*(this.max-this.min)/this.step)+this.min,Number(n.toFixed(this.toFixed))},u.prototype.setValue=function(e){e===this.value&&""!==this.$element[0].value||this.$element.val(e).trigger("input",{origin:this.identifier})},u.prototype.destroy=function(){this.$document.off("."+this.identifier),this.$window.off("."+this.identifier),this.$element.off("."+this.identifier).removeAttr("style").removeData("plugin_"+p),this.$range&&this.$range.length&&this.$range[0].parentNode.removeChild(this.$range[0])},e.fn[p]=function(t){var n=Array.prototype.slice.call(arguments,1);return this.each(function(){var r=e(this),i=r.data("plugin_"+p);i||r.data("plugin_"+p,i=new u(this,t)),"string"==typeof t&&i[t].apply(i,n)})},"rangeslider.js is available in jQuery context e.g $(selector).rangeslider(options);"}),function(e){"function"==typeof fs.define&&fs.define.amd?fs.define("selectric",["jquery"],e):"object"==typeof module&&module.exports?module.exports=function(t,n){return void 0===n&&(n="undefined"!=typeof window?require("jquery"):require("jquery")(t)),e(n),n}:e(jQuery)}(function(e){"use strict";var t=e(document),n=e(window),r=["a","e","i","o","u","n","c","y"],i=[/[\xE0-\xE5]/g,/[\xE8-\xEB]/g,/[\xEC-\xEF]/g,/[\xF2-\xF6]/g,/[\xF9-\xFC]/g,/[\xF1]/g,/[\xE7]/g,/[\xFD-\xFF]/g],a=function(t,n){var r=this;r.element=t,r.$element=e(t),r.state={multiple:!!r.$element.attr("multiple"),enabled:!1,opened:!1,currValue:-1,selectedIdx:-1,highlightedIdx:-1},r.eventTriggers={open:r.open,close:r.close,destroy:r.destroy,refresh:r.refresh,init:r.init},r.init(n)};a.prototype={utils:{isMobile:function(){return/android|ip(hone|od|ad)/i.test(navigator.userAgent)},escapeRegExp:function(e){return e.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")},replaceDiacritics:function(e){for(var t=i.length;t--;)e=e.toLowerCase().replace(i[t],r[t]);return e},format:function(e){var t=arguments;return(""+e).replace(/\{(?:(\d+)|(\w+))\}/g,function(e,n,r){return r&&t[1]?t[1][r]:t[n]})},nextEnabledItem:function(e,t){for(;e[t=(t+1)%e.length].disabled;);return t},previousEnabledItem:function(e,t){for(;e[t=(t>0?t:e.length)-1].disabled;);return t},toDash:function(e){return e.replace(/([a-z0-9])([A-Z])/g,"$1-$2").toLowerCase()},triggerCallback:function(t,n){var r=n.element,i=n.options["on"+t],a=[r].concat([].slice.call(arguments).slice(1));e.isFunction(i)&&i.apply(r,a),e(r).trigger("selectric-"+this.toDash(t),a)},arrayToClassname:function(t){var n=e.grep(t,function(e){return!!e});return e.trim(n.join(" "))}},init:function(t){var n=this;if(n.options=e.extend(!0,{},e.fn.selectric.defaults,n.options,t),n.utils.triggerCallback("BeforeInit",n),n.destroy(!0),n.options.disableOnMobile&&n.utils.isMobile())return void(n.disableOnMobile=!0);n.classes=n.getClassNames();var r=e("<input/>",{class:n.classes.input,readonly:n.utils.isMobile()}),i=e("<div/>",{class:n.classes.items,tabindex:-1}),a=e("<div/>",{class:n.classes.scroll}),s=e("<div/>",{class:n.classes.prefix,html:n.options.arrowButtonMarkup}),o=e("<span/>",{class:"label"}),l=n.$element.wrap("<div/>").parent().append(s.prepend(o),i,r),u=e("<div/>",{class:n.classes.hideselect});n.elements={input:r,items:i,itemsScroll:a,wrapper:s,label:o,outerWrapper:l},n.options.nativeOnMobile&&n.utils.isMobile()&&(n.elements.input=void 0,u.addClass(n.classes.prefix+"-is-native"),n.$element.on("change",function(){n.refresh()})),n.$element.on(n.eventTriggers).wrap(u),n.originalTabindex=n.$element.prop("tabindex"),n.$element.prop("tabindex",-1),n.populate(),n.activate(),n.utils.triggerCallback("Init",n)},activate:function(){var e=this,t=e.elements.items.closest(":visible").children(":hidden").addClass(e.classes.tempshow),n=e.$element.width();t.removeClass(e.classes.tempshow),e.utils.triggerCallback("BeforeActivate",e),e.elements.outerWrapper.prop("class",e.utils.arrayToClassname([e.classes.wrapper,e.$element.prop("class").replace(/\S+/g,e.classes.prefix+"-$&"),e.options.responsive?e.classes.responsive:""])),e.options.inheritOriginalWidth&&n>0&&e.elements.outerWrapper.width(n),e.unbindEvents(),e.$element.prop("disabled")?(e.elements.outerWrapper.addClass(e.classes.disabled),e.elements.input&&e.elements.input.prop("disabled",!0)):(e.state.enabled=!0,e.elements.outerWrapper.removeClass(e.classes.disabled),e.$li=e.elements.items.removeAttr("style").find("li"),e.bindEvents()),e.utils.triggerCallback("Activate",e)},getClassNames:function(){var t=this,n=t.options.customClass,r={};return e.each("Input Items Open Disabled TempShow HideSelect Wrapper Focus Hover Responsive Above Below Scroll Group GroupLabel".split(" "),function(e,i){var a=n.prefix+i;r[i.toLowerCase()]=n.camelCase?a:t.utils.toDash(a)}),r.prefix=n.prefix,r},setLabel:function(){var t=this,n=t.options.labelBuilder;if(t.state.multiple){var r=e.isArray(t.state.currValue)?t.state.currValue:[t.state.currValue];r=0===r.length?[0]:r;var i=e.map(r,function(n){return e.grep(t.lookupItems,function(e){return e.index===n})[0]});i=e.grep(i,function(t){return i.length>1||0===i.length?""!==e.trim(t.value):t}),i=e.map(i,function(r){return e.isFunction(n)?n(r):t.utils.format(n,r)}),t.options.multiple.maxLabelEntries&&(i.length>=t.options.multiple.maxLabelEntries+1?(i=i.slice(0,t.options.multiple.maxLabelEntries),i.push(e.isFunction(n)?n({text:"..."}):t.utils.format(n,{text:"..."}))):i.slice(i.length-1)),t.elements.label.html(i.join(t.options.multiple.separator))}else{var a=t.lookupItems[t.state.currValue];t.elements.label.html(e.isFunction(n)?n(a):t.utils.format(n,a))}},populate:function(){var t=this,n=t.$element.children(),r=t.$element.find("option"),i=r.filter(":selected"),a=r.index(i),s=0,o=t.state.multiple?[]:0;i.length>1&&t.state.multiple&&(a=[],i.each(function(){a.push(e(this).index())})),t.state.currValue=~a?a:o,t.state.selectedIdx=t.state.currValue,t.state.highlightedIdx=t.state.currValue,t.items=[],t.lookupItems=[],n.length&&(n.each(function(n){var r=e(this);if(r.is("optgroup")){var i={element:r,label:r.prop("label"),groupDisabled:r.prop("disabled"),items:[]};r.children().each(function(n){var r=e(this);i.items[n]=t.getItemData(s,r,i.groupDisabled||r.prop("disabled")),t.lookupItems[s]=i.items[n],s++}),t.items[n]=i}else t.items[n]=t.getItemData(s,r,r.prop("disabled")),t.lookupItems[s]=t.items[n],s++}),t.setLabel(),t.elements.items.append(t.elements.itemsScroll.html(t.getItemsMarkup(t.items))))},getItemData:function(t,n,r){var i=this;return{index:t,element:n,value:n.val(),className:n.prop("class"),text:n.html(),slug:e.trim(i.utils.replaceDiacritics(n.html())),selected:n.prop("selected"),disabled:r}},getItemsMarkup:function(t){var n=this,r="<ul>";return e.isFunction(n.options.listBuilder)&&n.options.listBuilder&&(t=n.options.listBuilder(t)),e.each(t,function(t,i){void 0!==i.label?(r+=n.utils.format('<ul class="{1}"><li class="{2}">{3}</li>',n.utils.arrayToClassname([n.classes.group,i.groupDisabled?"disabled":"",i.element.prop("class")]),n.classes.grouplabel,i.element.prop("label")),e.each(i.items,function(e,t){r+=n.getItemMarkup(t.index,t)}),r+="</ul>"):r+=n.getItemMarkup(i.index,i)}),r+"</ul>"},getItemMarkup:function(t,n){var r=this,i=r.options.optionsItemBuilder,a={value:n.value,text:n.text,slug:n.slug,index:n.index};return r.utils.format('<li data-index="{1}" class="{2}">{3}</li>',t,r.utils.arrayToClassname([n.className,t===r.items.length-1?"last":"",n.disabled?"disabled":"",n.selected?"selected":""]),e.isFunction(i)?r.utils.format(i(n,this.$element,t),n):r.utils.format(i,a))},unbindEvents:function(){var e=this;e.elements.wrapper.add(e.$element).add(e.elements.outerWrapper).add(e.elements.input).off(".sl")},bindEvents:function(){var t=this;t.elements.outerWrapper.on("mouseenter.sl mouseleave.sl",function(n){e(this).toggleClass(t.classes.hover,"mouseenter"===n.type),t.options.openOnHover&&(clearTimeout(t.closeTimer),"mouseleave"===n.type?t.closeTimer=setTimeout(e.proxy(t.close,t),t.options.hoverIntentTimeout):t.open())}),t.elements.wrapper.on("click.sl",function(e){t.state.opened?t.close():t.open(e)}),t.options.nativeOnMobile&&t.utils.isMobile()||(t.$element.on("focus.sl",function(){t.elements.input.focus()}),t.elements.input.prop({tabindex:t.originalTabindex,disabled:!1}).on("keydown.sl",e.proxy(t.handleKeys,t)).on("focusin.sl",function(e){t.elements.outerWrapper.addClass(t.classes.focus),t.elements.input.one("blur",function(){t.elements.input.blur()}),t.options.openOnFocus&&!t.state.opened&&t.open(e)}).on("focusout.sl",function(){t.elements.outerWrapper.removeClass(t.classes.focus)}).on("input propertychange",function(){var n=t.elements.input.val(),r=new RegExp("^"+t.utils.escapeRegExp(n),"i");clearTimeout(t.resetStr),t.resetStr=setTimeout(function(){t.elements.input.val("")},t.options.keySearchTimeout),n.length&&e.each(t.items,function(e,n){if(!n.disabled&&r.test(n.text)||r.test(n.slug))return void t.highlight(e)})})),t.$li.on({mousedown:function(e){e.preventDefault(),e.stopPropagation()},click:function(){return t.select(e(this).data("index")),!1}})},handleKeys:function(t){var n=this,r=t.which,i=n.options.keys,a=e.inArray(r,i.previous)>-1,s=e.inArray(r,i.next)>-1,o=e.inArray(r,i.select)>-1,l=e.inArray(r,i.open)>-1,u=n.state.highlightedIdx,p=a&&0===u||s&&u+1===n.items.length,c=0;if(13!==r&&32!==r||t.preventDefault(),a||s){if(!n.options.allowWrap&&p)return;a&&(c=n.utils.previousEnabledItem(n.lookupItems,u)),s&&(c=n.utils.nextEnabledItem(n.lookupItems,u)),n.highlight(c)}if(o&&n.state.opened)return n.select(u),void(n.state.multiple&&n.options.multiple.keepMenuOpen||n.close());l&&!n.state.opened&&n.open()},refresh:function(){var e=this;e.populate(),e.activate(),e.utils.triggerCallback("Refresh",e)},setOptionsDimensions:function(){var e=this,t=e.elements.items.closest(":visible").children(":hidden").addClass(e.classes.tempshow),n=e.options.maxHeight,r=e.elements.items.outerWidth(),i=e.elements.wrapper.outerWidth()-(r-e.elements.items.width());!e.options.expandToItemText||i>r?e.finalWidth=i:(e.elements.items.css("overflow","scroll"),e.elements.outerWrapper.width(9e4),e.finalWidth=e.elements.items.width(),e.elements.items.css("overflow",""),e.elements.outerWrapper.width("")),e.elements.items.width(e.finalWidth).height()>n&&e.elements.items.height(n),t.removeClass(e.classes.tempshow)},isInViewport:function(){var e=this;if(!0===e.options.forceRenderAbove)e.elements.outerWrapper.addClass(e.classes.above);else if(!0===e.options.forceRenderBelow)e.elements.outerWrapper.addClass(e.classes.below);else{var t=n.scrollTop(),r=n.height(),i=e.elements.outerWrapper.offset().top,a=e.elements.outerWrapper.outerHeight(),s=i+a+e.itemsHeight<=t+r,o=i-e.itemsHeight>t,l=!s&&o,u=!l;e.elements.outerWrapper.toggleClass(e.classes.above,l),e.elements.outerWrapper.toggleClass(e.classes.below,u)}},detectItemVisibility:function(t){var n=this,r=n.$li.filter("[data-index]");n.state.multiple&&(t=e.isArray(t)&&0===t.length?0:t,t=e.isArray(t)?Math.min.apply(Math,t):t);var i=r.eq(t).outerHeight(),a=r[t].offsetTop,s=n.elements.itemsScroll.scrollTop(),o=a+2*i;n.elements.itemsScroll.scrollTop(o>s+n.itemsHeight?o-n.itemsHeight:a-i<s?a-i:s)},open:function(n){var r=this;if(r.options.nativeOnMobile&&r.utils.isMobile())return!1;r.utils.triggerCallback("BeforeOpen",r),n&&(n.preventDefault(),r.options.stopPropagation&&n.stopPropagation()),r.state.enabled&&(r.setOptionsDimensions(),e("."+r.classes.hideselect,"."+r.classes.open).children().selectric("close"),r.state.opened=!0,r.itemsHeight=r.elements.items.outerHeight(),r.itemsInnerHeight=r.elements.items.height(),r.elements.outerWrapper.addClass(r.classes.open),r.elements.input.val(""),n&&"focusin"!==n.type&&r.elements.input.focus(),setTimeout(function(){t.on("click.sl",e.proxy(r.close,r)).on("scroll.sl",e.proxy(r.isInViewport,r))},1),r.isInViewport(),r.options.preventWindowScroll&&t.on("mousewheel.sl DOMMouseScroll.sl","."+r.classes.scroll,function(t){var n=t.originalEvent,i=e(this).scrollTop(),a=0;"detail"in n&&(a=-1*n.detail),"wheelDelta"in n&&(a=n.wheelDelta),"wheelDeltaY"in n&&(a=n.wheelDeltaY),"deltaY"in n&&(a=-1*n.deltaY),(i===this.scrollHeight-r.itemsInnerHeight&&a<0||0===i&&a>0)&&t.preventDefault()}),r.detectItemVisibility(r.state.selectedIdx),r.highlight(r.state.multiple?-1:r.state.selectedIdx),r.utils.triggerCallback("Open",r))},close:function(){var e=this;e.utils.triggerCallback("BeforeClose",e),t.off(".sl"),e.elements.outerWrapper.removeClass(e.classes.open),e.state.opened=!1,e.utils.triggerCallback("Close",e)},change:function(){var t=this;t.utils.triggerCallback("BeforeChange",t),t.state.multiple?(e.each(t.lookupItems,function(e){t.lookupItems[e].selected=!1,t.$element.find("option").prop("selected",!1)}),e.each(t.state.selectedIdx,function(e,n){t.lookupItems[n].selected=!0,t.$element.find("option").eq(n).prop("selected",!0)}),t.state.currValue=t.state.selectedIdx,t.setLabel(),t.utils.triggerCallback("Change",t)):t.state.currValue!==t.state.selectedIdx&&(t.$element.prop("selectedIndex",t.state.currValue=t.state.selectedIdx).data("value",t.lookupItems[t.state.selectedIdx].text),t.setLabel(),t.utils.triggerCallback("Change",t))},highlight:function(e){var t=this,n=t.$li.filter("[data-index]").removeClass("highlighted");t.utils.triggerCallback("BeforeHighlight",t),void 0===e||-1===e||t.lookupItems[e].disabled||(n.eq(t.state.highlightedIdx=e).addClass("highlighted"),t.detectItemVisibility(e),t.utils.triggerCallback("Highlight",t))},select:function(t){var n=this,r=n.$li.filter("[data-index]");if(n.utils.triggerCallback("BeforeSelect",n,t),void 0!==t&&-1!==t&&!n.lookupItems[t].disabled){if(n.state.multiple){n.state.selectedIdx=e.isArray(n.state.selectedIdx)?n.state.selectedIdx:[n.state.selectedIdx];var i=e.inArray(t,n.state.selectedIdx);-1!==i?n.state.selectedIdx.splice(i,1):n.state.selectedIdx.push(t),r.removeClass("selected").filter(function(t){return-1!==e.inArray(t,n.state.selectedIdx)}).addClass("selected")}else r.removeClass("selected").eq(n.state.selectedIdx=t).addClass("selected");n.state.multiple&&n.options.multiple.keepMenuOpen||n.close(),n.change(),n.utils.triggerCallback("Select",n,t)}},destroy:function(e){var t=this;t.state&&t.state.enabled&&(t.elements.items.add(t.elements.wrapper).add(t.elements.input).remove(),e||t.$element.removeData("selectric").removeData("value"),t.$element.prop("tabindex",t.originalTabindex).off(".sl").off(t.eventTriggers).unwrap().unwrap(),t.state.enabled=!1)}},e.fn.selectric=function(t){return this.each(function(){var n=e.data(this,"selectric");n&&!n.disableOnMobile?"string"==typeof t&&n[t]?n[t]():n.init(t):e.data(this,"selectric",new a(this,t))})},e.fn.selectric.defaults={onChange:function(t){e(t).change()},maxHeight:300,keySearchTimeout:500,arrowButtonMarkup:'<b class="button">&#x25be;</b>',disableOnMobile:!1,nativeOnMobile:!0,openOnFocus:!0,openOnHover:!1,hoverIntentTimeout:500,expandToItemText:!1,responsive:!1,preventWindowScroll:!0,inheritOriginalWidth:!1,allowWrap:!0,forceRenderAbove:!1,forceRenderBelow:!1,stopPropagation:!0,optionsItemBuilder:"{text}",labelBuilder:"{text}",listBuilder:!1,keys:{previous:[37,38],next:[39,40],select:[9,13,27],open:[13,32,37,38,39,40],close:[9,27]},customClass:{prefix:"selectric",camelCase:!1},multiple:{separator:", ",keepMenuOpen:!0,maxLabelEntries:!1}}}),fs.define("js/ui-setup",["jquery","js/selection","rangeslider","selectric"],function(e,t){function n(e,t){return t=t||100,function(){if(!e.debouncing){var n=Array.prototype.slice.apply(arguments);e.lastReturnVal=e.apply(window,n),e.debouncing=!0}return clearTimeout(e.debounceTimeout),e.debounceTimeout=setTimeout(function(){e.debouncing=!1},t),e.lastReturnVal}}function r(e,t){var n=document.createEvent("HTMLEvents");n.initEvent(t,!0,!0),e.dispatchEvent(n)}function i(i,a,s){function o(e){var t=s._data[m].font.glyphs.glyphs,n=[];for(var r in t){var i=t[r];void 0!==i.unicode&&n.push(i.unicode)}return n}function l(){if(g){var e=c.find(".type-tester__content"),n=e.text(),r=[],i=t.getCaret(e[0]),a=i;if(d){for(var s=0;s<n.length;s++)if(-1===g.indexOf(n.charCodeAt(s))){switch(d){case 1:r.push("<span class='fontsampler-glyph-highlight'>"+n[s]+"</span>");break;case 2:r.push("<span class='fontsampler-glyph-notdef'>￿</span>");break;case 3:a=i-1}u(h.notdef)}else r.push(n[s]);e.html(r.join("")),t.setCaret(e[0],i,a)}}}function u(e){c.trigger(e)}function p(t){void 0===t?e(".fontsampler-opentype-features.shown").each(function(){e(this).removeClass("shown"),e(this).siblings(".fontsampler-opentype-toggle").removeClass("fontsampler-multiselect-selected")}):0===e(t.target).parents(".fontsampler-opentype").length&&c.find(".fontsampler-opentype-features").each(function(){e(this).removeClass("shown"),e(this).siblings(".fontsampler-opentype-toggle").removeClass("fontsampler-multiselect-selected")})}var c=e(i),f=a,h={activatefont:"fontsampler.event.activatefont",afterinit:"fontsampler.event.afterinit",activateopentype:"fontsampler.event.activateopentype",openedopentype:"fontsampler.event.openedopentype",activatealignment:"fontsampler.event.activatealignment",activateinvert:"fontsampler.event.activateinvert",activatefontpicker:"fontsampler.event.activatefontpicker",activatesampletexts:"fontsampler.event.activatesampletexts",changefontsize:"fontsampler.event.changefontsize",changelineheight:"fontsampler.event.changelineheight",changeletterspacing:"fontsampler.event.changeletterspacing",notdef:"fontsampler.event.notdef"},d=parseInt(c.find(".type-tester__content").data("notdef"));if(void 0!==s)var m=0,g=o(m);c.find(".type-tester__content").on("input propertychange",l),l(),f.subscribe("activateFont",function(e){m=e,g=o(m),l(),u(h.activatefont)}),c.find(".fontsampler-interface select[name='locl-select']").on("change",function(){var t=e(this).closest(".fontsampler-interface").find(".type-tester__content");e(this).val()?t.attr("lang",e(this).val()):t.removeAttr("lang")}),c.find(".fontsampler-interface select[name='sample-text']").on("change",function(){var t=e(this).closest(".fontsampler-interface").find(".type-tester__content"),n=e(this).val();t.html(n)}),c.find('.fontsampler-interface input[type="range"]').each(function(){e(this).attr("data-direction",e(this).parent().data("direction")),e(this).rangeslider({polyfill:!1,onSlide:function(e,t){n(r(this.$element[0],"input"),250),p()},onSlideEnd:function(e,t){n(r(this.$element[0],"input"),250);try{var i=this.$element.closest(".fontsampler-ui-block").data("block");u(h["change"+i],this.value)}catch(e){console.warn(e)}}})}),c.find(".fontsampler-interface select").not("[size]").each(function(){e(this).selectric({onChange:function(e){n(r(e,"change"))},onBeforeOpen:function(e,t){p();try{var n=t.$element.closest(".fontsampler-ui-block").data("block");u(h["activate"+n])}catch(e){console.warn(e)}},nativeOnMobile:!1,disableOnMobile:!1}).closest(".selectric-wrapper").addClass("selectric-wide")}),c.find(".fontsampler-interface .fontsampler-multiselect").on("click","button",function(t){var n=e(this),r=n.closest(".fontsampler-interface").find(".type-tester__content"),i=n.data("value");switch(n.closest(".fontsampler-multiselect").data("name")){case"alignment":u(h.activatealignment),r.css("text-align",i);break;case"invert":u(h.activateinvert),"positive"==i?(r.removeClass("invert"),e("body").removeClass("fontsampler-inverted")):(r.addClass("invert"),e("body").addClass("fontsampler-inverted"));break;case"opentype":e(".fontsampler-opentype-features.shown").not(n.siblings(".fontsampler-opentype-features")).removeClass("shown"),u(h.activateopentype,n.siblings(".fontsampler-opentype-features")),n.siblings(".fontsampler-opentype-features").toggleClass("shown"),u(h.openedopentype,n.siblings(".fontsampler-opentype-features"))}n.siblings("button").removeClass("fontsampler-multiselect-selected"),0===n.siblings("button").length?n.toggleClass("fontsampler-multiselect-selected"):n.addClass("fontsampler-multiselect-selected")}),e(document).on("click",p),c.find(".type-tester__content.fontsampler-is-singleline").on("keypress keyup change paste",function(n){if("keypress"===n.type){if(13===n.keyCode)return!1}else{var r=e(this),i=r.text(),a=i.indexOf("\n");r.children().length;-1!==a&&(e(this).html(i.replace("/\n/gi","")),t.setCaret(e(this)[0],e(this).text().length,0))}}),c.find(".type-tester__content[contenteditable]").on("paste",function(e){e.preventDefault();var t="";e.clipboardData||e.originalEvent.clipboardData?t=(e.originalEvent||e).clipboardData.getData("text/plain"):window.clipboardData&&(t=window.clipboardData.getData("Text")),document.queryCommandSupported("insertText")?document.execCommand("insertText",!1,t):document.execCommand("paste",!1,t)}),c.find(".fontsampler-font-label").each(function(){var t=c.data("initial-font-name-overwrite")?c.data("initial-font-name-overwrite"):c.data("initial-font-name");e(this).children("label").html(t)}),c.removeClass("on-loading"),u(h.afterinit)}return i}),fs.define("jquery",[],function(){return jQuery}),fs.require(["js/specimentools-init","js/ui-setup"],function(e,t){window.fontsamplerSetup=function(){e(window,t)},window.fontsamplers=e(window,t)}),fs.define("js/main",function(){});
+var RangeSlider = function () {
+  function RangeSlider(element, options) {
+    _classCallCheck(this, RangeSlider);
+
+    var minSetByDefault = void 0;
+    var maxSetByDefault = void 0;
+    var stepSetByDefault = void 0;
+    var stickAttribute = void 0;
+    var stickValues = void 0;
+
+    this.element = element;
+    this.options = func.simpleExtend(defaults, options);
+    this.polyfill = this.options.polyfill;
+    this.vertical = this.options.vertical;
+    this.onInit = this.options.onInit;
+    this.onSlide = this.options.onSlide;
+    this.onSlideStart = this.options.onSlideStart;
+    this.onSlideEnd = this.options.onSlideEnd;
+    this.onSlideEventsCount = -1;
+    this.isInteractsNow = false;
+    this.needTriggerEvents = false;
+
+    // Plugin should only be used as a polyfill
+    if (!this.polyfill) {
+      // Input range support?
+      if (inputrange) {
+        return;
+      }
+    }
+
+    this.options.buffer = this.options.buffer || parseFloat(this.element.getAttribute('data-buffer'));
+
+    this.identifier = 'js-' + pluginName + '-' + func.uuid();
+
+    this.min = func.getFirsNumberLike(this.options.min, parseFloat(this.element.getAttribute('min')), minSetByDefault = 0);
+
+    this.max = func.getFirsNumberLike(this.options.max, parseFloat(this.element.getAttribute('max')), maxSetByDefault = MAX_SET_BY_DEFAULT);
+
+    this.value = func.getFirsNumberLike(this.options.value, this.element.value, parseFloat(this.element.value || this.min + (this.max - this.min) / 2));
+
+    this.step = func.getFirsNumberLike(this.options.step, parseFloat(this.element.getAttribute('step')) || (stepSetByDefault = 1));
+
+    this.percent = null;
+
+    if (func.isArray(this.options.stick) && this.options.stick.length >= 1) {
+      this.stick = this.options.stick;
+    } else if (stickAttribute = this.element.getAttribute('stick')) {
+      stickValues = stickAttribute.split(' ');
+      if (stickValues.length >= 1) {
+        this.stick = stickValues.map(parseFloat);
+      }
+    }
+    if (this.stick && this.stick.length === 1) {
+      this.stick.push(this.step * 1.5);
+    }
+    this._updatePercentFromValue();
+
+    this.toFixed = this._toFixed(this.step);
+
+    var directionClass = void 0;
+
+    this.container = document.createElement('div');
+    dom.addClass(this.container, this.options.fillClass);
+
+    directionClass = this.vertical ? this.options.fillClass + '__vertical' : this.options.fillClass + '__horizontal';
+    dom.addClass(this.container, directionClass);
+
+    this.handle = document.createElement('div');
+    dom.addClass(this.handle, this.options.handleClass);
+
+    directionClass = this.vertical ? this.options.handleClass + '__vertical' : this.options.handleClass + '__horizontal';
+    dom.addClass(this.handle, directionClass);
+
+    this.range = document.createElement('div');
+    dom.addClass(this.range, this.options.rangeClass);
+    this.range.id = this.identifier;
+
+    if (this.options.bufferClass) {
+      this.buffer = document.createElement('div');
+      dom.addClass(this.buffer, this.options.bufferClass);
+      this.range.appendChild(this.buffer);
+
+      directionClass = this.vertical ? this.options.bufferClass + '__vertical' : this.options.bufferClass + '__horizontal';
+      dom.addClass(this.buffer, directionClass);
+    }
+
+    this.range.appendChild(this.container);
+    this.range.appendChild(this.handle);
+
+    directionClass = this.vertical ? this.options.rangeClass + '__vertical' : this.options.rangeClass + '__horizontal';
+    dom.addClass(this.range, directionClass);
+
+    if (func.isNumberLike(this.options.value)) {
+      this._setValue(this.options.value, true);
+      this.element.value = this.options.value;
+    }
+
+    if (func.isNumberLike(this.options.buffer)) {
+      this.element.setAttribute('data-buffer', this.options.buffer);
+    }
+
+    if (func.isNumberLike(this.options.min) || minSetByDefault) {
+      this.element.setAttribute('min', '' + this.min);
+    }
+
+    if (func.isNumberLike(this.options.max) || maxSetByDefault) {
+      this.element.setAttribute('max', '' + this.max);
+    }
+
+    if (func.isNumberLike(this.options.step) || stepSetByDefault) {
+      this.element.setAttribute('step', '' + this.step);
+    }
+
+    dom.insertAfter(this.element, this.range);
+
+    // hide the input visually
+    dom.setCss(this.element, {
+      'position': 'absolute',
+      'width': '1px',
+      'height': '1px',
+      'overflow': 'hidden',
+      'opacity': '0'
+    });
+
+    // Store context
+    this._handleDown = this._handleDown.bind(this);
+    this._handleMove = this._handleMove.bind(this);
+    this._handleEnd = this._handleEnd.bind(this);
+    this._startEventListener = this._startEventListener.bind(this);
+    this._changeEventListener = this._changeEventListener.bind(this);
+    this._handleResize = this._handleResize.bind(this);
+
+    this._init();
+
+    // Attach Events
+    window.addEventListener('resize', this._handleResize, false);
+
+    dom.addEventListeners(document, this.options.startEvent, this._startEventListener);
+
+    // Listen to programmatic value changes
+    this.element.addEventListener('change', this._changeEventListener, false);
+  }
+
+  /* public methods */
+
+  /**
+   * @param {Object} obj like {min : Number, max : Number, value : Number, step : Number, buffer : [String|Number]}
+   * @param {Boolean} triggerEvents
+   * @returns {RangeSlider}
+   */
+
+
+  _createClass(RangeSlider, [{
+    key: 'update',
+    value: function update(obj, triggerEvents) {
+      if (triggerEvents) {
+        this.needTriggerEvents = true;
+      }
+      if (func.isObject(obj)) {
+        if (func.isNumberLike(obj.min)) {
+          this.element.setAttribute('min', '' + obj.min);
+          this.min = obj.min;
+        }
+
+        if (func.isNumberLike(obj.max)) {
+          this.element.setAttribute('max', '' + obj.max);
+          this.max = obj.max;
+        }
+
+        if (func.isNumberLike(obj.step)) {
+          this.element.setAttribute('step', '' + obj.step);
+          this.step = obj.step;
+          this.toFixed = this._toFixed(obj.step);
+        }
+
+        if (func.isNumberLike(obj.buffer)) {
+          this._setBufferPosition(obj.buffer);
+        }
+
+        if (func.isNumberLike(obj.value)) {
+          this._setValue(obj.value);
+        }
+      }
+      this._update();
+      this.onSlideEventsCount = 0;
+      this.needTriggerEvents = false;
+      return this;
+    }
+  }, {
+    key: 'destroy',
+    value: function destroy() {
+      dom.removeAllListenersFromEl(this, document);
+      window.removeEventListener('resize', this._handleResize, false);
+      this.element.removeEventListener('change', this._changeEventListener, false);
+
+      this.element.style.cssText = '';
+      delete this.element[pluginName];
+
+      // Remove the generated markup
+      if (this.range) {
+        this.range.parentNode.removeChild(this.range);
+      }
+    }
+
+    /**
+     * A lightweight plugin wrapper around the constructor,preventing against multiple instantiations
+     * @param {Element} el
+     * @param {Object} options
+     */
+
+  }, {
+    key: '_toFixed',
+
+
+    /* private methods */
+
+    value: function _toFixed(step) {
+      return (step + '').replace('.', '').length - 1;
+    }
+  }, {
+    key: '_init',
+    value: function _init() {
+      if (this.onInit && typeof this.onInit === 'function') {
+        this.onInit();
+      }
+      this._update();
+    }
+  }, {
+    key: '_updatePercentFromValue',
+    value: function _updatePercentFromValue() {
+      this.percent = (this.value - this.min) / (this.max - this.min);
+    }
+
+    /**
+     * This method check if this.identifier exists in ev.target's ancestors
+     * @param ev
+     * @param data
+     */
+
+  }, {
+    key: '_startEventListener',
+    value: function _startEventListener(ev, data) {
+      var _this = this;
+
+      var el = ev.target;
+      var isEventOnSlider = false;
+
+      if (ev.which !== 1 && !('touches' in ev)) {
+        return;
+      }
+
+      dom.forEachAncestors(el, function (el) {
+        return isEventOnSlider = el.id === _this.identifier && !dom.hasClass(el, _this.options.disabledClass);
+      }, true);
+
+      if (isEventOnSlider) {
+        this._handleDown(ev, data);
+      }
+    }
+  }, {
+    key: '_changeEventListener',
+    value: function _changeEventListener(ev, data) {
+      if (data && data.origin === this.identifier) {
+        return;
+      }
+
+      var value = ev.target.value;
+      var pos = this._getPositionFromValue(value);
+
+      this._setPosition(pos);
+    }
+  }, {
+    key: '_update',
+    value: function _update() {
+      var sizeProperty = this.vertical ? 'offsetHeight' : 'offsetWidth';
+
+      this.handleSize = dom.getDimension(this.handle, sizeProperty);
+      this.rangeSize = dom.getDimension(this.range, sizeProperty);
+      this.maxHandleX = this.rangeSize - this.handleSize;
+      this.grabX = this.handleSize / 2;
+      this.position = this._getPositionFromValue(this.value);
+
+      // Consider disabled state
+      if (this.element.disabled) {
+        dom.addClass(this.range, this.options.disabledClass);
+      } else {
+        dom.removeClass(this.range, this.options.disabledClass);
+      }
+
+      this._setPosition(this.position);
+      if (this.options.bufferClass && this.options.buffer) {
+        this._setBufferPosition(this.options.buffer);
+      }
+      this._updatePercentFromValue();
+      dom.triggerEvent(this.element, 'change', { origin: this.identifier });
+    }
+  }, {
+    key: '_handleResize',
+    value: function _handleResize() {
+      var _this2 = this;
+
+      return func.debounce(function () {
+        // Simulate resizeEnd event.
+        func.delay(function () {
+          _this2._update();
+        }, HANDLE_RESIZE_DELAY);
+      }, HANDLE_RESIZE_DEBOUNCE)();
+    }
+  }, {
+    key: '_handleDown',
+    value: function _handleDown(e) {
+      this.isInteractsNow = true;
+      e.preventDefault();
+      dom.addEventListeners(document, this.options.moveEvent, this._handleMove);
+      dom.addEventListeners(document, this.options.endEvent, this._handleEnd);
+
+      // If we click on the handle don't set the new position
+      if ((' ' + e.target.className + ' ').replace(newLineAndTabRegexp, ' ').indexOf(this.options.handleClass) > -1) {
+        return;
+      }
+
+      var boundingClientRect = this.range.getBoundingClientRect();
+
+      var posX = this._getRelativePosition(e);
+      var rangeX = this.vertical ? boundingClientRect.bottom : boundingClientRect.left;
+      var handleX = this._getPositionFromNode(this.handle) - rangeX;
+      var position = posX - this.grabX;
+
+      this._setPosition(position);
+
+      if (posX >= handleX && posX < handleX + this.options.borderRadius * 2) {
+        this.grabX = posX - handleX;
+      }
+      this._updatePercentFromValue();
+    }
+  }, {
+    key: '_handleMove',
+    value: function _handleMove(e) {
+      var posX = this._getRelativePosition(e);
+
+      this.isInteractsNow = true;
+      e.preventDefault();
+      this._setPosition(posX - this.grabX);
+    }
+  }, {
+    key: '_handleEnd',
+    value: function _handleEnd(e) {
+      e.preventDefault();
+      dom.removeEventListeners(document, this.options.moveEvent, this._handleMove);
+      dom.removeEventListeners(document, this.options.endEvent, this._handleEnd);
+
+      // Ok we're done fire the change event
+      dom.triggerEvent(this.element, 'change', { origin: this.identifier });
+
+      if (this.isInteractsNow || this.needTriggerEvents) {
+        if (this.onSlideEnd && typeof this.onSlideEnd === 'function') {
+          this.onSlideEnd(this.value, this.percent, this.position);
+        }
+      }
+      this.onSlideEventsCount = 0;
+      this.isInteractsNow = false;
+    }
+  }, {
+    key: '_setPosition',
+    value: function _setPosition(pos) {
+      var position = void 0;
+      var stickRadius = void 0;
+      var restFromValue = void 0;
+      var stickTo = void 0;
+
+      // Snapping steps
+      var value = this._getValueFromPosition(func.between(pos, 0, this.maxHandleX));
+
+      // Stick to stick[0] in radius stick[1]
+      if (this.stick) {
+        stickTo = this.stick[0];
+        stickRadius = this.stick[1] || 0.1;
+        restFromValue = value % stickTo;
+        if (restFromValue < stickRadius) {
+          value = value - restFromValue;
+        } else if (Math.abs(stickTo - restFromValue) < stickRadius) {
+          value = value - restFromValue + stickTo;
+        }
+      }
+      position = this._getPositionFromValue(value);
+
+      // Update ui
+      if (this.vertical) {
+        this.container.style.height = position + this.grabX + 'px';
+        this.handle.style['webkitTransform'] = 'translateY(-' + position + 'px)';
+        this.handle.style['msTransform'] = 'translateY(-' + position + 'px)';
+        this.handle.style.transform = 'translateY(-' + position + 'px)';
+      } else {
+        this.container.style.width = position + this.grabX + 'px';
+        this.handle.style['webkitTransform'] = 'translateX(' + position + 'px)';
+        this.handle.style['msTransform'] = 'translateX(' + position + 'px)';
+        this.handle.style.transform = 'translateX(' + position + 'px)';
+      }
+
+      this._setValue(value);
+
+      // Update globals
+      this.position = position;
+      this.value = value;
+      this._updatePercentFromValue();
+
+      if (this.isInteractsNow || this.needTriggerEvents) {
+        if (this.onSlideStart && typeof this.onSlideStart === 'function' && this.onSlideEventsCount === 0) {
+          this.onSlideStart(this.value, this.percent, this.position);
+        }
+
+        if (this.onSlide && typeof this.onSlide === 'function') {
+          this.onSlide(this.value, this.percent, this.position);
+        }
+      }
+
+      this.onSlideEventsCount++;
+    }
+  }, {
+    key: '_setBufferPosition',
+    value: function _setBufferPosition(pos) {
+      var isPercent = true;
+
+      if (isFinite(pos)) {
+        pos = parseFloat(pos);
+      } else if (func.isString(pos)) {
+        if (pos.indexOf('px') > 0) {
+          isPercent = false;
+        }
+        pos = parseFloat(pos);
+      } else {
+        console.warn('New position must be XXpx or XX%');
+        return;
+      }
+
+      if (isNaN(pos)) {
+        console.warn('New position is NaN');
+        return;
+      }
+      if (!this.options.bufferClass) {
+        console.warn('You disabled buffer, it\'s className is empty');
+        return;
+      }
+      var bufferSize = isPercent ? pos : pos / this.rangeSize * 100;
+
+      if (bufferSize < 0) {
+        bufferSize = 0;
+      }
+      if (bufferSize > 100) {
+        bufferSize = 100;
+      }
+      this.options.buffer = bufferSize;
+
+      var paddingSize = this.options.borderRadius / this.rangeSize * 100;
+      var bufferSizeWithPadding = bufferSize - paddingSize;
+
+      if (bufferSizeWithPadding < 0) {
+        bufferSizeWithPadding = 0;
+      }
+
+      if (this.vertical) {
+        this.buffer.style.height = bufferSizeWithPadding + '%';
+        this.buffer.style.bottom = paddingSize * 0.5 + '%';
+      } else {
+        this.buffer.style.width = bufferSizeWithPadding + '%';
+        this.buffer.style.left = paddingSize * 0.5 + '%';
+      }
+
+      this.element.setAttribute('data-buffer', bufferSize);
+    }
+
+    /**
+     *
+     * @param {Element} node
+     * @returns {*} Returns element position relative to the parent
+     * @private
+     */
+
+  }, {
+    key: '_getPositionFromNode',
+    value: function _getPositionFromNode(node) {
+      var i = this.vertical ? this.maxHandleX : 0;
+
+      while (node !== null) {
+        i += this.vertical ? node.offsetTop : node.offsetLeft;
+        node = node.offsetParent;
+      }
+      return i;
+    }
+
+    /**
+     *
+     * @param {(MouseEvent|TouchEvent)}e
+     * @returns {number}
+     */
+
+  }, {
+    key: '_getRelativePosition',
+    value: function _getRelativePosition(e) {
+      var boundingClientRect = this.range.getBoundingClientRect();
+
+      // Get the offset relative to the viewport
+      var rangeSize = this.vertical ? boundingClientRect.bottom : boundingClientRect.left;
+      var pageOffset = 0;
+
+      var pagePositionProperty = this.vertical ? 'pageY' : 'pageX';
+
+      if (typeof e[pagePositionProperty] !== 'undefined') {
+        pageOffset = e.touches && e.touches.length ? e.touches[0][pagePositionProperty] : e[pagePositionProperty];
+      } else if (typeof e.originalEvent !== 'undefined') {
+        if (typeof e.originalEvent[pagePositionProperty] !== 'undefined') {
+          pageOffset = e.originalEvent[pagePositionProperty];
+        } else if (e.originalEvent.touches && e.originalEvent.touches[0] && typeof e.originalEvent.touches[0][pagePositionProperty] !== 'undefined') {
+          pageOffset = e.originalEvent.touches[0][pagePositionProperty];
+        }
+      } else if (e.touches && e.touches[0] && typeof e.touches[0][pagePositionProperty] !== 'undefined') {
+        pageOffset = e.touches[0][pagePositionProperty];
+      } else if (e.currentPoint && (typeof e.currentPoint.x !== 'undefined' || typeof e.currentPoint.y !== 'undefined')) {
+        pageOffset = this.vertical ? e.currentPoint.y : e.currentPoint.x;
+      }
+
+      if (this.vertical) {
+        pageOffset -= window.pageYOffset;
+      }
+
+      return this.vertical ? rangeSize - pageOffset : pageOffset - rangeSize;
+    }
+  }, {
+    key: '_getPositionFromValue',
+    value: function _getPositionFromValue(value) {
+      var percentage = (value - this.min) / (this.max - this.min);
+      var pos = percentage * this.maxHandleX;
+
+      return isNaN(pos) ? 0 : pos;
+    }
+  }, {
+    key: '_getValueFromPosition',
+    value: function _getValueFromPosition(pos) {
+      var percentage = pos / (this.maxHandleX || 1);
+      var value = this.step * Math.round(percentage * (this.max - this.min) / this.step) + this.min;
+
+      return Number(value.toFixed(this.toFixed));
+    }
+  }, {
+    key: '_setValue',
+    value: function _setValue(value, force) {
+      if (value === this.value && !force) {
+        return;
+      }
+
+      // Set the new value and fire the `input` event
+      this.element.value = value;
+      this.value = value;
+      dom.triggerEvent(this.element, 'input', { origin: this.identifier });
+    }
+  }], [{
+    key: 'create',
+    value: function create(el, options) {
+      var createInstance = function createInstance(el) {
+        var data = el[pluginName];
+
+        // Create a new instance.
+        if (!data) {
+          data = new RangeSlider(el, options);
+          el[pluginName] = data;
+        }
+      };
+
+      if (el.length) {
+        Array.prototype.slice.call(el).forEach(function (el) {
+          createInstance(el);
+        });
+      } else {
+        createInstance(el);
+      }
+    }
+  }]);
+
+  return RangeSlider;
+}();
+
+exports.default = RangeSlider;
+module.exports = exports['default'];
+
+/***/ }),
+
+/***/ "./src/utils/dom.js":
+/*!**************************!*\
+  !*** ./src/utils/dom.js ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.supportsRange = exports.removeAllListenersFromEl = exports.removeEventListeners = exports.addEventListeners = exports.insertAfter = exports.triggerEvent = exports.forEachAncestors = exports.removeClass = exports.addClass = exports.hasClass = exports.setCss = exports.getDimension = exports.getHiddenParentNodes = exports.isHidden = exports.detectIE = undefined;
+
+var _functions = __webpack_require__(/*! ./functions */ "./src/utils/functions.js");
+
+var func = _interopRequireWildcard(_functions);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var EVENT_LISTENER_LIST = 'eventListenerList';
+
+var detectIE = exports.detectIE = function detectIE() {
+  var ua = window.navigator.userAgent;
+  var msie = ua.indexOf('MSIE ');
+
+  if (msie > 0) {
+    return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+  }
+
+  var trident = ua.indexOf('Trident/');
+
+  if (trident > 0) {
+    var rv = ua.indexOf('rv:');
+
+    return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+  }
+
+  var edge = ua.indexOf('Edge/');
+
+  if (edge > 0) {
+    return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+  }
+
+  return false;
+};
+
+var ieVersion = detectIE();
+var eventCaptureParams = window.PointerEvent && !ieVersion ? { passive: false } : false;
+
+/**
+ * Check if a `element` is visible in the DOM
+ *
+ * @param  {Element}  element
+ * @return {Boolean}
+ */
+var isHidden = exports.isHidden = function isHidden(element) {
+  return element.offsetWidth === 0 || element.offsetHeight === 0 || element.open === false;
+};
+
+/**
+ * Get hidden parentNodes of an `element`
+ *
+ * @param {Element} element
+ * @return {Element[]}
+ */
+var getHiddenParentNodes = exports.getHiddenParentNodes = function getHiddenParentNodes(element) {
+  var parents = [];
+  var node = element.parentNode;
+
+  while (isHidden(node)) {
+    parents.push(node);
+    node = node.parentNode;
+  }
+  return parents;
+};
+
+/**
+ * Returns dimensions for an element even if it is not visible in the DOM.
+ *
+ * @param  {Element} element
+ * @param  {string}  key     (e.g. offsetWidth …)
+ * @return {Number}
+ */
+var getDimension = exports.getDimension = function getDimension(element, key) {
+  var hiddenParentNodes = getHiddenParentNodes(element);
+  var hiddenParentNodesLength = hiddenParentNodes.length;
+  var hiddenParentNodesStyle = [];
+  var dimension = element[key];
+
+  // Used for native `<details>` elements
+  var toggleOpenProperty = function toggleOpenProperty(element) {
+    if (typeof element.open !== 'undefined') {
+      element.open = !element.open;
+    }
+  };
+
+  if (hiddenParentNodesLength) {
+    for (var i = 0; i < hiddenParentNodesLength; i++) {
+      // Cache the styles to restore then later.
+      hiddenParentNodesStyle.push({
+        display: hiddenParentNodes[i].style.display,
+        height: hiddenParentNodes[i].style.height,
+        overflow: hiddenParentNodes[i].style.overflow,
+        visibility: hiddenParentNodes[i].style.visibility
+      });
+
+      hiddenParentNodes[i].style.display = 'block';
+      hiddenParentNodes[i].style.height = '0';
+      hiddenParentNodes[i].style.overflow = 'hidden';
+      hiddenParentNodes[i].style.visibility = 'hidden';
+      toggleOpenProperty(hiddenParentNodes[i]);
+    }
+
+    dimension = element[key];
+
+    for (var j = 0; j < hiddenParentNodesLength; j++) {
+      toggleOpenProperty(hiddenParentNodes[j]);
+      hiddenParentNodes[j].style.display = hiddenParentNodesStyle[j].display;
+      hiddenParentNodes[j].style.height = hiddenParentNodesStyle[j].height;
+      hiddenParentNodes[j].style.overflow = hiddenParentNodesStyle[j].overflow;
+      hiddenParentNodes[j].style.visibility = hiddenParentNodesStyle[j].visibility;
+    }
+  }
+  return dimension;
+};
+
+/**
+ *
+ * @param {HTMLElement} el
+ * @param {Object} cssObj
+ * @returns {*}
+ */
+var setCss = exports.setCss = function setCss(el, cssObj) {
+  for (var key in cssObj) {
+    el.style[key] = cssObj[key];
+  }
+  return el.style;
+};
+
+/**
+ *
+ * @param {HTMLElement} elem
+ * @param {string} className
+ */
+var hasClass = exports.hasClass = function hasClass(elem, className) {
+  return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+};
+
+/**
+ *
+ * @param {HTMLElement} elem
+ * @param {string} className
+ */
+var addClass = exports.addClass = function addClass(elem, className) {
+  if (!hasClass(elem, className)) {
+    elem.className += ' ' + className;
+  }
+};
+
+/**
+ *
+ * @param {HTMLElement} elem
+ * @param {string} className
+ */
+var removeClass = exports.removeClass = function removeClass(elem, className) {
+  var newClass = ' ' + elem.className.replace(/[\t\r\n]/g, ' ') + ' ';
+
+  if (hasClass(elem, className)) {
+    while (newClass.indexOf(' ' + className + ' ') >= 0) {
+      newClass = newClass.replace(' ' + className + ' ', ' ');
+    }
+    elem.className = newClass.replace(/^\s+|\s+$/g, '');
+  }
+};
+
+/**
+ *
+ * @param {HTMLElement} el
+ * @param {Function} callback
+ * @param {boolean} andForElement - apply callback for el
+ * @returns {HTMLElement}
+ */
+var forEachAncestors = exports.forEachAncestors = function forEachAncestors(el, callback, andForElement) {
+  if (andForElement) {
+    callback(el);
+  }
+
+  while (el.parentNode && !callback(el)) {
+    el = el.parentNode;
+  }
+
+  return el;
+};
+
+/**
+ *
+ * @param {HTMLElement} el
+ * @param {string} name event name
+ * @param {Object} data
+ */
+var triggerEvent = exports.triggerEvent = function triggerEvent(el, name, data) {
+  if (!func.isString(name)) {
+    throw new TypeError('event name must be String');
+  }
+  if (!(el instanceof HTMLElement)) {
+    throw new TypeError('element must be HTMLElement');
+  }
+  name = name.trim();
+  var event = document.createEvent('CustomEvent');
+
+  event.initCustomEvent(name, false, false, data);
+  el.dispatchEvent(event);
+};
+
+/**
+ * @param {Object} referenceNode after this
+ * @param {Object} newNode insert this
+ */
+var insertAfter = exports.insertAfter = function insertAfter(referenceNode, newNode) {
+  return referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+};
+
+/**
+ * Add event listeners and push them to el[EVENT_LISTENER_LIST]
+ * @param {HTMLElement|Node|Document} el DOM element
+ * @param {Array} events
+ * @param {Function} listener
+ */
+var addEventListeners = exports.addEventListeners = function addEventListeners(el, events, listener) {
+  events.forEach(function (eventName) {
+    if (!el[EVENT_LISTENER_LIST]) {
+      el[EVENT_LISTENER_LIST] = {};
+    }
+    if (!el[EVENT_LISTENER_LIST][eventName]) {
+      el[EVENT_LISTENER_LIST][eventName] = [];
+    }
+
+    el.addEventListener(eventName, listener, eventCaptureParams);
+    if (el[EVENT_LISTENER_LIST][eventName].indexOf(listener) < 0) {
+      el[EVENT_LISTENER_LIST][eventName].push(listener);
+    }
+  });
+};
+
+/**
+ * Remove event listeners and remove them from el[EVENT_LISTENER_LIST]
+ * @param {HTMLElement} el DOM element
+ * @param {Array} events
+ * @param {Function} listener
+ */
+var removeEventListeners = exports.removeEventListeners = function removeEventListeners(el, events, listener) {
+  events.forEach(function (eventName) {
+    var index = void 0;
+
+    el.removeEventListener(eventName, listener, false);
+
+    if (el[EVENT_LISTENER_LIST] && el[EVENT_LISTENER_LIST][eventName] && (index = el[EVENT_LISTENER_LIST][eventName].indexOf(listener)) > -1) {
+      el[EVENT_LISTENER_LIST][eventName].splice(index, 1);
+    }
+  });
+};
+
+/**
+ * Remove ALL event listeners which exists in el[EVENT_LISTENER_LIST]
+ * @param instance
+ * @param {HTMLElement} el DOM element
+ */
+var removeAllListenersFromEl = exports.removeAllListenersFromEl = function removeAllListenersFromEl(instance, el) {
+  if (!el[EVENT_LISTENER_LIST]) {
+    return;
+  }
+
+  /* jshint ignore:start */
+
+  /**
+   *
+   * @callback listener
+   * @this {Object} event name
+   */
+  function rm(listener) {
+    if (listener === instance._startEventListener) {
+      this.el.removeEventListener(this.eventName, listener, false);
+    }
+  }
+
+  for (var eventName in el[EVENT_LISTENER_LIST]) {
+    el[EVENT_LISTENER_LIST][eventName].forEach(rm, { eventName: eventName, el: el });
+  }
+
+  el[EVENT_LISTENER_LIST] = {};
+  /* jshint ignore:end */
+};
+
+/**
+ * Range feature detection
+ * @return {Boolean}
+ */
+var supportsRange = exports.supportsRange = function supportsRange() {
+  var input = document.createElement('input');
+
+  input.setAttribute('type', 'range');
+  return input.type !== 'text';
+};
+
+/***/ }),
+
+/***/ "./src/utils/functions.js":
+/*!********************************!*\
+  !*** ./src/utils/functions.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/**
+ * Create a random uuid
+ */
+var uuid = exports.uuid = function uuid() {
+  var s4 = function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+  };
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+};
+
+/**
+ * Delays a function for the given number of milliseconds, and then calls
+ * it with the arguments supplied.
+ *
+ * @param  {Function} fn   function
+ * @param  {Number}   wait delay
+ * @param  {Number}   args arguments
+ * @return {Function}
+ */
+var delay = exports.delay = function delay(fn, wait) {
+  for (var _len = arguments.length, args = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+    args[_key - 2] = arguments[_key];
+  }
+
+  return setTimeout(function () {
+    return fn.apply(null, args);
+  }, wait);
+};
+
+/**
+ * Returns a debounced function that will make sure the given
+ * function is not triggered too much.
+ *
+ * @param  {Function} fn Function to debounce.
+ * @param  {Number}   debounceDuration OPTIONAL. The amount of time in milliseconds for which we will debounce the
+ *         function. (defaults to 100ms)
+ * @return {Function}
+ */
+var debounce = exports.debounce = function debounce(fn) {
+  var debounceDuration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
+  return function () {
+    for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      args[_key2] = arguments[_key2];
+    }
+
+    if (!fn.debouncing) {
+      fn.lastReturnVal = fn.apply(window, args);
+      fn.debouncing = true;
+    }
+    clearTimeout(fn.debounceTimeout);
+    fn.debounceTimeout = setTimeout(function () {
+      fn.debouncing = false;
+    }, debounceDuration);
+    return fn.lastReturnVal;
+  };
+};
+
+var isString = exports.isString = function isString(obj) {
+  return obj === '' + obj;
+};
+
+var isArray = exports.isArray = function isArray(obj) {
+  return Object.prototype.toString.call(obj) === '[object Array]';
+};
+
+var isNumberLike = exports.isNumberLike = function isNumberLike(obj) {
+  return obj !== null && obj !== undefined && (isString(obj) && isFinite(parseFloat(obj)) || isFinite(obj));
+};
+
+var getFirsNumberLike = exports.getFirsNumberLike = function getFirsNumberLike() {
+  for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+    args[_key3] = arguments[_key3];
+  }
+
+  if (!args.length) {
+    return null;
+  }
+
+  for (var i = 0, len = args.length; i < len; i++) {
+    if (isNumberLike(args[i])) {
+      return args[i];
+    }
+  }
+
+  return null;
+};
+
+var isObject = exports.isObject = function isObject(obj) {
+  return Object.prototype.toString.call(obj) === '[object Object]';
+};
+
+var simpleExtend = exports.simpleExtend = function simpleExtend(defaultOpt, options) {
+  var opt = {};
+
+  for (var key in defaultOpt) {
+    opt[key] = defaultOpt[key];
+  }
+  for (var _key4 in options) {
+    opt[_key4] = options[_key4];
+  }
+
+  return opt;
+};
+
+var between = exports.between = function between(pos, min, max) {
+  if (pos < min) {
+    return min;
+  }
+  if (pos > max) {
+    return max;
+  }
+  return pos;
+};
+
+/***/ })
+
+/******/ });
+});
+
+},{}],3:[function(_dereq_,module,exports){
+var events = {
+    "init": "fontsampler.events.init"
+}
+
+module.exports = events
+},{}],4:[function(_dereq_,module,exports){
+function pruneClass(className, classNames) {
+    if (!classNames) {
+        return ""
+    }
+
+    classNames = classNames.trim()
+
+    if (!className) {
+        return classNames
+    }
+
+    className = className.trim()
+
+    var classes = classNames.split(" "),
+        classIndex = classes.indexOf(className)
+
+    if (classIndex !== -1) {
+        classes.splice(classIndex, 1)
+    }
+
+    if (classes.length > 0) {
+        return classes.join(" ")
+    } else {
+        return ""
+    }
+}
+
+function addClass(className, classNames) {
+    if (!classNames) {
+        classNames = ""
+    }
+
+    classNames = classNames.trim()
+
+    if (!className) {
+        return classNames
+    }
+
+    className = className.trim()
+
+    var classes = classNames.split(" "),
+        classIndex = classes.indexOf(className)
+
+    if (classIndex === -1) {
+        if (classNames) {
+            return classNames + " " + className
+        } else {
+            return className
+        }
+    } else {
+        return classNames
+    }
+}
+
+function nodeAddClass(node, className) {
+    if (!isNode(node) || typeof(className) !== "string") {
+        return false
+    }
+
+    node.className = addClass(className, node.className)
+
+    return true
+}
+
+function nodeAddClasses(node, classes) {
+    if (!isNode(node) || !Array.isArray(classes) || classes.length < 1) {
+        return false
+    }
+
+    for (var c = 0; c < classes.length; c++) {
+        node.className = addClass(classes[c], node.className)
+    }
+
+    return true
+}
+
+function nodeRemoveClass(node, className) {
+    if (!isNode(node) || typeof(className) !== "string") {
+        return false
+    }
+
+    node.className = pruneClass(className, node.className)
+
+    return true
+}
+
+/**
+ * Really just an approximation of a check
+ * 
+ * @param {*} node 
+ */
+function isNode(node) {
+    return typeof(node) === "object" && node !== null && "nodeType" in node
+}
+
+module.exports = {
+    nodeAddClass: nodeAddClass,
+    nodeAddClasses: nodeAddClasses,
+    nodeRemoveClass: nodeRemoveClass,
+    isNode: isNode
+}
+},{}],5:[function(_dereq_,module,exports){
+var rangeSlider = _dereq_("../node_modules/rangeslider-pure/dist/range-slider")
+var Choices = _dereq_("../node_modules/choices.js/public/assets/scripts/choices")
+var events = _dereq_("./events")
+var helpers = _dereq_("./helpers")
+
+function Skin(FS) {
+    
+    FS.registerEventhandler(events.init, init)
+
+    function init() {
+        console.debug("Skin.init()", FS, FS.initialized)
+
+        if (FS.initialized === true) {
+            console.error(FS.root)
+            throw new Error("FontsamplerSkin: Cannot apply skin to a Fontsampler that is already initialized.")
+        }
+
+        helpers.nodeAddClass(FS.root, "fsjs-skin")
+
+        var rangeInputs = FS.root.querySelectorAll("input[type=range][data-fsjs]")
+        if (rangeInputs.length) {
+            rangeSlider.create(rangeInputs, {
+                polyfill: true,
+                onSlide: updateSlider,
+                onSlideEnd: updateSlider
+            })
+        }
+
+        var selectInputs = FS.root.querySelectorAll("select[data-fsjs]")
+        if (selectInputs.length) {
+            for (var i in selectInputs) {
+                if (selectInputs.hasOwnProperty(i)) {
+                    var element = selectInputs[i]
+                    new Choices(element, {
+                        searchEnabled: false,
+                        searchChoices: false,
+                        maxItemCount: 1,
+                        itemSelectText: "",
+                        shouldSort: false,
+                        shouldSortItems: false
+                    })
+                }
+
+            }
+        }
+    }
+
+    function updateSlider(position /*, value*/) {
+        var key = this.element.dataset.fsjs,
+            label = FS.root.querySelector("[data-fsjs-for='" + key + "'] .fsjs-label-value")
+
+        FS.root.dispatchEvent(new CustomEvent("fontsampler.on" + key + "changed"))
+
+        if (label) {
+            label.textContent = position
+        }
+    }
+
+}
+
+module.exports = Skin 
+},{"../node_modules/choices.js/public/assets/scripts/choices":1,"../node_modules/rangeslider-pure/dist/range-slider":2,"./events":3,"./helpers":4}]},{},[5])(5)
+});
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],2:[function(require,module,exports){
+(function (global){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Fontsampler = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
+'use strict';
+
+var hasOwn = Object.prototype.hasOwnProperty;
+var toStr = Object.prototype.toString;
+var defineProperty = Object.defineProperty;
+var gOPD = Object.getOwnPropertyDescriptor;
+
+var isArray = function isArray(arr) {
+	if (typeof Array.isArray === 'function') {
+		return Array.isArray(arr);
+	}
+
+	return toStr.call(arr) === '[object Array]';
+};
+
+var isPlainObject = function isPlainObject(obj) {
+	if (!obj || toStr.call(obj) !== '[object Object]') {
+		return false;
+	}
+
+	var hasOwnConstructor = hasOwn.call(obj, 'constructor');
+	var hasIsPrototypeOf = obj.constructor && obj.constructor.prototype && hasOwn.call(obj.constructor.prototype, 'isPrototypeOf');
+	// Not own constructor property must be Object
+	if (obj.constructor && !hasOwnConstructor && !hasIsPrototypeOf) {
+		return false;
+	}
+
+	// Own properties are enumerated firstly, so to speed up,
+	// if last one is own, then all properties are own.
+	var key;
+	for (key in obj) { /**/ }
+
+	return typeof key === 'undefined' || hasOwn.call(obj, key);
+};
+
+// If name is '__proto__', and Object.defineProperty is available, define __proto__ as an own property on target
+var setProperty = function setProperty(target, options) {
+	if (defineProperty && options.name === '__proto__') {
+		defineProperty(target, options.name, {
+			enumerable: true,
+			configurable: true,
+			value: options.newValue,
+			writable: true
+		});
+	} else {
+		target[options.name] = options.newValue;
+	}
+};
+
+// Return undefined instead of __proto__ if '__proto__' is not an own property
+var getProperty = function getProperty(obj, name) {
+	if (name === '__proto__') {
+		if (!hasOwn.call(obj, name)) {
+			return void 0;
+		} else if (gOPD) {
+			// In early versions of node, obj['__proto__'] is buggy when obj has
+			// __proto__ as an own property. Object.getOwnPropertyDescriptor() works.
+			return gOPD(obj, name).value;
+		}
+	}
+
+	return obj[name];
+};
+
+module.exports = function extend() {
+	var options, name, src, copy, copyIsArray, clone;
+	var target = arguments[0];
+	var i = 1;
+	var length = arguments.length;
+	var deep = false;
+
+	// Handle a deep copy situation
+	if (typeof target === 'boolean') {
+		deep = target;
+		target = arguments[1] || {};
+		// skip the boolean and the target
+		i = 2;
+	}
+	if (target == null || (typeof target !== 'object' && typeof target !== 'function')) {
+		target = {};
+	}
+
+	for (; i < length; ++i) {
+		options = arguments[i];
+		// Only deal with non-null/undefined values
+		if (options != null) {
+			// Extend the base object
+			for (name in options) {
+				src = getProperty(target, name);
+				copy = getProperty(options, name);
+
+				// Prevent never-ending loop
+				if (target !== copy) {
+					// Recurse if we're merging plain objects or arrays
+					if (deep && copy && (isPlainObject(copy) || (copyIsArray = isArray(copy)))) {
+						if (copyIsArray) {
+							copyIsArray = false;
+							clone = src && isArray(src) ? src : [];
+						} else {
+							clone = src && isPlainObject(src) ? src : {};
+						}
+
+						// Never move original objects, clone them
+						setProperty(target, { name: name, newValue: extend(deep, clone, copy) });
+
+					// Don't bring in undefined values
+					} else if (typeof copy !== 'undefined') {
+						setProperty(target, { name: name, newValue: copy });
+					}
+				}
+			}
+		}
+	}
+
+	// Return the modified object
+	return target;
+};
+
+},{}],2:[function(_dereq_,module,exports){
+/* Font Face Observer v2.1.0 - © Bram Stein. License: BSD-3-Clause */(function(){function l(a,b){document.addEventListener?a.addEventListener("scroll",b,!1):a.attachEvent("scroll",b)}function m(a){document.body?a():document.addEventListener?document.addEventListener("DOMContentLoaded",function c(){document.removeEventListener("DOMContentLoaded",c);a()}):document.attachEvent("onreadystatechange",function k(){if("interactive"==document.readyState||"complete"==document.readyState)document.detachEvent("onreadystatechange",k),a()})};function t(a){this.a=document.createElement("div");this.a.setAttribute("aria-hidden","true");this.a.appendChild(document.createTextNode(a));this.b=document.createElement("span");this.c=document.createElement("span");this.h=document.createElement("span");this.f=document.createElement("span");this.g=-1;this.b.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";this.c.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";
+this.f.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";this.h.style.cssText="display:inline-block;width:200%;height:200%;font-size:16px;max-width:none;";this.b.appendChild(this.h);this.c.appendChild(this.f);this.a.appendChild(this.b);this.a.appendChild(this.c)}
+function u(a,b){a.a.style.cssText="max-width:none;min-width:20px;min-height:20px;display:inline-block;overflow:hidden;position:absolute;width:auto;margin:0;padding:0;top:-999px;white-space:nowrap;font-synthesis:none;font:"+b+";"}function z(a){var b=a.a.offsetWidth,c=b+100;a.f.style.width=c+"px";a.c.scrollLeft=c;a.b.scrollLeft=a.b.scrollWidth+100;return a.g!==b?(a.g=b,!0):!1}function A(a,b){function c(){var a=k;z(a)&&a.a.parentNode&&b(a.g)}var k=a;l(a.b,c);l(a.c,c);z(a)};function B(a,b){var c=b||{};this.family=a;this.style=c.style||"normal";this.weight=c.weight||"normal";this.stretch=c.stretch||"normal"}var C=null,D=null,E=null,F=null;function G(){if(null===D)if(J()&&/Apple/.test(window.navigator.vendor)){var a=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))(?:\.([0-9]+))/.exec(window.navigator.userAgent);D=!!a&&603>parseInt(a[1],10)}else D=!1;return D}function J(){null===F&&(F=!!document.fonts);return F}
+function K(){if(null===E){var a=document.createElement("div");try{a.style.font="condensed 100px sans-serif"}catch(b){}E=""!==a.style.font}return E}function L(a,b){return[a.style,a.weight,K()?a.stretch:"","100px",b].join(" ")}
+B.prototype.load=function(a,b){var c=this,k=a||"BESbswy",r=0,n=b||3E3,H=(new Date).getTime();return new Promise(function(a,b){if(J()&&!G()){var M=new Promise(function(a,b){function e(){(new Date).getTime()-H>=n?b(Error(""+n+"ms timeout exceeded")):document.fonts.load(L(c,'"'+c.family+'"'),k).then(function(c){1<=c.length?a():setTimeout(e,25)},b)}e()}),N=new Promise(function(a,c){r=setTimeout(function(){c(Error(""+n+"ms timeout exceeded"))},n)});Promise.race([N,M]).then(function(){clearTimeout(r);a(c)},
+b)}else m(function(){function v(){var b;if(b=-1!=f&&-1!=g||-1!=f&&-1!=h||-1!=g&&-1!=h)(b=f!=g&&f!=h&&g!=h)||(null===C&&(b=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))/.exec(window.navigator.userAgent),C=!!b&&(536>parseInt(b[1],10)||536===parseInt(b[1],10)&&11>=parseInt(b[2],10))),b=C&&(f==w&&g==w&&h==w||f==x&&g==x&&h==x||f==y&&g==y&&h==y)),b=!b;b&&(d.parentNode&&d.parentNode.removeChild(d),clearTimeout(r),a(c))}function I(){if((new Date).getTime()-H>=n)d.parentNode&&d.parentNode.removeChild(d),b(Error(""+
+n+"ms timeout exceeded"));else{var a=document.hidden;if(!0===a||void 0===a)f=e.a.offsetWidth,g=p.a.offsetWidth,h=q.a.offsetWidth,v();r=setTimeout(I,50)}}var e=new t(k),p=new t(k),q=new t(k),f=-1,g=-1,h=-1,w=-1,x=-1,y=-1,d=document.createElement("div");d.dir="ltr";u(e,L(c,"sans-serif"));u(p,L(c,"serif"));u(q,L(c,"monospace"));d.appendChild(e.a);d.appendChild(p.a);d.appendChild(q.a);document.body.appendChild(d);w=e.a.offsetWidth;x=p.a.offsetWidth;y=q.a.offsetWidth;I();A(e,function(a){f=a;v()});u(e,
+L(c,'"'+c.family+'",sans-serif'));A(p,function(a){g=a;v()});u(p,L(c,'"'+c.family+'",serif'));A(q,function(a){h=a;v()});u(q,L(c,'"'+c.family+'",monospace'))})})};"object"===typeof module?module.exports=B:(window.FontFaceObserver=B,window.FontFaceObserver.prototype.load=B.prototype.load);}());
+
+},{}],3:[function(_dereq_,module,exports){
+
+module.exports = {
+    "noFonts": "Fontsampler: No fonts were passed in.",
+    "initFontFormatting": "Fontsampler: Passed in fonts are not in expected format. Expected [ { name: 'Font Name', files: [ 'fontfile.woff', 'fontfile.woff2' ] }, … ]",
+    "fileNotfound": "Fontsampler: The passed in file could not be found: ",
+    "missingRoot": "Fontsampler: Passed in root element invalid: ",
+    "tooManyFiles": "Fontsampler: Supplied more than one woff or woff2 for a font: ",
+    "invalidUIItem": "Fontsampler: The supplied UI item is not supported: ",
+    "invalidEvent": "Fontsampler: Invalid event type. You can only register Fontsampler events on the Fontsampler instance.",
+    "newInit": "Fontsampler: Instantiated Fontsampler without 'new' keyword. Create Fontsamplers using new Fontsampler(…)",
+    "dataFontsJsonInvalid": "Fontsampler: The data-fonts JSON failed to parse."
+}
+
+
+},{}],4:[function(_dereq_,module,exports){
+var events = {
+    "init": "fontsampler.events.init"
+}
+
+module.exports = events
+},{}],5:[function(_dereq_,module,exports){
+var FontFaceObserver = _dereq_("../node_modules/fontfaceobserver/fontfaceobserver.standalone")
+
+var errors = _dereq_("./errors")
+
+// supportsWoff2 manually copied from npm woff2-feature-test
+var supportsWoff2 = (function() {
+    if (!("FontFace" in window)) {
+        return false;
+    }
+
+    var f = new FontFace('t', 'url( "data:application/font-woff2;base64,d09GMgABAAAAAADwAAoAAAAAAiQAAACoAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAABmAALAogOAE2AiQDBgsGAAQgBSAHIBuDAciO1EZ3I/mL5/+5/rfPnTt9/9Qa8H4cUUZxaRbh36LiKJoVh61XGzw6ufkpoeZBW4KphwFYIJGHB4LAY4hby++gW+6N1EN94I49v86yCpUdYgqeZrOWN34CMQg2tAmthdli0eePIwAKNIIRS4AGZFzdX9lbBUAQlm//f262/61o8PlYO/D1/X4FrWFFgdCQD9DpGJSxmFyjOAGUU4P0qigcNb82GAAA" ) format( "woff2" )', {});
+    f.load()['catch'](function() {});
+
+    return f.status === 'loading' || f.status === 'loaded';
+})();
+
+function getExtension(path) {
+    return path.substring(path.lastIndexOf(".") + 1)
+}
+
+function bestWoff(files) {
+    if (typeof(files) !== "object" || !Array.isArray(files)) {
+        return false
+    }
+
+    var woffs = files.filter(function(value) {
+            return getExtension(value) === "woff"
+        }),
+        woff2s = files.filter(function(value) {
+            return getExtension(value) === "woff2"
+        })
+
+    if (woffs.length > 1 || woff2s.length > 1) {
+        throw new Error(errors.tooManyFiles + files)
+    }
+
+    if (woff2s.length > 0 && supportsWoff2) {
+        return woff2s.shift()
+    }
+
+    if (woffs.length > 0) {
+        return woffs.shift()
+    }
+
+    return false
+}
+
+function loadFont(file, callback) {
+    if (!file) {
+        return false
+    }
+    var family = file.substring(file.lastIndexOf("/") + 1)
+    family = family.substring(0, family.lastIndexOf("."))
+    family = family.replace(/\W/gm, "")
+
+    var font = new FontFaceObserver(family)
+    font.load().then(function(f) {
+        if (typeof(callback) === "function") {
+            callback(f)
+        }
+    })
+
+    if (FontFace) {
+        var ff = new FontFace(family, "url(" + file + ")")
+        ff.load().then(function() {
+            document.fonts.add(ff)
+        }).catch(function() {
+            throw new Error(errors.fileNotfound + file)
+        })
+    } else {
+        var newStyle = document.createElement("style");
+        newStyle.appendChild(document.createTextNode("@font-face { font-family: '" + family + "'; src: url('" + file + "'); }"));
+        document.head.appendChild(newStyle);
+    }
+}
+
+function fromFiles(files, callback) {
+    font = bestWoff(files)
+    loadFont(font, callback)
+}
+
+module.exports = {
+    "loadFont": loadFont,
+    "fromFiles": fromFiles
+}
+},{"../node_modules/fontfaceobserver/fontfaceobserver.standalone":2,"./errors":3}],6:[function(_dereq_,module,exports){
+/**
+ * Fontsampler.js
+ * 
+ * A configurable standalone webfont type tester for displaying and manipulating sample text.
+ * 
+ * @author Johannes Neumeier <hello@underscoretype.com>
+ * @copyright 2019 Johannes Neumeier
+ * @license GNU GPLv3
+ */
+
+// var rangeSlider = require("../node_modules/rangeslider-pure/dist/range-slider")
+var extend = _dereq_("../node_modules/extend")
+
+var Fontloader = _dereq_("./fontloader")
+var Interface = _dereq_("./interface")
+var Preloader = _dereq_("./preloader")
+var errors = _dereq_("./errors")
+var events = _dereq_("./events")
+var helpers = _dereq_("./helpers")
+
+function Fontsampler(root, fonts, opt) {
+
+    console.debug("Fontsampler()", root, fonts, opt, this)
+
+    if (this === window) {
+        throw new Error(errors.newInit)
+    }
+
+    var extractedFonts,
+        interface,
+        preloader = new Preloader(),
+        defaults
+        
+    this.initialized = false
+    
+    // Check for a root element to render to
+    if (!root) {
+        throw new Error(errors.missingRoot + root)
+    }
+
+    // A minimal default setup requiring only passed in font(s) and not generating any
+    // interface elements except a tester input
+    defaults = {
+        initialText: "",
+        multiline: true,
+        lazyload: false,
+        generate: false,
+        classes: {
+            rootClass: "fontsamplerjs",
+            initClass: "fsjs-initialized",
+            loadingClass: "fsjs-loading",
+            preloadingClass: "fsjs-preloading",
+            wrapperClass: "fsjs-wrapper",
+            blockClass: "fsjs-block",
+            elementClass: "fsjs-element",
+            labelClass: "fsjs-label",
+            labelTextClass: "fsjs-label-text",
+            labelValueClass: "fsjs-label-value",
+            labelUnitClass: "fsjs-label-unit",
+            buttonSelected: "fsjs-button-selected",
+        },
+        order: [
+            ["fontsize", "lineheight", "letterspacing"],
+            ["fontfamily", "language"],
+            ["alignment", "direction", "opentype"], 
+            "tester"
+        ],
+        ui: {
+            tester: {
+                editable: true,
+                label: false
+            },
+            fontfamily: {
+                label: "Font"
+            },
+            fontsize: {
+                unit: "px",
+                init: 36,
+                min: 8,
+                max: 96,
+                step: 1,
+                label: "Size"
+            },
+            lineheight: {
+                unit: "%",
+                init: 100,
+                min: 60,
+                max: 120,
+                step: 5,
+                label: "Leading"
+            },
+            letterspacing: {
+                unit: "em",
+                init: 0,
+                min: -0.1,
+                max: 0.1,
+                step: 0.01,
+                label: "Letterspacing"
+            },
+            alignment: {
+                choices: ["left|Left", "center|Centered", "right|Right"],
+                init: "left",
+                label: "Alignment"
+            },
+            direction: {
+                choices: ["ltr|Left to right", "rtl|Right to left"],
+                init: "ltr",
+                label: "Direction"
+            },
+            language: {
+                choices: ["en-GB|English", "de-De|Deutsch", "nl-NL|Dutch"],
+                init: "en-Gb",
+                label: "Language"
+            },
+            opentype: {
+                choices: ["liga|Ligatures", "frac|Fractions"],
+                init: ["liga"],
+                label: "Opentype features"
+            }
+        }
+    }
+
+    this.root = root
+
+    // defaults.ui.fontsize.render = false if not passed in
+    // etc.
+    for (var key in defaults.ui) {
+        if (opt && "generate" in opt) {
+            defaults.ui[key].render = opt.generate
+        } else {
+            defaults.ui[key].render = !!(opt && opt.ui && key in opt.ui)
+        }
+    }
+    // Always render a tester by default!
+    defaults.ui.tester.render = true
+
+    // Extend or use the default options
+    if (typeof opt === "object") {
+        options = extend(true, defaults, opt)
+    } else {
+        options = defaults
+    }
+
+    // A passed in UI order superseeds, not extends!, the default
+    if (typeof opt === "object" && "order" in opt && Array.isArray(opt.order) && opt.order.length) {
+        options.order = opt.order
+    }
+
+    // Extract fonts; Look first on root element, then on select, then in
+    // passed in fonts Array
+    extractedFonts = extractFontsFromDOM()
+    if ((!fonts || fonts.length < 1) && extractedFonts) {
+        fonts = extractedFonts
+    }
+    if (!fonts) {
+        throw new Error(errors.noFonts)
+    }
+    if (!validateFontsFormatting(fonts)) {
+        console.error(fonts)
+        throw new Error(errors.initFontFormatting)
+    }
+
+    interface = Interface(root, fonts, options)
+
+    // Setup the interface listeners and delegate events back to the interface
+    function setupUIEvents() {
+        // sliders
+        this.root.addEventListener("fontsampler.onfontsizechanged", function() {
+            var val = interface.getCssValue("fontsize")
+            interface.setInputCss(interface.getCssAttrForKey("fontsize"), val)
+        })
+        this.root.addEventListener("fontsampler.onlineheightchanged", function() {
+            var val = interface.getCssValue("lineheight")
+            interface.setInputCss(interface.getCssAttrForKey("lineheight"), val)
+        })
+        this.root.addEventListener("fontsampler.onletterspacingchanged", function() {
+            var val = interface.getCssValue("letterspacing")
+            interface.setInputCss(interface.getCssAttrForKey("letterspacing"), val)
+        })
+
+        // checkbox
+        this.root.addEventListener("fontsampler.onopentypechanged", function() {
+            var val = interface.getOpentype()
+            interface.setInputOpentype(val)
+        })
+
+        // dropdowns
+        this.root.addEventListener("fontsampler.onfontfamilychanged", function() {
+            var val = interface.getValue("fontfamily")
+            loadFont(val)
+        })
+        this.root.addEventListener("fontsampler.onlanguagechanged", function() {
+            var val = interface.getValue("language")
+            interface.setInputAttr("lang", val)
+        })
+
+        // buttongroups
+        this.root.addEventListener("fontsampler.onalignmentchanged", function() {
+            var val = interface.getButtongroupValue("alignment")
+            interface.setInputCss("textAlign", val)
+        })
+        this.root.addEventListener("fontsampler.ondirectionchanged", function() {
+            var val = interface.getButtongroupValue("direction")
+            interface.setInputAttr("dir", val)
+        })
+    }
+
+    /**
+     * Check fonts are passed in with correct structure, e.g.
+     * fonts: [ { "Font Name" : [ "fontfile.woff", "fontfile.woff2" ] } ]
+     * 
+     * TODO: Check that at most only one woff and one woff2 is passed in
+     * 
+     * @param {*} fonts 
+     */
+    function validateFontsFormatting(fonts) {
+        if (typeof(fonts) !== "object" || !Array.isArray(fonts)) {
+            return false
+        }
+
+        for (var i = 0; i < fonts.length; i++) {
+            var font = fonts[i]
+            if (typeof(font) !== "object") {
+                return false
+            }
+
+            if (!font.name || !font.files || !Array.isArray(font.files) || font.files.length <= 0) {
+                return false
+            }
+        }
+
+        return true
+    }
+
+    function extractFontsFromDOM() {
+        var select = root.querySelector("[data-property='fontfamily']"),
+            options = [],
+            fonts = []
+
+        // First try to get data-fonts or data-woff/2 on the root element
+        // If such are found, return them
+        var rootFonts = extractFontsFromNode(root, true)
+        if (rootFonts) {
+            return rootFonts
+        }
+
+        // Otherwise check if there is a dropdown with options that have
+        // data-woff/2 elements
+        if (!select) {
+            return false
+        }
+
+        options = select.querySelectorAll("option")
+        for (i = 0; i < options.length; i++) {
+            var opt = options[i],
+                extractedFonts = extractFontsFromNode(opt, false)
+
+            if (fonts) {
+                fonts = fonts.concat(extractedFonts)
+            }
+        }
+
+        if (fonts) {
+            return fonts
+        }
+
+        return false
+    }
+
+    function extractFontsFromNode(node, ignoreName) {
+        var fonts = [],
+            singleFont = {
+                "name": "Default",
+                "files": []
+            }
+
+        // prever a data-fonts json_encoded array
+        if (node.dataset.fonts) {
+            try {
+                fonts = JSON.parse(node.dataset.fonts)
+                return fonts
+            } catch (error) {
+                console.error(node.dataset.fonts)
+                throw new Error(errors.dataFontsJsonInvalid)
+            }
+        }
+
+        // else see if a single font can be extracted
+        if (node.dataset.name) {
+            singleFont.name = node.dataset.name
+        }
+
+        if (node.dataset.woff) {
+            singleFont.files.push(node.dataset.woff)
+        }
+
+        if (node.dataset.woff2) {
+            singleFont.files.push(node.dataset.woff2)
+        }
+
+        if ((singleFont.name || (!singleFont.name && ignoreName)) && singleFont.files.length > 0) {
+            return [singleFont]
+        }
+
+        return false
+    }
+
+    function loadFont(indexOrKey) {
+        console.debug("Fontsampler.loadFont", indexOrKey)
+
+        preloader.pause()
+
+        interface.setStatusClass(options.loadingClass, true)
+        files = []
+        if (typeof(indexOrKey) === "string") {
+            files = fonts.filter(function(value, index) {
+                return fonts[index].name === indexOrKey
+            }).pop().files
+        } else if (typeof(indexOrKey) === "number" && indexOrKey >= 0 && indexOrKey <= fonts.length) {
+            files = fonts[indexOrKey].files
+        }
+
+        Fontloader.fromFiles(files, function(f) {
+            interface.setInputCss("fontFamily", f.family)
+            interface.setStatusClass(options.loadingClass, false)
+
+            preloader.resume()
+        })
+    }
+
+    /**
+     * PUBLIC API
+     */
+
+    this.init = function() {
+        console.debug("Fontsampler.init()", this, this.root)
+        interface.init()
+        setupUIEvents.call(this)
+        loadFont(0)
+
+        if (options.lazyload) {
+            interface.setStatusClass(options.preloadingClass, true)
+            preloader.load(fonts, function() {
+                interface.setStatusClass(options.preloadingClass, false)
+            })
+        }
+
+        this.initalized = true
+        helpers.nodeAddClass(root, options.classes.initClass)
+
+
+        root.dispatchEvent(new CustomEvent(events.init))
+
+        // For convenience also have the init method return the instance
+        // This way you can create the object and init it, e.g.
+        // var fs = new Fontsampler().init()
+        return this
+    }
+
+    this.lazyload = function() {
+        if (this.initialized && fonts) {
+            preloader.load(fonts)
+        }
+    }
+
+    this.registerEventhandler = function(event, callback) {
+        // Validate that only fontsampler.events.… are passed in
+        if (Object.values(events).indexOf(event) === -1) {
+            throw new Error(errors.invalidEvent)
+        }
+
+        // Only act if there is a valid callback
+        if (typeof(callback) === "function") {
+            root.addEventListener(event, callback)
+        }
+    }
+
+    this.setText = function (text) {
+        interface.setInputText(text)
+    }
+
+    return this
+}
+
+module.exports = Fontsampler
+},{"../node_modules/extend":1,"./errors":3,"./events":4,"./fontloader":5,"./helpers":7,"./interface":8,"./preloader":9}],7:[function(_dereq_,module,exports){
+function pruneClass(className, classNames) {
+    if (!classNames) {
+        return ""
+    }
+
+    classNames = classNames.trim()
+
+    if (!className) {
+        return classNames
+    }
+
+    className = className.trim()
+
+    var classes = classNames.split(" "),
+        classIndex = classes.indexOf(className)
+
+    if (classIndex !== -1) {
+        classes.splice(classIndex, 1)
+    }
+
+    if (classes.length > 0) {
+        return classes.join(" ")
+    } else {
+        return ""
+    }
+}
+
+function addClass(className, classNames) {
+    if (!classNames) {
+        classNames = ""
+    }
+
+    classNames = classNames.trim()
+
+    if (!className) {
+        return classNames
+    }
+
+    className = className.trim()
+
+    var classes = classNames.split(" "),
+        classIndex = classes.indexOf(className)
+
+    if (classIndex === -1) {
+        if (classNames) {
+            return classNames + " " + className
+        } else {
+            return className
+        }
+    } else {
+        return classNames
+    }
+}
+
+function nodeAddClass(node, className) {
+    if (!isNode(node) || typeof(className) !== "string") {
+        return false
+    }
+
+    node.className = addClass(className, node.className)
+
+    return true
+}
+
+function nodeAddClasses(node, classes) {
+    if (!isNode(node) || !Array.isArray(classes) || classes.length < 1) {
+        return false
+    }
+
+    for (var c = 0; c < classes.length; c++) {
+        node.className = addClass(classes[c], node.className)
+    }
+
+    return true
+}
+
+function nodeRemoveClass(node, className) {
+    if (!isNode(node) || typeof(className) !== "string") {
+        return false
+    }
+
+    node.className = pruneClass(className, node.className)
+
+    return true
+}
+
+/**
+ * Really just an approximation of a check
+ * 
+ * @param {*} node 
+ */
+function isNode(node) {
+    return typeof(node) === "object" && node !== null && "nodeType" in node
+}
+
+module.exports = {
+    nodeAddClass: nodeAddClass,
+    nodeAddClasses: nodeAddClasses,
+    nodeRemoveClass: nodeRemoveClass,
+    isNode: isNode
+}
+},{}],8:[function(_dereq_,module,exports){
+/**
+ * A wrapper around the Fontsampler interface
+ * 
+ * 
+ * Generally, the DOM is structured in such a way:
+ * 
+ * Each nested Array in ´order´ is enclosed in a
+ * 
+ * .fsjs-wrapper
+ * 
+ * In each (optional, e.g. without Array straight output) wrapper one more more:
+ * 
+ *  [data-fsjs-block=_property_].fsjs-block .fsjs-block-_property_ .fsjs-block-type-_type_
+ * 
+ * Nested in each block a variety of sub elements:
+ *      Optional label with:
+ *      [data-fsjs-for=_property_].fsjs-label
+ *          [data-label-text=_property_].fsjs-label-text
+ *          [data-label-value=_property_].fsjs-label-value (optional)
+ *          [data-label-unit=_property_].fsjs-label-unit (optional)
+ * 
+ *      The actual ui control (input, select, buttongroup)
+ *      [data-fsjs=_property_].fsjs-element-_property_
+ * 
+ */
+
+var UIElements = _dereq_("./uielements")
+var helpers = _dereq_("./helpers")
+var errors = _dereq_("./errors")
+var selection = _dereq_("./selection")
+
+function Interface(_root, fonts, options) {
+
+    var ui = {
+            tester: "textfield",
+            fontsize: "slider",
+            lineheight: "slider",
+            letterspacing: "slider",
+            fontfamily: "dropdown",
+            alignment: "buttongroup",
+            direction: "buttongroup",
+            language: "dropdown",
+            opentype: "checkboxes"
+        },
+        keyToCss = {
+            "fontsize": "fontSize",
+            "lineheight": "lineHeight",
+            "letterspacing": "letterSpacing"
+        },
+        blocks = {},
+        root = null,
+        uifactory = null,
+        input = null,
+        originalText = ""
+
+    function init() {
+        console.debug("Fontsampler.Interface.init()", _root, fonts, options)
+
+        root = _root
+        helpers.nodeAddClass(root, options.classes.rootClass)
+        uifactory = UIElements(root, options)
+
+        // The fontfamily is just being defined without the options, which
+        // are the fonts passed in. let’s make this transformation behind
+        // the scenes so we can use the re-usable "dropdown" ui
+        options.ui.fontfamily.choices = fonts.map(function(value) {
+            return value.name
+        })
+
+        // Before modifying the root node, detect if it is containing only
+        // text, and if so, store it to the options for later use
+        if (root.childNodes.length === 1 && root.childNodes[0].nodeType === Node.TEXT_NODE) {
+            originalText = root.childNodes[0].textContent
+            root.removeChild(root.childNodes[0])
+        }
+        options.originalText = originalText
+
+        // If no valid UI order is passed in fall back to the ui elements
+        // Their order might be random, but it ensures each required element
+        // is at least present
+        if (!options.order || !Array.isArray(options.order)) {
+            options.order = Object.keys(ui)
+        }
+
+        // Process the possible nested arrays in order one by one
+        // · Existing DOM nodes will be validated and initiated
+        // · UI elements defined via options but missing from the DOM will be created
+        // · UI elements defined in ui option but not in order option will be 
+        //   appended in the end
+        // · Items neither in the DOM nor in options are skipped
+        for (var i = 0; i < options.order.length; i++) {
+            var elementA = parseOrder(options.order[i])
+            if (helpers.isNode(elementA) && elementA.childNodes.length > 0) {
+                root.appendChild(elementA)
+            }
+        }
+        for (var keyB in options.ui) {
+            if (options.ui.hasOwnProperty(keyB)) {
+                if (keyB in blocks === false) {
+                    var elementB = parseOrder(options.ui[keyB])
+                    if (helpers.isNode(elementB) && elementB.childNodes.length > 0) {
+                        root.appendChild(elementB)
+                    }
+                }
+            }
+        }
+
+        input = getElement("tester", blocks.tester)
+
+        // after all nodes are instantiated, update the tester to reflect
+        // the current state
+        for (var keyC in blocks) {
+            if (blocks.hasOwnProperty(keyC)) {
+                initBlock(keyC)
+            }
+        }
+
+        // prevent line breaks on single line instances
+        if (!options.multiline) {
+            var typeEvents = ["keypress", "keyup", "change", "paste"]
+            for (var e in typeEvents) {
+                if (typeEvents.hasOwnProperty(e)) {
+                    blocks.tester.addEventListener(typeEvents[e], onKey)
+                }
+            }
+        }
+
+        // prevent pasting styled content
+        blocks.tester.addEventListener('paste', function(e) {
+            e.preventDefault();
+            var text = '';
+            if (e.clipboardData || e.originalEvent.clipboardData) {
+                text = (e.originalEvent || e).clipboardData.getData('text/plain');
+            } else if (window.clipboardData) {
+                text = window.clipboardData.getData('Text');
+            }
+
+            if (!options.multiline) {
+                text = text.replace(/(?:\r\n|\r|\n|<br>)/g, ' ')
+            }
+
+            if (document.queryCommandSupported('insertText')) {
+                document.execCommand('insertText', false, text);
+            } else {
+                document.execCommand('paste', false, text);
+            }
+        });
+    }
+
+    /**
+     * Recursively go through an element in the options.order
+     * @param string key
+     * @param node parent
+     */
+    function parseOrder(key) {
+        var child, wrapper
+
+        if (typeof(key) === "string") {
+            var block = parseBlock(key)
+            if (block) {
+                blocks[key] = block
+            }
+
+            return block
+        } else if (Array.isArray(key)) {
+            wrapper = document.createElement("div")
+            wrapper.className = options.classes.wrapperClass
+
+            for (var i = 0; i < key.length; i++) {
+                child = parseOrder(key[i])
+                if (child) {
+                    wrapper.appendChild(child)
+                }
+            }
+
+            return wrapper
+        } else {
+            // Skipping not defined UI element
+
+            return false
+        }
+    }
+
+    /**
+     * Parse an UI element from DOM or options
+     * @param string item 
+     * @return node || boolean (true = in DOM, false = invalid item)
+     */
+    function parseBlock(key) {
+        if (key in ui === false) {
+            throw new Error(errors.invalidUIItem + key)
+        }
+
+        var block = getBlock(key),
+            element = false,
+            label = false,
+            opt = options.ui[key]
+
+        if (block) {
+            // if a block is found, try get its element and optional label
+            element = getElement(key, block)
+            label = getLabel(key, block)
+
+            if (options.ui[key].label && !label) {
+                // create a label if needed
+                label = uifactory.label(opt.label, opt.unit, opt.init, key)
+                block.appendChild(label)
+                sanitizeLabel(label, key)
+            } else if (label) {
+                // or check the existing label
+                sanitizeLabel(label, key)
+            }
+            if (!element) {
+                // create and check the element
+                element = createElement(key)
+                block.appendChild(element)
+                sanitizeElement(element, key)
+            } else {
+                // or check the existing element
+                sanitizeElement(element, key)
+            }
+
+            // check the block itself
+            sanitizeBlock(block, key)
+
+            return block
+        } else if (!block && options.generate || !block && key === "tester") {
+            // for missing blocks that should get rendered create them
+
+            return createBlock(key)
+        }
+
+        return false
+    }
+
+    function createBlock(key) {
+        var block = document.createElement("div"),
+            element = createElement(key),
+            label = false
+            opt = options.ui[key]
+
+        if (opt.label) {
+            label = uifactory.label(opt.label, opt.unit, opt.init, key)
+            block.append(label)
+            sanitizeLabel(label, key)
+        }
+        
+        block.append(element)
+        sanitizeElement(element, key)
+        
+        sanitizeBlock(block, key)
+        
+        return block
+    }
+
+    function createElement(key) {
+        var element = uifactory[ui[key]](key, options.ui[key])
+        sanitizeElement(element, key)
+
+        return element
+    }
+
+    function sanitizeBlock(block, key) {
+        var classes = [
+            options.classes.blockClass,
+            options.classes.blockClass + "-" + key,
+            options.classes.blockClass + "-type-" + ui[key]
+        ]
+
+        helpers.nodeAddClasses(block, classes)
+        block.dataset.fsjsBlock = key
+    }
+
+    function sanitizeElement(element, key) {
+        var element = uifactory[ui[key]](key, options.ui[key], element)
+
+        helpers.nodeAddClass(element, options.classes.elementClass)
+        element.dataset.fsjs = key
+    }
+
+    function sanitizeLabel(label, key) {
+        var text = label.querySelector("." + options.classes.labelTextClass),
+            value = label.querySelector("." + options.classes.labelValueClass),
+            unit = label.querySelector("." + options.classes.labelUnitClass),
+            element = getElement(key)
+
+        if (text && text.textContent === "") {
+            text.textContent = options.ui[key].label
+        }
+
+        if (value && value.textContent === "") {
+            // If set in already set in DOM the above validate will have set it
+            value.textContent = element.value
+        }
+
+        if (unit && unit.textContent === "") {
+            // If set in already set in DOM the above validate will have set it
+            unit.textContent = element.dataset.unit
+        }
+
+        helpers.nodeAddClass(label, options.classes.labelClass)
+        label.dataset.fsjsFor = key
+    }
+
+    /**
+     * Init a UI element with values (update DOM to options)
+     * @param node node 
+     * @param object opt 
+     * @return boolean
+     */
+    function initBlock(key) {
+        // TODO set values if passed in and different on node
+        var block = getBlock(key),
+            element = getElement(key, block),
+            type = ui[key],
+            opt = options.ui[key]
+
+        if (type === "slider") {
+            element.addEventListener("change", onChange)
+            element.val = opt.init
+            setInputCss(keyToCss[key], opt.init + opt.unit)
+        } else if (type === "dropdown") {
+            element.addEventListener("change", onChange)
+            // TODO init values to tester
+        } else if (type === "buttongroup") {
+            var buttons = element.querySelectorAll("[data-choice]")
+
+            if (buttons.length > 0) {
+                for (var b = 0; b < buttons.length; b++) {
+                    buttons[b].addEventListener("click", onClick)
+                }
+            }
+
+            // TODO init values to tester
+        } else if (type === "checkboxes") {
+            var checkboxes = element.querySelectorAll("[data-feature]")
+            if (checkboxes.length > 0) {
+                for (var c = 0; c < checkboxes.length; c++) {
+                    checkboxes[c].addEventListener("change", onCheck)
+                }
+            }
+
+            // TODO init values to tester
+        }
+
+        return true
+    }
+
+    function getElement(key, node) {
+        if (typeof(node) === "undefined") {
+            node = root
+        }
+        var element = root.querySelector("[data-fsjs='" + key + "']")
+
+        return helpers.isNode(element) ? element : false
+    }
+
+    function getBlock(key, node) {
+        if (typeof(node) === "undefined") {
+            node = root
+        }
+        var block = root.querySelector("[data-fsjs-block='" + key + "']")
+
+        return helpers.isNode(block) ? block : false
+    }
+
+    function getLabel(key, node) {
+        if (typeof(node) === "undefined") {
+            node = root
+        }
+        var block = root.querySelector("[data-fsjs-for='" + key + "']")
+
+        return helpers.isNode(block) ? block : false
+    }
+
+    /**
+     * Catch-all UI element event listener firing a scoped CustomEvent based
+     * on the element’s property
+     * @param {*} e 
+     */
+    function onChange(e) {
+        var property = e.target.dataset.fsjs
+
+        sendEvent(property)
+    }
+
+    function onCheck() {
+        // Currently this is only used for opentype checkboxes
+        var property = "opentype"
+
+        sendEvent(property)
+    }
+
+    /**
+     * Currently only reacting to buttongroup nested buttons’ clicks
+     * @param {*} e 
+     */
+    function onClick(e) {
+        var parent = e.currentTarget.parentNode,
+            property = parent.dataset.fsjs,
+            // customEvent = new CustomEvent("fontsampler.on" + property + "clicked"),
+            buttons = parent.querySelectorAll("[data-choice]")
+
+        if (property in ui && ui[property] === "buttongroup") {
+            for (var b = 0; b < buttons.length; b++) {
+                helpers.nodeRemoveClass(buttons[b], options.classes.buttonSelected)
+            }
+            helpers.nodeAddClass(e.currentTarget, options.classes.buttonSelected)
+
+            sendEvent(property)
+        }
+    }
+
+    function sendEvent(type) {
+        root.dispatchEvent(new CustomEvent("fontsampler.on" + type + "changed"))
+    }
+
+    function onKey(event) {
+        if (event.type === "keypress") {
+            // for keypress events immediately block pressing enter for line break
+            if (event.keyCode === 13) {
+                event.preventDefault()
+                return false;
+            }
+        } else {
+            // allow other events, filter any html with $.text() and replace linebreaks
+            // TODO fix paste event from setting the caret to the front of the non-input non-textarea
+            var text = blocks.tester.textContent,
+                hasLinebreaks = text.indexOf("\n")
+
+            if (-1 !== hasLinebreaks) {
+                blocks.tester.innerHTML(text.replace('/\n/gi', ''));
+                selection.setCaret(blocks.tester, blocks.tester.textContent.length, 0);
+            }
+        }
+    }
+
+    /**
+     * Get a UI element value
+     * @param {*} property 
+     */
+    function getValue(property) {
+        var element = getElement(property)
+
+        if (element) {
+            return element.value
+        } else {
+            return false
+        }
+    }
+
+    /**
+     * Get a UI element value with CSS unit
+     * @param {*} property 
+     */
+    function getCssValue(property) {
+        var element = getElement(property)
+
+        return element ? element.value + element.dataset.unit : ""
+    }
+
+    function getOpentype() {
+        if (!blocks.opentype) {
+            return false
+        }
+
+        var features = blocks.opentype.querySelectorAll("[data-feature]")
+
+        if (features) {
+            var re = {}
+
+            for (var f = 0; f < features.length; f++) {
+                var input = features[f]
+                re[input.dataset.feature] = input.checked
+            }
+
+            return re
+        }
+    }
+
+    function getButtongroupValue(key) {
+        var element = getElement(key),
+            selected
+
+        if (element) {
+            selected = element.querySelector("." + options.classes.buttonSelected)
+        }
+
+        if (selected) {
+            return selected.dataset.choice
+        } else {
+            return ""
+        }
+    }
+
+    function getCssAttrForKey(key) {
+        if (key in keyToCss) {
+            return keyToCss[key]
+        }
+
+        return false
+    }
+
+    function getKeyForCssAttr(attr) {
+        for (var key in keyToCss) {
+            if (keyToCss.hasOwnProperty(key)) {
+                if (keyToCss[key] === attr) {
+                    return key
+                }
+            }
+        }
+
+        return false
+    }
+
+    /**
+     * Set the tester’s text
+     * @param {*} attr 
+     * @param {*} val 
+     */
+    function setInputCss(attr, val) {
+        input.style[attr] = val
+    }
+
+    function setInputAttr(attr, val) {
+        input.setAttribute(attr, val)
+    }
+
+    function setInputOpentype(features) {
+        var parsed = [],
+            val
+        for (var key in features) {
+            if (features.hasOwnProperty(key)) {
+                parsed.push('"' + key + '" ' + (features[key] ? "1" : "0"))
+            }
+        }
+        val = parsed.join(",")
+
+        input.style["font-feature-settings"] = val
+    }
+
+    function setInputText(text) {
+        if (text && input) {
+            input.textContent = text
+        }
+    }
+
+    function setStatusClass(classString, status) {
+        if (status === true) {
+            helpers.nodeAddClass(root, classString)
+        } else if (status === false) {
+            helpers.nodeRemoveClass(root, classString)
+        }
+    }
+
+    return {
+        init: init,
+        getValue: getValue,
+        getCssValue: getCssValue,
+        getButtongroupValue: getButtongroupValue,
+        getOpentype: getOpentype,
+        getCssAttrForKey: getCssAttrForKey,
+        getKeyForCssAttr: getKeyForCssAttr,
+        setInputCss: setInputCss,
+        setInputAttr: setInputAttr,
+        setInputOpentype: setInputOpentype,
+        setInputText: setInputText,
+        setStatusClass: setStatusClass
+    }
+}
+module.exports = Interface
+},{"./errors":3,"./helpers":7,"./selection":10,"./uielements":11}],9:[function(_dereq_,module,exports){
+var Fontloader = _dereq_("./fontloader")
+
+function Preloader() {
+
+    var queue = [],
+        autoload = true,
+        finishedCallback = null
+
+    function load(fonts, callback) {
+
+        // clone the fonts array
+        queue = fonts.slice(0)
+        autoload = true
+
+        if (typeof(callback) === "function") {
+            finishedCallback = callback
+        }
+
+        loadNext()
+    }
+
+    function pause() {
+        autoload = false
+    }
+
+    function resume() {
+        autoload = true
+        if (queue.length > 0) {
+            loadNext()
+        } else {
+            if (finishedCallback) {
+                finishedCallback()
+            }
+        }
+    }
+
+    function loadNext() {
+        if (queue.length > 0 && autoload) {
+            Fontloader.fromFiles(queue[0].files, function () {
+                queue.shift()
+
+                if (queue.length === 0 && finishedCallback) {
+                    finishedCallback()
+                }
+                
+                if (queue.length > 0 && autoload) {
+                    loadNext()
+                }
+            })
+        }
+    }
+
+    return {
+        load: load,
+        pause: pause,
+        resume: resume
+    }
+}
+
+
+module.exports = Preloader
+},{"./fontloader":5}],10:[function(_dereq_,module,exports){
+/**
+ * Helper module to deal with caret position
+ */
+function Selection () {
+
+    // from https://stackoverflow.com/a/4812022/999162
+    var setSelectionByCharacterOffsets = null;
+
+    if (window.getSelection && document.createRange) {
+        setSelectionByCharacterOffsets = function (containerEl, start, end) {
+            var charIndex = 0,
+                range = document.createRange();
+            range.setStart(containerEl, 0);
+            range.collapse(true);
+            var nodeStack = [containerEl],
+                node, foundStart = false,
+                stop = false;
+
+            while (!stop && (node = nodeStack.pop())) {
+                if (node.nodeType == 3) {
+                    var nextCharIndex = charIndex + node.length;
+                    if (!foundStart && start >= charIndex && start <= nextCharIndex) {
+                        range.setStart(node, start - charIndex);
+                        foundStart = true;
+                    }
+                    if (foundStart && end >= charIndex && end <= nextCharIndex) {
+                        range.setEnd(node, end - charIndex);
+                        stop = true;
+                    }
+                    charIndex = nextCharIndex;
+                } else {
+                    var i = node.childNodes.length;
+                    while (i--) {
+                        nodeStack.push(node.childNodes[i]);
+                    }
+                }
+            }
+
+            var sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+        };
+    } else if (document.selection) {
+        setSelectionByCharacterOffsets = function (containerEl, start, end) {
+            var textRange = document.body.createTextRange();
+            textRange.moveToElementText(containerEl);
+            textRange.collapse(true);
+            textRange.moveEnd("character", end);
+            textRange.moveStart("character", start);
+            textRange.select();
+        };
+    }
+
+
+    // From https://stackoverflow.com/a/4812022/999162
+    function getCaretCharacterOffsetWithin(element) {
+        var caretOffset = 0;
+        var doc = element.ownerDocument || element.document;
+        var win = doc.defaultView || doc.parentWindow;
+        var sel;
+        if (typeof win.getSelection != "undefined") {
+            sel = win.getSelection();
+            if (sel.rangeCount > 0) {
+                var range = win.getSelection().getRangeAt(0);
+                var preCaretRange = range.cloneRange();
+                preCaretRange.selectNodeContents(element);
+                preCaretRange.setEnd(range.endContainer, range.endOffset);
+                caretOffset = preCaretRange.toString().length;
+            }
+        } else if ((sel = doc.selection) && sel.type != "Control") {
+            var textRange = sel.createRange();
+            var preCaretTextRange = doc.body.createTextRange();
+            preCaretTextRange.moveToElementText(element);
+            preCaretTextRange.setEndPoint("EndToEnd", textRange);
+            caretOffset = preCaretTextRange.text.length;
+        }
+        return caretOffset;
+    }
+
+    return {
+        setCaret: setSelectionByCharacterOffsets,
+        getCaret: getCaretCharacterOffsetWithin
+    };
+
+}
+
+module.exports = Selection
+},{}],11:[function(_dereq_,module,exports){
+
+var helpers = _dereq_("./helpers")
+/**
+ * Wrapper to provide global root, options and fonts to all methods (UI Elements)
+ * 
+ * @param {*} root 
+ * @param {*} options 
+ * @param {*} fonts 
+ */
+function UIElements(root, options) {
+
+    function label(labelText, labelUnit, labelValue, relatedInput) {
+        var label = document.createElement("label"),
+            text = document.createElement("span"),
+            val, unit
+
+        label.dataset.for = relatedInput
+        helpers.nodeAddClass(label, options.classes.labelClass)
+
+        text.className = options.classes.labelTextClass
+        text.appendChild(document.createTextNode(labelText))
+        label.appendChild(text)
+
+        if (typeof(labelUnit) === "string" && labelValue !== "") {
+            val = document.createElement("span")
+            val.className = options.classes.labelValueClass
+            val.appendChild(document.createTextNode(labelValue))
+            label.appendChild(val)
+
+            unit = document.createElement("span")
+            unit.className = options.classes.labelUnitClass
+            unit.appendChild(document.createTextNode(labelUnit))
+            label.appendChild(unit)
+        }
+
+        return label
+    }
+
+    function slider(key, opt, node) {
+        var input = helpers.isNode(node) ? node : document.createElement("input")
+
+        var attributes = {
+            type: "range",
+            min: opt.min,
+            max: opt.max,
+            step: opt.step
+        }
+
+        input.setAttribute("autocomplete", "off")
+        setMissingAttributes(input, attributes)
+
+        if (typeof(input.val) === "undefined") {
+            input.value = opt.init
+        }
+
+        if ("unit" in input.dataset === false) {
+            input.dataset.unit = opt.unit
+        }
+        if ("init" in input.dataset === false) {
+            input.dataset.init = opt.init
+        }
+
+        input.dataset.fsjs = key
+
+        return input
+    }
+
+    function dropdown(key, opt) {
+        var dropdown = document.createElement("select")
+        dropdown.dataset.fsjs = key
+
+        for (var o in opt.choices) {
+            var option = document.createElement("option"),
+                choice = parseChoice(opt.choices[o])
+
+            option.value = choice.val
+            option.appendChild(document.createTextNode(choice.text))
+            dropdown.appendChild(option)
+        }
+
+        return dropdown
+    }
+
+    function textfield(key, opt, node) {
+        var tester = typeof(node) === "undefined" || node === null ? document.createElement("div") : node,
+            attr = {
+                autocomplete: "off",
+                autocorrect: "off",
+                autocapitalize: "off",
+                spellcheck: "false",
+                contenteditable: opt.editable
+            }
+
+        setMissingAttributes(tester, attr)
+
+        tester.dataset.fsjs = key
+
+        // If the original root element was a single DOM element with some text, copy that
+        // text into the tester
+        // TODO move this to interface and on tester node init
+        if (options.initialText) {
+            tester.append(document.createTextNode(options.initialText))
+        } else if (!options.initialText && options.originalText) {
+            tester.append(document.createTextNode(options.originalText))
+        }
+
+        return tester
+    }
+
+    function buttongroup(key, opt) {
+        var group = document.createElement("div")
+
+        group.dataset.fsjs = key
+
+        for (var o in opt.choices) {
+            var button = document.createElement("button"),
+                choice = parseChoice(opt.choices[o])
+
+            button.dataset.choice = choice.val
+            button.appendChild(document.createTextNode(choice.text))
+            if (opt.init === choice.val) {
+                button.className = options.classes.buttonSelected
+            }
+            group.appendChild(button)
+        }
+
+        return group
+    }
+
+    function checkboxes(key, opt) {
+        var group = document.createElement("div")
+
+        group.dataset.fsjs = key
+
+        for (var o in opt.choices) {
+            var choice = parseChoice(opt.choices[o]),
+                label = document.createElement("label"),
+                checkbox = document.createElement("input"),
+                text = document.createElement("span")
+
+            checkbox.setAttribute("type", "checkbox")
+            checkbox.dataset.feature = choice.val
+
+            text.appendChild(document.createTextNode(choice.text))
+
+            label.appendChild(checkbox)
+            label.appendChild(text)
+
+            group.append(label)
+        }
+
+        return group
+    }
+
+    /**
+     * Split an input choice into value and text or return only the value as 
+     * both if no separator is used to provide a readable label
+     * e.g. "ltr|Left" to right becomes { val: "ltr", text: "Left to right"}
+     * but: "left" becomes { val: "left", text: "left"}
+     * @param string choice 
+     * @return obj {val, text}
+     */
+    function parseChoice(choice) {
+        var parts, val, text
+
+        if (choice.indexOf("|") !== -1) {
+            parts = choice.split("|")
+            val = parts[0]
+            text = parts[1]
+        } else {
+            val = choice
+            text = choice
+        }
+
+        return {
+            val: val,
+            text: text
+        }
+    }
+
+    function setMissingAttributes(node, attributes) {
+        if (typeof(node) === "undefined" || node === null || typeof(attributes) !== "object") {
+            return
+        }
+
+        for (var a in attributes) {
+            if (attributes.hasOwnProperty(a)) {
+                if (!node.hasAttribute(a)) {
+                    node.setAttribute(a, attributes[a])
+                }
+            }
+        }
+    }
+
+    return {
+        dropdown: dropdown,
+        slider: slider,
+        label: label,
+        textfield: textfield,
+        buttongroup: buttongroup,
+        checkboxes: checkboxes
+    }
+}
+
+module.exports = UIElements
+},{"./helpers":7}]},{},[6])(6)
+});
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],3:[function(require,module,exports){
+var Fontsampler = require("fontsampler-js/dist/fontsampler")
+var FontsamplerSkin = require("fontsampler-js/dist/fontsampler-skin")
+
+window.addEventListener("load", function () {
+
+    var fontsamplers = document.querySelectorAll(".fontsampler-wrapper")
+    var options = {
+        rootClass: "fontsampler-wrapper",
+        generate: false,
+        lazyload: true,
+        // ui: {
+        // }
+    }
+
+
+    // store this method globally, so it can be called again
+    window.fontsamplers = []
+    window.fontsamplerSetup = function (node) {
+        // return
+        var fs = new Fontsampler(node, false, options).init()
+            FontsamplerSkin(fs)
+            fs.init()
+
+            // additional UI setup specific to Fontsampler WP
+            var sampleTextSelect = fs.root.querySelector("select[name='sample-text']")
+            if (sampleTextSelect) {
+                sampleTextSelect.addEventListener("change", function () {
+                    fs.setText(sampleTextSelect.value)
+                })
+            }
+
+            var invertButtons = fs.root.querySelectorAll("[data-fsjs-block='invert'] button")
+            if (invertButtons) {
+                for (var b = 0; b < invertButtons.length; b++) {
+                    invertButtons[b].addEventListener("click", onInvertClicked)
+                }
+            }
+            function onInvertClicked (e) {
+                // var selectedClass = fs.getOption(classes.buttonSelected)
+                var selectedClass = "fsjs-button-selected"
+
+                // jquery, bad, sad, mad
+                jQuery(e.currentTarget).addClass(selectedClass).siblings().removeClass(selectedClass)
+                jQuery(fs.root.querySelector(".fsjs-block-tester .current-font"))
+                    .toggleClass("invert", e.currentTarget.dataset.choice === "negative")
+            }
+
+            window.fontsamplers.push(fs)
+    }
+
+    if (fontsamplers.length > 0) {
+        for (var i = 0; i < fontsamplers.length; i++) {
+            window.fontsamplerSetup(fontsamplers[i])
+        }
+    }
+
+});
+},{"fontsampler-js/dist/fontsampler":2,"fontsampler-js/dist/fontsampler-skin":1}]},{},[3])(3)
+});

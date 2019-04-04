@@ -76,7 +76,8 @@ function fontsampler_init() {
 	add_shortcode( 'fontsampler', array( $fontsampler, 'fontsampler_shortcode' ) );
 
 	// register front end styles and scripts, but don't load them yet
-	wp_register_script( 'fontsampler-js', plugin_dir_url( __FILE__ ) . 'js/fontsampler.js', array('jquery'), false, false );
+	wp_register_script( 'fontsampler-js', plugin_dir_url( __FILE__ ) . 'js/fontsampler.js', false, false, false );
+    // wp_register_script( 'fontsampler-ui', plugin_dir_url(__FILE__) . 'js/fontsampler-ui', array( 'fontsampler-js', false, false ) );
 
 	// register hook to check if a shortcode is present and attempt to enqueue styles
 	// then; scripts can be enqueued in the shortcode itself, since they are okay to 

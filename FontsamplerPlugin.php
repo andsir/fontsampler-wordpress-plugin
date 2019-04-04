@@ -28,8 +28,8 @@ class FontsamplerPlugin {
 
     public function __construct($wpdb, $twig) {
         $this->wpdb = $wpdb;
-		$this->twig = $twig;
-		
+        $this->twig = $twig;
+
         // TODO combined default_features and boolean options as array of objects
         // with "isBoolean" attribute
         $this->default_features = array(
@@ -127,7 +127,6 @@ class FontsamplerPlugin {
     }
 
     public function init() {
-
         // instantiate all needed helper subclasses
         $this->msg = new FontsamplerMessages();
         $this->helpers = new FontsamplerHelpers($this);
@@ -178,6 +177,7 @@ class FontsamplerPlugin {
 
         // on printing the shortcode enqueue the scripts to be output to the footer
         wp_enqueue_script('fontsampler-js');
+        // wp_enqueue_script('fontsampler-ui');
 
         // when the shortcode was detected already in the header the styles should
         // be added already; if the styles are not enqueued (for example if called
@@ -203,6 +203,27 @@ class FontsamplerPlugin {
             $css = $this->helpers->get_custom_css($set); // returns false or link to generated custom css
             $fonts = $this->helpers->get_best_file_from_fonts($this->db->get_fontset_for_set(intval($attributes['id'])));
 
+            // var_dump($this->db->get_fontset_for_set(intval($attributes['id'])));
+
+            // TODO do this filtering already in get_fontset_for_set…
+            $fonts = array_map(function ($item) {
+                if (!array_key_exists('name', $item)) {
+                    return false;
+                }
+                $return = array(
+                    'name' => $item['name'],
+                    'files' => array()
+                );
+                if (array_key_exists('woff', $item)) {
+                    array_push($return['files'], $item['woff']);
+                }
+                if (array_key_exists('woff2', $item)) {
+                    array_push($return['files'], $item['woff2']);
+                }
+
+                return $return;
+            }, $this->db->get_fontset_for_set(intval($attributes['id'])));
+
             if (false !== $css) {
                 wp_enqueue_style('fontsampler-interface-' . $id, $css, array(), false);
             }
@@ -218,14 +239,14 @@ class FontsamplerPlugin {
             // some of these get overwritten from defaults, but list them all here explicitly
             $options = array_merge($set, $this->settings_defaults, $this->db->get_settings());
             $initialFont = isset($fonts[$set['initial_font']]) ? $fonts[$set['initial_font']] : false;
-            if ($initialFont) {
-                $firstFont = array_filter($set['fonts'], function ($item) use ($set) {
-                    if ($item['id'] === $set['initial_font']) {
-                        return $item;
-                    }
-                });
-                $initialFontNameOverwrite = array_pop($firstFont)['name'];
-            }
+            // if ($initialFont) {
+            //     $firstFont = array_filter($set['fonts'], function ($item) use ($set) {
+            //         if ($item['id'] === $set['initial_font']) {
+            //             return $item;
+            //         }
+            //     });
+            //     $initialFontNameOverwrite = array_pop($firstFont)['name'];
+            // }
 
             $settings = $this->db->get_settings();
             $layout = new FontsamplerLayout();
@@ -242,27 +263,23 @@ class FontsamplerPlugin {
             }
 
             // create an array for fontnames to overwrite
-            $fontNameOverwrites = array();
-            foreach ($set['fonts'] as $font) {
-                foreach ($this->font_formats as $format) {
-                    if (!empty($font[$format])) {
-                        $fileName = basename($font[$format]);
-                        $fontNameOverwrites[$font[$format]] = $font['name'];
-                    }
-                }
-            }
+            // $fontNameOverwrites = array();
+            // foreach ($set['fonts'] as $font) {
+            //     foreach ($this->font_formats as $format) {
+            //         if (!empty($font[$format])) {
+            //             $fileName = basename($font[$format]);
+            //             $fontNameOverwrites[$font[$format]] = $font['name'];
+            //         }
+            //     }
+            // }
 
             // buffer output until return
             ob_start(); ?>
-			<div class='fontsampler-wrapper on-loading'
-			     data-fonts='<?php echo implode(',', $fonts); ?>'
-				<?php if ($initialFont) : ?>
+			<div class='fontsampler-wrapper'
+			     data-fonts='<?php echo json_encode($fonts); ?>'
+				<?php /*if ($initialFont) : ?>
 					data-initial-font='<?php echo $initialFont; ?>'
-					data-initial-font-name-overwrite='<?php echo $initialFontNameOverwrite; ?>'
-				<?php endif; ?>
-				<?php if (!empty($fontNameOverwrites)): ?>
-					data-overwrites='<?php echo json_encode($fontNameOverwrites); ?>'
-				<?php endif; ?>
+				<?php endif;*/ ?>
 			>
 			<?php
 
@@ -326,7 +343,7 @@ class FontsamplerPlugin {
 
             ob_start(); ?>
 
-			<div class='fontsampler-wrapper on-loading'
+			<div class='fontsampler-wrapper'
 			     data-fonts='<?php echo implode(',', $fonts); ?>'
 				<?php if ($initialFont) : ?>
 					data-initial-font='<?php echo $initialFont; ?>'
@@ -366,6 +383,8 @@ class FontsamplerPlugin {
      * The actual style enqueue
      */
     public function enqueue_styles() {
+        // TMP
+        wp_enqueue_style('fontsampler-skin', plugin_dir_url(__FILE__) . 'node_modules/fontsampler-js/dist/fontsampler-skin.css');
         wp_enqueue_style('fontsampler-css', $this->helpers->get_css_file());
     }
 
@@ -475,17 +494,17 @@ class FontsamplerPlugin {
      * React to the plugin being activated
      */
     public function fontsampler_activate() {
-		// If this is a new install the changelog doesnot need to be shown, set the "viewed" option
+        // If this is a new install the changelog doesnot need to be shown, set the "viewed" option
         if (false === get_option('fontsampler_last_changelog')) {
             // this throws obscure error on PHP 5.6
             //$option = update_option( $this->fontsampler::FONTSAMPLER_OPTION_LAST_CHANGELOG, $plugin['Version'] );
             $plugin = get_plugin_data(realpath(dirname(__FILE__) . '/fontsampler.php'));
 
             update_option('fontsampler_last_changelog', $plugin['Version']);
-		}
-		$this->db = new FontsamplerDatabase($this->wpdb, $this);
-		$this->helpers = new FontsamplerHelpers($this);
-		
+        }
+        $this->db = new FontsamplerDatabase($this->wpdb, $this);
+        $this->helpers = new FontsamplerHelpers($this);
+
         $this->db->check_and_create_tables();
         $this->helpers->check_and_create_folders();
     }
@@ -783,7 +802,7 @@ class FontsamplerPlugin {
         $options = $this->db->get_settings();
         $settings = $options; ?>
 
-			<div class='fontsampler-wrapper on-loading'
+			<div class='fontsampler-wrapper'
 			     data-fonts='<?php echo $font; ?>'
 				 data-initial-font='<?php echo $font; ?>'
 			 >

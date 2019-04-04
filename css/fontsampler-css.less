@@ -22,7 +22,7 @@
         transition: opacity 0.2s ease-in-out;
     }
 
-    .fontsampler-interface {
+    // .fontsampler-interface {
         clear: both;
 
         // make the wrapper span around all floated content blocks
@@ -81,51 +81,51 @@
         // generic class for "paired" up toggle buttons
         .fontsampler-multiselect {
             box-sizing: border-box;
-            float: left;
-            padding-right: 5px;
-            height: 100%;
+            // float: left;
+            // padding-right: 5px;
+            // height: 100%;
 
             .rtl & {
                 float: right;
             }
 
             &.one-item {
-                width: 30px;
+                // width: 30px;
                 > button {
                     width: 100%;
                 }
             }
 
             &.two-items {
-                width: 60px;
+                // width: 60px;
                 > button {
                     width: 50%;
                 }
             }
             &.three-items {
-                width: 90px;
+                // width: 90px;
                 > button {
                     width: 33%;
                 }
             }
 
             > button {
-                background: #fff;
-                border: 0;
-                border-bottom: 1px solid #333;
-                font-size: inherit;
-                font-family: inherit;
-                color: #333;
-                cursor: pointer;
+                // background: #fff;
+                // border: 0;
+                // border-bottom: 1px solid #333;
+                // font-size: inherit;
+                // font-family: inherit;
+                // color: #333;
+                // cursor: pointer;
                 font-weight: inherit;
                 height: 100%;
-                line-height: 4px;
+                // line-height: 4px;
                 text-transform: none;
                 border-radius: 0;
-                display: block;
-                float: left;
-                padding: 0 2px;
-                margin: 0;
+                // display: block;
+                // float: left;
+                // padding: 0 2px;
+                // margin: 0;
                 text-align: center;
                 outline: none;
 
@@ -174,7 +174,7 @@
         // several specific blocks:
 
         // dropdown for font family picker OR font family name if single font
-        .fontsampler-ui-block-fontpicker {
+        .fontsampler-ui-block-fontpicker, .fsjs-block-tester {
 
             // single font: just display a label
             .fontsampler-font-label {
@@ -216,7 +216,7 @@
         }
 
         // the actual container of the type sample
-        .fontsampler, .type-tester__content {
+        .fontsampler, .type-tester__content, .tester {
             clear: both;
             margin-bottom: 20px;
             margin-top: 0.25em;
@@ -313,7 +313,7 @@
             //    background: #333;
             //}
         }
-    }
+    // }
 }
 
 .blocks(@cols) {
