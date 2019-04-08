@@ -177,7 +177,6 @@ class FontsamplerPlugin {
 
         // on printing the shortcode enqueue the scripts to be output to the footer
         wp_enqueue_script('fontsampler-js');
-        // wp_enqueue_script('fontsampler-ui');
 
         // when the shortcode was detected already in the header the styles should
         // be added already; if the styles are not enqueued (for example if called
@@ -201,12 +200,20 @@ class FontsamplerPlugin {
         if (0 != $id) {
             $set = $this->db->get_set($id);
             $css = $this->helpers->get_custom_css($set); // returns false or link to generated custom css
-            $fonts = $this->helpers->get_best_file_from_fonts($this->db->get_fontset_for_set(intval($attributes['id'])));
+            // $fonts = $this->helpers->get_best_file_from_fonts($this->db->get_fontset_for_set(intval($attributes['id'])));
 
-            // var_dump($this->db->get_fontset_for_set(intval($attributes['id'])));
+            $fonts = $this->db->get_fontset_for_set((int)($attributes['id']));
+
+            if ($initial = (int)$set['initial_font']) {
+                foreach ($fonts as $font) {
+                    if ((int)$font['id'] === (int)$initial) {
+                        $initial = $font['name'];
+                    }
+                }
+            }
 
             // TODO do this filtering already in get_fontset_for_set…
-            $fonts = array_map(function ($item) {
+            $fonts = array_map(function ($item) use ($set) {
                 if (!array_key_exists('name', $item)) {
                     return false;
                 }
@@ -238,15 +245,6 @@ class FontsamplerPlugin {
 
             // some of these get overwritten from defaults, but list them all here explicitly
             $options = array_merge($set, $this->settings_defaults, $this->db->get_settings());
-            $initialFont = isset($fonts[$set['initial_font']]) ? $fonts[$set['initial_font']] : false;
-            // if ($initialFont) {
-            //     $firstFont = array_filter($set['fonts'], function ($item) use ($set) {
-            //         if ($item['id'] === $set['initial_font']) {
-            //             return $item;
-            //         }
-            //     });
-            //     $initialFontNameOverwrite = array_pop($firstFont)['name'];
-            // }
 
             $settings = $this->db->get_settings();
             $layout = new FontsamplerLayout();
@@ -262,24 +260,19 @@ class FontsamplerPlugin {
                 }
             }
 
-            // create an array for fontnames to overwrite
-            // $fontNameOverwrites = array();
-            // foreach ($set['fonts'] as $font) {
-            //     foreach ($this->font_formats as $format) {
-            //         if (!empty($font[$format])) {
-            //             $fileName = basename($font[$format]);
-            //             $fontNameOverwrites[$font[$format]] = $font['name'];
-            //         }
-            //     }
-            // }
+            $fsoptions = array(
+                'ui' => array(
+                    'fontfamily' => array(
+                        'init' => $initial
+                    )
+                )
+            );
 
             // buffer output until return
             ob_start(); ?>
 			<div class='fontsampler-wrapper'
-			     data-fonts='<?php echo json_encode($fonts); ?>'
-				<?php /*if ($initialFont) : ?>
-					data-initial-font='<?php echo $initialFont; ?>'
-				<?php endif;*/ ?>
+			    data-fonts='<?php echo json_encode($fonts); ?>'
+                <?php if ($initial): ?> data-options='<?php echo json_encode($fsoptions); ?>' <?php endif; ?>
 			>
 			<?php
 
